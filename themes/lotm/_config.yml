@@ -1,0 +1,10 @@
+navbar:
+  auto_hide: false
+
+menu:
+  home: /
+  worldview: /worldview
+  characters: /characters
+  relation graph: /relation-graph
+  timeline: /timeline
+  about: /about
