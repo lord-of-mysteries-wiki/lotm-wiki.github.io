@@ -1,4 +1,5 @@
 .DS_Store
+db.json
 public/
 
 # Logs
@@ -131,3 +132,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# 小说原文（仅供本地使用）
+/宿命之环-原文/
+/诡秘之主-原文/
+
+# Python 缓存
+__pycache__/
+*.pyc

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>诡秘关系网 · 灰雾图谱</title>
+<link rel="stylesheet" href="graph.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar"><a class="brand" href="../"><span class="brand-mark">✦</span><span>诡秘关系网</span></a><span class="divider"></span><span class="top-title">关系图谱</span><span class="top-note">THE WEB OF FATES</span></header>
+  <main class="workspace">
+    <section class="visual" aria-label="人物关系图谱">
+      <nav class="cluster-nav" id="group-mode" aria-label="关系图聚类方式">
+        <button type="button" data-group="network" aria-pressed="true">全部关系</button>
+        <button type="button" data-group="nationality" aria-pressed="false">按国家</button>
+        <button type="button" data-group="organization" aria-pressed="false">按组织</button>
+        <button type="button" data-group="pathway" aria-pressed="false">按途径</button>
+      </nav>
+      <canvas id="graph" aria-label="人物关系图。可拖动画布或人物，滚轮缩放；也可在侧栏搜索并选择人物。"></canvas>
+      <div class="graph-legend"><span><i></i> 人物</span><span title="粗细和明暗按两端人物的字面提及次数计算"> <i></i> 连线：人物提及次数</span></div>
+      <div class="graph-controls" aria-label="图谱缩放控制"><button id="zoom-in" aria-label="放大">＋</button><button id="zoom-out" aria-label="缩小">−</button><button id="fit" aria-label="重置视图">⌾</button></div>
+      <div class="canvas-hint">拖动画布移动 · 滚轮缩放 · 点击人物查看关系</div>
+    </section>
+    <aside class="sidebar">
+      <div class="sidebar-head"><div><span class="eyebrow">RELATIONSHIP GRAPH</span><h2>探索关系</h2></div><button id="reset" class="icon-button" title="清除选择" aria-label="清除选择">↺</button></div>
+      <label class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="搜索人物或别名…" aria-label="搜索人物或别名"><kbd>⌘ K</kbd></label>
+      <div class="filter-row"><div><strong>显示孤立人物</strong><small>尚未收录关系的人物</small></div><label class="switch"><input id="isolates" type="checkbox"><span></span><span class="sr-only">显示孤立人物</span></label></div>
+      <div class="side-stats"><span><b id="person-count"></b> 人物</span><span><b id="relation-count"></b> 关系</span><span id="visible-count"></span></div>
+      <div id="content" class="content"></div>
+      <footer>非官方同人项目 · 人物关系持续整理中<br>提及次数为字面匹配，可能存在重名与遗漏<br>内容涉及《诡秘之主》及《宿命之环》剧透</footer>
+    </aside>
+  </main>
+</div>
+<script src="data.js"></script><script src="character-index.js"></script><script src="graph.js"></script>
+</body></html>
