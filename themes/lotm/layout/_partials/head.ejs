@@ -2,18 +2,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= page.title ? page.title + ' | ' + config.title : config.title %></title>
-  <% if (page.character_directory) { %>
-  <style><%- directory_styles() %></style>
-  <% } else { %>
   <%- css('css/styles') %>
   <% if (page.relationship_graph) { %>
   <link rel="stylesheet" href="<%= url_for('/relationships/graph.css') %>">
   <% } %>
   <%- css('css/site-navigation') %>
   <%- css('css/typography') %>
-  <% if (page.character_profile) { %>
+  <% if (page.character_profile || page.character_directory) { %>
   <%- css('css/character-profile') %>
-  <% } %>
   <% } %>
   <script defer src="<%= url_for('/js/site-navigation.js') %>"></script>
   <% if (page.relationship_graph) { %>
@@ -22,8 +18,8 @@
   <script defer src="<%= url_for('/relationships/pathway-palette.js') %>"></script>
   <script defer src="<%= url_for('/relationships/graph.js') %>"></script>
   <% } %>
-  <% if (page.timeline_preview) { %>
-  <%- css('css/timeline-preview') %>
-  <script defer src="<%= url_for('/js/timeline-preview.js') %>"></script>
+  <% if (page.timeline_view) { %>
+  <%- css('css/timeline') %>
+  <script defer src="<%= url_for(page.timeline_view === 'calendar' ? '/js/story-calendar.js' : '/js/timeline.js') %>"></script>
   <% } %>
 </head>

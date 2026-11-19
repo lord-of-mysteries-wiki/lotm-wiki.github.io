@@ -1,0 +1,35 @@
+<%
+const records = site.pages.toArray().filter(item => item.timeline_event).map(item => ({
+  start: String(item.event_time || ''), end: item.event_time_end || '', title: item.title,
+  work: item.event_work || '', summary: item.event_summary || '', note: item.event_time_note || '',
+  description: strip_html((item.content.match(/<p>([\s\S]*?)<\/p>/) || [])[1] || ''),
+  basis: item.event_time_basis || '', source: item.event_time_source || '',
+  url: item.event_summary ? '' : url_for('/' + item.path),
+  inferred: item.event_time_certainty === 'inferred'
+})).sort((a,b) => a.start.localeCompare(b.start) || a.title.localeCompare(b.title,'zh-CN'));
+%>
+<article class="almanac" data-story-calendar>
+  <header class="almanac-toolbar">
+    <%- partial('_partials/timeline-navigation') %>
+    <div class="almanac-period">
+      <h1 aria-live="polite">故事日历</h1>
+      <div><button data-step="-1" aria-label="上一时段">‹</button><button data-step="1" aria-label="下一时段">›</button></div>
+    </div>
+    <div class="almanac-tools">
+      <div role="group" aria-label="日历视图"><button data-mode="day">日</button><button data-mode="week">周</button><button data-mode="month" aria-pressed="true">月</button></div>
+      <select aria-label="跳到有事件的月份"><option value="">跳转月份</option></select>
+      <button type="button" data-find-events>查找事件</button>
+    </div>
+  </header>
+  <div class="almanac-sheet">
+  <div class="almanac-weekdays" aria-hidden="true"><% for (const day of '一二三四五六日') { %><span>周<%=day%></span><% } %></div>
+  <div class="almanac-grid"></div>
+  </div><dialog class="event-finder" aria-label="查找事件">
+    <div class="agenda-head"><label>查找事件<select data-agenda aria-label="事件范围"><option value="period">本期事件</option><option value="all">全部事件</option></select></label>
+    <input type="search" aria-label="搜索事件" placeholder="搜索事件名称"><button type="button" data-close-finder>关闭</button></div>
+    <div class="agenda-list" tabindex="0"></div>
+  </dialog>
+  <small>星期据故事内日期推排</small>
+  <noscript>请启用 JavaScript 切换日历视图，或通过时间线阅读事件。</noscript>
+  <script type="application/json"><%- JSON.stringify(records).replace(/</g,'\\u003c') %></script>
+</article>

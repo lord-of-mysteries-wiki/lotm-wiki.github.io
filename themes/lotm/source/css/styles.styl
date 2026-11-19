@@ -24,12 +24,6 @@ a:hover
   margin 12px 0
   font-weight 500
   color #e4e6f3
-.hero p:not(.eyebrow)
-  color #aeb8cf
-.eyebrow
-  color #d6bd91
-  letter-spacing .18em
-  font-weight 700
 .button
   display inline-block
   margin-top 20px
@@ -40,14 +34,9 @@ a:hover
   color #c1eeea
 .button:hover
   background #405e66
-.main-content > section + section
-  margin-top 42px
 .main-content h2
   color #e2e5f0
 
-.entry
-  border-bottom 1px solid #3a4054
-  padding 10px 0
 .article
   padding 32px
   border 1px solid #3a4054
@@ -140,3 +129,16 @@ a:hover
   white-space nowrap
 .article .pathway-groups tbody:last-child th
   border-bottom 0
+
+// 事件词条统一展示时间依据；未考证时不显示此区块。
+.event-time
+  margin 1.5rem 0 2rem
+  padding 1rem 1.25rem
+  border-left 3px solid #78b8b4
+  border-radius 0 8px 8px 0
+  background #2d3948
+.event-time h2
+  margin 0 0 .5rem
+.event-time p
+  margin .4rem 0
+  font-size var(--text-body)

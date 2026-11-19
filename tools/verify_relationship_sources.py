@@ -9,7 +9,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from corpus_review import BOOKS, iter_chapters
+from corpus_review import iter_chapters, reference_texts
 
 ROOT = Path(__file__).resolve().parents[1]
 NUM = r'[一二三四五六七八九十百千万零〇0-9]+'
@@ -23,7 +23,7 @@ def normalise(text):
 
 def main():
     chapters = []
-    for book, path, encoding in BOOKS:
+    for book, path, encoding in reference_texts():
         for volume, heading, _ in iter_chapters(path, encoding):
             match = HEADING.match(heading)
             if match:

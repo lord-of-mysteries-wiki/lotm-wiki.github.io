@@ -1,0 +1,13 @@
+<article class="article event-entry">
+  <h1><%= page.title || '' %></h1>
+  <% if (page.event_time || page.event_time_note || page.event_time_basis) { %>
+  <section class="event-time" aria-label="时间考证">
+    <h2>时间考证</h2>
+    <% if (page.event_time) { %><p><strong><%= page.event_time_certainty === 'inferred' ? '推算' : '原文日期' %><%= page.event_time_precision === 'range' ? '范围' : '锚点' %>：</strong><%= page.event_time %><% if (page.event_time_end) { %> 至 <%= page.event_time_end %><% } %></p><% } %>
+    <% if (page.event_time_note) { %><p><%= page.event_time_note %></p><% } %>
+    <% if (page.event_time_basis) { %><p><strong>依据：</strong><%= page.event_time_basis %></p><% } %>
+    <% if (page.event_time_source) { %><p><strong>来源：</strong><%= page.event_time_source %></p><% } %>
+  </section>
+  <% } %>
+  <%- page.content %>
+</article>

@@ -13,6 +13,13 @@ BOOKS = (
     ('诡秘之主', ROOT / '诡秘之主-原文/《诡秘之主》精校版全本.txt', 'utf-8-sig'),
     ('宿命之环', ROOT / '宿命之环-原文/宿命之环++1到7部-第50章++暗藏的条件.txt', 'gb18030'),
 )
+COI_CONTINUATION = ROOT / '宿命之环-原文/宿命之环-第七部第五十一章至完结.txt'
+
+def reference_texts():
+    yield from BOOKS
+    if COI_CONTINUATION.is_file():
+        yield '宿命之环', COI_CONTINUATION, 'utf-8'
+
 NUM = r'[一二三四五六七八九十百千万零〇0-9]+'
 VOLUME = re.compile(r'^\s*(第' + NUM + r'[部卷]\s+[^\n\r]{1,50})\s*$')
 SUMMARY = re.compile(r'^\s*第' + NUM + r'[部卷]总结\s*$')
@@ -29,14 +36,14 @@ def iter_chapters(path, encoding):
             extra = EXTRA.fullmatch(value)
             # The first book appends author notes and separately titled extras
             # after the final chapter. They are not part of that chapter.
-            if value in ('完本感言（上）', '完本感言（下）', '番外'):
+            if value in ('完本感言（上）', '完本感言（下）', '番外', '（一个普通人的日常完）'):
                 if heading and ''.join(lines).strip():
                     yield volume, heading, ''.join(lines)
                 heading, lines = '', []
                 if value == '番外':
                     volume = '番外'
                 continue
-            if extra:
+            if extra or value == "番外 科尔杜村日常":
                 if heading and ''.join(lines).strip():
                     yield volume, heading, ''.join(lines)
                 volume, heading, lines = '番外', value, []
@@ -66,7 +73,7 @@ def main():
     parser.add_argument('other', nargs='?')
     parser.add_argument('--limit', type=int, default=20)
     args = parser.parse_args()
-    for book, path, encoding in BOOKS:
+    for book, path, encoding in reference_texts():
         matches = 0
         for volume, heading, body in iter_chapters(path, encoding):
             if args.name not in body or (args.other and args.other not in body):

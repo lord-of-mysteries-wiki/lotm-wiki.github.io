@@ -1,72 +1,46 @@
 <%
-const calendar = page.timeline_preview === 'calendar';
-const mainTimeline = page.timeline_preview === 'main';
-// 事件数据来自每篇 Markdown 的头信息；未核实的日期不参与排序。
 const events = site.pages.toArray().filter(item => item.timeline_event === true);
-const sorted = events.slice().sort((a, b) => (a.title || '').localeCompare(b.title || '', 'zh-CN'));
+const { groups, unplaced } = story_timeline(events, page);
 const validDate = item => /^\d{4}-\d{2}-\d{2}$/.test(String(item.event_time || ''));
-const dated = sorted.filter(validDate);
-const undated = sorted.filter(item => !validDate(item));
-const byDate = new Map();
-for (const item of dated) {
-  const key = String(item.event_time);
-  if (!byDate.has(key)) byDate.set(key, []);
-  byDate.get(key).push(item);
-}
-const dates = [...byDate.keys()].sort();
-const calendarDates = dates.filter(date => date.startsWith('1349-06-'));
-const selectedDate = calendarDates[0];
+const isRange = item => validDate(item) && item.event_time_precision === 'range' && item.event_time_end;
 const dateText = date => `${Number(date.slice(5,7))} 月 ${Number(date.slice(8,10))} 日`;
-const nodeLink = function(item) { %>
-<li class="timeline-nodes__item"><a class="timeline-nodes__link" href="<%= url_for('/' + item.path) %>" data-timeline-event><span class="timeline-nodes__dot" aria-hidden="true"></span><span class="timeline-nodes__text"><strong><%= item.title %></strong><span><%= item.event_time_note || (validDate(item) ? dateText(String(item.event_time)) : '日期待考证') %> · <%= item.event_work || '作品待核实' %></span></span></a></li>
+const fullDate = date => `${date.slice(0,4)} 年 ${dateText(date)}`;
+// An undated scene stays unassigned unless its own evidence names a year.
+function stageYears(group) {
+  if (!group.date) return [group.label?.match(/(\d{4})\s*年/)?.[1] || 'unknown'];
+  return [group.date.slice(0,4), ...group.items.filter(isRange).map(event => String(event.event_time_end).slice(0,4))];
+}
+const stages = [...new Set(groups.flatMap(stageYears).concat(unplaced.length ? ['unknown'] : []))].sort();
+const nodeLink = function(item) {
+  if (item.event_summary && item.event_summary.trim()) { %>
+    <li data-event-years="<%= validDate(item) ? [String(item.event_time).slice(0,4), String(item.event_time_end || item.event_time).slice(0,4)].join(' ') : '' %>" class="timeline-nodes__item timeline-brief" id="event-<%= item.event_anchor || item.title %>">
+      <p><%= item.event_summary %></p>
+      <small><% if (isRange(item)) { %>至 <%= fullDate(String(item.event_time_end)) %> · <% } else if (!validDate(item) && item.event_time_note) { %><%= item.event_time_note %> · <% } %><% if (item.event_time_certainty === 'inferred') { %>日期推算 · <% } %><%= item.event_time_source || item.event_work %></small>
+    </li>
+    <% return;
+  } %>
+<li data-event-years="<%= validDate(item) ? [String(item.event_time).slice(0,4), String(item.event_time_end || item.event_time).slice(0,4)].join(' ') : '' %>" class="timeline-nodes__item"><a class="timeline-nodes__link" href="<%= url_for('/' + item.path) %>"><span class="timeline-nodes__text"><strong><%= item.title %></strong><% if (isRange(item)) { %><span>至 <%= fullDate(String(item.event_time_end)) %></span><% } %><span><%= item.event_time_note || (validDate(item) ? dateText(String(item.event_time)) : '日期待考证') %> · <%= item.event_work || '作品待核实' %><% if (item.event_time_certainty === 'inferred') { %> · 推算<% } %></span></span></a></li>
 <% };
-const dateGroup = function(date, items, groupId, hidden) { %>
-<div class="calendar-day-events" <%- groupId ? `id="${groupId}"` : '' %> <%- hidden ? 'hidden' : '' %>><h3 class="timeline-group-title"><%= dateText(date) %> <span><%= items.length %> 个事件 · 日期锚点</span></h3><ul class="timeline-nodes timeline-nodes--cards" aria-label="<%= dateText(date) %>事件"><% items.forEach(nodeLink); %></ul></div>
-<% }; %>
+%>
 <article class="timeline-preview">
-  <header class="timeline-preview__header">
-    <p class="timeline-preview__eyebrow">时间线</p>
-    <h1>沿着故事，回望每个转折</h1>
-    <p>以故事内日期整理事件。将鼠标移到事件上查看详情；触屏设备可点击展开。</p>
-    <nav class="timeline-view-switch" aria-label="选择时间线样式">
-      <a href="<%= url_for('/timeline/') %>" <%- !calendar ? 'aria-current="page"' : '' %>>纵向时间线</a>
-      <a href="<%= url_for('/timeline/calendar-preview/') %>" <%- calendar ? 'aria-current="page"' : '' %>>日历</a>
+  <section class="story-canvas" aria-label="时间线">
+    <div class="story-toolbar">
+      <%- partial('_partials/timeline-navigation') %>
+    <nav class="stage-switch" aria-label="浏览方式">
+      <a href="#all-events" data-all aria-current="true">所有事件</a>
+      <% if (stages.length) { %><a href="#year-<%= stages[0] %>" data-by-year>按年阶段</a><% } %>
     </nav>
-    <% if (!mainTimeline) { %><a class="timeline-preview__back" href="<%= url_for('/timeline/') %>#event-index">查看完整事件目录</a><% } %>
-  </header>
-  <section class="timeline-preview__chapter" aria-labelledby="timeline-chapter-title">
-    <p class="timeline-preview__eyebrow">诡秘之主 / 第五纪</p>
-    <h2 id="timeline-chapter-title">1349 年 6 月</h2>
-    <p class="timeline-preview__note">目前共收录 <%= events.length %> 个事件；日期尚未核实的事件列在下方。已标日期可能只是事件中的一个锚点，不代表整个词条只发生在这一天。</p>
-    <% if (calendar) { %>
-    <div class="story-calendar" aria-label="1349 年 6 月日历，星期排列为推算">
-      <div class="story-calendar__week" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
-      <div class="story-calendar__grid">
-        <% for (let i = 0; i < 4; i++) { %><span class="story-calendar__empty" aria-hidden="true"></span><% } %>
-        <% for (let day = 1; day <= 30; day++) { const date = `1349-06-${String(day).padStart(2,'0')}`; const items = byDate.get(date) || []; %>
-          <% if (items.length) { %><button class="story-calendar__day story-calendar__day--event" type="button" data-calendar-day aria-controls="calendar-day-<%= day %>" aria-expanded="<%= date === selectedDate ? 'true' : 'false' %>" aria-label="6 月 <%= day %> 日，<%= items.length %> 个事件"><span><%= day %></span><small><%= items.length %> 个事件</small></button>
-          <% } else { %><span class="story-calendar__day"><%= day %></span><% } %>
-        <% } %>
-      </div>
     </div>
-    <% calendarDates.forEach(date => dateGroup(date, byDate.get(date), `calendar-day-${Number(date.slice(8,10))}`, date !== selectedDate)); %>
-    <% } else { %>
-    <% calendarDates.forEach(date => dateGroup(date, byDate.get(date), '', false)); %>
-    <% } %>
-    <p class="timeline-preview__note">6 月 28 日为原文确认的日期锚点；日历星期排列依据原文线索推算。</p>
+    <nav data-stage-options aria-label="选择年份" hidden><% for (const year of stages) { %><a href="#year-<%=year%>"><%=year === 'unknown' ? '年份待考' : year + ' 年'%></a><% } %></nav>
+    <ol class="story-axis" aria-label="按故事日期排列的事件">
+      <% for (const group of groups) { const {date, label, items} = group; %>
+      <li data-stage="<%= stageYears(group).join(' ') %>" class="story-axis__day<%= date ? '' : ' story-axis__day--relative' %>">
+        <h3 class="timeline-group-title"><% if (date) { %><time datetime="<%= date %>"><%= fullDate(date) %></time><% } else { %><%= label %><% } %></h3>
+        <ul class="timeline-nodes" aria-label="<%= date ? fullDate(date) : label %>事件"><% items.forEach(nodeLink); %></ul>
+      </li>
+      <% } %>
+    </ol>
+  <% if (unplaced.length) { %><section data-stage="unknown" class="timeline-undated"><h2>顺序待考证</h2><ul class="timeline-nodes"><% unplaced.forEach(nodeLink); %></ul></section><% } %>
+  <details class="timeline-event-index" id="event-index"><summary>完整事件目录（按原文叙述顺序）</summary><div class="timeline-event-index__content"><%- page.content %></div></details>
   </section>
-  <% for (const date of dates.filter(date => !date.startsWith('1349-06-'))) { %>
-  <section class="timeline-undated"><h2 class="timeline-group-title"><%= date.slice(0,4) %> 年 <%= dateText(date) %> <span>日期锚点</span></h2><ul class="timeline-nodes timeline-nodes--cards"><% byDate.get(date).forEach(nodeLink); %></ul></section>
-  <% } %>
-  <section class="timeline-undated" aria-labelledby="undated-title"><h2 class="timeline-group-title" id="undated-title">日期待考证 <span><%= undated.length %> 个事件 · 不代表发生顺序</span></h2>
-    <% for (const work of [...new Set(undated.map(item => item.event_work || '作品待核实'))].sort()) { const items = undated.filter(item => (item.event_work || '作品待核实') === work); %>
-    <details class="timeline-work-group" open><summary><%= work %> <span><%= items.length %> 个事件</span></summary><ul class="timeline-nodes timeline-nodes--cards" aria-label="<%= work %>日期待考证事件"><% items.forEach(nodeLink); %></ul></details>
-    <% } %>
-  </section>
-  <% if (mainTimeline) { %>
-  <details class="timeline-event-index" id="event-index">
-    <summary>完整事件目录（按原文叙述顺序）</summary>
-    <div class="timeline-event-index__content"><%- page.content %></div>
-  </details>
-  <% } %>
 </article>

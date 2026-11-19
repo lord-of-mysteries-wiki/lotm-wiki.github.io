@@ -1,6 +1,1 @@
-<section class="hero"><p class="eyebrow"><%= __('hero_eyebrow') %></p><h1><%= config.title %></h1><p><%= __('hero_description') %></p><a class="button" href="<%= url_for('/relationships/') %>"><%= __('explore_relationships') %> →</a></section>
-<section><h2><%= __('recent_updates') %></h2>
-<% if (page.posts && page.posts.length) { page.posts.each(function(post) { %>
-<article class="entry"><h3><a href="<%= url_for(post.path) %>"><%= post.title || __('untitled') %></a></h3><%- post.excerpt || '' %></article>
-<% }); } else { %><p><%= __('no_posts') %></p><% } %>
-</section>
+<section class="hero"><h1><%= config.title %></h1><a class="button" href="<%= url_for('/relationships/') %>"><%= __('explore_relationships') %> →</a></section>

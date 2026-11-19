@@ -3,39 +3,38 @@
   --font-ui: sans-serif;
   --font-reading: serif;
   --text-body: 1rem;
+  --text-compact: .9375rem;
   --text-ui: .875rem;
   --text-meta: .8125rem;
-  --text-section: 1.25rem;
-  --text-page: clamp(1.75rem, 3.5vw, 2.25rem);
+  --text-subheading: 1.125rem;
+  --text-section: clamp(1.25rem, 1.15rem + .4vw, 1.375rem);
+  --text-page: clamp(1.5rem, 1.35rem + .75vw, 1.875rem);
 }
 body { font-family: var(--font-reading); font-size: var(--text-body); line-height: 1.7; }
-h1,h2,h3,h4,h5,h6,button,input,select,textarea,.site-nav,.eyebrow,.button { font-family: var(--font-ui); }
+h1,h2,h3,h4,h5,h6,button,input,select,textarea,.site-nav,.button { font-family: var(--font-ui); }
 h1 { font-size: var(--text-page); line-height: 1.3; }
 h2 { font-size: var(--text-section); line-height: 1.4; }
-h3 { font-size: 1.0625rem; line-height: 1.45; }
-.site-title,.topbar .brand { font-size: var(--text-ui); }
+h3 { font-size: var(--text-subheading); line-height: 1.45; }
+.site-title { font-size: var(--text-ui); }
 .nav-links,.topbar .nav-links { font-size: var(--text-ui); }
-.hero h1 { font-family: var(--font-ui); font-size: var(--text-page); line-height: 1.3; letter-spacing: .035em; }
-.hero p:not(.eyebrow) { font-size: var(--text-body); }
-.main-content h2 { font-size: var(--text-section); }
-.eyebrow,.site-footer { font-size: var(--text-meta); }
+.hero h1 { letter-spacing: .035em; }
+.site-footer { font-size: var(--text-meta); }
 .button { font-size: var(--text-ui); }
 .article { line-height: 1.8; }
-.article table { font-family: var(--font-reading); font-size: var(--text-ui); }
+.article table { font-family: var(--font-reading); font-size: var(--text-compact); }
 .article table th { font-family: var(--font-ui); }
 /* 图谱控件与说明沿用相同层级。 */
 .app { font-size: var(--text-ui); line-height: 1.6; }
-.app .topbar,.app .searchbox,.app .graph-controls,.app .cluster-nav,.app button,.app input,.app select,.app textarea,.app .filter-row,.app .side-stats,.app .section-label,.app .person-row,.app .relation-row,.app .tags,.app .palette-legend { font-family: var(--font-ui); }
+.app .topbar,.app .searchbox,.app .graph-controls,.app .cluster-nav,.app button,.app input,.app select,.app textarea,.app .filter-row,.app .side-stats,.app .section-label,.app .person-row,.app .tags,.app .palette-legend { font-family: var(--font-ui); }
 .app .sidebar-head h2 { font-size: var(--text-section); line-height: 1.4; }
-.app .profile h3,.app .canvas-heading h1 { font-family: var(--font-ui); font-size: 1.0625rem; line-height: 1.4; }
-.app .eyebrow,.app .searchbox kbd,.app .filter-row small,.app .side-stats,.app .section-label span,.app .row-copy small,.app .more,.app .profile p,.app .meta,.app .source,.app .milestone small,.app .group-title,.app .graph-legend,.app .canvas-hint,.app footer,.app .palette-title span,.app .palette-item { font-size: var(--text-meta); }
+.app .profile h3 { font-family: var(--font-ui); font-size: 1.0625rem; line-height: 1.4; }
+.app .searchbox kbd,.app .filter-row small,.app .side-stats,.app .section-label span,.app .row-copy small,.app .palette-item small,.app .more,.app .profile p,.app .meta,.app .source,.app .milestone small,.app .group-title,.app .graph-legend,.app footer,.app .palette-title span,.app .palette-item { font-size: var(--text-meta); }
 .app .filter-row strong,.app .section-label,.app .row-copy strong,.app .back,.app .tag,.app .milestone,.app .empty,.app .palette-title,.app .cluster-nav button,.app .searchbox input { font-size: var(--text-ui); }
-.app .intro,.app .detail-text { font-size: var(--text-ui); line-height: 1.75; }
+.app .detail-text { font-size: var(--text-body); line-height: 1.75; }
 .app .side-stats b { font-size: var(--text-body); }
-.app .palette-list { max-height: 180px; }
-.app .intro,.app .detail-text,.app .source,.app .empty { color: #c2cbdb; }
+.app .detail-text,.app .source,.app .empty { color: #c2cbdb; }
 .app .filter-row small,.app .row-copy small,.app .profile p,.app .meta,.app .more,.app footer,.app .palette-title span { color: #a8b2c8; }
 @media (max-width: 800px) {
   .app .cluster-nav { max-width: calc(100% - 36px); overflow-x: auto; }
-  .app .cluster-nav button { font-size: var(--text-meta); }
+  .app .cluster-nav button { font-size: var(--text-ui); }
 }

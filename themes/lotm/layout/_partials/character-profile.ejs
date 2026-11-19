@@ -1,28 +1,29 @@
 <article class="character-profile">
   <header class="character-profile__header">
     <a class="character-profile__back" href="<%= url_for('/characters/') %>">← 返回角色介绍</a>
-    <p class="character-profile__eyebrow">人物档案 <span aria-hidden="true"> / </span> <%= page.profile_work || '资料待补充' %></p>
     <h1><%= page.title %></h1>
-    <% if (page.profile_alias) { %><p class="character-profile__alias"><%= page.profile_alias %></p><% } %>
-    <p class="character-profile__notice">本词条涉及剧情剧透，人物资料可能随故事时期变化。</p>
+    <% if (page.profile_alias && !/^待/.test(page.profile_alias)) { %><p class="character-profile__alias"><%= page.profile_alias %></p><% } %>
   </header>
   <div class="character-profile__layout">
-    <div class="article character-profile__content"><%- page.content.replace(/ → /g, '<span class="character-profile__stage">→ </span>') %></div>
-    <aside class="character-profile__facts" aria-label="人物基本信息">
-      <div class="character-profile__facts-head"><span>CHARACTER ARCHIVE</span><h2>基本信息</h2></div>
+    <aside class="character-profile__facts" aria-label="人物信息">
+      <h2>人物信息</h2>
       <dl>
-        <% (page.profile_facts || []).forEach(function(fact) { %>
-          <% const value = fact.source_section ? character_section_text(page.content, fact.source_section) : fact.value; %>
-          <% if (value) { %>
-          <div><dt><%= fact.label %></dt><dd>
-            <% if (value.length > 180) { %>
-            <details class="character-profile__fact-detail"><summary><span class="character-profile__fact-excerpt"><%= value %></span><span class="character-profile__fact-toggle">展开完整信息</span></summary><p><%= value %></p></details>
-            <% } else { %><%= value %><% } %>
-          </dd></div>
+        <% if (page.profile_work && !/^待/.test(String(page.profile_work)) && !(page.profile_facts || []).some(function(fact) { return fact.label === '所属作品' && fact.value && !/^待/.test(String(fact.value)); })) { %>
+          <div><dt>所属作品</dt><dd><%= page.profile_work %></dd></div>
+        <% } %>
+        <% (page.profile_facts || []).forEach(function(fact) {
+          const hasSection = fact.source_section && character_has_section(page.content, fact.source_section); %>
+          <% if (fact.summary && hasSection) { %>
+          <div><dt><%= fact.label %></dt><dd><a href="#<%= encodeURIComponent(fact.source_section) %>"><%= fact.summary %> <span aria-hidden="true">↗</span></a></dd></div>
+          <% } else if (fact.value && !/^待/.test(String(fact.value)) && String(fact.value).length <= 80) { %>
+          <div><dt><%= fact.label %></dt><dd><%= fact.value %></dd></div>
+          <% } else if (hasSection) { %>
+          <div><dt><%= fact.label %></dt><dd><a href="#<%= encodeURIComponent(fact.source_section) %>">查看详情 <span aria-hidden="true">↗</span></a></dd></div>
           <% } %>
         <% }); %>
       </dl>
       <a class="character-profile__graph" href="<%= url_for('/relationships/') %>">查看人物关系网 <span aria-hidden="true">↗</span></a>
     </aside>
+    <div class="article character-profile__content"><%- page.content %></div>
   </div>
 </article>

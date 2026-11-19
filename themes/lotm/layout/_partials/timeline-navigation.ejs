@@ -1,0 +1,4 @@
+<nav class="timeline-view-switch" aria-label="故事视图">
+  <a href="<%= url_for('/timeline/') %>"<% if (page.timeline_view !== 'calendar') { %> aria-current="page"<% } %>>时间线</a>
+  <a href="<%= url_for('/timeline/calendar/') %>"<% if (page.timeline_view === 'calendar') { %> aria-current="page"<% } %>>日历</a>
+</nav>
