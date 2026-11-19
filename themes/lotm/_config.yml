@@ -3,13 +3,7 @@ navbar:
   search:
     enable: false
 
-menu:
-  home: /
-  worldview: /worldview
-  characters: /characters
-  角色关系网: /relationships/
-  timeline: /timeline
-  about: /about
+# Primary navigation is maintained in source/js/site-navigation.js.
 home_banner:
   enable: false
 home:

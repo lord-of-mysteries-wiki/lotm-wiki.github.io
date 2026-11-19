@@ -1,1 +1,1 @@
-<section><h1>文章归档</h1><% page.posts.each(function(post) { %><article class="entry"><h2><a href="<%= url_for(post.path) %>"><%= post.title || '未命名' %></a></h2></article><% }); %></section>
+<section><h1><%= __('archives') %></h1><% page.posts.each(function(post) { %><article class="entry"><h2><a href="<%= url_for(post.path) %>"><%= post.title || __('untitled') %></a></h2></article><% }); %></section>

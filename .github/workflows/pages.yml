@@ -31,7 +31,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build
-        run: npm run build
+        # 人物索引由本地原文生成并随站点提交；原文不上传到 GitHub。
+        run: npx hexo generate
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

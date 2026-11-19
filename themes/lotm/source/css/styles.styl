@@ -1,54 +1,142 @@
+*
+  box-sizing border-box
 body
   margin 0
-  background #101522
-  color #d9d9d1
-  font-family Georgia, 'Songti SC', serif
-  line-height 1.8
+  background #292e40
+  color #d7dbed
 a
-  color #d9c69d
+  color #a8dfd7
   text-decoration none
 a:hover
-  text-decoration underline
-.site-nav
-  display flex
-  align-items center
-  justify-content space-between
-  gap 24px
-  flex-wrap wrap
-  padding 20px 6%
-  border-bottom 1px solid #414657
-.site-title
-  font-size 20px
-  font-weight bold
-.nav-links
-  display flex
-  gap 20px
-  flex-wrap wrap
-  font-size 14px
+  color #d0f3ed
 .main-content
-  max-width 1000px
+  max-width 1060px
   margin 0 auto
-  padding 30px 6% 70px
+  padding 48px 28px 80px
 .hero
-  padding 70px 0
-  border-bottom 1px solid #414657
+  position relative
+  overflow hidden
+  padding 70px 64px
+  border 1px solid #41495e
+  border-radius 16px
+  background radial-gradient(ellipse at 75% 25%, #3b4b5e 0%, #30374c 38%, #272d40 100%)
 .hero h1
-  font-size 42px
-  color #f1ead9
+  margin 12px 0
+  font-weight 500
+  color #e4e6f3
+.hero p:not(.eyebrow)
+  color #aeb8cf
 .eyebrow
-  color #bda982
-  letter-spacing .2em
-  font-size 12px
+  color #d6bd91
+  letter-spacing .18em
+  font-weight 700
 .button
   display inline-block
   margin-top 20px
-  padding 9px 18px
-  border 1px solid #bca983
+  padding 10px 18px
+  border 1px solid #73b8b9
+  border-radius 8px
+  background #334b55
+  color #c1eeea
+.button:hover
+  background #405e66
+.main-content > section + section
+  margin-top 42px
+.main-content h2
+  color #e2e5f0
+
 .entry
-  border-bottom 1px solid #414657
+  border-bottom 1px solid #3a4054
   padding 10px 0
+.article
+  padding 32px
+  border 1px solid #3a4054
+  border-radius 12px
+  background #222637
 .site-footer
-  padding 24px 6%
-  border-top 1px solid #414657
-  color #9399a5
-  font-size 12px
+  padding 24px 28px
+  border-top 1px solid #3a4054
+  color #929ab4
+@media (max-width: 800px)
+  .main-content
+    padding 28px 16px 56px
+  .hero
+    padding 42px 24px
+  .article
+    padding 24px
+
+// 词条表格：长表可横向滚动，避免列被挤成竖排。
+.article
+  min-width 0
+  overflow-wrap anywhere
+.article table
+  display block
+  width 100%
+  max-width 100%
+  margin 1.5rem 0 2rem
+  overflow-x auto
+  border-collapse separate
+  border-spacing 0
+  line-height 1.65
+  scrollbar-width thin
+  scrollbar-color #69748b #252b3b
+.article thead th
+  padding 13px 16px
+  background #343c50
+  color #e7eaf4
+  font-weight 600
+  text-align left
+  white-space nowrap
+  border-bottom 1px solid #56617a
+.article tbody td
+  padding 14px 16px
+  vertical-align top
+  background #292f41
+  color #d3d9e8
+  border-bottom 1px solid #41495e
+  overflow-wrap break-word
+.article tbody tr:nth-child(even) td
+  background #2d3447
+.article tbody tr:hover td
+  background #353e51
+.article tbody tr:last-child td
+  border-bottom 0
+.article table th:first-child, .article table td:first-child
+  padding-left 18px
+.article table th:last-child, .article table td:last-child
+  padding-right 18px
+.article table th
+  min-width 90px
+.article table td
+  min-width 90px
+.article table:has(th:nth-child(4):last-child) th:nth-child(3),
+.article table:has(th:nth-child(4):last-child) td:nth-child(3)
+  min-width 220px
+.article table:has(th:nth-child(4):last-child) th:nth-child(4),
+.article table:has(th:nth-child(4):last-child) td:nth-child(4)
+  min-width 280px
+.article table:has(th:nth-child(5)) td
+  min-width 90px
+.article table a
+  color #9fe0d7
+  text-decoration underline
+  text-decoration-color #628b8e
+  text-underline-offset 3px
+@media (max-width: 800px)
+  .article table
+    margin 1.25rem 0 1.75rem
+  .article thead th, .article tbody td
+    padding 12px
+
+.article .pathway-groups tbody th
+  min-width 110px
+  padding 14px 18px
+  vertical-align middle
+  text-align left
+  color #c8e6df
+  background #303c49
+  border-bottom 1px solid #56617a
+  border-right 1px solid #485668
+  white-space nowrap
+.article .pathway-groups tbody:last-child th
+  border-bottom 0

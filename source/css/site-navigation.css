@@ -1,0 +1,8 @@
+/* Shared by the ordinary wiki pages and the relationship graph. */
+.site-nav{min-height:62px;display:flex;align-items:center;gap:30px;padding:0 28px;background:#202333;border-bottom:1px solid #3b4052;box-sizing:border-box;min-width:0}
+.site-title{color:#e4e6f3;font-weight:650;letter-spacing:.06em;white-space:nowrap;text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:24px;overflow-x:auto;white-space:nowrap;min-width:0;scrollbar-width:thin}
+.nav-links a{color:#bec5dc;padding:20px 0;text-decoration:none}
+.nav-links a:hover,.nav-links a[aria-current='page']{color:#a8dfd7}
+.nav-links a:focus-visible,.site-title:focus-visible{outline:2px solid #a8dfd7;outline-offset:-2px}
+@media(max-width:800px){.site-nav{min-height:54px;gap:20px;padding:0 16px}.nav-links{gap:18px}.nav-links a{padding:16px 0}}

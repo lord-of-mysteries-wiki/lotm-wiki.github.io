@@ -1,17 +1,20 @@
-# ----------------------------------------
-# 导航栏
-# ----------------------------------------
-
 home: 首页
 worldview: 世界观
 characters: 角色介绍
-relation graph: 关系图
+relationships: 角色关系网
 timeline: 故事线
 about: 关于
-
-# ----------------------------------------
-# 
-# ----------------------------------------
-
+nav_label: 主导航
+hero_eyebrow: 诡秘之主
+hero_description: 在迷雾与星光之间，探索诡秘世界。
+explore_relationships: 探索角色关系网
+recent_updates: 最近更新
+no_posts: 暂无文章，更多内容即将到来。
+untitled: 未命名
+footer_note: 非官方同人站点
+archives: 文章归档
+categories: 分类
+not_found: 页面未找到
+back_home: 返回首页
 create_time: 创建
 update_time: 更新

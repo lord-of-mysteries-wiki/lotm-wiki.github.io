@@ -1,3 +1,6 @@
+<% if (page.relationship_graph) { %>
+    <%- partial('_partials/relationship-graph') %>
+<% } else { %>
 <%- partial('_widgets/progress-bar') %>
 <main class="page-container" id="swup">
 
@@ -22,7 +25,13 @@
 
             <div class="main-content">
 
-                <% if (is_home() || page.home) { %>
+                <% if (page.character_directory) { %>
+                    <%- partial('_partials/character-directory') %>
+                <% } else if (page.character_profile) { %>
+                    <%- partial('_partials/character-profile') %>
+                <% } else if (page.timeline_preview) { %>
+                    <%- partial('_partials/timeline-preview') %>
+                <% } else if (is_home() || page.home) { %>
                     <%- partial('_partials/home-content') %>
                     <div class="comment-container pjax"></div>
                 <% } else if (is_archive()) { %>
@@ -86,3 +95,5 @@
     <%- partial('_plugins/swup') %>
 <% } %>
 
+
+<% } %>

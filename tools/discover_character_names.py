@@ -26,12 +26,15 @@ def main():
     for item in entries:
         names.update(filter(None, re.split(r'\s*/\s*', item.get('alias',''))))
         names.update([item['name'],item['short']])
+    # Compare whole written names, not substrings: a short name can belong to
+    # another person even when it occurs inside an indexed full name or alias.
+    names = {re.sub(r'（[^）]*）$', '', name).strip('“”" ') for name in names}
     for book, path, encoding in BOOKS:
         corpus = path.read_text(encoding=encoding)
         leads = defaultdict(list)
         for volume, chapter, text in iter_chapters(path, encoding):
             for candidate in set(INTRO.findall(text)):
-                if any(candidate in name or name in candidate for name in names if len(name) > 1):
+                if candidate in names:
                     continue
                 leads[candidate].append(f'{volume} / {chapter}')
         results = [(name, corpus.count(name), refs) for name,refs in leads.items() if corpus.count(name) >= args.min_count]

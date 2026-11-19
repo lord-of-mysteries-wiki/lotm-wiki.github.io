@@ -16,7 +16,8 @@ BOOKS = (
 NUM = r'[一二三四五六七八九十百千万零〇0-9]+'
 VOLUME = re.compile(r'^\s*(第' + NUM + r'[部卷]\s+[^\n\r]{1,50})\s*$')
 SUMMARY = re.compile(r'^\s*第' + NUM + r'[部卷]总结\s*$')
-CHAPTER = re.compile(r'^\s*(第' + NUM + r'章(?:\s+[^\n\r]{1,70})?)\s*$')
+CHAPTER = re.compile(r'^\s*(第' + NUM + r'章(?:\s*[^\n\r]{1,70})?)\s*$')
+EXTRA = re.compile(r'^一个普通人的日常（' + NUM + r'）$')
 
 def iter_chapters(path, encoding):
     volume, heading, lines = '', '', []
@@ -25,6 +26,21 @@ def iter_chapters(path, encoding):
             value = line.strip()
             vol = VOLUME.fullmatch(value)
             chapter = CHAPTER.fullmatch(value)
+            extra = EXTRA.fullmatch(value)
+            # The first book appends author notes and separately titled extras
+            # after the final chapter. They are not part of that chapter.
+            if value in ('完本感言（上）', '完本感言（下）', '番外'):
+                if heading and ''.join(lines).strip():
+                    yield volume, heading, ''.join(lines)
+                heading, lines = '', []
+                if value == '番外':
+                    volume = '番外'
+                continue
+            if extra:
+                if heading and ''.join(lines).strip():
+                    yield volume, heading, ''.join(lines)
+                volume, heading, lines = '番外', value, []
+                continue
             if SUMMARY.fullmatch(value):
                 if heading:
                     yield volume, heading, ''.join(lines)
@@ -41,7 +57,7 @@ def iter_chapters(path, encoding):
                     heading = chapter.group(1)
             elif heading:
                 lines.append(line)
-    if heading:
+    if heading and ''.join(lines).strip():
         yield volume, heading, ''.join(lines)
 
 def main():

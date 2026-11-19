@@ -1,6 +1,6 @@
-<section class="hero"><p class="eyebrow">THE LORD OF THE MYSTERIES</p><h1><%= config.title %></h1><p>在迷雾与星光之间，探索诡秘世界。</p><a class="button" href="<%= url_for('/relationships/') %>">探索角色关系网 →</a></section>
-<section><h2>最近更新</h2>
+<section class="hero"><p class="eyebrow"><%= __('hero_eyebrow') %></p><h1><%= config.title %></h1><p><%= __('hero_description') %></p><a class="button" href="<%= url_for('/relationships/') %>"><%= __('explore_relationships') %> →</a></section>
+<section><h2><%= __('recent_updates') %></h2>
 <% if (page.posts && page.posts.length) { page.posts.each(function(post) { %>
-<article class="entry"><h3><a href="<%= url_for(post.path) %>"><%= post.title || '未命名' %></a></h3><%- post.excerpt || '' %></article>
-<% }); } else { %><p>暂无文章，更多内容即将到来。</p><% } %>
+<article class="entry"><h3><a href="<%= url_for(post.path) %>"><%= post.title || __('untitled') %></a></h3><%- post.excerpt || '' %></article>
+<% }); } else { %><p><%= __('no_posts') %></p><% } %>
 </section>

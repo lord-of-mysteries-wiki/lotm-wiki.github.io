@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 诡秘之主情报站
+title: 诡秘之主WIKI
 subtitle: 欢迎来到
 description: ''
 keywords: 诡秘之主, 宿命之环
@@ -27,7 +27,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: []
 
 # Writing
 titlecase: false # Transform title into titlecase
