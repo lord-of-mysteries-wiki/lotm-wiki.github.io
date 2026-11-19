@@ -2,17 +2,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= page.title ? page.title + ' | ' + config.title : config.title %></title>
+  <% if (page.character_directory) { %>
+  <style><%- directory_styles() %></style>
+  <link rel="stylesheet" href="<%= url_for('/fonts/fonts.css') %>" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="<%= url_for('/fonts/fonts.css') %>"></noscript>
+  <% } else { %>
   <link rel="stylesheet" href="<%= url_for('/fonts/fonts.css') %>">
   <%- css('css/styles') %>
   <% if (page.relationship_graph) { %>
   <link rel="stylesheet" href="<%= url_for('/relationships/graph.css') %>">
   <% } %>
   <%- css('css/site-navigation') %>
-  <script defer src="<%= url_for('/js/site-navigation.js') %>"></script>
   <%- css('css/typography') %>
-  <% if (page.character_profile || page.character_directory) { %>
+  <% if (page.character_profile) { %>
   <%- css('css/character-profile') %>
   <% } %>
+  <% } %>
+  <script defer src="<%= url_for('/js/site-navigation.js') %>"></script>
   <% if (page.relationship_graph) { %>
   <script defer src="<%= url_for('/relationships/relationship-data.js') %>"></script>
   <script defer src="<%= url_for('/relationships/character-index.js') %>"></script>
