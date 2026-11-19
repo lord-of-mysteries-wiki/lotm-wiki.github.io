@@ -26,7 +26,7 @@ hexo server
 
 ## 字体
 
-网站自托管 Inter、Libre Baskerville、Noto Sans SC（思源黑体）和 Noto Serif SC（思源宋体）的 WOFF2 网页字体。字体采用 SIL Open Font License 1.1，各字体目录下的 `OFL.txt` 保留了授权及版权信息。英文使用拉丁字符集，中文字体各使用一个完整的可变字重文件；加载期间先显示系统备用字体。英文字体来自 Fontsource 字体包；中文字体来自 Google Fonts 字体仓库并转换为 WOFF2。
+网站自托管 Inter、Libre Baskerville、Noto Sans SC（思源黑体）和 Noto Serif SC（思源宋体）的 WOFF2 网页字体。字体采用 SIL Open Font License 1.1，各字体目录下的 `OFL.txt` 保留了授权及版权信息。英文使用拉丁字符集，中文字体各使用一个按全站用字裁剪的可变字重文件；加载期间先显示系统备用字体。英文字体来自 Fontsource 字体包；中文字体来自 Google Fonts 字体仓库并转换为 WOFF2。完整字库放在 `tools/font-sources/`。新增内容后，使用安装了 `fonttools[woff]` 的 Python 运行 `python3 tools/subset-fonts.py` 更新本地字体。Pages 部署时会自动重新裁剪。
 
 ## 文件结构
 

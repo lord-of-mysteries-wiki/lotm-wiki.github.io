@@ -60,7 +60,7 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('./noto-sans-sc/noto-sans-sc.woff2') format('woff2');
+  src: url('./noto-sans-sc/noto-sans-sc-site.woff2') format('woff2');
 }
 
 @font-face {
@@ -68,5 +68,5 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('./noto-serif-sc/noto-serif-sc.woff2') format('woff2');
+  src: url('./noto-serif-sc/noto-serif-sc-site.woff2') format('woff2');
 }
