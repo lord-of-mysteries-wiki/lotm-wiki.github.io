@@ -2,7 +2,7 @@
 title: "“A先生”"
 layout: index
 character_profile: true
-graph_classifications: {"organization": [{"value": "极光会", "source": "《诡秘之主》第二部，第二百六十二章《绝望女士》"}], "nationality": []}
+graph_classifications: {"organization": [{"value": "极光会", "source": "《诡秘之主》第二部，第二百六十二章《绝望女士》"}], "nationality": [{"value": "鲁恩", "certainty": "inferred", "source": "《诡秘之主》第二部，第二百六十二章《绝望女士》", "note": "克莱恩在贝克兰德与A先生相遇。仅依据相遇地点暂定，不证明法律国籍。"}]}
 permalink: "characters/entries/“A先生”/"
 profile_work: "诡秘之主"
 document_name: "“A先生”"
@@ -24,3 +24,7 @@ profile_facts:
 ## 所属组织与身份
 
 - 所属组织：极光会。克莱恩见到对方后将他认作刺杀贝克朗的极光会A先生。（《诡秘之主》第二部，第二百六十二章《绝望女士》）
+
+## 身份与国籍
+
+- 国籍：鲁恩（相遇地暂定）。克莱恩在贝克兰德与A先生相遇。不证明法律国籍。（《诡秘之主》第二部，第二百六十二章《绝望女士》）

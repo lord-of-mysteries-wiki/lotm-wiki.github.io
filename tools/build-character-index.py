@@ -2,6 +2,7 @@
 """Build a conservative character index from one copy of each novel."""
 import json,re
 from urllib.parse import quote
+from character_directory import build_directory
 from corpus_review import BOOKS, iter_chapters, reference_texts
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
@@ -52,7 +53,7 @@ candidates.append(('portland_momont','波特兰·莫蒙特','波特兰','','其�
 candidates.append(('paval_nisen','帕瓦尔·尼森','帕瓦尔','','宿命之环'))
 candidates.append(('horamick','霍拉米克·海顿','霍拉米克','','其他人物'))
 candidates.extend([('morane','莫兰·阿维尼','莫兰','','宿命之环'),('connors','康纳斯·维克托','康纳斯','','其他人物'),('kaspars','卡斯帕斯·坎立宁','卡斯帕斯','','其他人物'),('hal_constantine','哈尔·康斯坦丁','哈尔','','其他人物')])
-candidates.extend([('bruce_walls','布鲁·沃尔斯','布鲁','','其他人物'),('class_kitz','克拉斯·基兹','克拉斯','','宿命之环'),('snalna','斯纳尔纳·艾因霍恩','斯纳尔纳','','宿命之环'),('travis','特拉维斯·埃弗瑞特','特拉维斯','','宿命之环')])
+candidates.extend([('orpheus_ship','奥尔弗斯','奥尔弗斯','','其他人物'),('bruce_walls','布鲁·沃尔斯','布鲁','','其他人物'),('class_kitz','克拉斯·基兹','克拉斯','','宿命之环'),('snalna','斯纳尔纳·艾因霍恩','斯纳尔纳','','宿命之环'),('travis','特拉维斯·埃弗瑞特','特拉维斯','','宿命之环')])
 candidates.extend([('ailos','爱洛丝·艾因霍恩','爱洛丝','','宿命之环'),('delilah','黛利拉·勒罗伊','黛利拉','','宿命之环')])
 candidates.extend([('niol','尼奥尔·贝斯特','尼奥尔','','宿命之环'),('fernandez','费南德兹·奥罗','费南德兹','','宿命之环'),('ivilista','伊维利斯塔·艾格斯','伊维利斯塔','','宿命之环'),('latizia','拉蒂西亚·多瑞拉','拉蒂西亚','','其他人物'),('radar','雷达尔·瓦伦丁','雷达尔','','其他人物')])
 candidates.extend([('urdi','乌尔迪·布兰奇','乌尔迪','','其他人物'),('galis','加利斯·凯文','加利斯','','其他人物'),('windsor','温莎·贝林','温莎','','其他人物'),('okfa','奥克法·康纳克里斯','奥克法','','其他人物'),('louis_wien','路易斯·维恩','维恩','','其他人物'),('ernest','欧内斯·博雅尔','欧内斯','','其他人物')])
@@ -217,6 +218,8 @@ for ident,name,short,exact,group in candidates:
   terms.append('宝剑骑士')
  if ident == 'clarisse':
   terms.append('黑之魔女')
+ if ident == 'great_mother':
+  terms.append('堕落母神')
  if ident == 'leodero':
   terms.append('风暴之主')
  if ident == 'herabergen':
@@ -354,6 +357,25 @@ for ident,name,short,exact,group in candidates:
  if ident == 'hal_constantine':
   term = '哈尔·康斯坦丁 / “深海中将” / “深海上将”'
  counts={book:sum(1 for _ in pattern.finditer(text)) for book,text in texts}
+ if ident == 'richard_fate':
+  scenes = {'第一百零八章','第一百二十九章','第一百三十章','第二百零七章'}
+  titles = re.compile('“议员先生，|其中一位命运议员|这位“命运议员”|这位命运议员|这是位命运议员')
+  counts['诡秘之主'] += sum(len(titles.findall(body)) for volume, chapter, body in iter_chapters(*BOOKS[0][1:]) if volume.startswith('第三部') and chapter.split()[0] in scenes)
+  term = '瑞乔德 / “命运议员” / 议员先生'
+ if ident in {'bruce_walls','orpheus_ship'}:
+  nickname = '美食家' if ident == 'bruce_walls' else '歌唱家'
+  ship_mentions = re.compile('[“‘]' + nickname + '[”’](?:' + name + ')?|' + name)
+  counts = {'诡秘之主':sum(len(ship_mentions.findall(body)) for volume, _, body in iter_chapters(*BOOKS[0][1:]) if volume.startswith('第三部')), '宿命之环':0}
+  term = name + ' / “' + nickname + '”'
+ if ident == 'jodson':
+  title = re.compile(r'[“‘]花领结[”’](?!约德森)')
+  counts['诡秘之主'] += len(title.findall(dict(texts)['诡秘之主']))
+  term = '约德森 / “花领结”'
+ if ident == 'darkwill':
+  # 相邻的称呼与姓名（含三种原文连写形式）作为同一次指代。
+  extra_title = re.compile(r'(?<!达克威尔的)胖药师(?!达克威尔|的名字是达克威尔)')
+  counts['诡秘之主'] += sum(len(extra_title.findall(body)) for volume, chapter, body in iter_chapters(*BOOKS[0][1:]) if volume.startswith('第三部') or (volume.startswith('第四部') and chapter.startswith('第八十五章')))
+  term = '达克威尔 / 胖药师'
  if ident == 'lanervus':
   for volume, heading, body in iter_chapters(*BOOKS[0][1:]):
    chapter = heading.split()[0]
@@ -823,6 +845,8 @@ for entry in out:
   entry['aliasSources'].append({'alias':'姓朱恩','source':'《诡秘之主》第四部，第一百九十一章《后遗症》'})
   entry['matchNote'] = '仅统计“夏尔夫”字面出现，单独的“工匠”未计入。'
  if entry['id'] == 'djinni':
+  entry['alias'] = '“混沌之子”的主意识'
+  entry['aliasSources'].append({'alias':'“混沌之子”的主意识','source':'《宿命之环》第七部，第五十五章《序列之上》'})
   entry['matchNote'] = '仅统计“灯神”字面出现；神灯这一物品名称未直接计入。'
  if entry['id'] == 'pallez':
   entry['alias'] = '老头（伦纳德的称呼）'
@@ -993,6 +1017,10 @@ for entry in out:
   entry['alias'] = '原始月亮（部分信仰可能指向）'
   entry['aliasSources'].append({'alias':'原始月亮（依具体信仰对象区分）','source':'《宿命之环》第五部，第二十四章《灵性直觉》'})
   entry['matchNote'] = '仅统计该条目的主要称号；“原始月亮”在不同语境可能指向不同存在，未合并计数。'
+ if entry['id'] == 'great_mother':
+  entry['alias'] = '“堕落母神” / ' + entry['alias']
+  entry['aliasSources'].append({'alias':'“堕落母神”','source':'《宿命之环》第七部，第五十五章《序列之上》'})
+  entry['matchNote'] = '统计“伟大母亲”和“堕落母神”的字面出现。'
  if entry['id'] == 'chained_god':
   entry['matchNote'] = '以“被缚之神”称号统计；早期有关欲望母树化身的说法与后期揭示的关系不同，未将两个称号合并计数。'
  if entry['id'] == 'suah':
@@ -1058,6 +1086,18 @@ for entry in out:
   entry['matchNote'] = '该名称涉及人皮伪装与误导；调查者一度将其与“欲望使徒”混为一人，后续揭示是两个人。字面次数没有区分使用者。'
  if entry['id'] == 'jason':
   entry['matchNote'] = '统计“欲望使徒”的字面出现，其中可能包括序列名称或其他使用者；帕特里克·杰森·贝利亚涉及两人的误导性身份，未作为此人的确定姓名。'
+ if entry['id'] in {'bruce_walls','orpheus_ship'}:
+  entry['alias'] = '“美食家”' if entry['id'] == 'bruce_walls' else '“歌唱家”'
+  entry['aliasSources'].append({'alias':entry['alias'],'source':'《诡秘之主》第三部，第二百一十章《嫌疑犯》'})
+  entry['matchNote'] = '统计第三部已确认的姓名与带引号的绰号；绰号和姓名连写计一次。'
+ if entry['id'] == 'jodson':
+  entry['alias'] = '“花领结”'
+  entry['aliasSources'].append({'alias':'“花领结”','source':'《诡秘之主》第三部，第二百零八章《信使小姐》'})
+  entry['matchNote'] = '合计姓名与原文带引号的绰号，绰号后紧跟姓名计一次。'
+ if entry['id'] == 'darkwill':
+  entry['alias'] = '胖药师'
+  entry['aliasSources'].append({'alias':'胖药师','source':'《诡秘之主》第三部，第一百零三章《买药》、第一百零四章《告别与再会》'})
+  entry['matchNote'] = '合计姓名和原文已确认的“胖药师”称呼。同一处并列点明姓名与称呼时计一次。'
  if entry['id'] == 'lanervus':
   entry['alias'] = '埃尔 / 凯文'
   entry['aliasSources'].append({'alias':'埃尔（假名）','source':'《诡秘之主》第一部，第一百七十四章《雪伦夫人》'})
@@ -1291,7 +1331,7 @@ for entry in out:
  if entry['id'] == 'richard_fate':
   entry['alias'] = '“命运议员”'
   entry['aliasSources'].append({'alias':'“命运议员”','source':'《诡秘之主》第三部，第一百二十九章《命运议员》'})
-  entry['matchNote'] = '仅统计《诡秘之主》中“瑞乔德”的字面出现；单独的“命运议员”未计入。'
+  entry['matchNote'] = '合计姓名，以及在第三部托付骰子、桥洞会面和解除厄运等章节中逐处确认指向他的议员称呼。称号与姓名连写时计一次。'
  if entry['id'] == 'byers':
   entry['name'] = '拜尔斯（乌托邦）'
   entry['short'] = '拜尔斯（乌托邦）'
@@ -1384,7 +1424,7 @@ for heading, documents in profiles.items():
    continue
   counts = {book: text.count(heading) for book, text in texts}
   term, count_note = heading, '按档案姓名字面计数。'
-  display_name = heading
+  display_name = f'“{heading}”' if heading in {'超星主宰','命运女神','衰败君王','高维俯视者','原初饥饿','不熄的呓语','宿命之环','不定之雾'} else heading
   if heading in {'辛', '鲁斯（月城）'}:
    term = '辛' if heading == '辛' else '鲁斯'
    moon_chapters = {'第六部':{'第六十章','第六十一章','第六十二章','第六十三章','第六十四章','第六十五章','第六十七章','第六十八章','第六十九章'},
@@ -1437,6 +1477,18 @@ for heading, documents in profiles.items():
    counts = {'诡秘之主':0, '宿命之环':total}
    term = '镜中的罗塞尔 / 镜中罗塞尔 / 黄涛（书房会面与镜中告别）'
    count_note = '计入明称镜中人的段落及第六部第一百三十八至一百四十章以黄涛之貌现身的明确指代。面貌与称谓连写计一次；公司行程通报和书房归属未计入。'
+  if heading in {'丹尼尔斯','“铁皮”'}:
+   barrel = heading == '丹尼尔斯'
+   title = re.compile(r'[“‘]水桶[”’](?:丹尼尔斯)?|丹尼尔斯' if barrel else r'[“‘]铁皮[”’](?!怀表)')
+   counts = {'诡秘之主':len(title.findall(dict(texts)['诡秘之主'])), '宿命之环':0}
+   term = '丹尼尔斯 / “水桶”' if barrel else heading
+   count_note = '只计原文中可指认船员的姓名和绰号，连写计一次，排除物件名称。'
+  if heading == '爱德华·斯蒂夫':
+   chapters = {'第四十八章','第四十九章','第五十四章'}
+   mentions = re.compile('爱德华(?:·斯蒂夫)?|斯蒂夫先生')
+   counts = {'诡秘之主':sum(len(mentions.findall(body)) for volume, chapter, body in iter_chapters(*BOOKS[0][1:]) if volume.startswith('第一部') and chapter.split()[0] in chapters), '宿命之环':0}
+   term = '爱德华·斯蒂夫 / 爱德华 / 斯蒂夫先生'
+   count_note = '仅计廷根占卜俱乐部三章中核对过的姓名与称呼，全名计一次。'
   if heading == '罗珊（梦境都市）':
    counts = {'诡秘之主':0, '宿命之环':rozanne_dream}
    term = '罗珊（梦境都市）'
@@ -1447,6 +1499,54 @@ for heading, documents in profiles.items():
    counts = {'诡秘之主':sum(len(pattern.findall(body)) for volume, _, body in iter_chapters(*BOOKS[0][1:]) if volume.startswith('第三部')), '宿命之环':0}
    term = '汉密尔顿 / “白鲨”'
    count_note = '按第三部正文中的姓名和绰号统计，连写计一次。'
+  if heading in {'所罗门','特伦索斯特'}:
+   # Both names are also used for dynasties and artifacts. Count only the
+   # ruler's title in the reviewed historical scenes, excluding other eras.
+   title = '黑皇帝' if heading == '所罗门' else '夜皇'
+   chapters = {'第二部':('第四章','第二百五十六章'), '第三部':('第二百一十五章',)}
+   counts = {'诡秘之主':sum(body.count(title) for volume, chapter, body in iter_chapters(*BOOKS[0][1:])
+                     if chapter.startswith(chapters.get(volume.split()[0], ()))), '宿命之环':0}
+   term = title + '（四皇与血族历史回忆）'
+   count_note = '仅统计第二部第四、二百五十六章和第三部第二百一十五章的皇帝称号。国名、家族名和封印物名不计。'
+  if heading == '法布提':
+   aliases = re.compile('法布提|拿波瑞狄斯利')
+   counts = {book:len(aliases.findall(text)) for book, text in texts}
+   term = '法布提 / 拿波瑞狄斯利'
+   count_note = '合计古神本名和拿波瑞狄斯利之名的字面出现。分身借用其他身份时的称呼未计入。'
+  if heading in {'多丽丝（于尔根祖母）','布罗迪（黑猫）'}:
+   term = heading.split('（')[0]
+   counts = {'诡秘之主':sum(body.count(term) for _, _, body in iter_chapters(*BOOKS[0][1:])), '宿命之环':0}
+   count_note = '按章节正文中的姓名统计，包含后文追忆，括注仅用于档案消歧。'
+  if heading in {'丽芙（东区浆洗女工）','弗莱娅（黛西之姐）'}:
+   term = heading.split('（')[0]
+   counts = {'诡秘之主':sum(body.count(term) for _, _, body in iter_chapters(*BOOKS[0][1:])), '宿命之环':0}
+   count_note = '按《诡秘之主》正文中的姓名逐章核对，包含回忆与黛西梦中所见，排除卷末作者总结。'
+  if heading == '罗讷（议员秘书）':
+   term = '罗讷'
+   counts = {'诡秘之主':0, '宿命之环':sum(body.count(term) for volume, _, body in sequel_chapters() if volume.startswith('第二部'))}
+   count_note = '按第二部议员办公室与化工厂调查各章中的姓名“罗讷”计数，括注用于档案消歧。'
+  if heading == '路易斯（萨瓦党）':
+   term = '路易斯'
+   # Standalone mentions in volumes 2–3 concern the Savoyard except for
+   # two explicit references to Lund and one discussion of the given name.
+   savoyard = re.compile(r'(?<![·.])(?<!上一个)(?<!另一个)路易斯(?![·.]|和皮埃尔、纪尧姆一样常见)')
+   counts = {'诡秘之主':0,'宿命之环':sum(len(savoyard.findall(body)) for volume, _, body in sequel_chapters() if volume.split()[0] in {'第二部','第三部'})}
+   count_note = '按第二、三部逐章核对的单称计数，排除其他人物全名中的片段、对常见人名的泛指和指向管家隆德的回忆。'
+  if heading == '贝拉':
+   chapters = {'第七部': {'第四十二章','第四十三章'}, '第八部': {'第十一章','第六十四章'}}
+   counts = {'诡秘之主':0,'宿命之环':sum(len(re.findall(r'(?<!弥)贝拉(?!科斯)', body)) for volume, chapter, body in sequel_chapters() if chapter.split()[0] in chapters.get(volume.split()[0], set()))}
+   count_note = '仅计工厂指导、照顾朱利安及婚礼回顾中的贝拉，排除其他人名和街名。'
+  if heading == '宿命之环':
+   # The title of the second novel and the name of the entity coincide.
+   divine_name = re.compile(r"“宿命之环”|‘宿命之环’|伟大的宿命之环'")
+   counts = {book:0 for book, _ in texts}
+   for book, path_to_text, encoding in reference_texts():
+    counts[book] += sum(len(divine_name.findall(body)) for _, _, body in iter_chapters(path_to_text, encoding))
+   count_note = '仅计章节正文中引号内的称号及第五部第一百三十一章引号不齐的呼称，排除同名书名。'
+  if heading == '不熄的呓语':
+   term = '不熄的呓语 / 不熄呓语'
+   counts = {book:text.count('不熄的呓语') + text.count('不熄呓语') for book, text in texts}
+   count_note = '合计同一称号的两种原文写法。'
   if heading == '拉里昂':
    counts = {'诡秘之主':len(re.findall('(?<!希)拉里昂',dict(texts)['诡秘之主'])),'宿命之环':0}
    count_note = '只统计战神教会大牧首拉里昂，排除“橘光”希拉里昂。'
@@ -1455,12 +1555,21 @@ for heading, documents in profiles.items():
    counts = {'诡秘之主':len(re.findall('康斯(?!顿|坦)',dict(texts)['诡秘之主'])),'宿命之环':0}
    count_note = '已排除康斯顿的地名及康斯坦丁等姓名，按《诡秘之主》中军情九处成员的称呼统计。'
 
+  profile_id = mirror_ids.get(heading, 'profile-' + path.stem)
+  document_names[profile_id] = heading
   out.append({
-   'id': mirror_ids.get(heading, 'profile-' + path.stem), 'name': display_name, 'short': heading, 'mark': heading[0],
+   'id': profile_id, 'name': display_name, 'short': heading, 'mark': heading[0],
    'alias': '', 'group': '宿命之环' if 'profile_work: "宿命之环"' in frontmatter else '其他人物',
    'counts': counts, 'mentions': sum(counts.values()), 'mentionTerm': term,
    'matchNote': count_note, 'aliasSources': [], 'classificationEvidence': [],
   })
+  if heading == '不熄的呓语':
+   out[-1].update(alias='“不熄呓语”', aliasSources=[{'alias':'“不熄呓语”','source':'《宿命之环》第八部，第五十三章《易爆的恶意和欲望》'}])
+  if heading == '丹尼尔斯':
+   out[-1].update(alias='“水桶”', aliasSources=[{'alias':'“水桶”','source':'《诡秘之主》第三部，第二百零八章《信使小姐》'}])
+  if heading == '法布提':
+   out[-1]['alias'] = '恶魔君王 / 拿波瑞狄斯利'
+   out[-1]['aliasSources'].append({'alias':'拿波瑞狄斯利','source':'《宿命之环》第八部，第二十七章《报酬》'})
   if heading == '莫兰·阿维尼的镜中人':
    out[-1].update(short='莫兰（镜中人）', alias='冒用莫兰身份的镜中人',
                   progression=[{'pathway':'仲裁人','sequence':'序列5“惩戒骑士”','source':'《宿命之环》第四部，第二百二十六章《强破替身》、第二百三十二章《到来》','note':'冒用部长身份期间的序列。'}],
@@ -1509,8 +1618,11 @@ for entry in out:
     for fact in facts:
      if not isinstance(fact, dict) or not fact.get('value') or not fact.get('source'):
       raise ValueError(f'人物分类缺少名称或出处: {document_path}: {kind}')
-     if kind == 'organization' and fact['value'].endswith(('办公室', '办公楼', '宅邸', '探索队', '巡逻小队', '审判所')):
-      raise ValueError(f'办公地点或下属单位不能单列为组织: {document_path}: {fact["value"]}')
+     if kind == 'organization' and (
+      fact['value'] in {'恩马特号', '特里尔警察', '马塔尼邦巡查队'}
+      or any(term in fact['value'] for term in ('办公室', '办公楼', '办事处', '宅邸', '探索队', '巡逻小队', '审判所', '裁判所', '联合调查组'))
+     ):
+      raise ValueError(f'任职地点或下属单位不能单列为组织: {document_path}: {fact["value"]}')
      entry['classificationEvidence'].append({'kind': kind, **fact})
 
 name_ids = {}
@@ -1529,3 +1641,5 @@ for short, ids in short_ids.items():
 output=root/'source/relationships/character-index.js'
 output.write_text('// 由 tools/build-character-index.py 生成；提及数是字面匹配，并非消歧后的完整人数。\nconst indexedCharacters = '+json.dumps(out,ensure_ascii=False,indent=2)+';\n',encoding='utf-8')
 print(f'已生成 {len(out)} 位候选人物')
+
+build_directory(out)

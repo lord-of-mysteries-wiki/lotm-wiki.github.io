@@ -53,3 +53,6 @@ button.palette-item:hover,button.palette-item:focus-visible{border-color:current
 .palette-legend[data-mode="organization"] i{clip-path:polygon(50% 0,94% 25%,94% 75%,50% 100%,6% 75%,6% 25%)}
 .palette-legend[data-mode="nationality"] i{clip-path:polygon(8% 10%,92% 10%,88% 61%,74% 84%,50% 100%,26% 84%,12% 61%)}
 .palette-legend[data-mode="pathway"] i{clip-path:polygon(50% 0,92% 50%,50% 100%,8% 50%)}
+
+.organization-members{flex:0 0 100%;min-width:0;padding:8px 0 12px}
+.palette-item[aria-expanded="true"]{border-color:var(--swatch);color:var(--swatch-accent);background:color-mix(in srgb,var(--swatch) 14%,var(--panel))}

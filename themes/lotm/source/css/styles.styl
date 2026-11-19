@@ -142,3 +142,55 @@ a:hover
 .event-time p
   margin .4rem 0
   font-size var(--text-body)
+
+// 反馈表单
+.feedback-form
+  max-width 680px
+  margin 2rem 0
+  display grid
+  gap 1.4rem
+.feedback-field
+  display grid
+  gap .5rem
+.feedback-field label
+  color #e4e6f3
+  font-family sans-serif
+  font-weight 600
+.feedback-field input, .feedback-field textarea
+  width 100%
+  padding .8rem 1rem
+  border 1px solid #555f75
+  border-radius 8px
+  background #292f42
+  color #e4e6f3
+  font inherit
+  line-height 1.6
+.feedback-field textarea
+  resize vertical
+.feedback-field input:focus, .feedback-field textarea:focus
+  outline 2px solid #a8dfd7
+  outline-offset 2px
+.feedback-field input::placeholder, .feedback-field textarea::placeholder
+  color #9aa4b9
+.feedback-form button
+  justify-self start
+  padding .75rem 1.25rem
+  border 1px solid #73b8b9
+  border-radius 8px
+  background #334b55
+  color #d3f4f0
+  font inherit
+  font-family sans-serif
+  cursor pointer
+.feedback-form button:hover
+  background #405e66
+.feedback-form button:focus-visible
+  outline 2px solid #a8dfd7
+  outline-offset 2px
+.feedback-note
+  margin 0
+  color #b3bbce
+  font-size .9em
+.feedback-form button:disabled
+  opacity .55
+  cursor not-allowed

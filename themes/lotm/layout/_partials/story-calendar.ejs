@@ -29,7 +29,7 @@ const records = site.pages.toArray().filter(item => item.timeline_event).map(ite
     <input type="search" aria-label="搜索事件" placeholder="搜索事件名称"><button type="button" data-close-finder>关闭</button></div>
     <div class="agenda-list" tabindex="0"></div>
   </dialog>
-  <small>星期据故事内日期推排</small>
+  <small data-weekday-note>星期据故事内日期推排</small>
   <noscript>请启用 JavaScript 切换日历视图，或通过时间线阅读事件。</noscript>
   <script type="application/json"><%- JSON.stringify(records).replace(/</g,'\\u003c') %></script>
 </article>

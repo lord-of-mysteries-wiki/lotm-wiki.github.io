@@ -6,7 +6,8 @@
     { path: 'characters/', zh: '角色介绍', en: 'Characters' },
     { path: 'relationships/', zh: '人物关系', en: 'Relationships' },
     { path: 'artifacts/', zh: '非凡物品', en: 'Extraordinary Items' },
-    { path: 'timeline/', zh: '时间线', en: 'Timeline' }
+    { path: 'timeline/', zh: '时间线', en: 'Timeline' },
+    { path: 'feedback/', zh: '反馈', en: 'Feedback' }
   ];
   for (const nav of document.querySelectorAll('[data-site-navigation]')) {
     const root = new URL(nav.dataset.root || './', document.baseURI);

@@ -12,8 +12,17 @@
     d.setUTCMonth(d.getUTCMonth() + step);
     return d.getTime();
   }
-  // Monday = 0. The novel places 1349-06-28 on Thursday.
-  const weekday = n => (((n - read('1349-06-28')) / oneDay + 3) % 7 + 7) % 7;
+  // The Tingen and December weekday references disagree when extrapolated.
+  // Keep each displayed grid internally consistent with its reference month.
+  const weekdayReferences = {
+    '1349-12': ['1349-12-21', 1, '皇冠墓园葬礼当天（1349年12月21日，周二）'],
+    '1350-01': ['1350-01-12', 2, '白玛瑙号抵达拜亚姆当天（1350年1月12日，周三）']
+  };
+  function weekday(date, referenceMonth) {
+    const [anchorDate, anchorWeekday] = weekdayReferences[referenceMonth] || ['1349-06-28', 3];
+    const anchor = read(anchorDate);
+    return (((date - anchor) / oneDay + anchorWeekday) % 7 + 7) % 7;
+  }
   const byDay = new Map();
   for (const event of events) {
     if (!event.start) continue;
@@ -25,6 +34,7 @@
   const dates = [...byDay.keys()].sort();
   let selected = read(dates[0] || '1349-06-28');
   let mode = 'month';
+  let weekStart;
   const grid = root.querySelector('.almanac-grid');
   const jump = root.querySelector('.almanac-tools select');
   function clueMonths(event) {
@@ -78,18 +88,24 @@
   function render() {
     root.dataset.mode = mode;
     for (const button of root.querySelectorAll('button[data-mode]')) button.setAttribute('aria-pressed', String(button.dataset.mode === mode));
+    const referenceMonth = iso(selected).slice(0,7);
+    const weekdayNote = root.querySelector('[data-weekday-note]');
+    weekdayNote.textContent = weekdayReferences[referenceMonth]
+      ? '本期按' + weekdayReferences[referenceMonth][2] + '推排星期。'
+      : '本期星期按廷根篇推定的1349年6月28日周四排布。';
     let first = selected, count = 1;
     if (mode === 'month') {
       const start = monthStart(selected);
-      first = start - weekday(start) * oneDay;
+      first = start - weekday(start, referenceMonth) * oneDay;
       count = Math.ceil((moveMonth(start,1) - first) / (7 * oneDay)) * 7;
     } else if (mode === 'week') {
-      first -= weekday(first) * oneDay;
+      first -= weekday(first, referenceMonth) * oneDay;
+      weekStart = first;
       count = 7;
     }
     const [year, month, day] = iso(selected).split('-').map(Number);
     root.querySelector('.almanac-period h1').textContent = mode === 'week' ? iso(first) + ' — ' + iso(first + 6 * oneDay) :
-      year + ' 年 ' + month + ' 月' + (mode === 'day' ? ' ' + day + ' 日 · 周' + '一二三四五六日'[weekday(selected)] : '');
+      year + ' 年 ' + month + ' 月' + (mode === 'day' ? ' ' + day + ' 日 · 周' + '一二三四五六日'[weekday(selected, referenceMonth)] : '');
     grid.style.setProperty('--rows', mode === 'month' ? count / 7 : 1);
     grid.replaceChildren();
     for (let i = 0; i < count; i++) {
@@ -131,7 +147,9 @@
   for (const b of root.querySelectorAll('button[data-mode]')) b.onclick = () => { mode = b.dataset.mode; render(); };
   for (const b of root.querySelectorAll('[data-step]')) b.onclick = () => {
     const step = Number(b.dataset.step);
-    selected = mode === 'month' ? moveMonth(selected,step) : selected + step * oneDay * (mode === 'week' ? 7 : 1);
+    if (mode === 'month') selected = moveMonth(selected,step);
+    else if (mode === 'week') selected = weekStart + (step > 0 ? 7 : -1) * oneDay;
+    else selected += step * oneDay;
     render();
   };
   jump.onchange = () => {

@@ -2,11 +2,17 @@
 title: "“K先生”"
 layout: index
 character_profile: true
-graph_classifications: {"organization": [], "nationality": []}
+graph_classifications: {"organization": [{"value": "极光会", "source": "《宿命之环》第二部，第一百二十二章《K先生的目的》、第一百二十三章《活动经费》；第三部，第十八章《倒影》", "note": "K先生主持卢米安的入会仪式，后来被明确称为极光会神使。"}], "nationality": [{"value": "因蒂斯", "source": "《宿命之环》第二部，第一百二十二章《K先生的目的》、第一百二十三章《活动经费》", "note": "卢米安在特里尔林荫大道区舍尔街19号与他当面会谈，按相遇地点暂定。", "certainty": "inferred"}]}
 permalink: "characters/entries/“K先生”/"
 profile_work: "宿命之环"
 document_name: "“K先生”"
 profile_facts:
+  - label: 身份与国籍
+    summary: "因蒂斯（推定）"
+    source_section: 身份与国籍
+  - label: 所属组织
+    summary: "极光会"
+    source_section: 所属组织与身份
   - label: 所属作品
     value: "《宿命之环》"
   - label: 途径与序列
@@ -17,3 +23,11 @@ profile_facts:
 ## 途径与序列经历
 
 - 秘祈人途径。第二部第六十九章《信使的反应》中，佛尔思根据能力推测他大概率是“牧羊人”；第四部第九十三章《“骗”》明确称其为序列5“牧羊人”。第四部第八十四章《秘偶》中使用的“蔷薇主教”能力不另记为后续晋升阶段。
+
+## 所属组织与身份
+
+- 所属组织：极光会。K先生主持卢米安的入会仪式，后来被明确称为极光会神使。依据：《宿命之环》第二部，第一百二十二章《K先生的目的》、第一百二十三章《活动经费》；第三部，第十八章《倒影》。
+
+## 身份与国籍
+
+- 国籍：因蒂斯（推定）。卢米安在特里尔林荫大道区舍尔街19号与他当面会谈，按相遇地点暂定。依据：《宿命之环》第二部，第一百二十二章《K先生的目的》、第一百二十三章《活动经费》。
