@@ -26,7 +26,7 @@ hexo server
 
 ## 字体
 
-网站自托管 Inter、Libre Baskerville、Noto Sans SC（思源黑体）和 Noto Serif SC（思源宋体）的 WOFF2 网页字体。字体采用 SIL Open Font License 1.1，各字体目录下的 `OFL.txt` 保留了授权及版权信息。英文使用拉丁字符集，中文字体各使用一个按全站用字裁剪的可变字重文件；加载期间先显示系统备用字体。英文字体来自 Fontsource 字体包；中文字体来自 Google Fonts 字体仓库并转换为 WOFF2。完整字库放在 `tools/font-sources/`。新增内容后，使用安装了 `fonttools[woff]` 的 Python 运行 `python3 tools/subset-fonts.py` 更新本地字体。Pages 部署时会自动重新裁剪。
+正文使用浏览器默认衬线字体，标题、导航和控件使用默认无衬线字体。
 
 ## 文件结构
 
@@ -34,5 +34,4 @@ hexo server
 - `source/relationships/relationship-data.js`：关系网的人物与关系数据；`character-index.js` 由 `tools/build-character-index.py` 生成。
 - `source/characters/entries/`：人物独立档案。已迁移档案的 `graph_classifications` 使用 JSON 对象，按 `organization`、`nationality` 分别列出带 `value` 和 `source` 的记录；同一人物可有多项组织。字段中的分类以档案为准，空数组表示该类暂无已核实的分组。尚未迁移的分类暂由生成脚本维护；更新人物正文时也需同步更新对应分类字段。
 - `source/css/typography.css`：全站共用的字体及字号层级；主题和关系网的样式文件分别负责各自的布局与组件。
-- `source/fonts/`：按字体分目录保存网页字体及授权文件。
 - `public/`：生成目录，由 Hexo 构建，不应手动编辑。

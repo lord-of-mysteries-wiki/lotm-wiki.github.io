@@ -1,7 +1,7 @@
 /* 网站共同的字体族和文字层级。 */
 :root {
-  --font-ui: 'Inter', 'Noto Sans SC', 'Source Han Sans SC', 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', 'Heiti SC', sans-serif;
-  --font-reading: 'Libre Baskerville', 'Noto Serif SC', 'Source Han Serif SC', 'Noto Serif CJK SC', 'Songti SC', 'STSong', 'SimSun', serif;
+  --font-ui: sans-serif;
+  --font-reading: serif;
   --text-body: 1rem;
   --text-ui: .875rem;
   --text-meta: .8125rem;

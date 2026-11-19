@@ -4,10 +4,7 @@
   <title><%= page.title ? page.title + ' | ' + config.title : config.title %></title>
   <% if (page.character_directory) { %>
   <style><%- directory_styles() %></style>
-  <link rel="stylesheet" href="<%= url_for('/fonts/fonts.css') %>" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="<%= url_for('/fonts/fonts.css') %>"></noscript>
   <% } else { %>
-  <link rel="stylesheet" href="<%= url_for('/fonts/fonts.css') %>">
   <%- css('css/styles') %>
   <% if (page.relationship_graph) { %>
   <link rel="stylesheet" href="<%= url_for('/relationships/graph.css') %>">
