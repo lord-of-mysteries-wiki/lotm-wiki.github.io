@@ -2,6 +2,12 @@
 db.json
 public/
 
+# 本地维护资料
+/docs/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+
 # Logs
 logs
 *.log
