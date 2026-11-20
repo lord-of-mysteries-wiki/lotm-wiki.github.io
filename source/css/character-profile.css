@@ -38,3 +38,5 @@
 .directory-tools button:hover { background:#394254; color:#e3f1ef; }
 .directory-tools button[aria-pressed=true] { background:#465866; color:#b5e7df; }
 .directory-tools button:focus-visible { outline:2px solid #a5dfd9; outline-offset:2px; }
+
+.directory-list .directory-inferred { display:inline; margin-inline-start:.5em; }

@@ -1,7 +1,9 @@
 <%
 const records = site.pages.toArray().filter(item => item.timeline_event).map(item => ({
   start: String(item.event_time || ''), end: item.event_time_end || '', title: item.title,
-  work: item.event_work || '', summary: item.event_summary || '', note: item.event_time_note || '',
+  work: item.event_work || '', summary: item.event_summary || '',
+  summaryParts: event_summary_parts(item).map(part => ({ text: part.text, url: part.target ? url_for('/' + part.target) : '' })),
+  note: item.event_time_note || '',
   description: strip_html((item.content.match(/<p>([\s\S]*?)<\/p>/) || [])[1] || ''),
   basis: item.event_time_basis || '', source: item.event_time_source || '',
   url: item.event_summary ? '' : url_for('/' + item.path),

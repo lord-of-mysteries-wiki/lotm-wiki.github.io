@@ -4,9 +4,14 @@ const books = ['诡秘之主', '宿命之环'];
 const collator = new Intl.Collator('zh-CN', {numeric: true, ignorePunctuation: true});
 const profiles = site.pages.toArray()
   .filter(p => p.character_profile && p.path.startsWith('characters/entries/'))
-  .map(p => ({page: p, data: stats[decodeURIComponent(p.path.split('/')[2])] || {}}))
-  .sort((a, b) => books.indexOf(a.page.profile_work) - books.indexOf(b.page.profile_work)
-    || (b.data.bookMentions ?? -1) - (a.data.bookMentions ?? -1)
+  .map(page => {
+    const data = stats[decodeURIComponent(page.path.split('/')[2])] || {};
+    const counts = data.counts || {};
+    const mentionWork = books.every(book => counts[book] > 0) ? books[0] : (data.work || page.profile_work);
+    return {page, data, mentionWork, mentions: counts[mentionWork] ?? -1};
+  })
+  .sort((a, b) => books.indexOf(a.mentionWork) - books.indexOf(b.mentionWork)
+    || b.mentions - a.mentions
     || collator.compare(a.page.title, b.page.title));
 %>
 <article class="article character-directory">
@@ -18,15 +23,15 @@ const profiles = site.pages.toArray()
   </div>
   <div id="character-list" class="directory-list">
     <% let previousHeading;
-    for (const {page: person, data} of profiles) {
+    for (const {page: person, data, mentionWork} of profiles) {
       const volume = data.volume?.split(/\s+/)[0].replace(/部$/, '卷') || '卷次待核';
-      const heading = '《' + person.profile_work + '》';
+      const heading = '《' + mentionWork + '》';
       const chapter = data.chapter?.match(/^第[零〇一二三四五六七八九十百千万0-9]+章|[（(][零〇一二三四五六七八九十百千万0-9]+[）)]$/)?.[0];
       const organizations = [...new Set((person.graph_classifications?.organization || []).map(f => f.value))].sort(collator.compare);
       if (previousHeading !== heading) { previousHeading = heading; %>
         <h2 class="directory-group-heading"><%= heading %></h2>
       <% } %>
-      <a data-work="<%= person.profile_work %>" data-volume="<%= heading + volume %>" data-order="<%= data.order ?? '' %>" data-chapter="<%= chapter || '' %>" data-org="<%= JSON.stringify(organizations) %>" data-pathways="<%= JSON.stringify(data.pathways || []) %>" data-ordinary="<%= !!person.ordinary_in_cited_period %>" id="<%= person.title %>" href="<%= url_for(person.path.replace(/index\.html$/, '')) %>"><span><%= person.title %></span></a>
+      <a data-work="<%= data.work || mentionWork %>" data-volume="<%= '《' + (data.work || mentionWork) + '》' + volume %>" data-order="<%= data.order ?? '' %>" data-chapter="<%= chapter || '' %>" data-org="<%= JSON.stringify(organizations) %>" data-pathways="<%= JSON.stringify(data.pathways || []) %>" data-ordinary="<%= !!person.ordinary_in_cited_period %>" id="<%= person.title %>" href="<%= url_for(person.path.replace(/index\.html$/, '')) %>"><span><%= person.title %></span></a>
     <% } %>
   </div>
 </article>

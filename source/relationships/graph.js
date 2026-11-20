@@ -19,7 +19,8 @@ function pathwayStyle(person){
  const marked=members.filter(f=>f.primary);
  const main=members.length===1?members[0]:marked.length===1?marked[0]:null;
  const rings=members.filter(f=>f!==main).map(f=>f.value).sort((a,b)=>a.localeCompare(b,'zh-CN'));
- const fallback=members.length===0?facts.find(f=>f.relation==='member'&&f.inferred):null;
+ const inferred=facts.filter(f=>f.relation==='member'&&f.inferred);
+ const fallback=members.length===0&&inferred.length===1?inferred[0]:null;
  const core=main||fallback;
  const color=pathwayPalette[core?.value];
  const style={main,rings,core,primary:color?.primary||(rings.length?'#D0D6DD':'#8790a3'),accent:color?.accent||'#B8C4D5'};
@@ -38,10 +39,15 @@ function pathwayDescription(p){
  const parts=[];
  if(main)parts.push((rings.length?'主途径：':'途径：')+main.value);
  if(rings.length)parts.push((main?'其他途径经历：':'已核实途径经历：')+rings.join('、'));
+ const alternatives=(p.progression||[]).filter(stage=>stage.candidatePathways?.length);
+ for(const stage of alternatives)parts.push('候选途径：'+stage.candidatePathways.join('或'));
  for(const fact of pathways(p)){
-  if(fact.relation==='authority')parts.push('权柄／唯一性关联：'+fact.value);
-  else if(fact.inferred)parts.push('推定途径：'+fact.value);
+  if(fact.relation==='ability')parts.push('具备部分能力：'+fact.value);
+  else if(fact.relation==='sefirah')parts.push('源质关联：'+fact.value);
+  else if(fact.relation==='authority')parts.push('权柄／唯一性关联：'+fact.value);
+  else if(fact.inferred&&!alternatives.some(stage=>stage.candidatePathways.includes(fact.value)))parts.push('推定途径：'+fact.value);
  }
+ if(p.ordinaryInCitedPeriod)parts.push(pathwayStatus(p));
  return parts.join(' · ')||pathwayStatus(p);
 }
 let expandedOrganization=null;
@@ -62,7 +68,7 @@ function renderPalette() {
  }
  const items=[...counts].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'zh-CN'));
  const chips=items.map(([key,count])=>{
-  const clickable=mode==='organization'&&!key.endsWith('待核实');
+  const clickable=mode==='organization'&&key!=='独立'&&!key.endsWith('待核实');
   const tag=clickable?'button':'span';
   const attributes=clickable?` type="button" aria-expanded="false" data-org="${esc(key)}"`:'';
   const estimate=inferred.has(key)?`（含推定 ${inferred.get(key)}）`:'';
@@ -74,15 +80,20 @@ function renderPalette() {
  if(expandedOrganization&&mode==='organization')renderOrganizationMembers();
 }
 function pathwayFact(p){return pathways(p)[0]||null}
-function pathways(p){const found=new Map();function add(value,inferred,relation='member',primary=false){if(!value)return;const key=pathwayNames[value]||value,previous=found.get(key);if(!previous||(previous.relation==='authority'&&relation==='member')||(previous.relation===relation&&previous.inferred&&!inferred))found.set(key,{value:key,inferred,relation,primary});else if(primary&&!inferred&&relation==='member')previous.primary=true}for(const fact of p.classificationEvidence||[]){const value=fact.kind==='pathway'?fact.value:fact.kind==='sequence'?pathwayFromSequence[fact.value]:null;add(value,fact.certainty==='inferred',fact.relation||'member',fact.primary===true)}for(const stage of p.progression||[])add(stage.pathway,stage.certainty==='inferred',stage.relation||'member',stage.primary===true);return [...found.values()]}
+function pathways(p){const found=new Map();function add(value,inferred,relation='member',primary=false){if(!value)return;const key=pathwayNames[value]||value,previous=found.get(key);if(!previous||(previous.relation!=='member'&&relation==='member')||(previous.relation===relation&&previous.inferred&&!inferred))found.set(key,{value:key,inferred,relation,primary});else if(primary&&!inferred&&relation==='member')previous.primary=true}for(const fact of p.classificationEvidence||[]){const value=fact.kind==='pathway'?fact.value:fact.kind==='sequence'?pathwayFromSequence[fact.value]:null;add(value,fact.certainty==='inferred',fact.relation||'member',fact.primary===true)}for(const stage of p.progression||[]){add(stage.pathway,stage.certainty==='inferred',stage.relation||'member',stage.primary===true);for(const candidate of stage.candidatePathways||[])add(candidate,true)}return [...found.values()]}
 function pathway(p){return pathwayFact(p)?.value||null}
 const pathwayNames={'愚者':'占卜家','门':'学徒','错误':'偷盗者','倒吊人':'秘祈人','空想家':'观众','暴君':'水手','太阳':'歌颂者','白塔':'阅读者','黑夜':'不眠者','黑暗':'不眠者','死神':'收尸人','黄昏巨人':'战士','母亲':'耕种者','月亮':'药师','审判者':'仲裁人','黑皇帝':'律师','红祭司':'猎人','魔女':'刺客','深渊':'罪犯','被缚者':'囚犯','隐者':'窥秘人','完美者':'通识者','命运之轮':'怪物','宿命':'舞蹈家','永劫者':'舞蹈家','混沌原胎':'恶棍','混沌迷雾':'掮客','主父':'吝啬鬼','永生律':'失梦人','致密者':'天文爱好者','吞尾者':'流浪汉','尘世之眼':'萨满','不朽者':'入门者','第二定律':'病患'};
 function category(p,kind){if(kind==='pathway'){const value=pathway(p);return pathwayNames[value]||value||pathwayStatus(p)}return (p.classificationEvidence||[]).find(x=>x.kind===kind)?.value||(kind==='organization'?'组织待核实':'国籍待核实')}
 const isolatePreferences = new Map([['organization', true], ['nationality', true]]);
 const grouping=document.getElementById('group-mode');let groupMode='network',groupAnchors=new Map();
 function groupKey(p,mode){return category(p,mode)}
-function groupKeys(p,mode){if(mode==='organization'||mode==='nationality'){const values=(p.classificationEvidence||[]).filter(x=>x.kind===mode).map(x=>x.value);return values.length?[...new Set(values)]:[mode==='organization'?'组织待核实':'国籍待核实']}if(mode!=='pathway')return [groupKey(p,mode)];const values=pathways(p).map(x=>pathwayNames[x.value]||x.value);return values.length?[...new Set(values)]:[pathwayStatus(p)]}
+function groupKeys(p,mode){if(mode==='organization'||mode==='nationality'){const values=(p.classificationEvidence||[]).filter(x=>x.kind===mode).map(x=>x.value);return values.length?[...new Set(values)]:[mode==='organization'?'组织待核实':'国籍待核实']}if(mode!=='pathway')return [groupKey(p,mode)];const values=pathways(p).map(x=>pathwayNames[x.value]||x.value);if(p.ordinaryInCitedPeriod)values.push(pathwayStatus(p));return values.length?[...new Set(values)]:[pathwayStatus(p)]}
+function layoutGroupKeys(person, mode) {
+ const keys=groupKeys(person, mode);
+ return mode==='organization' ? keys.filter(key=>key!=='独立') : keys;
+}
 function inferredGroup(person, kind, value) {
+ if(kind==='pathway')return pathways(person).some(fact=>fact.value===value && fact.inferred);
  const facts = (person.classificationEvidence || []).filter(f => f.kind === kind && f.value === value);
  return facts.length > 0 && facts.every(f => f.certainty === 'inferred');
 }
@@ -100,7 +111,7 @@ function finalPathwayRank(person){
  let best=null,startedPeriod=false;
  for(const stage of person.progression||[]){
   if(!stage.samePeriodAsPrevious)startedPeriod=false;
-  if(stage.relation==='authority'||stage.certainty==='inferred')continue;
+  if(stage.relation==='authority'||(stage.certainty==='inferred' && stage.sequenceCertainty!=='confirmed')||stage.sequenceCertainty==='inferred')continue;
   if(!startedPeriod){best=null;startedPeriod=true}
   const label=stage.sequence||'';
   const match=label.match(/^(?:序列|相当于序列|出生即相当于序列|恩赐：相当于序列|恢复至序列|再度晋升序列|失去序列1特性，以序列)([0-9])(?![0-9])/);
@@ -262,7 +273,7 @@ function spaceForCaptions(hubs,central){
 }
 function arrangeGroups(){
  groupAnchors=new Map();if(groupMode==='network')return;
- const list=activeNodes(),members=new Map();for(const n of list){for(const key of groupKeys(n.p,groupMode)){if(!members.has(key))members.set(key,[]);members.get(key).push(n)}}
+ const list=activeNodes(),members=new Map();for(const n of list){for(const key of layoutGroupKeys(n.p,groupMode)){if(!members.has(key))members.set(key,[]);members.get(key).push(n)}}
  const keys=[...members.keys()].filter(key=>!key.endsWith('待核实')).sort((a,b)=>members.get(b).length-members.get(a).length||a.localeCompare(b,'zh-CN'));
  const aspect=width>0&&height>0?width/height:1;
  const cols=Math.max(1,Math.min(keys.length,Math.ceil(Math.sqrt(keys.length*aspect)))),rows=Math.ceil(keys.length/cols),spacing=250;
@@ -289,7 +300,7 @@ function arrangeGroups(){
  }
  const weights=new Map();
  for(const {source,target,relation} of layoutEdges){
-  const left=groupKeys(source.p,groupMode),right=groupKeys(target.p,groupMode);
+  const left=layoutGroupKeys(source.p,groupMode),right=layoutGroupKeys(target.p,groupMode);
   const tags=relation.categories||[];
   const hostile=tags.some(tag=>tag==='敌对'||tag==='仇恨');
   const friendly=tags.some(tag=>!['熟人','敌对','仇恨'].includes(tag));
@@ -324,7 +335,7 @@ function arrangeGroups(){
  const spread=Math.max(180,Math.sqrt(hubs.reduce((sum,h)=>sum+h.x*h.x+h.y*h.y,0)/Math.max(1,hubs.length)));
  for(const n of list){
   const anchorKey=groupMode==='pathway'?pathwayStyle(n.p).main?.value:null;
-  const h=groupAnchors.get(anchorKey)||groupKeys(n.p,groupMode).map(key=>groupAnchors.get(key)).find(Boolean);
+  const h=groupAnchors.get(anchorKey)||layoutGroupKeys(n.p,groupMode).map(key=>groupAnchors.get(key)).find(Boolean);
   n.peripheral=!h;
   n.contactWeight=0;
   if(h){
@@ -341,7 +352,7 @@ function arrangeGroups(){
     for(const id of contacts){
      const person=byId.get(id);
      if(!person||id===n.p.id)continue;
-     const groups=groupKeys(person,groupMode).filter(k=>groupAnchors.has(k)&&!inferredGroup(person,groupMode,k));
+     const groups=layoutGroupKeys(person,groupMode).filter(k=>groupAnchors.has(k)&&!inferredGroup(person,groupMode,k));
      for(const key of groups){
       const hub=groupAnchors.get(key),weight=1/groups.length;
       sumX+=hub.x*weight;sumY+=hub.y*weight;n.contactWeight+=weight;
@@ -393,7 +404,7 @@ function frameCharacters(list,center,animate=false){
  minimumZoom=Math.min(.25,scale*.5);
  moveCamera(-center.x*scale,-center.y*scale,scale,animate?300:0,'default');
 }
-function restore(){const q=new URLSearchParams(location.search),canonical=id=>({celia:'jenna',hibbert_hall:'hibbert',roche_louise:'roche',vermond_sauron:'vermonda'}[id]||id),first=canonical(q.get('a')),second=canonical(q.get('b'));a=byId.has(first)?first:null;b=a&&byId.has(second)&&second!==a?second:null}
+function restore(){const q=new URLSearchParams(location.search),canonical=id=>({celia:'jenna',hibbert_hall:'hibbert',roche_louise:'roche',vermond_sauron:'vermonda','profile-月夫人':'lady_moon'}[id]||id),first=canonical(q.get('a')),second=canonical(q.get('b'));a=byId.has(first)?first:null;b=a&&byId.has(second)&&second!==a?second:null}
 function updateUrl(){const u=new URL(location.href);u.searchParams.delete('organization');u.searchParams.delete('a');u.searchParams.delete('b');if(a)u.searchParams.set('a',a);if(b)u.searchParams.set('b',b);history.pushState(null,'',u)}
 function focusPerson(id){layoutTransition=null;const node=nodeMap.get(id);if(!node)return;temperature=0;moveCamera(-node.x*1.35,-node.y*1.35,1.35,450)}
 function select(id){if(!byId.has(id))return;search.value='';if(!a){a=id;b=null}else if(id===a){b=null}else if(b&&id!==b){a=id;b=null}else b=id;if(!isolates.checked&&!edgesOf(id).length){isolates.checked=true;arrangeGroups()}updateUrl();render();focusPerson(id)}
@@ -634,7 +645,7 @@ function draw(){
  if(layoutTransition&&layoutTransition.oldHubs.length){ctx.save();ctx.globalAlpha=1-layoutTransition.progress;for(const h of layoutTransition.oldHubs){const x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom;drawHub(x,y,h.mode,h.color,categoryColors(h.mode,h.key).accent);ctx.font='12px sans-serif';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillStyle='rgba(228,234,245,.92)';labels.push({text:h.key,x,y,r:12,below:captionsBelow(h.mode),priority:0,alpha:ctx.globalAlpha})}ctx.restore()}
  // Membership links are separate from person-to-person relationships.
  if(groupMode!=='network'){ctx.save();if(layoutTransition)ctx.globalAlpha=layoutTransition.progress;
-  for(const n of [...list].sort((x,y)=>Number(x.p.id===focus)-Number(y.p.id===focus)))for(const key of groupKeys(n.p,groupMode)){const h=groupAnchors.get(key);if(!h)continue;const p=screen(n),x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom,highlight=n.p.id===focus;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(p.x,p.y);ctx.lineWidth=highlight?2.5:.5;ctx.strokeStyle=highlight?rgba(hubColor(key,groupMode),.95):'rgba(175,193,211,.12)';ctx.setLineDash(groupMode==='pathway'&&pathways(n.p).find(x=>x.value===key)?.relation==='authority'?[4,3]:[]);ctx.stroke()}ctx.setLineDash([]);
+  for(const n of [...list].sort((x,y)=>Number(x.p.id===focus)-Number(y.p.id===focus)))for(const key of groupKeys(n.p,groupMode)){const h=groupAnchors.get(key);if(!h)continue;const p=screen(n),x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom,highlight=n.p.id===focus;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(p.x,p.y);ctx.lineWidth=highlight?2.5:.5;ctx.strokeStyle=highlight?rgba(hubColor(key,groupMode),.95):'rgba(175,193,211,.12)';ctx.setLineDash(groupMode==='pathway'&&pathways(n.p).some(x=>x.value===key && x.relation!=='member')?[4,3]:[]);ctx.stroke()}ctx.setLineDash([]);
   for(const h of groupAnchors.values()){const x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom;if(x< -100||x>width+100||y< -50||y>height+50)continue;const color=hubColor(h.key,groupMode);drawHub(x,y,groupMode,color,categoryColors(groupMode,h.key).accent);labels.push({text:h.key,x,y,r:12,below:captionsBelow(groupMode),required:x>=0&&x<=width&&y>=0&&y<=height,priority:h.key===inspectedHub?5:h.key===centralGroup[groupMode]?4:1+Math.min(.9,h.count/100),alpha:ctx.globalAlpha})}
   ctx.restore();
  }
@@ -684,12 +695,18 @@ function pathwayBadge(person){
  const stops=rings.map((key,i)=>`transparent ${i*span}deg ${i*span+gap/2}deg, ${ringColor(key)} ${i*span+gap/2}deg ${(i+1)*span-gap/2}deg, transparent ${(i+1)*span-gap/2}deg ${(i+1)*span}deg`);
  return `<i class="pathway-badge" style="--core:${primary};background-image:conic-gradient(${stops.join(',')})" aria-hidden="true"></i>`;
 }
-function classification(p){const profileLines=p.documentProfile||[];const profile=p.documentProfileUrl?`<details class="meta" open><summary>${profileLines.length?'人物文档：国籍与组织':'人物文档'}</summary>${profileLines.map(line=>`<p>${esc(line)}</p>`).join('')}<p><a href="${esc(p.documentProfileUrl)}">查看人物文档</a></p></details>`:'';const facts=p.classificationEvidence||[],overview=`<p class="meta">组织：${esc(groupSummary(p,'organization'))} · 国籍：${esc(groupSummary(p,'nationality'))} · ${pathwayBadge(p)}${esc(pathwayDescription(p))}</p>`;const stages=p.progression||[];const progression=stages.length?`<div class="meta"><strong>已收录的序列经历</strong>${stages.map(x=>`<p>${x.pathway?esc(x.pathway)+'途径':esc(x.scopeLabel||'途径待核实')} · ${esc(x.sequence)}${x.certainty==='inferred'?'（推测）':''}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}<p>未列出的中间阶段仍待核实。</p></div>`:'';if(!facts.length)return overview+profile+progression;const labels={organization:'组织',nationality:'国籍',sequence:'序列线索',pathway:'途径'};return overview+profile+progression+`<details class="meta"><summary>已核对的分类线索（${facts.length}）</summary>${facts.map(x=>`<p>${esc(labels[x.kind]||x.kind)}：${esc(x.value)}${x.unit?' · '+esc(x.unit):''}${x.certainty==='inferred'?'（推测）':''}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}<p>其他属性待核实；序列线索反映所引章节中的状态。</p></details>`}
+function stageCertaintyLabel(stage){
+ if(stage.certainty==='inferred' && stage.sequenceCertainty==='confirmed')return /^序列[0-9]+(?:[“「]|天使)/.test(stage.sequence)?'（途径推测，序列已确认）':'（途径推测，位阶范围已确认）';
+ if(stage.sequenceCertainty==='inferred')return stage.certainty==='inferred'?'（途径与序列均为推测）':'（序列推测）';
+ return stage.certainty==='inferred'?'（推测）':'';
+}
+function classification(p){const profileLines=(p.documentProfile||[]).filter(line=>!/^(?:所属组织|其他组织经历|后续组织经历)：/.test(line));const profile=p.documentProfileUrl?`<details class="meta" open><summary>人物文档</summary>${profileLines.map(line=>`<p>${esc(line)}</p>`).join('')}<p><a href="${esc(p.documentProfileUrl)}">查看人物文档</a></p></details>`:'';const facts=p.classificationEvidence||[],overview=`<p class="meta">组织：${esc(groupSummary(p,'organization'))} · 国籍：${esc(groupSummary(p,'nationality'))} · ${pathwayBadge(p)}${esc(pathwayDescription(p))}</p>`;const stages=p.progression||[];const progression=stages.length?`<div class="meta"><strong>已收录的序列经历</strong>${stages.map(x=>`<p>${x.samePeriodAsPrevious?'与上一条并存 · ':''}${x.pathway?esc(x.pathway)+'途径':esc(x.scopeLabel||'途径待核实')} · ${esc(x.sequence)}${stageCertaintyLabel(x)}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}<p>未列出的中间阶段仍待核实。</p></div>`:'';if(!facts.length)return overview+profile+progression;const labels={organization:'组织',nationality:'国籍',sequence:'序列线索',pathway:'途径'};return overview+profile+progression+`<details class="meta"><summary>已核对的分类线索（${facts.length}）</summary>${facts.map(x=>`<p>${esc(x.relation==='ability'?'能力关联':x.relation==='sefirah'?'源质关联':labels[x.kind]||x.kind)}：${esc(x.value)}${x.unit?' · '+esc(x.unit):''}${x.certainty==='inferred'?'（推测）':''}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}<p>其他属性待核实；序列线索反映所引章节中的状态。</p></details>`}
 function organizationNames(person) {
  return (person.classificationEvidence || []).filter(fact => fact.kind === 'organization').map(fact => fact.value);
 }
 function matchesSearch(person, query) {
  const names = [person.name, person.short, person.alias, ...organizationNames(person)];
+ if(person.ordinaryInCitedPeriod)names.push(pathwayStatus(person));
  return names.some(name => name && name.toLowerCase().includes(query));
 }
 function searchResults(query) {
@@ -714,7 +731,7 @@ function renderProgressionSteps(stages){
  }
  return periods.map((period,index)=>{
   const labels=period.map(stage=>{
-   const certainty=stage.certainty==='inferred'?'（推测）':'';
+   const certainty=stageCertaintyLabel(stage);
    const authority=stage.relation==='authority'?'（权柄／唯一性关联）':'';
    return esc(stage.pathway||stage.scopeLabel||'途径待核实')+' · '+esc(stage.sequence)+certainty+authority;
   });

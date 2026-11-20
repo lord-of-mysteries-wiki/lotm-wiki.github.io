@@ -16,7 +16,8 @@
   // Keep each displayed grid internally consistent with its reference month.
   const weekdayReferences = {
     '1349-12': ['1349-12-21', 1, '皇冠墓园葬礼当天（1349年12月21日，周二）'],
-    '1350-01': ['1350-01-12', 2, '白玛瑙号抵达拜亚姆当天（1350年1月12日，周三）']
+    '1350-01': ['1350-01-12', 2, '白玛瑙号抵达拜亚姆当天（1350年1月12日，周三）'],
+    '1350-06': ['1350-06-05', 6, '霍尔家族准备生日舞会当天（1350年6月5日，周日）']
   };
   function weekday(date, referenceMonth) {
     const [anchorDate, anchorWeekday] = weekdayReferences[referenceMonth] || ['1349-06-28', 3];
@@ -70,8 +71,9 @@
     agenda.replaceChildren(element('small',results.length + ' 个事件'));
     for (const event of results) {
       const card = element('article','');
-      const title = element(event.url ? 'a' : 'p',event.summary || event.title);
+      const title = element(event.url ? 'a' : 'p',event.url ? event.title : '');
       if (event.url) title.href = event.url;
+      else appendSummary(title, event);
       const when = event.start ? event.start + (event.end ? ' 至 ' + event.end : '') : event.note || '日期待考证';
       card.append(element('small',(event.inferred ? '推算 · ' : '') + when), title);
       if (!event.summary && event.description) card.append(element('p',event.description));
@@ -79,6 +81,16 @@
       agenda.append(card);
     }
     agenda.scrollTop = 0;
+  }
+  function appendSummary(parent, event, prefix = '') {
+    if (prefix) parent.append(document.createTextNode(prefix));
+    if (!event.summaryParts?.length) { parent.append(document.createTextNode(event.summary || event.title)); return; }
+    for (const part of event.summaryParts) {
+      if (!part.url) { parent.append(document.createTextNode(part.text)); continue; }
+      const link = element('a', part.text);
+      link.href = part.url;
+      parent.append(link);
+    }
   }
   function element(tag, text) {
     const el = document.createElement(tag);
@@ -125,9 +137,10 @@
       if (matches.length) cell.classList.add('has-events');
       for (const event of matches) {
         const text = (event.end ? (key === event.start ? '起 · ' : '止 · ') : '') + (event.summary || event.title);
-        const entry = element(event.url ? 'a' : 'div',text);
+        const entry = element(event.url ? 'a' : 'div',event.url ? text : '');
         entry.className = 'almanac-event';
         if (event.url) entry.href = event.url;
+        else appendSummary(entry, event, event.end ? (key === event.start ? '起 · ' : '止 · ') : '');
         entry.title = event.summary || event.description || event.note;
         cell.append(entry);
         if (!event.summary && mode === 'day') cell.append(element('p',event.description));
