@@ -22,7 +22,9 @@
             fact = {...fact, summary: value, value};
           }
           const hasSection = fact.source_section && character_has_section(page.content, fact.source_section); %>
-          <% if (fact.summary && hasSection) { %>
+          <% if (fact.label === '所属组织' && organizations.length) { %>
+          <div><dt><%= fact.label %></dt><dd><% character_organization_pages(organizations).forEach(function(org, index) { %><% if (index) { %>、<% } %><% if (org.path) { %><a href="<%= url_for('/' + org.path) %>"><%= org.name %></a><% } else { %><%= org.name %><% } %><% }); %><% if (hasSection) { %> <a href="#<%= encodeURIComponent(fact.source_section) %>">详情 <span aria-hidden="true">↗</span></a><% } %></dd></div>
+          <% } else if (fact.summary && hasSection) { %>
           <div><dt><%= fact.label %></dt><dd><a href="#<%= encodeURIComponent(fact.source_section) %>"><%= fact.summary %> <span aria-hidden="true">↗</span></a></dd></div>
           <% } else if (fact.value && (fact.label === '所属组织' || (!/^待/.test(String(fact.value)) && String(fact.value).length <= 80))) { %>
           <div><dt><%= fact.label %></dt><dd><%= fact.value %></dd></div>

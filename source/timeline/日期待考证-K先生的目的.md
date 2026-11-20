@@ -3,8 +3,8 @@ title: "K先生的目的"
 layout: index
 timeline_event: true
 event_anchor: "K先生的目的"
-event_summary: "卢米安正式加入极光会，受K先生委派打入铁血十字会调查。"
-event_summary_links: [{"text":"卢米安","target":"characters/entries/卢米安·李/"}]
+event_summary: "卢米安诵念真实造物主的尊名，正式加入极光会；K先生委派他打入加德纳所在的铁血十字会调查。"
+event_summary_links: [{"text":"卢米安","target":"characters/entries/卢米安·李/"},{"text":"K先生","target":"characters/entries/“K先生”/"},{"text":"加德纳","target":"characters/entries/加德纳·马丁/"},{"text":"真实造物主","target":"characters/entries/真实造物主/"}]
 event_work: "宿命之环"
 event_time_note: "警方询问弗拉芒死因的当天傍晚"
 event_time_basis: "第一百二十一章以早上八点警察问话开始，第一百二十二章接续同日早间的对话，随后转到接近傍晚的舍尔街19号。"

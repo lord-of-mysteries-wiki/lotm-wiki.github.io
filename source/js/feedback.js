@@ -3,15 +3,18 @@
   const endpoint = '';
   const siteKey = '';
   const form = document.getElementById('fact-feedback');
-  if (!form || !endpoint || !siteKey || !window.turnstile) return;
+  if (!form || !endpoint || !siteKey) return;
   const status = document.getElementById('feedback-status');
   const button = form.querySelector('button');
-  const widget = window.turnstile.render('#feedback-verification', { sitekey: siteKey });
-  button.disabled = false;
-  status.textContent = '';
+  let widget;
+  window.initFeedbackCaptcha = () => {
+    widget = window.hcaptcha.render('#feedback-verification', { sitekey: siteKey });
+    button.disabled = false;
+    status.textContent = '';
+  };
   form.addEventListener('submit', async event => {
     event.preventDefault();
-    const token = window.turnstile.getResponse(widget);
+    const token = window.hcaptcha.getResponse(widget);
     if (!token) { status.textContent = '请先完成人机验证。'; return; }
     const data = new FormData(form);
     button.disabled = true;
@@ -31,7 +34,7 @@
     } catch (error) {
       status.textContent = error.message || '提交未能完成，请稍后重试。';
     } finally {
-      window.turnstile.reset(widget);
+      window.hcaptcha.reset(widget);
       button.disabled = false;
     }
   });
