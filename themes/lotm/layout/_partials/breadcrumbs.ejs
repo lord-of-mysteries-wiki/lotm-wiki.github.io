@@ -1,0 +1,22 @@
+<%
+const sourcePath = page.source || '';
+const parts = sourcePath.split('/');
+const crumbs = [];
+if (parts[0] === 'worldview' && parts.length > 1 && sourcePath !== 'worldview/index.md') {
+  const pages = site.pages.toArray();
+  const addPage = (source) => {
+    const target = pages.find(item => item.source === source);
+    if (target && target.source !== sourcePath) crumbs.push(target);
+  };
+  addPage('worldview/index.md');
+  if (parts[1] === 'pathways' && parts.length > 2) {
+    addPage('worldview/pathways/index.md');
+    if (parts.length > 3) addPage(`worldview/pathways/${parts[2]}/${parts[2]}.md`);
+  }
+}
+%>
+<% if (crumbs.length) { %>
+<nav aria-label="页面路径" class="breadcrumbs">
+  <% for (const crumb of crumbs) { %><a href="<%= url_for(crumb.path) %>"><%= crumb.title %></a><span aria-hidden="true"> › </span><% } %><span aria-current="page"><%= page.title %></span>
+</nav>
+<% } %>

@@ -11,11 +11,20 @@
         <% if (page.profile_work && !/^待/.test(String(page.profile_work)) && !(page.profile_facts || []).some(function(fact) { return fact.label === '所属作品' && fact.value && !/^待/.test(String(fact.value)); })) { %>
           <div><dt>所属作品</dt><dd><%= page.profile_work %></dd></div>
         <% } %>
-        <% (page.profile_facts || []).forEach(function(fact) {
+        <% const organizations = [...new Set((page.graph_classifications?.organization || []).map(entry => entry.value))];
+           const profileFacts = (page.profile_facts || []).slice();
+           if (organizations.length && !profileFacts.some(fact => fact.label === '所属组织')) {
+             profileFacts.push({label: '所属组织', source_section: '所属组织与身份'});
+           }
+           profileFacts.forEach(function(fact) {
+          if (fact.label === '所属组织' && page.graph_classifications) {
+            const value = organizations.join('、') || '待核实';
+            fact = {...fact, summary: value, value};
+          }
           const hasSection = fact.source_section && character_has_section(page.content, fact.source_section); %>
           <% if (fact.summary && hasSection) { %>
           <div><dt><%= fact.label %></dt><dd><a href="#<%= encodeURIComponent(fact.source_section) %>"><%= fact.summary %> <span aria-hidden="true">↗</span></a></dd></div>
-          <% } else if (fact.value && !/^待/.test(String(fact.value)) && String(fact.value).length <= 80) { %>
+          <% } else if (fact.value && (fact.label === '所属组织' || (!/^待/.test(String(fact.value)) && String(fact.value).length <= 80))) { %>
           <div><dt><%= fact.label %></dt><dd><%= fact.value %></dd></div>
           <% } else if (hasSection) { %>
           <div><dt><%= fact.label %></dt><dd><a href="#<%= encodeURIComponent(fact.source_section) %>">查看详情 <span aria-hidden="true">↗</span></a></dd></div>

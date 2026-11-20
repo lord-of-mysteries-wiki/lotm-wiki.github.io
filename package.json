@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prebuild": "python3 tools/build-character-index.py",
+    "prebuild": "python3 tools/build-character-index.py && node tools/build-timeline-file-index.js",
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "hexo": "^7.0.0",
+    "hexo-front-matter": "^4.2.1",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^6.0.0",
     "hexo-renderer-stylus": "^3.0.0",

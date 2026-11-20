@@ -3,6 +3,7 @@ title: {{ title }}
 layout: index
 character_profile: true
 # 办公地点、普通雇主和学校写入人物履历。组织分类用于有章节依据的团体归属。
+# 原文能确认角色独立且没有组织归属时，可在 organization 中填写 value 为“独立”的条目，并注明章节依据和适用时期。资料不足时保留空数组。
 graph_classifications: {"organization": [], "nationality": []}
 permalink: characters/entries/{{ title }}/
 profile_work: 待补充

@@ -5,6 +5,8 @@ Usage: python3 tools/corpus_review.py NAME [OTHER_NAME] [--limit N]
 Same-chapter mentions are search leads, not evidence of a relationship.
 """
 import argparse
+from functools import lru_cache
+from io import StringIO
 import re
 from pathlib import Path
 
@@ -23,12 +25,30 @@ def reference_texts():
 NUM = r'[一二三四五六七八九十百千万零〇0-9]+'
 VOLUME = re.compile(r'^\s*(第' + NUM + r'[部卷]\s+[^\n\r]{1,50})\s*$')
 SUMMARY = re.compile(r'^\s*第' + NUM + r'[部卷]总结\s*$')
-CHAPTER = re.compile(r'^\s*(第' + NUM + r'章(?:\s*[^\n\r]{1,70})?)\s*$')
+CHAPTER = re.compile(r'^\s*\??(第' + NUM + r'章(?:\s*[^\n\r]{1,70})?)\s*$')
 EXTRA = re.compile(r'^一个普通人的日常（' + NUM + r'）$')
+
+@lru_cache(maxsize=1)
+def read_reference_text(path, encoding):
+    text = path.read_text(encoding=encoding)
+    if path == BOOKS[1][1]:
+        # This edition repeats an entire chapter, once with a damaged heading.
+        # Only drop the first copy if the two bodies really are identical.
+        repeated = list(re.finditer(r'(?m)^\??第五十八章 小风波”[ \t]*$', text))
+        if len(repeated) == 2:
+            first, second = repeated
+            following = re.search(r'(?m)^第五十九章', text[second.end():])
+            if following:
+                end = second.end() + following.start()
+                if text[first.end():second.start()].strip() == text[second.end():end].strip():
+                    text = text[:first.start()] + text[second.start():]
+    return text
+
 
 def iter_chapters(path, encoding):
     volume, heading, lines = '', '', []
-    with path.open(encoding=encoding, errors='strict') as source:
+    with (StringIO(read_reference_text(path, encoding)) if path == BOOKS[1][1]
+          else path.open(encoding=encoding, errors='strict')) as source:
         for line in source:
             value = line.strip()
             vol = VOLUME.fullmatch(value)
@@ -47,6 +67,11 @@ def iter_chapters(path, encoding):
                 if heading and ''.join(lines).strip():
                     yield volume, heading, ''.join(lines)
                 volume, heading, lines = '番外', value, []
+                continue
+            # This edition names the final volume in the author's afterword,
+            # immediately before its first chapter, without a separate heading.
+            if path == BOOKS[0][1] and not heading and '第八部的名字很好猜，“愚者”' in value:
+                volume = '第八部 愚者'
                 continue
             if SUMMARY.fullmatch(value):
                 if heading:
