@@ -3,7 +3,7 @@
   const tools = document.querySelector('.directory-tools');
   const original = Array.from(list.children);
   const cards = original.filter(node => node.matches('a'));
-  const books = [...new Set(cards.map(card => card.dataset.work))];
+  const books = original.filter(node => node.matches('h2')).map(node => node.textContent.slice(1, -1));
   const compare = new Intl.Collator('zh-CN-u-co-pinyin', {ignorePunctuation:true}).compare;
   const unknown = new Set(['组织待核', '途径待核']);
   function show(mode) {
@@ -23,7 +23,7 @@
       let labels;
       if (mode === 'order') labels = [d.volume];
       if (mode === 'organization') labels = JSON.parse(d.org);
-      if (mode === 'pathway') labels = JSON.parse(d.pathways).map(p => p.name + (p.inferred ? '（推测）' : ''));
+      if (mode === 'pathway') labels = JSON.parse(d.pathways).map(p => p.name);
       if (!labels.length) labels = [mode === 'organization' ? '组织待核' : d.ordinary === 'true' ? '所引时期为普通人' : '途径待核'];
       for (const label of labels) {
         if (!groups.has(label)) groups.set(label, []);
@@ -45,6 +45,12 @@
         const link = card.cloneNode(true);
         if (shown.has(card)) link.removeAttribute('id');
         shown.add(card);
+        if (mode === 'pathway' && JSON.parse(card.dataset.pathways).some(p => p.name === label && p.inferred)) {
+          const mark = document.createElement('small');
+          mark.className = 'directory-inferred';
+          mark.textContent = '推测';
+          link.append(mark);
+        }
         if (mode === 'order' && card.dataset.chapter) {
           const chapter = document.createElement('small');
           chapter.textContent = card.dataset.chapter;

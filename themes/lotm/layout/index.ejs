@@ -8,6 +8,7 @@
 <% } else { %>
   <header><%- partial('_partials/navbar') %></header>
   <main class="main-content">
+    <%- partial('_partials/breadcrumbs') %>
     <% if (page.timeline_event) { %>
       <%- partial('_partials/event-entry') %>
     <% } else if (page.character_profile) { %>

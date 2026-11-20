@@ -8,6 +8,173 @@ character_directory: true
 
 ## 《诡秘之主》
 
+
+### [霍伊男爵（雪伦的继子）](entries/%E9%9C%8D%E4%BC%8A%E7%94%B7%E7%88%B5%EF%BC%88%E9%9B%AA%E4%BC%A6%E7%9A%84%E7%BB%A7%E5%AD%90%EF%BC%89/)
+
+### [霍伊男爵（雪伦的丈夫）](entries/%E9%9C%8D%E4%BC%8A%E7%94%B7%E7%88%B5%EF%BC%88%E9%9B%AA%E4%BC%A6%E7%9A%84%E4%B8%88%E5%A4%AB%EF%BC%89/)
+
+### [达克霍姆](entries/%E8%BE%BE%E5%85%8B%E9%9C%8D%E5%A7%86/)
+
+### [玛丽·奥尔德伯里](entries/%E7%8E%9B%E4%B8%BD%C2%B7%E5%A5%A5%E5%B0%94%E5%BE%B7%E4%BC%AF%E9%87%8C/)
+
+### [沃尔夫伯爵](entries/%E6%B2%83%E5%B0%94%E5%A4%AB%E4%BC%AF%E7%88%B5/)
+
+### [梅纳德夫人](entries/%E6%A2%85%E7%BA%B3%E5%BE%B7%E5%A4%AB%E4%BA%BA/)
+
+### [康纳德子爵](entries/%E5%BA%B7%E7%BA%B3%E5%BE%B7%E5%AD%90%E7%88%B5/)
+
+### [圣赛琳娜](entries/%E5%9C%A3%E8%B5%9B%E7%90%B3%E5%A8%9C/)
+
+### [哈里（廷根副市长）](entries/%E5%93%88%E9%87%8C%EF%BC%88%E5%BB%B7%E6%A0%B9%E5%89%AF%E5%B8%82%E9%95%BF%EF%BC%89/)
+
+### [丹尼斯（廷根市长）](entries/%E4%B8%B9%E5%B0%BC%E6%96%AF%EF%BC%88%E5%BB%B7%E6%A0%B9%E5%B8%82%E9%95%BF%EF%BC%89/)
+
+### [莎莉丝特（老尼尔的恋人）](entries/%E8%8E%8E%E8%8E%89%E4%B8%9D%E7%89%B9%EF%BC%88%E8%80%81%E5%B0%BC%E5%B0%94%E7%9A%84%E6%81%8B%E4%BA%BA%EF%BC%89/)
+
+### [范·艾斯汀](entries/%E8%8C%83%C2%B7%E8%89%BE%E6%96%AF%E6%B1%80/)
+
+### [富莱斯伯爵夫人](entries/%E5%AF%8C%E8%8E%B1%E6%96%AF%E4%BC%AF%E7%88%B5%E5%A4%AB%E4%BA%BA/)
+
+### [卡伦（德维尔的管家）](entries/%E5%8D%A1%E4%BC%A6%EF%BC%88%E5%BE%B7%E7%BB%B4%E5%B0%94%E7%9A%84%E7%AE%A1%E5%AE%B6%EF%BC%89/)
+
+### [亨利（廷根私家侦探）](entries/%E4%BA%A8%E5%88%A9%EF%BC%88%E5%BB%B7%E6%A0%B9%E7%A7%81%E5%AE%B6%E4%BE%A6%E6%8E%A2%EF%BC%89/)
+
+### [玛蒂尔达](entries/%E7%8E%9B%E8%92%82%E5%B0%94%E8%BE%BE/)
+
+### [拉里男爵](entries/%E6%8B%89%E9%87%8C%E7%94%B7%E7%88%B5/)
+
+### [帕尼斯夫人](entries/%E5%B8%95%E5%B0%BC%E6%96%AF%E5%A4%AB%E4%BA%BA/)
+
+### [巴库斯（瓦哈娜之夫）](entries/%E5%B7%B4%E5%BA%93%E6%96%AF%EF%BC%88%E7%93%A6%E5%93%88%E5%A8%9C%E4%B9%8B%E5%A4%AB%EF%BC%89/)
+
+### [巴库斯（廷根绑架案）](entries/%E5%B7%B4%E5%BA%93%E6%96%AF%EF%BC%88%E5%BB%B7%E6%A0%B9%E7%BB%91%E6%9E%B6%E6%A1%88%EF%BC%89/)
+
+### [小杰克](entries/%E5%B0%8F%E6%9D%B0%E5%85%8B/)
+
+### [博尔吉亚](entries/%E5%8D%9A%E5%B0%94%E5%90%89%E4%BA%9A/)
+
+### [凡纳斯](entries/%E5%87%A1%E7%BA%B3%E6%96%AF/)
+
+### [肖德先生](entries/%E8%82%96%E5%BE%B7%E5%85%88%E7%94%9F/)
+
+### [黛拉夫人](entries/%E9%BB%9B%E6%8B%89%E5%A4%AB%E4%BA%BA/)
+
+### [黑斯（手杖匠人）](entries/%E9%BB%91%E6%96%AF%EF%BC%88%E6%89%8B%E6%9D%96%E5%8C%A0%E4%BA%BA%EF%BC%89/)
+
+### [麦格文先生（韦尔奇之父）](entries/%E9%BA%A6%E6%A0%BC%E6%96%87%E5%85%88%E7%94%9F%EF%BC%88%E9%9F%A6%E5%B0%94%E5%A5%87%E4%B9%8B%E7%88%B6%EF%BC%89/)
+
+### [赛德斯](entries/%E8%B5%9B%E5%BE%B7%E6%96%AF/)
+
+### [詹妮](entries/%E8%A9%B9%E5%A6%AE/)
+
+### [艾略特·维克罗尔](entries/%E8%89%BE%E7%95%A5%E7%89%B9%C2%B7%E7%BB%B4%E5%85%8B%E7%BD%97%E5%B0%94/)
+
+### [罗切尔太太](entries/%E7%BD%97%E5%88%87%E5%B0%94%E5%A4%AA%E5%A4%AA/)
+
+### [斯卡特](entries/%E6%96%AF%E5%8D%A1%E7%89%B9/)
+
+### [安妮（奥黛丽的贴身女仆）](entries/%E5%AE%89%E5%A6%AE%EF%BC%88%E5%A5%A5%E9%BB%9B%E4%B8%BD%E7%9A%84%E8%B4%B4%E8%BA%AB%E5%A5%B3%E4%BB%86%EF%BC%89/)
+
+### [威廉·奥古斯都六世](entries/%E5%A8%81%E5%BB%89%C2%B7%E5%A5%A5%E5%8F%A4%E6%96%AF%E9%83%BD%E5%85%AD%E4%B8%96/)
+
+### [吉尼娅太太](entries/%E5%90%89%E5%B0%BC%E5%A8%85%E5%A4%AA%E5%A4%AA/)
+
+### [亨利·奥古斯都一世](entries/%E4%BA%A8%E5%88%A9%C2%B7%E5%A5%A5%E5%8F%A4%E6%96%AF%E9%83%BD%E4%B8%80%E4%B8%96/)
+
+### [林德里拉](entries/%E6%9E%97%E5%BE%B7%E9%87%8C%E6%8B%89/)
+
+### [萨维尼·所罗门](entries/%E8%90%A8%E7%BB%B4%E5%B0%BC%C2%B7%E6%89%80%E7%BD%97%E9%97%A8/)
+
+### [科塔尔](entries/%E7%A7%91%E5%A1%94%E5%B0%94/)
+
+### [巴德尔（拜亚姆厨师）](entries/%E5%B7%B4%E5%BE%B7%E5%B0%94%EF%BC%88%E6%8B%9C%E4%BA%9A%E5%A7%86%E5%8E%A8%E5%B8%88%EF%BC%89/)
+
+### [德维尔爵士](entries/%E5%BE%B7%E7%BB%B4%E5%B0%94%E7%88%B5%E5%A3%AB/)
+
+### [安托万（密修会）](entries/%E5%AE%89%E6%89%98%E4%B8%87%EF%BC%88%E5%AF%86%E4%BF%AE%E4%BC%9A%EF%BC%89/)
+
+### [维尔斯（巴顿家的男仆）](entries/%E7%BB%B4%E5%B0%94%E6%96%AF%EF%BC%88%E5%B7%B4%E9%A1%BF%E5%AE%B6%E7%9A%84%E7%94%B7%E4%BB%86%EF%BC%89/)
+
+### [露丝·布鲁克](entries/%E9%9C%B2%E4%B8%9D%C2%B7%E5%B8%83%E9%B2%81%E5%85%8B/)
+
+### [洛克哈德·西亚卡姆](entries/%E6%B4%9B%E5%85%8B%E5%93%88%E5%BE%B7%C2%B7%E8%A5%BF%E4%BA%9A%E5%8D%A1%E5%A7%86/)
+
+### [阿勒苏（乌托邦作家）](entries/%E9%98%BF%E5%8B%92%E8%8B%8F%EF%BC%88%E4%B9%8C%E6%89%98%E9%82%A6%E4%BD%9C%E5%AE%B6%EF%BC%89/)
+
+### [西奥多（乌托邦）](entries/%E8%A5%BF%E5%A5%A5%E5%A4%9A%EF%BC%88%E4%B9%8C%E6%89%98%E9%82%A6%EF%BC%89/)
+
+### [莫妮卡（游记作家）](entries/%E8%8E%AB%E5%A6%AE%E5%8D%A1%EF%BC%88%E6%B8%B8%E8%AE%B0%E4%BD%9C%E5%AE%B6%EF%BC%89/)
+
+### [约翰（天文学爱好者）](entries/%E7%BA%A6%E7%BF%B0%EF%BC%88%E5%A4%A9%E6%96%87%E5%AD%A6%E7%88%B1%E5%A5%BD%E8%80%85%EF%BC%89/)
+
+### [温蒂（乌托邦面包房老板）](entries/%E6%B8%A9%E8%92%82%EF%BC%88%E4%B9%8C%E6%89%98%E9%82%A6%E9%9D%A2%E5%8C%85%E6%88%BF%E8%80%81%E6%9D%BF%EF%BC%89/)
+
+### [洛·迪尔查](entries/%E6%B4%9B%C2%B7%E8%BF%AA%E5%B0%94%E6%9F%A5/)
+
+### [汤森德（乌托邦牧师）](entries/%E6%B1%A4%E6%A3%AE%E5%BE%B7%EF%BC%88%E4%B9%8C%E6%89%98%E9%82%A6%E7%89%A7%E5%B8%88%EF%BC%89/)
+
+### [安德森（乌托邦画家）](entries/%E5%AE%89%E5%BE%B7%E6%A3%AE%EF%BC%88%E4%B9%8C%E6%89%98%E9%82%A6%E7%94%BB%E5%AE%B6%EF%BC%89/)
+
+### [布拉德尔](entries/%E5%B8%83%E6%8B%89%E5%BE%B7%E5%B0%94/)
+
+### [杜克](entries/%E6%9D%9C%E5%85%8B/)
+
+### [尼根公爵（帕拉斯的长子）](entries/%E5%B0%BC%E6%A0%B9%E5%85%AC%E7%88%B5%EF%BC%88%E5%B8%95%E6%8B%89%E6%96%AF%E7%9A%84%E9%95%BF%E5%AD%90%EF%BC%89/)
+
+### [萨默尔家的双胞胎哥哥](entries/%E8%90%A8%E9%BB%98%E5%B0%94%E5%AE%B6%E7%9A%84%E5%8F%8C%E8%83%9E%E8%83%8E%E5%93%A5%E5%93%A5/)
+
+### [萨默尔家的双胞胎妹妹](entries/%E8%90%A8%E9%BB%98%E5%B0%94%E5%AE%B6%E7%9A%84%E5%8F%8C%E8%83%9E%E8%83%8E%E5%A6%B9%E5%A6%B9/)
+
+### [希雅·帕伦克·艾格斯](entries/%E5%B8%8C%E9%9B%85%C2%B7%E5%B8%95%E4%BC%A6%E5%85%8B%C2%B7%E8%89%BE%E6%A0%BC%E6%96%AF/)
+
+### [弗罗拉·雅各](entries/%E5%BC%97%E7%BD%97%E6%8B%89%C2%B7%E9%9B%85%E5%90%84/)
+
+### [菲尔·拉里维](entries/%E8%8F%B2%E5%B0%94%C2%B7%E6%8B%89%E9%87%8C%E7%BB%B4/)
+
+### [叶戈尔·艾因霍恩](entries/%E5%8F%B6%E6%88%88%E5%B0%94%C2%B7%E8%89%BE%E5%9B%A0%E9%9C%8D%E6%81%A9/)
+
+### [阿霍马托瓦·艾因霍恩](entries/%E9%98%BF%E9%9C%8D%E9%A9%AC%E6%89%98%E7%93%A6%C2%B7%E8%89%BE%E5%9B%A0%E9%9C%8D%E6%81%A9/)
+
+### [尤朵拉](entries/%E5%B0%A4%E6%9C%B5%E6%8B%89/)
+
+### [安提尔娜](entries/%E5%AE%89%E6%8F%90%E5%B0%94%E5%A8%9C/)
+
+### [米尔贡根](entries/%E7%B1%B3%E5%B0%94%E8%B4%A1%E6%A0%B9/)
+
+### [威廉（罗塞尔的骑士）](entries/%E5%A8%81%E5%BB%89%EF%BC%88%E7%BD%97%E5%A1%9E%E5%B0%94%E7%9A%84%E9%AA%91%E5%A3%AB%EF%BC%89/)
+
+### [珀利](entries/%E7%8F%80%E5%88%A9/)
+
+### [爱德华兹（罗塞尔的骑士）](entries/%E7%88%B1%E5%BE%B7%E5%8D%8E%E5%85%B9%EF%BC%88%E7%BD%97%E5%A1%9E%E5%B0%94%E7%9A%84%E9%AA%91%E5%A3%AB%EF%BC%89/)
+
+### [丹尼尔太太](entries/%E4%B8%B9%E5%B0%BC%E5%B0%94%E5%A4%AA%E5%A4%AA/)
+
+### [拉里（丹尼尔太太的长子）](entries/%E6%8B%89%E9%87%8C%EF%BC%88%E4%B8%B9%E5%B0%BC%E5%B0%94%E5%A4%AA%E5%A4%AA%E7%9A%84%E9%95%BF%E5%AD%90%EF%BC%89/)
+
+### [托马斯先生](entries/%E6%89%98%E9%A9%AC%E6%96%AF%E5%85%88%E7%94%9F/)
+
+### [托马斯太太](entries/%E6%89%98%E9%A9%AC%E6%96%AF%E5%A4%AA%E5%A4%AA/)
+
+### [小托马斯](entries/%E5%B0%8F%E6%89%98%E9%A9%AC%E6%96%AF/)
+
+### [维尔玛·葛莱蒂斯](entries/%E7%BB%B4%E5%B0%94%E7%8E%9B%C2%B7%E8%91%9B%E8%8E%B1%E8%92%82%E6%96%AF/)
+
+### [肖娜·约翰逊](entries/%E8%82%96%E5%A8%9C%C2%B7%E7%BA%A6%E7%BF%B0%E9%80%8A/)
+
+### [奥洛莉](entries/%E5%A5%A5%E6%B4%9B%E8%8E%89/)
+
+### [鲁斯·巴托里](entries/%E9%B2%81%E6%96%AF%C2%B7%E5%B7%B4%E6%89%98%E9%87%8C/)
+
+### [米歇尔·德伊特](entries/%E7%B1%B3%E6%AD%87%E5%B0%94%C2%B7%E5%BE%B7%E4%BC%8A%E7%89%B9/)
+
+### [奥涅格](entries/%E5%A5%A5%E6%B6%85%E6%A0%BC/)
+
+### [卡塔米](entries/%E5%8D%A1%E5%A1%94%E7%B1%B3/)
+
+### [帕伦克·塔西布](entries/%E5%B8%95%E4%BC%A6%E5%85%8B%C2%B7%E5%A1%94%E8%A5%BF%E5%B8%83/)
+
+### [托尼·唐恩](entries/%E6%89%98%E5%B0%BC%C2%B7%E5%94%90%E6%81%A9/)
+
 ### [老林恩](entries/%E8%80%81%E6%9E%97%E6%81%A9/)
 
 ### [蕊妮](entries/%E8%95%8A%E5%A6%AE/)
@@ -306,7 +473,6 @@ character_directory: true
 
 ### [伊莲](entries/%E4%BC%8A%E8%8E%B2/)
 
-### [米索尔](entries/%E7%B1%B3%E7%B4%A2%E5%B0%94/)
 
 ### [麦维提](entries/%E9%BA%A6%E7%BB%B4%E6%8F%90-1/)
 
@@ -736,7 +902,6 @@ character_directory: true
 
 ### [鲍利·德尔劳](entries/%E9%B2%8D%E5%88%A9%C2%B7%E5%BE%B7%E5%B0%94%E5%8A%B3/)
 
-### [麦维提-2](entries/%E9%BA%A6%E7%BB%B4%E6%8F%90-2/)
 
 ### [布拉托夫·伊万](entries/%E5%B8%83%E6%8B%89%E6%89%98%E5%A4%AB%C2%B7%E4%BC%8A%E4%B8%87/)
 
@@ -749,6 +914,136 @@ character_directory: true
 ### [雅莉希亚·塔玛拉](entries/%E9%9B%85%E8%8E%89%E5%B8%8C%E4%BA%9A%C2%B7%E5%A1%94%E7%8E%9B%E6%8B%89/)
 
 ## 《宿命之环》
+
+### [妮塞娅](entries/%E5%A6%AE%E5%A1%9E%E5%A8%85/)
+
+### [陈荼](entries/%E9%99%88%E8%8D%BC/)
+
+### [阿黛娜](entries/%E9%98%BF%E9%BB%9B%E5%A8%9C/)
+
+### [梅森（巴纳摩港）](entries/%E6%A2%85%E6%A3%AE%EF%BC%88%E5%B7%B4%E7%BA%B3%E6%91%A9%E6%B8%AF%EF%BC%89/)
+
+### [雅顿](entries/%E9%9B%85%E9%A1%BF/)
+
+### [泰斯利安](entries/%E6%B3%B0%E6%96%AF%E5%88%A9%E5%AE%89/)
+
+### [泰斯](entries/%E6%B3%B0%E6%96%AF/)
+
+### [罗迪](entries/%E7%BD%97%E8%BF%AA/)
+
+### [卡梅尔](entries/%E5%8D%A1%E6%A2%85%E5%B0%94/)
+
+### [蒿里掌教（末日时任）](entries/%E8%92%BF%E9%87%8C%E6%8E%8C%E6%95%99%EF%BC%88%E6%9C%AB%E6%97%A5%E6%97%B6%E4%BB%BB%EF%BC%89/)
+
+### [暗庐主人](entries/%E6%9A%97%E5%BA%90%E4%B8%BB%E4%BA%BA/)
+
+### [拉尔卡·纪尧姆](entries/%E6%8B%89%E5%B0%94%E5%8D%A1%C2%B7%E7%BA%AA%E5%B0%A7%E5%A7%86/)
+
+### [当代天师](entries/%E5%BD%93%E4%BB%A3%E5%A4%A9%E5%B8%88/)
+
+### [奥克（科尔杜村）](entries/%E5%A5%A5%E5%85%8B%EF%BC%88%E7%A7%91%E5%B0%94%E6%9D%9C%E6%9D%91%EF%BC%89/)
+
+### [圣僧（西大陆）](entries/%E5%9C%A3%E5%83%A7%EF%BC%88%E8%A5%BF%E5%A4%A7%E9%99%86%EF%BC%89/)
+
+### [蕾蒂娅·奥斯汀](entries/%E8%95%BE%E8%92%82%E5%A8%85%C2%B7%E5%A5%A5%E6%96%AF%E6%B1%80/)
+
+### [萨提坡·埃尔](entries/%E8%90%A8%E6%8F%90%E5%9D%A1%C2%B7%E5%9F%83%E5%B0%94/)
+
+### [托里奥波](entries/%E6%89%98%E9%87%8C%E5%A5%A5%E6%B3%A2/)
+
+### [贾玉（梦境都市）](entries/%E8%B4%BE%E7%8E%89%EF%BC%88%E6%A2%A6%E5%A2%83%E9%83%BD%E5%B8%82%EF%BC%89/)
+
+### [鲁杰斯特](entries/%E9%B2%81%E6%9D%B0%E6%96%AF%E7%89%B9/)
+
+### [路易斯·古斯塔夫](entries/%E8%B7%AF%E6%98%93%E6%96%AF%C2%B7%E5%8F%A4%E6%96%AF%E5%A1%94%E5%A4%AB/)
+
+### [翁格拉](entries/%E7%BF%81%E6%A0%BC%E6%8B%89/)
+
+### [皮考克](entries/%E7%9A%AE%E8%80%83%E5%85%8B/)
+
+### [托普赛](entries/%E6%89%98%E6%99%AE%E8%B5%9B/)
+
+### [圣维耶芙](entries/%E5%9C%A3%E7%BB%B4%E8%80%B6%E8%8A%99/)
+
+### [“育种大师”](entries/%E2%80%9C%E8%82%B2%E7%A7%8D%E5%A4%A7%E5%B8%88%E2%80%9D/)
+
+### [费南德兹（走私者）](entries/%E8%B4%B9%E5%8D%97%E5%BE%B7%E5%85%B9%EF%BC%88%E8%B5%B0%E7%A7%81%E8%80%85%EF%BC%89/)
+
+### [霍莱·萨森](entries/%E9%9C%8D%E8%8E%B1%C2%B7%E8%90%A8%E6%A3%AE/)
+
+### [萨拉（米洛村）](entries/%E8%90%A8%E6%8B%89%EF%BC%88%E7%B1%B3%E6%B4%9B%E6%9D%91%EF%BC%89/)
+
+### [萨拉（佩德罗船长的长女）](entries/%E8%90%A8%E6%8B%89%EF%BC%88%E4%BD%A9%E5%BE%B7%E7%BD%97%E8%88%B9%E9%95%BF%E7%9A%84%E9%95%BF%E5%A5%B3%EF%BC%89/)
+
+### [罗恩（派洛斯港旅馆前台）](entries/%E7%BD%97%E6%81%A9%EF%BC%88%E6%B4%BE%E6%B4%9B%E6%96%AF%E6%B8%AF%E6%97%85%E9%A6%86%E5%89%8D%E5%8F%B0%EF%BC%89/)
+
+### [米格尔](entries/%E7%B1%B3%E6%A0%BC%E5%B0%94/)
+
+### [普莱西·笛卡尔](entries/%E6%99%AE%E8%8E%B1%E8%A5%BF%C2%B7%E7%AC%9B%E5%8D%A1%E5%B0%94/)
+
+### [弗洛雷斯](entries/%E5%BC%97%E6%B4%9B%E9%9B%B7%E6%96%AF/)
+
+### [奥塔·纪尧姆](entries/%E5%A5%A5%E5%A1%94%C2%B7%E7%BA%AA%E5%B0%A7%E5%A7%86/)
+
+### [奎拉里尔](entries/%E5%A5%8E%E6%8B%89%E9%87%8C%E5%B0%94/)
+
+### [夏佐·萨维奥](entries/%E5%A4%8F%E4%BD%90%C2%B7%E8%90%A8%E7%BB%B4%E5%A5%A5/)
+
+### [伊鲁·爱德拉](entries/%E4%BC%8A%E9%B2%81%C2%B7%E7%88%B1%E5%BE%B7%E6%8B%89/)
+
+### [阿尔贝·龚古尔](entries/%E9%98%BF%E5%B0%94%E8%B4%9D%C2%B7%E9%BE%9A%E5%8F%A4%E5%B0%94/)
+
+### [萨法莉](entries/%E8%90%A8%E6%B3%95%E8%8E%89/)
+
+### [肯达尔](entries/%E8%82%AF%E8%BE%BE%E5%B0%94/)
+
+### [约瑟夫（洞穴协会）](entries/%E7%BA%A6%E7%91%9F%E5%A4%AB%EF%BC%88%E6%B4%9E%E7%A9%B4%E5%8D%8F%E4%BC%9A%EF%BC%89/)
+
+### [热拉尔](entries/%E7%83%AD%E6%8B%89%E5%B0%94/)
+
+### [拉贝（三流作家酒吧）](entries/%E6%8B%89%E8%B4%9D%EF%BC%88%E4%B8%89%E6%B5%81%E4%BD%9C%E5%AE%B6%E9%85%92%E5%90%A7%EF%BC%89/)
+
+### [拉诺·布鲁赫](entries/%E6%8B%89%E8%AF%BA%C2%B7%E5%B8%83%E9%B2%81%E8%B5%AB/)
+
+### [拉扬](entries/%E6%8B%89%E6%89%AC/)
+
+### [克劳德·皮埃尔·奥古斯特](entries/%E5%85%8B%E5%8A%B3%E5%BE%B7%C2%B7%E7%9A%AE%E5%9F%83%E5%B0%94%C2%B7%E5%A5%A5%E5%8F%A4%E6%96%AF%E7%89%B9/)
+
+### [玛格丽特（于格的下属）](entries/%E7%8E%9B%E6%A0%BC%E4%B8%BD%E7%89%B9%EF%BC%88%E4%BA%8E%E6%A0%BC%E7%9A%84%E4%B8%8B%E5%B1%9E%EF%BC%89/)
+
+### [比勒·帕蒂尔](entries/%E6%AF%94%E5%8B%92%C2%B7%E5%B8%95%E8%92%82%E5%B0%94/)
+
+### [月夫人](entries/%E6%9C%88%E5%A4%AB%E4%BA%BA/)
+
+### [拉卡赞太太](entries/%E6%8B%89%E5%8D%A1%E8%B5%9E%E5%A4%AA%E5%A4%AA/)
+
+### [安托万（议员护卫）](entries/%E5%AE%89%E6%89%98%E4%B8%87%EF%BC%88%E8%AE%AE%E5%91%98%E6%8A%A4%E5%8D%AB%EF%BC%89/)
+
+### [卡桑德拉](entries/%E5%8D%A1%E6%A1%91%E5%BE%B7%E6%8B%89/)
+
+### [博杜瓦](entries/%E5%8D%9A%E6%9D%9C%E7%93%A6/)
+
+### [让·莫里](entries/%E8%AE%A9%C2%B7%E8%8E%AB%E9%87%8C/)
+
+### [路易斯·贝德克](entries/%E8%B7%AF%E6%98%93%E6%96%AF%C2%B7%E8%B4%9D%E5%BE%B7%E5%85%8B/)
+
+### [卡茜](entries/%E5%8D%A1%E8%8C%9C/)
+
+### [赛韦尔](entries/%E8%B5%9B%E9%9F%A6%E5%B0%94/)
+
+### [帕托·鲁塞尔](entries/%E5%B8%95%E6%89%98%C2%B7%E9%B2%81%E5%A1%9E%E5%B0%94/)
+
+### [娜阿拉依扎](entries/%E5%A8%9C%E9%98%BF%E6%8B%89%E4%BE%9D%E6%89%8E/)
+
+### [阿泽玛·利齐耶](entries/%E9%98%BF%E6%B3%BD%E7%8E%9B%C2%B7%E5%88%A9%E9%BD%90%E8%80%B6/)
+
+### [阿尔诺·安德烈](entries/%E9%98%BF%E5%B0%94%E8%AF%BA%C2%B7%E5%AE%89%E5%BE%B7%E7%83%88/)
+
+### [菲利帕·纪尧姆](entries/%E8%8F%B2%E5%88%A9%E5%B8%95%C2%B7%E7%BA%AA%E5%B0%A7%E5%A7%86/)
+
+### [纪尧姆·贝里](entries/%E7%BA%AA%E5%B0%A7%E5%A7%86%C2%B7%E8%B4%9D%E9%87%8C/)
+
+### [纪尧姆·利齐耶](entries/%E7%BA%AA%E5%B0%A7%E5%A7%86%C2%B7%E5%88%A9%E9%BD%90%E8%80%B6/)
 
 ### [路易斯（萨瓦党）](entries/%E8%B7%AF%E6%98%93%E6%96%AF%EF%BC%88%E8%90%A8%E7%93%A6%E5%85%9A%EF%BC%89/)
 
@@ -1212,3 +1507,7 @@ character_directory: true
 ### [伊桑丝](entries/%E4%BC%8A%E6%A1%91%E4%B8%9D/)
 
 ### [迪斯特](entries/%E8%BF%AA%E6%96%AF%E7%89%B9/)
+
+### [“孽龙”](entries/%E5%AD%BD%E9%BE%99/)
+
+### [杰克·沃顿](entries/%E6%9D%B0%E5%85%8B%C2%B7%E6%B2%83%E9%A1%BF/)

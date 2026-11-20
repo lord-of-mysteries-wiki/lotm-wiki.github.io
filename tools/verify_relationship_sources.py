@@ -57,7 +57,7 @@ def main():
             elif book and volume:
                 checked += 1
                 number, title = match.group(3, 4)
-                if not any(b == book and (v.startswith(volume) if volume != '番外' else '总结之后' in v)
+                if not any(b == book and v.startswith(volume)
                            and n == number
                            and normalise(title) in h for b, v, n, h in chapters):
                     errors.append(f"{label}: {book} {volume} {number}《{title}》")

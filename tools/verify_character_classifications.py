@@ -36,8 +36,8 @@ for unit in sorted(organization_nodes.intersection(unit_parents)):
     parents = '、'.join(sorted(unit_parents[unit]))
     errors.append(f'{unit} 同时列作独立组织及下属单位，请核对其所属组织（{parents}）')
 
-# Directory-only pages retain the disputed name and two alternate records.
-directory_only = {'杰森·贝利亚', '米索尔', '麦维提-2'}
+# The disputed identity is documented without a separate graph node.
+directory_only = {'杰森·贝利亚'}
 linked_profiles = set()
 for person in people:
     actual = [f for f in person.get('classificationEvidence', []) if f.get('kind') in ('organization', 'nationality')]

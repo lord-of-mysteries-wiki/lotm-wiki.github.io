@@ -14,7 +14,8 @@ const stages = [...new Set(groups.flatMap(stageYears).concat(unplaced.length ? [
 const nodeLink = function(item) {
   if (item.event_summary && item.event_summary.trim()) { %>
     <li data-event-years="<%= validDate(item) ? [String(item.event_time).slice(0,4), String(item.event_time_end || item.event_time).slice(0,4)].join(' ') : '' %>" class="timeline-nodes__item timeline-brief" id="event-<%= item.event_anchor || item.title %>">
-      <p><%= item.event_summary %></p>
+      <strong><%= item.title %></strong>
+      <p><% for (const part of event_summary_parts(item)) { %><% if (part.target) { %><a href="<%= url_for('/' + part.target) %>"><%= part.text %></a><% } else { %><%= part.text %><% } %><% } %></p>
       <small><% if (isRange(item)) { %>至 <%= fullDate(String(item.event_time_end)) %> · <% } else if (!validDate(item) && item.event_time_note) { %><%= item.event_time_note %> · <% } %><% if (item.event_time_certainty === 'inferred') { %>日期推算 · <% } %><%= item.event_time_source || item.event_work %></small>
     </li>
     <% return;
@@ -32,7 +33,7 @@ const nodeLink = function(item) {
     </nav>
     </div>
     <nav data-stage-options aria-label="选择年份" hidden><% for (const year of stages) { %><a href="#year-<%=year%>"><%=year === 'unknown' ? '年份待考' : year + ' 年'%></a><% } %></nav>
-    <ol class="story-axis" aria-label="按故事日期排列的事件">
+    <ol class="story-axis" aria-label="按原文章节排列的事件">
       <% for (const group of groups) { const {date, label, items} = group; %>
       <li data-stage="<%= stageYears(group).join(' ') %>" class="story-axis__day<%= date ? '' : ' story-axis__day--relative' %>">
         <h3 class="timeline-group-title"><% if (date) { %><time datetime="<%= date %>"><%= fullDate(date) %></time><% } else { %><%= label %><% } %></h3>

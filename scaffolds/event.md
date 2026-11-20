@@ -4,6 +4,8 @@ layout: index
 timeline_event: true
 # 填一句话即作为简记直接展示；留空使用详情页；站内链接指向时间线上的事件锚点。
 event_summary: ""
+# 简记摘要中的已核实词条链接；target 为站内生成路径，按实际指代填写。
+event_summary_links: []
 event_work: "诡秘之主"
 # 日期按故事内纪年填写（YYYY-MM-DD）；不确定时留空，不要猜测。
 event_time: ""

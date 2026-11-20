@@ -1,0 +1,19 @@
+navbar:
+  auto_hide: false
+  search:
+    enable: false
+
+menu:
+  worldview: /worldview
+  characters: /characters
+  relationships: /relationships/
+  timeline: /timeline
+  about: /about
+home_banner:
+  enable: false
+home:
+  sidebar:
+    enable: false
+    position: left
+global:
+  single_page: false
