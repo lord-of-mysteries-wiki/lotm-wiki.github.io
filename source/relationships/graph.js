@@ -111,7 +111,7 @@ function finalPathwayRank(person){
  let best=null,startedPeriod=false;
  for(const stage of person.progression||[]){
   if(!stage.samePeriodAsPrevious)startedPeriod=false;
-  if(stage.relation==='authority'||(stage.certainty==='inferred' && stage.sequenceCertainty!=='confirmed')||stage.sequenceCertainty==='inferred')continue;
+  if(stage.relation==='authority'||stage.relation==='context'||(stage.certainty==='inferred' && stage.sequenceCertainty!=='confirmed')||stage.sequenceCertainty==='inferred')continue;
   if(!startedPeriod){best=null;startedPeriod=true}
   const label=stage.sequence||'';
   const match=label.match(/^(?:序列|相当于序列|出生即相当于序列|恩赐：相当于序列|恢复至序列|再度晋升序列|失去序列1特性，以序列)([0-9])(?![0-9])/);
@@ -735,7 +735,7 @@ function renderProgressionSteps(stages){
    const authority=stage.relation==='authority'?'（权柄／唯一性关联）':'';
    return esc(stage.pathway||stage.scopeLabel||'途径待核实')+' · '+esc(stage.sequence)+certainty+authority;
   });
-  const shared=period.length>1?'（并存，取得先后待核实）':'';
+  const shared=period.length>1?'（并存）':'';
   return '<span class="progression-step"><small>'+(index+1)+'</small> '+labels.join(' ＋ ')+shared+'</span>';
  }).join('');
 }

@@ -4,7 +4,7 @@ layout: index
 timeline_event: true
 event_anchor: "K先生"
 event_summary: "奥斯塔引荐卢米安参加K先生召集的聚会。"
-event_summary_links: [{"text":"奥斯塔","target":"characters/entries/奥斯塔/"},{"text":"卢米安","target":"characters/entries/卢米安·李/"}]
+event_summary_links: [{"text":"奥斯塔","target":"characters/entries/奥斯塔/"},{"text":"卢米安","target":"characters/entries/卢米安·李/"},{"text":"K先生","target":"characters/entries/“K先生”/"}]
 event_work: "宿命之环"
 event_time_note: "日期待考证"
 event_time_source: "《宿命之环》第二部“逐光者”第二十四至三十章"

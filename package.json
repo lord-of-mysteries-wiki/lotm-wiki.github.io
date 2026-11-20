@@ -7,7 +7,10 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server"
+    "server": "hexo server",
+    "links:preview": "node tools/auto-link-sequences.js",
+    "links:apply": "node tools/auto-link-sequences.js --apply",
+    "links:check-staged": "node tools/auto-link-sequences.js --check-staged"
   },
   "hexo": {
     "version": "7.2.0"

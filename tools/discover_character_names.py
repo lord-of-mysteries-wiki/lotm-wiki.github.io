@@ -13,7 +13,13 @@ from pathlib import Path
 from corpus_review import reference_texts, iter_chapters
 
 ROOT = Path(__file__).resolve().parents[1]
-INTRO = re.compile(r'(?:叫做|名叫|我叫|叫作|你叫|名为|他叫|她叫|祂叫)[“\"]?([\u4e00-\u9fa5]{2,5})(?=[，。！？、”\s])')
+# 这些写法只提供线索：例如真名可能是误导，叫他也可能接普通称谓。
+INTRO = re.compile(
+    r'(?:叫做|名叫|我叫|叫作|你叫|名为|他叫|她叫|祂叫|'
+    r'名字(?:是|叫(?:做|作)?)|本名(?:是|叫|为)|真名(?:是|叫|为)|'
+    r'原名(?:是|叫|为)|自称(?:是|为)?|称自己为|叫他|叫她|叫祂)'
+    r'[“‘\"]?([\u4e00-\u9fa5]{2,5})(?=[，。！？、”’\s])'
+)
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)

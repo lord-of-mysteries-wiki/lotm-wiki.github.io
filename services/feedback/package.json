@@ -1,0 +1,1 @@
+{"name":"lotm-wiki-feedback","private":true,"type":"module","engines":{"node":"22.x"},"scripts":{"build":"vite build"},"dependencies":{"botid":"^1.5.0"},"devDependencies":{"vite":"^6.0.0"}}

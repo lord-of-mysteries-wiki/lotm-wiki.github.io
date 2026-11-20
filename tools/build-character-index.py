@@ -306,6 +306,12 @@ for ident,name,short,exact,group in candidates:
   pattern=re.compile(r'(?:[“]?(?:星之上将|星之女王)[”]?[，,、\s]*)?嘉德丽雅|星之上将|星之女王')
  elif ident == 'bernadette':
   pattern=re.compile(r'(?:[“]?神秘女王[”]?[，,、\s]*)?贝尔纳黛|神秘女王|黄贝贝')
+ elif ident == 'ouroboros':
+  terms.append('乌珞琉斯')
+  pattern=re.compile(r'乌[洛珞]琉斯')
+ elif ident == 'katarina':
+  terms.extend(['白之圣女','白之魔女'])
+  pattern=re.compile(r'(?:[“‘]?(?:白之圣女|白之魔女)[”’]?\s*)?卡特琳娜(?:[·.]佩莱)?|白之圣女|白之魔女')
  elif ident == 'clarisse':
   pattern=re.compile(r'(?:[“]?黑之魔女[”]?[，,、\s]*)?克拉丽丝|黑之魔女')
  elif ident == 'maric':
@@ -405,6 +411,72 @@ for ident,name,short,exact,group in candidates:
  if ident == 'hal_constantine':
   term = '哈尔·康斯坦丁 / “深海中将” / “深海上将”'
  counts={book:sum(1 for _ in pattern.finditer(text)) for book,text in texts}
+ if ident == 'amon':
+  # 《诡秘之主》第六部阿蒙带走克莱恩期间的独立称号；与同段姓名连写不重复计数。
+  reviewed_titles = {'第一章': 2, '第二章': 3, '第三章': 1, '第四章': 1,
+                     '第七章': 1, '第十章': 1, '第十一章': 1, '第十五章': 1}
+  seen = set()
+  for volume, chapter, body in iter_chapters(*BOOKS[0][1:]):
+   key = chapter.split()[0]
+   if volume.startswith('第六部') and key in reviewed_titles:
+    title_count = sum(line.count('时天使') for line in body.splitlines() if '阿蒙' not in line)
+    if title_count != reviewed_titles[key]:
+     raise ValueError('阿蒙称号章节发生变化：' + volume + ' ' + chapter)
+    counts['诡秘之主'] += title_count
+    seen.add(key)
+  if seen != set(reviewed_titles):
+   raise ValueError('缺少阿蒙已核对的称号章节')
+  term = '阿蒙 / 已核对的“时天使”称号'
+ if ident == 'pallez':
+  # 愚者教会的“时天使”与阿蒙的古老称号同形，限定到已核对的章节。
+  reviewed_titles = {
+   ('第三部', '第一百一十八章'): 9, ('第三部', '第一百二十二章'): 2,
+   ('第四部', '第九十七章'): 1, ('第六部', '第四十一章'): 1,
+   ('第八部', '第二十五章'): 2, ('第八部', '第二十七章'): 1,
+  }
+  seen = set()
+  for volume, chapter, body in sequel_chapters():
+   key = (volume.split()[0], chapter.split()[0])
+   if key in reviewed_titles:
+    matches = list(re.finditer(r'时之?天使', body))
+    if len(matches) != reviewed_titles[key] or any(re.match(r'[”’\'\"]?帕列斯', body[m.end():]) for m in matches):
+     raise ValueError('帕列斯称号章节发生变化：' + volume + ' ' + chapter)
+    counts['宿命之环'] += len(matches)
+    seen.add(key)
+  if seen != set(reviewed_titles):
+   raise ValueError('缺少帕列斯已核对的称号章节')
+  term = '帕列斯 / 已核对的愚者教会“时天使”称号'
+ if ident == 'ouroboros':
+  # 姓名与紧邻称号只计一次；书中个别解释性连述再按具体语境去重。
+  mentions = re.compile(r"(?:[“‘']?(?:命运天使|吞尾者)[”’']?[，,、\s]*)*乌[洛珞]琉斯|命运天使|吞尾者")
+  corrections = {
+   ('第三部', '第一百三十五章'): (r'命运天使.{0,8}乌洛琉斯，祂的称号是.{0,3}吞尾者', 1),
+   ('第三部', '第一百六十七章'): (r'命运天使.{0,30}吞尾者.{0,5}乌洛琉斯', 1),
+   ('第三部', '第一百七十章'): (r'吞尾者.{0,5}乌洛琉斯？那个.{0,3}命运天使', 1),
+   ('第三部', '第一百八十四章'): (r'乌洛琉斯？这不是.{0,3}命运天使', 1),
+   ('第四部', '第一百九十七章'): (r'乌洛琉斯.{0,15}吞尾者.{0,15}命运天使', 2),
+  }
+  counts = {'诡秘之主': 0, '宿命之环': 0}
+  found_corrections = set()
+  for book, path, encoding in reference_texts():
+   for volume, chapter, body in iter_chapters(path, encoding):
+    for match in mentions.finditer(body):
+     # 续作中的“命运天使”威尔，以及讨论物品名称的“吞尾者”。
+     if match.group() == '命运天使' and re.match(r'[”’\'\"]?威尔', body[match.end():]):
+      continue
+     if book == '宿命之环' and volume.startswith('第八部') and chapter.startswith('第三十章') and match.group() == '吞尾者':
+      continue
+     counts[book] += 1
+    key = (volume.split()[0], chapter.split()[0])
+    if book == '诡秘之主' and key in corrections:
+     fragment, duplicates = corrections[key]
+     if len(re.findall(fragment, body, re.S)) != 1:
+      raise ValueError('乌洛琉斯称谓去重依据发生变化：' + volume + ' ' + chapter)
+     counts[book] -= duplicates
+     found_corrections.add(key)
+  if found_corrections != set(corrections):
+   raise ValueError('缺少乌洛琉斯称谓去重章节')
+  term = '乌洛琉斯 / 乌珞琉斯 / “命运天使” / “吞尾者”'
  if ident == 'klein':
   beldan_chapters = {'第十七章','第十八章','第十九章','第二十章','第二十一章','第二十二章','第二十四章'}
   counts['诡秘之主'] += sum(body.count('“魔法师”') for volume, chapter, body in iter_chapters(*BOOKS[0][1:])
@@ -615,12 +687,18 @@ for ident,name,short,exact,group in candidates:
   term = '吉尔希艾斯 / “屠杀者”'
  if ident == 'beatrice':
   reviewed = 0
-  for _, chapter, body in sequel_chapters():
+  for volume, chapter, body in sequel_chapters():
    reviewed += len(re.findall(r'碧翠丝(?!的?项链)', body))
    if chapter.startswith(('第一百五十三章','第一百五十四章')) and ('阿黛娜' in body and '德丽莎' in body):
     reviewed += body.count('德丽莎') - body.count('真正的画商德丽莎')
    else:
     reviewed += body.count('假德丽莎')
+   if volume.startswith('第三部') and chapter.startswith('第一百九十一章'):
+    # “假德丽莎，也就是碧翠丝·安库尔”是同一次提及。
+    duplicate = '假德丽莎，也就是碧翠丝·安库尔'
+    if body.count(duplicate) != 1:
+     raise ValueError('碧翠丝冒名去重依据发生变化：' + volume + ' ' + chapter)
+    reviewed -= 1
   counts = {'诡秘之主':0,'宿命之环':reviewed}
   term = '碧翠丝 / 假德丽莎 / 德丽莎（已核对段落）'
  if ident in {'joyce','sirius'}:
@@ -936,7 +1014,7 @@ classification_evidence['gusin'].append({
  'note': '瓦纳克称古辛拥有部分魔女途径能力，能够利用镜中世界。获得方式未明。'
 })
 
-classification_evidence.setdefault('richard_fate', []).append({'kind': 'pathway', 'value': '怪物', 'source': '《诡秘之主》第三部，第一百二十九章《命运议员》、第一百三十章《到手》', 'note': '瑞乔德收容概率之骰，克莱恩随后将他的表现联系到命运之轮途径。章中以命运议员称呼他，未给出序列数字。'})
+classification_evidence.setdefault('richard_fate', []).append({'kind': 'pathway', 'value': '怪物', 'certainty': 'inferred', 'source': '《诡秘之主》第三部，第一百二十九章《命运议员》、第一百三十章《到手》、第二百零七章《这就好了？》', 'note': '瑞乔德收容概率之骰；克莱恩后来将他预感危险的表现联系到怪物途径。命运议员是组织职务，具体序列未明。'})
 classification_evidence.setdefault('ailos', []).append({'kind': 'pathway', 'value': '猎人', 'source': '《宿命之环》第三部，第一百六十八章《三个猎人一台戏》', 'note': '爱洛丝在地宫中向阿不思和卢米安说明自己的索伦血统，并亲口说自己是猎人。'})
 classification_evidence.setdefault('albus', []).append({'kind': 'pathway', 'value': '猎人', 'source': '《宿命之环》第三部，第一百六十八章《三个猎人一台戏》；第五部，第九十六章《不对劲》', 'note': '卢米安称阿不思和爱洛丝为猎人。当时卢米安只怀疑阿不思已经是阴谋家；摩罗拉时期他能短暂借用军团的高位力量，个人的具体序列仍待核实。'})
 classification_evidence.setdefault('omabella', []).append({'kind': 'pathway', 'value': '耕种者', 'certainty': 'inferred', 'source': '《宿命之环》第七部，第二十五章《吉达斯》、第二十六章《第一个牧师》', 'note': '卢米安等人重建往事时，将巨人王后的力量归入大地途径。莉莉丝曾窃取她的身份，莉莉丝的真神位阶不能直接记在王后名下。'})
@@ -1008,9 +1086,18 @@ for entry in out:
   entry['aliasSources'].append({'alias':'“混沌之子”的主意识','source':'《宿命之环》第七部，第五十五章《序列之上》'})
   entry['matchNote'] = '仅统计“灯神”字面出现；神灯这一物品名称未直接计入。'
  if entry['id'] == 'pallez':
-  entry['alias'] = '老头（伦纳德的称呼）'
+  entry['alias'] = '老头（伦纳德的称呼） / “时之天使”（愚者教会）'
   entry['aliasSources'].append({'alias':'老头（伦纳德的称呼）','source':'《诡秘之主》第四部，第一百四十五章《谁的陷阱》'})
-  entry['matchNote'] = '仅统计“帕列斯”；“老头”等称呼存在歧义，未并入字面计数。'
+  entry['aliasSources'].append({'alias':'“时之天使”（愚者教会）','source':'《宿命之环》第八部，第十六章《各自的准备》'})
+  entry['matchNote'] = '统计“帕列斯”及《宿命之环》六章中已核对的愚者教会“时天使”称号；其他章节的同称号和“老头”等称呼尚未计入。'
+ if entry['id'] == 'azik':
+  entry['alias'] = '“死亡执政官”（拜朗帝国时期）'
+  entry['aliasSources'].append({'alias':'“死亡执政官”（拜朗帝国时期）','source':'《诡秘之主》第三部，第一百零六章《旧相识》'})
+  entry['matchNote'] = '仅统计“阿兹克”的字面出现；“死亡执政官”也指拜朗帝国的职位和序列名称，尚未按上下文并入。'
+ if entry['id'] == 'bethel_abraham':
+  entry['alias'] = '“门”先生 / 亚盖慈（精神烙印的梦境形象）'
+  entry['aliasSources'].append({'alias':'亚盖慈（精神烙印的梦境形象）','source':'《宿命之环》第六部，第七十九章《夜半》'})
+  entry['matchNote'] = '合计“伯特利”与“门”先生；梦境形象亚盖慈尚未计入。'
  if entry['id'] == 'lady_moon':
   entry['alias'] = '月夫人 / 孕育神灵的女士'
   entry['matchNote'] = '合计第二部先后使用的月夫人、月女士两种称呼。'
@@ -1424,9 +1511,10 @@ for entry in out:
   entry['aliasSources'].append({'alias':'红天使 / 战争天使','source':'《宿命之环》第三部，第一百七十章《隐秘的往事》'})
   entry['matchNote'] = '排除了完整写作“阿不思·梅迪奇”及“梅迪奇家族”的命中；“红天使”等称号尚未计入，合体恶灵的阶段需结合上下文区分。'
  if entry['id'] == 'ouroboros':
-  entry['alias'] = '命运天使 / 吞尾者'
+  entry['alias'] = '命运天使 / 吞尾者 / 乌珞琉斯（原文异写）'
   entry['aliasSources'].append({'alias':'命运天使 / 吞尾者','source':'《诡秘之主》第二部，第二百五十三章《吞尾者》'})
-  entry['matchNote'] = '仅统计“乌洛琉斯”；“命运天使”和“吞尾者”等称号尚未纳入字面计数。'
+  entry['aliasSources'].append({'alias':'乌珞琉斯（原文异写）','source':'《诡秘之主》第五部，第三十三章《生活的乐趣》'})
+  entry['matchNote'] = '合计乌洛琉斯、原文异写乌珞琉斯和两个称号；连写及已核对的同处称谓去重，排除指威尔的“命运天使”和指物品命名的“吞尾者”。包含壁画、传闻等间接称呼。'
  if entry['id'] == 'elaine':
   entry['matchNote'] = '“伊莲”也曾被克莱恩用于伪装；字面次数没有区分本人、假扮者及其他同名用法。'
  if entry['id'] == 'tracy':
@@ -1438,7 +1526,7 @@ for entry in out:
   entry['alias'] = '白之圣女 / 白之魔女'
   entry['aliasSources'].append({'alias':'白之圣女','source':'《诡秘之主》第五部，第八十三章《1号遗迹》'})
   entry['aliasSources'].append({'alias':'白之魔女','source':'《诡秘之主》第五部，第一百五十章《协作》'})
-  entry['matchNote'] = '仅统计“卡特琳娜”；称号及其他同名用法尚需消歧。'
+  entry['matchNote'] = '合计卡特琳娜、“白之圣女”和“白之魔女”；称号与姓名紧接连写计一次，包含梦境及被附身时的称呼。'
  if entry['id'] == 'bulatov_ivan':
   entry['alias'] = '“黄昏中将” / “黄昏之王”'
   entry['aliasSources'].append({'alias':'“黄昏中将” / “黄昏之王”','source':'《诡秘之主》第二部，第七十九章《交流消息》；《宿命之环》第五部，第四十四章《海盗之港》'})
@@ -1477,9 +1565,10 @@ for entry in out:
    {'kind':'pathway','value':'太阳','source':'《宿命之环》第七部，第十四章《“007”透露的信息》'},
    {'kind':'sequence','value':'无暗者','source':'《宿命之环》第七部，第十四章《“007”透露的信息》'}])
  if entry['id'] == 'amon':
-  entry['alias'] = '莫尼特（分身） / 曾冒用忒尔弥波洛斯之名'
+  entry['alias'] = '“时天使” / 莫尼特（分身） / 曾冒用忒尔弥波洛斯之名'
+  entry['aliasSources'].append({'alias':'“时天使”','source':'《诡秘之主》第五部，第十五章《告知式提醒》'})
   entry['aliasSources'].append({'alias':'莫尼特（被寄生的分身）','source':'《宿命之环》第三部，第九十四章《莫尼特的真实身份》'})
-  entry['matchNote'] = '仅统计“阿蒙”的字面出现；莫尼特及曾冒用的忒尔弥波洛斯等称呼尚未纳入计数。'
+  entry['matchNote'] = '统计“阿蒙”及《诡秘之主》第六部八章已核对的独立“时天使”称号；其余同称号、莫尼特及曾冒用的忒尔弥波洛斯等称呼尚未纳入。愚者教会的“时天使”亦可指帕列斯。'
  if entry['id'] == 'chris_mana':
   entry['alias'] = '“灾难魔女”'
   entry['aliasSources'].append({'alias':'“灾难魔女”','source':'《宿命之环》第六部，第九章《恐怖之事》'})
@@ -1561,9 +1650,10 @@ for entry in out:
   entry['alias'] += ' / “傲慢”'
   entry['aliasSources'].append({'alias':'“傲慢”','source':'《诡秘之主》第七卷，第五十一章《“傲慢”》、第五十二章《七位委员》'})
  if entry['id'] == 'fors':
-  entry['alias'] += ' / “没有梦想的咸鱼”（梦境笔名）'
+  entry['alias'] += ' / “星之天使” / “没有梦想的咸鱼”（梦境笔名）'
+  entry['aliasSources'].append({'alias':'“星之天使”','source':'《宿命之环》第六部，第四十五章《电影》'})
   entry['aliasSources'].append({'alias':'“没有梦想的咸鱼”（梦境笔名）','source':'《宿命之环》第六部，第四十五章《电影》'})
-  entry['matchNote'] = '统计佛尔思、梦境笔名“没有梦想的咸鱼”和明确的人物称呼，如“魔术师”女士。称号与本名连写计一次。单独的牌名或序列名未计入。'
+  entry['matchNote'] = '统计佛尔思、梦境笔名“没有梦想的咸鱼”和明确的人物称呼，如“魔术师”女士。称号与本名连写计一次。单独的牌名、序列名及“星之天使”尚未计入。'
  # 小说中这些海盗称号和代号常以双引号呈现。
  quoted_titles = {'black_scorpion':['黑蝎'], 'cattleya':['星之上将','星之女王'], 'bernadette':['神秘女王'],
                   'clarisse':['黑之魔女'], 'edwina':['冰山中将'],
