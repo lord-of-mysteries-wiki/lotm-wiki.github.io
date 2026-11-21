@@ -715,73 +715,73 @@ for ident,name,short,exact,group in candidates:
 # Identity evidence is stored separately from literal counting; common aliases
 # such as “夏尔” are searchable but not counted without disambiguation.
 identity_sources = {
- 'camus':[{'alias':'唐·吉维尔·加缪·卡斯蒂亚','source':'《宿命之环》第四部，第一百四十八章《拜访》'},{'alias':'加缪·卡斯蒂亚','source':'《宿命之环》第四部，第一百六十六章《“侦察工具”》'}],
- 'steam_god':[{'alias':'工匠之神（旧称）','source':'《诡秘之主》第一部，第四章《占卜》；《诡秘之主》第八部，第二十四章《疯狂的呓语》'}],
- 'patrick_bryan':[{'alias':'帕特里克·布莱恩（原文异写）','source':'《诡秘之主》第五部，第三十章《狂信徒》'}],
- 'bethel':[{'alias':'维尔杜·加西亚 / 维尔杜·加西亚·亚伯拉罕','source':'《诡秘之主》第七卷，第四十五章《新的任务》'}],
- 'bethel_abraham':[{'alias':'“门”先生','source':'《诡秘之主》第六部，第四十五章《“0”级》'}],
- 'lilith':[{'alias':'曾使用欧弥贝拉之名 / 大地母神','source':'《宿命之环》第七部，第二十六章《第一个牧师》'}],
- 'black_scorpion':[{'alias':'黑蝎','source':'《宿命之环》第二部，第二十三章《黑蝎》'}],
- 'audrey':[{'alias':'正义','source':'《诡秘之主》第一部，第九十四章《隐匿贤者》'}],
- 'alger':[{'alias':'倒吊人','source':'《诡秘之主》第一部，第三十六章《一个简单的问题》'}],
- 'fors':[{'alias':'魔术师','source':'《诡秘之主》第二部，第九十八章《互相观察》'}],
- 'derrick':[{'alias':'太阳','source':'《诡秘之主》第一部，第一百四十四章《三方交易》'}],
- 'emlyn':[{'alias':'月亮','source':'《诡秘之主》第二部，第二百五十六章《吸血鬼女王》'}],
- 'cattleya':[{'alias':'隐者','source':'《诡秘之主》第三部，第八十四章《衣物细节》'}, {'alias':'星之上将','source':'《诡秘之主》第二部，第七十九章《交流消息》'}, {'alias':'星之女王','source':'《宿命之环》第六部，第四十五章《电影》'}],
- 'bernadette':[{'alias':'神秘女王','source':'《诡秘之主》第三部，第一百九十章《旁观》'}],
- 'leonard':[{'alias':'星星','source':'《诡秘之主》第五部，第十二章《贴标签》'}],
- 'xio':[{'alias':'审判','source':'《诡秘之主》第五部，第十二章《贴标签》'}],
- 'amon':[{'alias':'曾冒用忒尔弥波洛斯之名','source':'《宿命之环》第五部，第一百四十一章《病人》、第一百四十二章《应许之事》'}],
- 'amanises':[{'alias':'黑夜女神 / 厄运女神','source':'《诡秘之主》第五部，第一百七十二章《克莱恩的畏惧》'}],
- 'roselle':[{'alias':'黄涛','source':'《诡秘之主》第二部，第一百四十六章《渎神者》'}],
+ 'camus':[{'alias':'唐·吉维尔·加缪·卡斯蒂亚','source':'《宿命之环》第四部第148章 拜访'},{'alias':'加缪·卡斯蒂亚','source':'《宿命之环》第四部第166章 “侦察工具”'}],
+ 'steam_god':[{'alias':'工匠之神（旧称）','source':'《诡秘之主》第一部第4章 占卜；《诡秘之主》第八部第24章 疯狂的呓语'}],
+ 'patrick_bryan':[{'alias':'帕特里克·布莱恩（原文异写）','source':'《诡秘之主》第五部第30章 狂信徒'}],
+ 'bethel':[{'alias':'维尔杜·加西亚 / 维尔杜·加西亚·亚伯拉罕','source':'《诡秘之主》第七部第45章 新的任务'}],
+ 'bethel_abraham':[{'alias':'“门”先生','source':'《诡秘之主》第六部第45章 “0”级'}],
+ 'lilith':[{'alias':'曾使用欧弥贝拉之名 / 大地母神','source':'《宿命之环》第七部第26章 第一个牧师'}],
+ 'black_scorpion':[{'alias':'黑蝎','source':'《宿命之环》第二部第23章 黑蝎'}],
+ 'audrey':[{'alias':'正义','source':'《诡秘之主》第一部第94章 隐匿贤者'}],
+ 'alger':[{'alias':'倒吊人','source':'《诡秘之主》第一部第36章 一个简单的问题'}],
+ 'fors':[{'alias':'魔术师','source':'《诡秘之主》第二部第98章 互相观察'}],
+ 'derrick':[{'alias':'太阳','source':'《诡秘之主》第一部第144章 三方交易'}],
+ 'emlyn':[{'alias':'月亮','source':'《诡秘之主》第二部第256章 吸血鬼女王'}],
+ 'cattleya':[{'alias':'隐者','source':'《诡秘之主》第三部第84章 衣物细节'}, {'alias':'星之上将','source':'《诡秘之主》第二部第79章 交流消息'}, {'alias':'星之女王','source':'《宿命之环》第六部第45章 电影'}],
+ 'bernadette':[{'alias':'神秘女王','source':'《诡秘之主》第三部第190章 旁观'}],
+ 'leonard':[{'alias':'星星','source':'《诡秘之主》第五部第12章 贴标签'}],
+ 'xio':[{'alias':'审判','source':'《诡秘之主》第五部第12章 贴标签'}],
+ 'amon':[{'alias':'曾冒用忒尔弥波洛斯之名','source':'《宿命之环》第五部第141章 病人、第142章 应许之事'}],
+ 'amanises':[{'alias':'黑夜女神 / 厄运女神','source':'《诡秘之主》第五部第172章 克莱恩的畏惧'}],
+ 'roselle':[{'alias':'黄涛','source':'《诡秘之主》第二部第146章 渎神者'}],
  'klein': [
-  {'alias':'夏洛克·莫里亚蒂','source':'《诡秘之主》第二部，第二章《萨默尔太太》'},
-  {'alias':'格尔曼·斯帕罗','source':'《诡秘之主》第三部，第一章《新的身份》'},
-  {'alias':'道恩·唐泰斯','source':'《诡秘之主》第四部，第一章《归来记》'},
-  {'alias':'梅林·赫尔墨斯','source':'《诡秘之主》第七卷，第三十章《天文学爱好者》'}],
- 'trissy':[{'alias':'特里斯','source':'《诡秘之主》第一部，第一百二十五章《大胆的想法》；第二部，第二百五十七章《名字》'}],
- 'lumian':[{'alias':'夏尔 / 夏尔·杜布瓦','source':'《宿命之环》第二部，第一章《外乡人》；第一百一十三章《传单》'}, {'alias':'路易·贝里','source':'《宿命之环》第四部，第二十二章《提问的方式》'}]
+  {'alias':'夏洛克·莫里亚蒂','source':'《诡秘之主》第二部第2章 萨默尔太太'},
+  {'alias':'格尔曼·斯帕罗','source':'《诡秘之主》第三部第1章 新的身份'},
+  {'alias':'道恩·唐泰斯','source':'《诡秘之主》第四部第1章 归来记'},
+  {'alias':'梅林·赫尔墨斯','source':'《诡秘之主》第七部第30章 天文学爱好者'}],
+ 'trissy':[{'alias':'特里斯','source':'《诡秘之主》第一部第125章 大胆的想法；第二部第257章 名字'}],
+ 'lumian':[{'alias':'夏尔 / 夏尔·杜布瓦','source':'《宿命之环》第二部第1章 外乡人；第113章 传单'}, {'alias':'路易·贝里','source':'《宿命之环》第四部第22章 提问的方式'}]
 }
 match_notes = {'sallent':'仅计第三部经营“高地秘药”的店主，第五部同名伦堡旅客另计。', 'true_creator':'“真实造物主”在不同阶段与亚当存在复杂身份关系；此处单列称号以保留融合前后的叙述。', 'ancient_sun':'仅统计“远古太阳神”字面写法；“造物主”等称号可能指不同存在，尚未直接合并。', 'david_raymond':'统计“戴维”的字面出现，可能包含同名人物；完整姓名出现十次。', 'patrick_bryan':'合计完整姓名的“布雷恩”和“布莱恩”两种写法；与帕特里克·杰森分别计数。', 'cattleya':'包含“嘉德丽雅”“星之上将”“星之女王”的字面匹配，称号与姓名连写只计一次；代号“隐者”暂未计入。', 'bernadette':'包含“贝尔纳黛”和“神秘女王”的字面匹配；仍需结合语境核对。', 'soest':'排除了“特伦索斯特”中的命中；其他同名用法仍需核对。', 'goodwill':'排除紧随“化工厂”的命中；仅写姓氏时可能指家族或其他人。', 'groselle':'排除了《格罗塞尔游记》书名的直接命中，其余字面结果仍需消歧。', 'hermes':'排除了明显的“古赫密斯”、赫密斯语及赫密斯文命中；其余字面结果仍可能指文字或语言。', 'ormir':'排除了“奥尔米尔葡萄酒”的命中；其他同名用法仍需人工核查。', 'lilith':'只统计“莉莉丝”，不将有其他历史身份的大地母神或欧弥贝拉字面命中直接算入。', 'medici':'排除了完整写作“阿不思·梅迪奇”及“梅迪奇家族”的命中；其他仅写姓氏的语境仍有歧义。', 'termiboros':'该名字既指真正的忒尔弥波洛斯，也曾被阿蒙冒用；字面次数未区分两者。', 'amon':'阿蒙曾冒用忒尔弥波洛斯的名字，相关歧义称呼未计入阿蒙的字面次数。', 'amanises':'包含“阿曼妮西斯”和“黑夜女神”的字面匹配；其他称号尚未计入。', 'roselle':'包含“罗塞尔”和“黄涛”的字面匹配，梦境形象等语境仍需人工区分。', 'ryan':'排除了“克莱恩”中的相同字串，仅统计《宿命之环》。', 'guillaume':'排除明确指向纪尧姆·利齐耶、纪尧姆·皮埃尔、纪尧姆·贝里及皮埃尔·纪尧姆的写法，以及“小纪尧姆”和“纪尧姆叔叔”；单独的纪尧姆仍可能有歧义。', 'frye':'排除了“弗莱娅”和“汉弗莱”中的命中；仍可能有其他同名。', 'lumian':'含“战车”先生、“卢米安”“路易·贝里”和“夏尔·杜布瓦”；单独的“夏尔”有歧义，尚未计入。'}
 # Classification evidence preserves the wording and period in the text. It is
 # deliberately not inferred from relationship tags or the broad UI group.
 classification_evidence = {
- 'max_livermore':[{'kind':'organization','value':'机械之心','source':'《诡秘之主》第二部，第一百零六章《奥黛丽的“冒险”》','note':'负责纪念展安保的西区小队队长。'}],
- 'portland_momont':[{'kind':'sequence','value':'鉴定师','source':'《诡秘之主》第七卷，第七章《可怜的阿罗德斯》','note':'原文明示其当时为序列7。'}],
- 'alista': [{'kind':'sequence','value':'红祭司','source':'《宿命之环》第三部，第一百七十章《隐秘的往事》'}],
- 'qilangos': [{'kind':'sequence','value':'风眷者','source':'《诡秘之主》第一部，第一百九十二章《重视》'}],
- 'meursault': [{'kind':'organization','value':'兹曼格党','source':'《诡秘之主》第二部，第十一章《玄学型侦探》'}, {'kind':'sequence','value':'猎人','source':'《诡秘之主》第二部，第二十一章《满月的夜晚》'}],
- 'heraberg': [{'kind':'organization','value':'知识教会','source':'《宿命之环》第五部，第六十八章《传递信息》'}],
- 'julie': [{'kind':'organization','value':'魔女教派','source':'《宿命之环》第五部，第六十八章《传递信息》'}, {'kind':'sequence','value':'痛苦魔女','source':'《宿命之环》第五部，第六十八章《传递信息》'}],
- 'salistes': [{'kind':'sequence','value':'魔女','source':'《宿命之环》第五部，第九十一章《进入》'}],
- 'daley': [{'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部，第十四章《通灵者》'}, {'kind':'sequence','value':'通灵者','source':'《诡秘之主》第一部，第二十八章《密修会》'}],
- 'mr_z': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第一部，第一百四十五章《合作的请求》'}],
- 'sirius': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第一部，第一百零六章《画家克莱恩》'}, {'kind':'sequence','value':'秘祈人','source':'《诡秘之主》第一部，第一百零六章《画家克莱恩》'}],
- 'haines': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第一部，第二百一十章《故事》'}],
- 'mr_a': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第二部，第四十一章《各方》'}],
- 'louis_wien': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第三部，第一百六十四章《莱曼诺的魔法书》'}],
- 'kisma': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第六部，第四十四章《狮子搏兔》'}],
- 'butis': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第五部，第一百三十章《多里安的请求》'}, {'kind':'sequence','value':'旅行家','source':'《诡秘之主》第三部，第一百六十四章《莱曼诺的魔法书》'}],
- 'laurence': [{'kind':'organization','value':'亚伯拉罕家族','source':'《诡秘之主》第二部，第一百六十一章《人工梦游》'}],
- 'lavoro': [{'kind':'organization','value':'亚伯拉罕家族','source':'《诡秘之主》第二部，第一百六十一章《人工梦游》'}],
- 'dorian': [{'kind':'organization','value':'亚伯拉罕家族','source':'《诡秘之主》第三部，第一百六十四章《莱曼诺的魔法书》'}],
- 'aurore': [{'kind':'organization','value':'卷毛狒狒研究会','source':'《宿命之环》第一部，第四十八章《知识逐人》'}],
- 'franca': [{'kind':'organization','value':'卷毛狒狒研究会','source':'《宿命之环》第二部，第六十六章《“袖剑”》'}],
- 'friend_april': [{'kind':'organization','value':'愚人节小组','source':'《宿命之环》第三部，第一百四十五章《动机》'}],
- 'klein': [{'kind':'sequence','value':'占卜家','source':'《诡秘之主》第一部，第三十章《新的开始》、第三十一章《魔药》'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部，第九十七章《格斗老师》'}],
- 'dunn': [{'kind':'sequence','value':'梦魇','source':'《诡秘之主》第一部，第二十二章《序列起始》'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部，第四十二章《管家刻利》'}],
- 'frye': [{'kind':'sequence','value':'收尸人','source':'《诡秘之主》第一部，第四十二章《管家刻利》'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部，第四十二章《管家刻利》'}],
- 'ikance': [{'kind':'organization','value':'机械之心','source':'《诡秘之主》第二部，第二百零四章《阿罗德斯》'}],
- 'blight': [{'kind':'organization','value':'值夜者（文职）','source':'《诡秘之主》第一部，第十九章《封印物》'}],
- 'danitz': [{'kind':'sequence','value':'纵火家','source':'《诡秘之主》第三部，第七十一章《达尼兹的努力》'}],
- 'audrey': [{'kind':'sequence','value':'观众','source':'《诡秘之主》第一部，第五十二章《观众》'}, {'kind':'organization','value':'塔罗会','source':'《诡秘之主》第一部，第七章《代号》'}],
- 'fors': [{'kind':'sequence','value':'学徒','source':'《诡秘之主》第一部，第一百三十章《贝克兰德的隐秘聚会》'}],
- 'leonard': [{'kind':'sequence','value':'午夜诗人','source':'《诡秘之主》第一部，第二十一章《他乡遇故知》'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部，第二十一章《他乡遇故知》'}],
- 'lumian': [{'kind':'sequence','value':'猎人','source':'《宿命之环》第一部，第三十七章《“危险丛林”》'}],
- 'alger': [{'kind':'organization','value':'塔罗会','source':'《诡秘之主》第一部，第七章《代号》'}],
- 'seeka': [{'kind':'sequence','value':'午夜诗人','source':'《诡秘之主》第一部，第四十二章《管家刻利》'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部，第四十二章《管家刻利》'}],
- 'luoyao': [{'kind':'sequence','value':'不眠者','source':'《诡秘之主》第一部，第四十二章《管家刻利》'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部，第四十二章《管家刻利》'}],
- 'kornley': [{'kind':'sequence','value':'不眠者','source':'《诡秘之主》第一部，第四十二章《管家刻利》'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部，第四十二章《管家刻利》'}],
+ 'max_livermore':[{'kind':'organization','value':'机械之心','source':'《诡秘之主》第二部第106章 奥黛丽的“冒险”','note':'负责纪念展安保的西区小队队长。'}],
+ 'portland_momont':[{'kind':'sequence','value':'鉴定师','source':'《诡秘之主》第七部第7章 可怜的阿罗德斯','note':'原文明示其当时为序列7。'}],
+ 'alista': [{'kind':'sequence','value':'红祭司','source':'《宿命之环》第三部第170章 隐秘的往事'}],
+ 'qilangos': [{'kind':'sequence','value':'风眷者','source':'《诡秘之主》第一部第192章 重视'}],
+ 'meursault': [{'kind':'organization','value':'兹曼格党','source':'《诡秘之主》第二部第11章 玄学型侦探'}, {'kind':'sequence','value':'猎人','source':'《诡秘之主》第二部第21章 满月的夜晚'}],
+ 'heraberg': [{'kind':'organization','value':'知识教会','source':'《宿命之环》第五部第68章 传递信息'}],
+ 'julie': [{'kind':'organization','value':'魔女教派','source':'《宿命之环》第五部第68章 传递信息'}, {'kind':'sequence','value':'痛苦魔女','source':'《宿命之环》第五部第68章 传递信息'}],
+ 'salistes': [{'kind':'sequence','value':'魔女','source':'《宿命之环》第五部第91章 进入'}],
+ 'daley': [{'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部第14章 通灵者'}, {'kind':'sequence','value':'通灵者','source':'《诡秘之主》第一部第28章 密修会'}],
+ 'mr_z': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第一部第145章 合作的请求'}],
+ 'sirius': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第一部第106章 画家克莱恩'}, {'kind':'sequence','value':'秘祈人','source':'《诡秘之主》第一部第106章 画家克莱恩'}],
+ 'haines': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第一部第210章 故事'}],
+ 'mr_a': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第二部第41章 各方'}],
+ 'louis_wien': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第三部第164章 莱曼诺的魔法书'}],
+ 'kisma': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第六部第44章 狮子搏兔'}],
+ 'butis': [{'kind':'organization','value':'极光会','source':'《诡秘之主》第五部第130章 多里安的请求'}, {'kind':'sequence','value':'旅行家','source':'《诡秘之主》第三部第164章 莱曼诺的魔法书'}],
+ 'laurence': [{'kind':'organization','value':'亚伯拉罕家族','source':'《诡秘之主》第二部第161章 人工梦游'}],
+ 'lavoro': [{'kind':'organization','value':'亚伯拉罕家族','source':'《诡秘之主》第二部第161章 人工梦游'}],
+ 'dorian': [{'kind':'organization','value':'亚伯拉罕家族','source':'《诡秘之主》第三部第164章 莱曼诺的魔法书'}],
+ 'aurore': [{'kind':'organization','value':'卷毛狒狒研究会','source':'《宿命之环》第一部第48章 知识逐人'}],
+ 'franca': [{'kind':'organization','value':'卷毛狒狒研究会','source':'《宿命之环》第二部第66章 “袖剑”'}],
+ 'friend_april': [{'kind':'organization','value':'愚人节小组','source':'《宿命之环》第三部第145章 动机'}],
+ 'klein': [{'kind':'sequence','value':'占卜家','source':'《诡秘之主》第一部第30章 新的开始、第31章 魔药'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部第97章 格斗老师'}],
+ 'dunn': [{'kind':'sequence','value':'梦魇','source':'《诡秘之主》第一部第22章 序列起始'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部第42章 管家刻利'}],
+ 'frye': [{'kind':'sequence','value':'收尸人','source':'《诡秘之主》第一部第42章 管家刻利'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部第42章 管家刻利'}],
+ 'ikance': [{'kind':'organization','value':'机械之心','source':'《诡秘之主》第二部第204章 阿罗德斯'}],
+ 'blight': [{'kind':'organization','value':'值夜者（文职）','source':'《诡秘之主》第一部第19章 封印物'}],
+ 'danitz': [{'kind':'sequence','value':'纵火家','source':'《诡秘之主》第三部第71章 达尼兹的努力'}],
+ 'audrey': [{'kind':'sequence','value':'观众','source':'《诡秘之主》第一部第52章 观众'}, {'kind':'organization','value':'塔罗会','source':'《诡秘之主》第一部第7章 代号'}],
+ 'fors': [{'kind':'sequence','value':'学徒','source':'《诡秘之主》第一部第130章 贝克兰德的隐秘聚会'}],
+ 'leonard': [{'kind':'sequence','value':'午夜诗人','source':'《诡秘之主》第一部第21章 他乡遇故知'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部第21章 他乡遇故知'}],
+ 'lumian': [{'kind':'sequence','value':'猎人','source':'《宿命之环》第一部第37章 “危险丛林”'}],
+ 'alger': [{'kind':'organization','value':'塔罗会','source':'《诡秘之主》第一部第7章 代号'}],
+ 'seeka': [{'kind':'sequence','value':'午夜诗人','source':'《诡秘之主》第一部第42章 管家刻利'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部第42章 管家刻利'}],
+ 'luoyao': [{'kind':'sequence','value':'不眠者','source':'《诡秘之主》第一部第42章 管家刻利'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部第42章 管家刻利'}],
+ 'kornley': [{'kind':'sequence','value':'不眠者','source':'《诡秘之主》第一部第42章 管家刻利'}, {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部第42章 管家刻利'}],
 }
 # Sequence stages named directly in the corresponding chapters.
 for ident, value, source in [
@@ -848,20 +848,20 @@ for ident in ('bard_april', 'loki'):
   if fact.get('kind') == 'sequence' and '第一百四十六章《火刑》' in fact.get('source', ''):
    fact['certainty'] = 'inferred'
    fact['note'] = '这是“我有个朋友”的说法；他明确表示不确定吟游诗人的现状，洛基的阶段也有待独立核实。'
-classification_evidence.setdefault('emlyn', []).append({'kind':'pathway','value':'月亮','source':'《诡秘之主》第五部，第一百八十八章《“门”先生》','note':'此处以药师指称途径，不代表埃姆林当时是序列9。'})
-classification_evidence.setdefault('lumian', []).append({'kind':'pathway','value':'魔女','source':'《宿命之环》第六部，第十八章《站台(最后半天求月票)》；第七部，第九章《“不老”》','note':'由猎人途径跨入魔女途径；封印中的猎人途径力量不能直接等同本人序列。'})
+classification_evidence.setdefault('emlyn', []).append({'kind':'pathway','value':'月亮','source':'《诡秘之主》第五部第188章 “门”先生','note':'此处以药师指称途径，不代表埃姆林当时是序列9。'})
+classification_evidence.setdefault('lumian', []).append({'kind':'pathway','value':'魔女','source':'《宿命之环》第六部第18章 站台(最后半天求月票)；第七部第9章 “不老”','note':'由猎人途径跨入魔女途径；封印中的猎人途径力量不能直接等同本人序列。'})
 classification_evidence.setdefault('gardner', []).append({
  'kind':'pathway','value':'红祭司','certainty':'inferred',
- 'source':'《宿命之环》第二部，第一百三十二章《不屈》',
+ 'source':'《宿命之环》第二部第132章 不屈',
  'note':'芙兰卡判断他属于猎人途径，具体序列仍不确定。'
 })
 classification_evidence.setdefault('bernadette', []).append({
  'kind':'pathway','value':'隐者',
- 'source':'《诡秘之主》第五部，第一百四十六章《可笑之人》；第七卷，第四十三章《上门辅导》',
+ 'source':'《诡秘之主》第五部第146章 可笑之人；第七部第43章 上门辅导',
  'note':'贝尔纳黛介绍窥秘人途径“贤者”的晋升条件，后来服食该魔药晋升。'
 })
 classification_evidence.setdefault('hidden_sage', []).append({
- 'kind':'pathway','value':'隐者','relation':'authority','source':'《诡秘之主》第七卷，第四十三章《上门辅导》',
+ 'kind':'pathway','value':'隐者','relation':'authority','source':'《诡秘之主》第七部第43章 上门辅导',
  'note':'原文称隐匿贤者是窥秘人途径的近似序列0存在。'
 })
 # Pathway clues checked against the named chapters; inference remains explicit.
@@ -888,139 +888,139 @@ for ident, value, source, note, certainty in [
 # Display the later pathway first, while keeping earlier stages and their
 # chapter evidence explicit for characters who changed pathways.
 classification_evidence['ince'] = [
- {'kind':'pathway','value':'黑夜','source':'《诡秘之主》第一部，第二百一十章《故事》','note':'此前为死神途径序列5“看门人”，后跨途径晋升黑夜途径序列4“守夜人”。'},
- {'kind':'sequence','value':'看门人','source':'《诡秘之主》第一部，第二百一十章《故事》','note':'死神途径，晋升前的阶段。'},
- {'kind':'sequence','value':'守夜人','source':'《诡秘之主》第一部，第二百一十章《故事》','note':'黑夜途径，跨途径晋升后的阶段。'}
+ {'kind':'pathway','value':'黑夜','source':'《诡秘之主》第一部第210章 故事','note':'此前为死神途径序列5“看门人”，后跨途径晋升黑夜途径序列4“守夜人”。'},
+ {'kind':'sequence','value':'看门人','source':'《诡秘之主》第一部第210章 故事','note':'死神途径，晋升前的阶段。'},
+ {'kind':'sequence','value':'守夜人','source':'《诡秘之主》第一部第210章 故事','note':'黑夜途径，跨途径晋升后的阶段。'}
 ]
 classification_evidence['roselle'] = [
- {'kind':'pathway','value':'黑皇帝','source':'《宿命之环》第五部，第一百二十九章《漩涡的中心》','note':'后期由窥秘人途径强行转向律师途径；早期曾选择通识者序列。'},
- {'kind':'sequence','value':'通识者','source':'《诡秘之主》第一部，第六十五章《非凡者资料》','note':'早期所选序列，不代表其后期途径。'},
- {'kind':'pathway','value':'隐者','source':'《宿命之环》第五部，第一百二十九章《漩涡的中心》','note':'转向律师途径之前的窥秘人途径阶段。'}
+ {'kind':'pathway','value':'黑皇帝','source':'《宿命之环》第五部第129章 漩涡的中心','note':'后期由窥秘人途径强行转向律师途径；早期曾选择通识者序列。'},
+ {'kind':'sequence','value':'通识者','source':'《诡秘之主》第一部第65章 非凡者资料','note':'早期所选序列，不代表其后期途径。'},
+ {'kind':'pathway','value':'隐者','source':'《宿命之环》第五部第129章 漩涡的中心','note':'转向律师途径之前的窥秘人途径阶段。'}
 ]
 classification_evidence.setdefault('valentine', []).append({
- 'kind':'pathway','value':'太阳','certainty':'inferred','source':'《宿命之环》第一部，第八十二章《梦境占卜》',
+ 'kind':'pathway','value':'太阳','certainty':'inferred','source':'《宿命之环》第一部第82章 梦境占卜',
  'note':'奥萝尔根据能力表现推测其途径及序列7“太阳神官”；两者均为人物判断。'
 })
 classification_evidence.setdefault('ryan', []).append({
  'kind':'pathway','value':'黄昏巨人','certainty':'inferred',
- 'source':'《宿命之环》第一部，第八十二章《梦境占卜》',
+ 'source':'《宿命之环》第一部第82章 梦境占卜',
  'note':'奥萝尔根据莱恩的表现推测他是“黎明骑士”，据此归入对应途径；具体序列尚属推测。'
 })
 classification_evidence.setdefault('lanervus', []).append({
  'kind':'pathway','value':'错误',
- 'source':'《诡秘之主》第二部，第七十四章《死战》',
+ 'source':'《诡秘之主》第二部第74章 死战',
  'note':'原文说明其途径的序列9是“偷盗者”；具体序列8“诈骗师”仍是克莱恩的推测。'
 })
 classification_evidence.setdefault('qunas', []).append({
- 'kind':'pathway','value':'黑皇帝','source':'《诡秘之主》第四部，第一百六十一章《头发般的植物》',
+ 'kind':'pathway','value':'黑皇帝','source':'《诡秘之主》第四部第161章 头发般的植物',
  'note':'原文称其实际已是律师（黑皇帝）途径的半神，公开身份低于实际序列。'
 })
 classification_evidence.setdefault('wendell', []).extend([
- {'kind':'sequence','value':'治安官','source':'《诡秘之主》第七卷，第六十五章《助人为乐》','note':'文德尔记得走过的道路，叙述明确他曾是治安官。'},
- {'kind':'sequence','value':'审讯者','certainty':'inferred','source':'《诡秘之主》第七卷，第六十四章《入住》、第六十五章《助人为乐》','note':'由现为序列7及曾是治安官推定当时的魔药名称。'}
+ {'kind':'sequence','value':'治安官','source':'《诡秘之主》第七部第65章 助人为乐','note':'文德尔记得走过的道路，叙述明确他曾是治安官。'},
+ {'kind':'sequence','value':'审讯者','certainty':'inferred','source':'《诡秘之主》第七部第64章 入住、第65章 助人为乐','note':'由现为序列7及曾是治安官推定当时的魔药名称。'}
 ])
 for ident, sequence in [('katy_guard','审讯者'), ('park_guard','治安官')]:
  classification_evidence.setdefault(ident, []).append({
   'kind':'pathway','value':'审判者',
-  'source':'《诡秘之主》第二部，第一百六十八章《猜测》',
+  'source':'《诡秘之主》第二部第168章 猜测',
   'note':f'克莱恩从非凡特性判断其为“{sequence}”，属于仲裁人途径。'
  })
 classification_evidence.setdefault('lia', []).append({
  'kind':'pathway','value':'愚者','certainty':'inferred',
- 'source':'《宿命之环》第一部，第八十二章《梦境占卜》',
+ 'source':'《宿命之环》第一部第82章 梦境占卜',
  'note':'奥萝尔根据能力表现推测她属于占卜家途径、至少为“魔术师”。'
 })
 classification_evidence.setdefault('azik', []).append({
  'kind':'pathway','value':'死神','certainty':'inferred',
- 'source':'《诡秘之主》第一部，第一百七十六章《信》；第三部，第一百零六章《旧相识》',
+ 'source':'《诡秘之主》第一部第176章 信；第三部第106章 旧相识',
  'note':'克莱恩根据阿兹克与死神的关联及其能力判断他极可能属于收尸人途径；后来知晓他曾是“死亡执政官”。'
 })
 classification_evidence.setdefault('medici', []).append({
- 'kind':'pathway','value':'红祭司','source':'《诡秘之主》第三部，第三十四章《“倒吊人”的猜测》',
+ 'kind':'pathway','value':'红祭司','source':'《诡秘之主》第三部第34章 “倒吊人”的猜测',
  'note':'塔罗会上克莱恩回答梅迪奇属于红祭司途径；恶灵阶段与索伦、艾因霍恩的残魂交织。'
 })
 classification_evidence.setdefault('dorian', []).append({
  'kind':'sequence','value':'占星人',
- 'source':'《诡秘之主》第六部，第五十七章《多里安的决断》',
+ 'source':'《诡秘之主》第六部第57章 多里安的决断',
  'note':'原文以“占星人”的灵性直觉描述多里安；此序列属于学徒途径。'
 })
 classification_evidence.setdefault('chained_god', []).append({
- 'kind':'pathway','value':'被缚者','source':'《宿命之环》第三部，第三十八章《恶魔》；《诡秘之主》第六部，第八十四章《“降临”的投影》',
+ 'kind':'pathway','value':'被缚者','source':'《宿命之环》第三部第38章 恶魔；《诡秘之主》第六部第84章 “降临”的投影',
  'note':'原文称其属于“囚犯”或“异种”途径；其后受到欲望母树侵蚀。'
 })
 classification_evidence.setdefault('simon', []).extend([
- {'kind':'organization','value':'萨瓦党','source':'《宿命之环》第二部，第四十七章《房东》'},
- {'kind':'pathway','value':'黄昏巨人','certainty':'inferred','source':'《宿命之环》第二部，第七十一章《偷懒》','note':'卢米安怀疑西蒙是战士途径的非凡者，具体序列尚待核实。'}
+ {'kind':'organization','value':'萨瓦党','source':'《宿命之环》第二部第47章 房东'},
+ {'kind':'pathway','value':'黄昏巨人','certainty':'inferred','source':'《宿命之环》第二部第71章 偷懒','note':'卢米安怀疑西蒙是战士途径的非凡者，具体序列尚待核实。'}
 ])
 classification_evidence.setdefault('utravsky', []).append({
- 'kind':'organization','value':'大地母神教会','source':'《诡秘之主》第二部，第九十三章《“巨人”主教》'
+ 'kind':'organization','value':'大地母神教会','source':'《诡秘之主》第二部第93章 “巨人”主教'
 })
 classification_evidence.setdefault('guillaume', []).append({
- 'kind':'pathway','value':'宿命','source':'《宿命之环》第三部，第六十九章《“罪人”》',
+ 'kind':'pathway','value':'宿命','source':'《宿命之环》第三部第69章 “罪人”',
  'note':'原文提及他获得相当于序列5“猎命师”的恩赐；是否服用对应魔药在较早情节中尚不确定。'
 })
 classification_evidence.setdefault('rayasa', []).extend([
- {'kind':'pathway','value':'死神','source':'《宿命之环》第四部，第一百九十章《幻觉》','note':'卢米安认出雷亚萨是死神途径的中序列非凡者。'},
- {'kind':'organization','value':'灵教团皇室派','source':'《宿命之环》第四部，第一百九十九章《一场“交易”》、第二百零四章《罪在何处》','note':'麦斯洛说明两人同属灵教团；卢米安后来说明两人属于皇室派。'}
+ {'kind':'pathway','value':'死神','source':'《宿命之环》第四部第190章 幻觉','note':'卢米安认出雷亚萨是死神途径的中序列非凡者。'},
+ {'kind':'organization','value':'灵教团皇室派','source':'《宿命之环》第四部第199章 一场“交易”、第204章 罪在何处','note':'麦斯洛说明两人同属灵教团；卢米安后来说明两人属于皇室派。'}
 ])
 classification_evidence.setdefault('maislo', []).append({
- 'kind':'organization','value':'灵教团皇室派','source':'《宿命之环》第四部，第一百九十九章《一场“交易”》、第二百零四章《罪在何处》',
+ 'kind':'organization','value':'灵教团皇室派','source':'《宿命之环》第四部第199章 一场“交易”、第204章 罪在何处',
  'note':'麦斯洛坦承他与雷亚萨同属灵教团；卢米安后来说明两人属于皇室派。'
 })
 classification_evidence.setdefault('lolotta', []).extend([
- {'kind':'pathway','value':'死神','source':'《诡秘之主》第一部，第七十一章《滞涩现象》','note':'邓恩介绍洛络塔为序列8“掘墓人”，属于收尸人途径。'},
- {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部，第七十一章《滞涩现象》','note':'来自贝克兰德教区，协助廷根值夜者执行任务。'}
+ {'kind':'pathway','value':'死神','source':'《诡秘之主》第一部第71章 滞涩现象','note':'邓恩介绍洛络塔为序列8“掘墓人”，属于收尸人途径。'},
+ {'kind':'organization','value':'值夜者','source':'《诡秘之主》第一部第71章 滞涩现象','note':'来自贝克兰德教区，协助廷根值夜者执行任务。'}
 ])
-classification_evidence['bilt'] = [{'kind':'organization','value':'冒险家互助会','source':'《诡秘之主》第三部，第一百三十二章《冒险家互助会》'}]
+classification_evidence['bilt'] = [{'kind':'organization','value':'冒险家互助会','source':'《诡秘之主》第三部第132章 冒险家互助会'}]
 classification_evidence['bouvoir'] = [
- {'kind':'organization','value':'罪人','source':'《宿命之环》第三部，第六十九章《“罪人”》、第一百八十一章《“罪人”们的首领》'},
- {'kind':'pathway','value':'宿命','source':'《宿命之环》第三部，第一百七十九章《扮演的机会》','note':'保利娜称布瓦尔已获“苦修士”恩赐，仍在争取“猎命师”。'}
+ {'kind':'organization','value':'罪人','source':'《宿命之环》第三部第69章 “罪人”、第181章 “罪人”们的首领'},
+ {'kind':'pathway','value':'宿命','source':'《宿命之环》第三部第179章 扮演的机会','note':'保利娜称布瓦尔已获“苦修士”恩赐，仍在争取“猎命师”。'}
 ]
-classification_evidence['beatrice'] = [{'kind':'organization','value':'至福会','source':'《宿命之环》第三部，第一百五十五章《碧翠丝》'}]
+classification_evidence['beatrice'] = [{'kind':'organization','value':'至福会','source':'《宿命之环》第三部第155章 碧翠丝'}]
 classification_evidence.setdefault('ozil', []).append({
  'kind':'pathway','value':'黄昏巨人',
- 'source':'《诡秘之主》第三部，第一百一十八章《清场》',
+ 'source':'《诡秘之主》第三部第118章 清场',
  'note':'克莱恩击杀奥兹尔后取得战士途径序列8格斗家非凡特性。'
 })
 classification_evidence.setdefault('stafford', []).append({
  'kind':'pathway','value':'审判者',
- 'source':'《诡秘之主》第五部，第七十六章《答案》、第九十一章《格尔曼的问题》',
+ 'source':'《诡秘之主》第五部第76章 答案、第91章 格尔曼的问题',
  'note':'原文称斯特福德依靠惩戒骑士的身体支撑；惩戒骑士属于仲裁人途径序列5。'
 })
 classification_evidence.setdefault('basil_pirate', []).append({
- 'kind':'pathway','value':'深渊','source':'《宿命之环》第五部，第四十八章《上船》',
+ 'kind':'pathway','value':'深渊','source':'《宿命之环》第五部第48章 上船',
  'note':'卢米安确认“拆骨者”罗勒是恶魔；该序列属于深渊途径。'
 })
 classification_evidence.setdefault('hal_constantine', []).append({
  'kind':'pathway','value':'暴君','certainty':'inferred',
- 'source':'《宿命之环》第五部，第四十八章《上船》',
+ 'source':'《宿命之环》第五部第48章 上船',
  'note':'卢米安根据此前表现推测哈尔接近风暴途径序列5“海洋歌者”，具体序列仍待确认。'
 })
 classification_evidence['sharf'] = [
- {'kind':'pathway','value':'通识者','source':'《诡秘之主》第四部，第一百七十章《阴影》；第二部，第六十章《出手配方》','note':'夏尔夫被称为工匠；原文说明工匠是通识者途径序列6。'},
- {'kind':'nationality','value':'因蒂斯','source':'《诡秘之主》第四部，第一百八十章《“工匠”的来历》','note':'阿尔杰向嘉德丽雅介绍夏尔夫是因蒂斯人。'}
+ {'kind':'pathway','value':'通识者','source':'《诡秘之主》第四部第170章 阴影；第二部第60章 出手配方','note':'夏尔夫被称为工匠；原文说明工匠是通识者途径序列6。'},
+ {'kind':'nationality','value':'因蒂斯','source':'《诡秘之主》第四部第180章 “工匠”的来历','note':'阿尔杰向嘉德丽雅介绍夏尔夫是因蒂斯人。'}
 ]
-classification_evidence['kaslana'] = [{'kind':'pathway','value':'审判者','certainty':'inferred','source':'《诡秘之主》第二部，第二百零六章《心愿》','note':'克莱恩判断她属于仲裁人途径，艾辛格肯定了他的观察；对话没有点明序列。'}]
-classification_evidence['carlson'] = [{'kind':'organization','value':'机械之心','source':'《诡秘之主》第二部，第二百零七章《恶魔家族》','note':'伊康瑟询问现场发现时，叙述明确称卡尔森为机械之心队员。'}]
-classification_evidence.setdefault('leomaster', []).append({'kind':'organization','value':'极光会','source':'《诡秘之主》第三部，第一百七十二章《囚犯与看守》、第一百八十九章《第四个名字》'})
-classification_evidence.setdefault('hilbert', []).append({'kind':'organization','value':'心理炼金会','source':'《诡秘之主》第二部，第二百零四章《阿罗德斯》；第五部，第二十四章《募捐的天赋》'})
-classification_evidence.setdefault('kisma', []).append({'kind':'pathway','value':'倒吊人','certainty':'inferred','source':'《诡秘之主》第六部，第四十六章《“丑小鸭”》','note':'原文描写克斯玛放牧灵魂，并解释牧羊人和三首圣堂的相关能力；据此推断为秘祈人途径，具体序列应另行核查。'})
-classification_evidence.setdefault('harry_owl', []).append({'kind':'pathway','value':'观众','certainty':'inferred','source':'《诡秘之主》第三部，第一百二十一章《条件》','note':'克莱恩根据猫头鹰观察人的方式作出推测，未点明具体序列。'})
-classification_evidence.setdefault('gandalf', []).append({'kind': 'pathway', 'value': '战士', 'source': '《宿命之环》第四部，第八十七章《差距》', 'note': '洛基调查过研究会会长，确认他是战士途径的非凡者。'})
-classification_evidence.setdefault('gusin', []).append({'kind': 'pathway', 'value': '猎人', 'source': '《宿命之环》第五部，第七十七章《奇怪的试卷》', 'note': '瓦纳克称古辛为猎人，并说他拥有魔女途径的部分能力。能力的来源和具体序列尚待核实。'})
+classification_evidence['kaslana'] = [{'kind':'pathway','value':'审判者','certainty':'inferred','source':'《诡秘之主》第二部第206章 心愿','note':'克莱恩判断她属于仲裁人途径，艾辛格肯定了他的观察；对话没有点明序列。'}]
+classification_evidence['carlson'] = [{'kind':'organization','value':'机械之心','source':'《诡秘之主》第二部第207章 恶魔家族','note':'伊康瑟询问现场发现时，叙述明确称卡尔森为机械之心队员。'}]
+classification_evidence.setdefault('leomaster', []).append({'kind':'organization','value':'极光会','source':'《诡秘之主》第三部第172章 囚犯与看守、第189章 第四个名字'})
+classification_evidence.setdefault('hilbert', []).append({'kind':'organization','value':'心理炼金会','source':'《诡秘之主》第二部第204章 阿罗德斯；第五部第24章 募捐的天赋'})
+classification_evidence.setdefault('kisma', []).append({'kind':'pathway','value':'倒吊人','certainty':'inferred','source':'《诡秘之主》第六部第46章 “丑小鸭”','note':'原文描写克斯玛放牧灵魂，并解释牧羊人和三首圣堂的相关能力；据此推断为秘祈人途径，具体序列应另行核查。'})
+classification_evidence.setdefault('harry_owl', []).append({'kind':'pathway','value':'观众','certainty':'inferred','source':'《诡秘之主》第三部第121章 条件','note':'克莱恩根据猫头鹰观察人的方式作出推测，未点明具体序列。'})
+classification_evidence.setdefault('gandalf', []).append({'kind': 'pathway', 'value': '战士', 'source': '《宿命之环》第四部第87章 差距', 'note': '洛基调查过研究会会长，确认他是战士途径的非凡者。'})
+classification_evidence.setdefault('gusin', []).append({'kind': 'pathway', 'value': '猎人', 'source': '《宿命之环》第五部第77章 奇怪的试卷', 'note': '瓦纳克称古辛为猎人，并说他拥有魔女途径的部分能力。能力的来源和具体序列尚待核实。'})
 classification_evidence['gusin'].append({
  'kind': 'pathway', 'value': '刺客', 'relation': 'ability',
- 'source': '《宿命之环》第五部，第七十七章《奇怪的试卷》',
+ 'source': '《宿命之环》第五部第77章 奇怪的试卷',
  'note': '瓦纳克称古辛拥有部分魔女途径能力，能够利用镜中世界。获得方式未明。'
 })
 
-classification_evidence.setdefault('richard_fate', []).append({'kind': 'pathway', 'value': '怪物', 'certainty': 'inferred', 'source': '《诡秘之主》第三部，第一百二十九章《命运议员》、第一百三十章《到手》、第二百零七章《这就好了？》', 'note': '瑞乔德收容概率之骰；克莱恩后来将他预感危险的表现联系到怪物途径。命运议员是组织职务，具体序列未明。'})
-classification_evidence.setdefault('ailos', []).append({'kind': 'pathway', 'value': '猎人', 'source': '《宿命之环》第三部，第一百六十八章《三个猎人一台戏》', 'note': '爱洛丝在地宫中向阿不思和卢米安说明自己的索伦血统，并亲口说自己是猎人。'})
-classification_evidence.setdefault('albus', []).append({'kind': 'pathway', 'value': '猎人', 'source': '《宿命之环》第三部，第一百六十八章《三个猎人一台戏》；第五部，第九十六章《不对劲》', 'note': '卢米安称阿不思和爱洛丝为猎人。当时卢米安只怀疑阿不思已经是阴谋家；摩罗拉时期他能短暂借用军团的高位力量，个人的具体序列仍待核实。'})
-classification_evidence.setdefault('omabella', []).append({'kind': 'pathway', 'value': '耕种者', 'certainty': 'inferred', 'source': '《宿命之环》第七部，第二十五章《吉达斯》、第二十六章《第一个牧师》', 'note': '卢米安等人重建往事时，将巨人王后的力量归入大地途径。莉莉丝曾窃取她的身份，莉莉丝的真神位阶不能直接记在王后名下。'})
-classification_evidence.setdefault('ormir', []).append({'kind': 'pathway', 'value': '战士', 'certainty': 'inferred', 'source': '《诡秘之主》第一部，第一百八十章《聪明人总是想太多》；第二部，第一百章《古老的神灵》', 'note': '奥尔米尔是第二纪巨人王。克莱恩根据巨人王庭掌握的战士序列，推测祂是远古战神。原文此处未交代祂的个人晋升过程。'})
-classification_evidence.setdefault('brignais', []).append({'kind': 'pathway', 'value': '阅读者', 'certainty': 'inferred', 'source': '《宿命之环》第三部，第五十一章《集众之力》', 'note': '卢米安根据布里涅尔的信仰、战斗方式和处理帮务的表现，推测他是阅读者途径的非凡者；该章没有点明序列。'})
-classification_evidence.setdefault('mr_a', []).append({'kind':'pathway','value':'倒吊人','source':'《诡秘之主》第四部，第一百零四章《“投食”》','note':'克莱恩提及A先生具有“蔷薇主教”的能力；该序列属于秘祈人途径。'})
+classification_evidence.setdefault('richard_fate', []).append({'kind': 'pathway', 'value': '怪物', 'certainty': 'inferred', 'source': '《诡秘之主》第三部第129章 命运议员、第130章 到手、第207章 这就好了？', 'note': '瑞乔德收容概率之骰；克莱恩后来将他预感危险的表现联系到怪物途径。命运议员是组织职务，具体序列未明。'})
+classification_evidence.setdefault('ailos', []).append({'kind': 'pathway', 'value': '猎人', 'source': '《宿命之环》第三部第168章 三个猎人一台戏', 'note': '爱洛丝在地宫中向阿不思和卢米安说明自己的索伦血统，并亲口说自己是猎人。'})
+classification_evidence.setdefault('albus', []).append({'kind': 'pathway', 'value': '猎人', 'source': '《宿命之环》第三部第168章 三个猎人一台戏；第五部第96章 不对劲', 'note': '卢米安称阿不思和爱洛丝为猎人。当时卢米安只怀疑阿不思已经是阴谋家；摩罗拉时期他能短暂借用军团的高位力量，个人的具体序列仍待核实。'})
+classification_evidence.setdefault('omabella', []).append({'kind': 'pathway', 'value': '耕种者', 'certainty': 'inferred', 'source': '《宿命之环》第七部第25章 吉达斯、第26章 第一个牧师', 'note': '卢米安等人重建往事时，将巨人王后的力量归入大地途径。莉莉丝曾窃取她的身份，莉莉丝的真神位阶不能直接记在王后名下。'})
+classification_evidence.setdefault('ormir', []).append({'kind': 'pathway', 'value': '战士', 'certainty': 'inferred', 'source': '《诡秘之主》第一部第180章 聪明人总是想太多；第二部第100章 古老的神灵', 'note': '奥尔米尔是第二纪巨人王。克莱恩根据巨人王庭掌握的战士序列，推测祂是远古战神。原文此处未交代祂的个人晋升过程。'})
+classification_evidence.setdefault('brignais', []).append({'kind': 'pathway', 'value': '阅读者', 'certainty': 'inferred', 'source': '《宿命之环》第三部第51章 集众之力', 'note': '卢米安根据布里涅尔的信仰、战斗方式和处理帮务的表现，推测他是阅读者途径的非凡者；该章没有点明序列。'})
+classification_evidence.setdefault('mr_a', []).append({'kind':'pathway','value':'倒吊人','source':'《诡秘之主》第四部第104章 “投食”','note':'克莱恩提及A先生具有“蔷薇主教”的能力；该序列属于秘祈人途径。'})
 # Explicit nationality descriptions in the cited chapters; do not infer from residence.
 for ident, facts in {
  'klein': [('塔罗会','《诡秘之主》第一部，第七章《代号》'), ('廷根市占卜俱乐部','《诡秘之主》第一部，第四十八章《海纳斯·凡森特》')],
@@ -1056,114 +1056,114 @@ for entry in out:
  entry['aliasSources'] = identity_sources.get(entry['id'], [])
  if entry['id'] == 'hermes':
   entry['alias'] = '“暴怒”先生'
-  entry['aliasSources'].append({'alias':'“暴怒”先生（巨型白兔的身份）','source':'《诡秘之主》第八部，第六章《选择》、第十一章《行动派》、第十二章《摧毁》'})
+  entry['aliasSources'].append({'alias':'“暴怒”先生（巨型白兔的身份）','source':'《诡秘之主》第八部第6章 选择、第11章 行动派、第12章 摧毁'})
   entry['matchNote'] = '合计人名、“暴怒”先生及带此称号的兔子。面具或情绪的单称、赫密斯语和文字名称不计。'
  if entry['id'] == 'delllau':
   entry['alias'] = '“黑座之王”巴洛斯·霍普金斯 / 埃里克·德雷克 / 埃里克·德里克'
-  entry['aliasSources'].extend([{'alias':'“黑座之王”巴洛斯·霍普金斯、埃里克·德雷克','source':'《诡秘之主》第七卷，第五十章《陌生的城市》'},{'alias':'埃里克·德里克（隐士姓名异写）','source':'《诡秘之主》第八部，第十二章《摧毁》'}])
+  entry['aliasSources'].extend([{'alias':'“黑座之王”巴洛斯·霍普金斯、埃里克·德雷克','source':'《诡秘之主》第七部第50章 陌生的城市'},{'alias':'埃里克·德里克（隐士姓名异写）','source':'《诡秘之主》第八部第12章 摧毁'}])
   entry['matchNote'] = '合计本姓、海盗称号及海盗与隐士的全名，称号与姓名连写只计一次。红手套队长埃里克另计。'
  if entry['id'] == 'sharron':
   entry['alias'] = '保镖小姐 / “节制”'
-  entry['aliasSources'].append({'alias':'保镖小姐','source':'《诡秘之主》第二部，第六十五章《免费？》、第六十六章《乐极生悲》'})
-  entry['aliasSources'].append({'alias':'“节制”','source':'《宿命之环》第八部，第十八章《战场的变化》'})
+  entry['aliasSources'].append({'alias':'保镖小姐','source':'《诡秘之主》第二部第65章 免费？、第66章 乐极生悲'})
+  entry['aliasSources'].append({'alias':'“节制”','source':'《宿命之环》第八部第18章 战场的变化'})
   entry['matchNote'] = '合计莎伦、保镖小姐和“节制”女士，称号与姓名连写或当场改口只计一次。单独出现的牌名、理念和派系名不计。'
  if entry['id'] == 'gilchies':
   entry['alias'] = '“屠杀者”'
-  entry['aliasSources'].append({'alias':'“屠杀者”','source':'《诡秘之主》第三部，第一百五十四章《“屠杀者”》'})
+  entry['aliasSources'].append({'alias':'“屠杀者”','source':'《诡秘之主》第三部第154章 “屠杀者”'})
   entry['matchNote'] = '合计章节正文中的姓名和带引号的绰号，两者连写时计一次。'
  if entry['id'] == 'joyce':
   entry['alias'] = '迈尔先生'
-  entry['aliasSources'].append({'alias':'迈尔先生','source':'《诡秘之主》第一部，第五十五章《启示》、第六十三章《解梦》'})
+  entry['aliasSources'].append({'alias':'迈尔先生','source':'《诡秘之主》第一部第55章 启示、第63章 解梦'})
  if entry['id'] == 'camus':
   entry['alias'] = ' / '.join(item['alias'] for item in entry['aliasSources'])
  entry['classificationEvidence'] = classification_evidence.get(entry['id'], [])
  if entry['id'] == 'sharf':
   entry['alias'] = '工匠夏尔夫'
-  entry['aliasSources'].append({'alias':'姓朱恩','source':'《诡秘之主》第四部，第一百九十一章《后遗症》'})
+  entry['aliasSources'].append({'alias':'姓朱恩','source':'《诡秘之主》第四部第191章 后遗症'})
   entry['matchNote'] = '仅统计“夏尔夫”字面出现，单独的“工匠”未计入。'
  if entry['id'] == 'djinni':
   entry['alias'] = '“混沌之子”的主意识'
-  entry['aliasSources'].append({'alias':'“混沌之子”的主意识','source':'《宿命之环》第七部，第五十五章《序列之上》'})
+  entry['aliasSources'].append({'alias':'“混沌之子”的主意识','source':'《宿命之环》第七部第55章 序列之上'})
   entry['matchNote'] = '仅统计“灯神”字面出现；神灯这一物品名称未直接计入。'
  if entry['id'] == 'pallez':
   entry['alias'] = '老头（伦纳德的称呼） / “时之天使”（愚者教会）'
-  entry['aliasSources'].append({'alias':'老头（伦纳德的称呼）','source':'《诡秘之主》第四部，第一百四十五章《谁的陷阱》'})
-  entry['aliasSources'].append({'alias':'“时之天使”（愚者教会）','source':'《宿命之环》第八部，第十六章《各自的准备》'})
+  entry['aliasSources'].append({'alias':'老头（伦纳德的称呼）','source':'《诡秘之主》第四部第145章 谁的陷阱'})
+  entry['aliasSources'].append({'alias':'“时之天使”（愚者教会）','source':'《宿命之环》第八部第16章 各自的准备'})
   entry['matchNote'] = '统计“帕列斯”及《宿命之环》六章中已核对的愚者教会“时天使”称号；其他章节的同称号和“老头”等称呼尚未计入。'
  if entry['id'] == 'azik':
   entry['alias'] = '“死亡执政官”（拜朗帝国时期）'
-  entry['aliasSources'].append({'alias':'“死亡执政官”（拜朗帝国时期）','source':'《诡秘之主》第三部，第一百零六章《旧相识》'})
+  entry['aliasSources'].append({'alias':'“死亡执政官”（拜朗帝国时期）','source':'《诡秘之主》第三部第106章 旧相识'})
   entry['matchNote'] = '仅统计“阿兹克”的字面出现；“死亡执政官”也指拜朗帝国的职位和序列名称，尚未按上下文并入。'
  if entry['id'] == 'bethel_abraham':
   entry['alias'] = '“门”先生 / 亚盖慈（精神烙印的梦境形象）'
-  entry['aliasSources'].append({'alias':'亚盖慈（精神烙印的梦境形象）','source':'《宿命之环》第六部，第七十九章《夜半》'})
+  entry['aliasSources'].append({'alias':'亚盖慈（精神烙印的梦境形象）','source':'《宿命之环》第六部第79章 夜半'})
   entry['matchNote'] = '合计“伯特利”与“门”先生；梦境形象亚盖慈尚未计入。'
  if entry['id'] == 'lady_moon':
   entry['alias'] = '月夫人 / 孕育神灵的女士'
   entry['matchNote'] = '合计第二部先后使用的月夫人、月女士两种称呼。'
-  entry['aliasSources'].append({'alias':'月夫人', 'source':'《宿命之环》第二部第六十一章《夜游会》、第一百二十章《等价交换》'})
+  entry['aliasSources'].append({'alias':'月夫人', 'source':'《宿命之环》第二部第61章 夜游会、第120章 等价交换'})
  if entry['id'] == 'sherman':
   entry['alias'] = '雪曼'
-  entry['aliasSources'].append({'alias':'雪曼','source':'《诡秘之主》第五部，第七十六章《答案》'})
+  entry['aliasSources'].append({'alias':'雪曼','source':'《诡秘之主》第五部第76章 答案'})
   entry['matchNote'] = '合计谢尔曼、雪曼两种称呼的字面出现；仍需逐处核对具体指代。'
  if entry['id'] == 'stafford':
   entry['matchNote'] = '统计“斯特福德”字面出现，仍需逐处核对可能的同名或间接提及。'
  if entry['id'] == 'ozil':
   entry['alias'] = '巨力士'
-  entry['aliasSources'].append({'alias':'巨力士','source':'《诡秘之主》第三部，第一百零二章《锅》'})
+  entry['aliasSources'].append({'alias':'巨力士','source':'《诡秘之主》第三部第102章 锅'})
  if entry['id'] == 'sothos_young':
   entry['matchNote'] = '排除“特伦索托斯特”等含相近字串的称呼。'
  if entry['id'] == 'mithor':
   entry['alias'] = '巧言者'
-  entry['aliasSources'].append({'alias':'巧言者','source':'《诡秘之主》第三部，第九十八章《巧言者》'})
+  entry['aliasSources'].append({'alias':'巧言者','source':'《诡秘之主》第三部第98章 巧言者'})
   entry['matchNote'] = '按姓名计数，排除阿德米索尔。'
  if entry['id'] == 'paulina':
   entry['alias'] = '调味品美人'
-  entry['aliasSources'].append({'alias':'调味品美人','source':'《宿命之环》第三部，第六十一章《孰真孰假》'})
+  entry['aliasSources'].append({'alias':'调味品美人','source':'《宿命之环》第三部第61章 孰真孰假'})
  if entry['id'] == 'beatrice':
   entry['alias'] = '曾冒充画商德丽莎'
-  entry['aliasSources'].append({'alias':'冒充德丽莎','source':'《宿命之环》第三部，第一百五十五章《碧翠丝》'})
+  entry['aliasSources'].append({'alias':'冒充德丽莎','source':'《宿命之环》第三部第155章 碧翠丝'})
   entry['matchNote'] = '合计正文中的本名、明确称作假德丽莎的提及，以及第三部第一百五十三至一百五十四章经核对指向冒名者的德丽莎。排除真画商和同名项链。'
  if entry['id'] == 'pallas_negan':
   entry['alias'] = '尼根公爵（遇刺前在任）'
-  entry['aliasSources'].append({'alias':'尼根公爵','source':'《诡秘之主》第一部，第八章《新的时代》；第四部，第九章《管家》'})
+  entry['aliasSources'].append({'alias':'尼根公爵','source':'《诡秘之主》第一部第8章 新的时代；第四部第9章 管家'})
   entry['matchNote'] = '本名与爵号连写计一次。计入身后对刺杀案的追述及前期府邸等间接提及。后文提及现任公爵、家族或代际不明的爵号另行区分。'
  if entry['id'] == 'steam_god':
   entry['alias'] = '工匠之神（旧称）'
   entry['matchNote'] = '仅统计“蒸汽与机械之神”字面命中，其中包括教会名称等间接提及；旧称“工匠之神”未纳入计数。'
  if entry['id'] == 'leomaster':
   entry['alias'] = '黑之圣者'
-  entry['aliasSources'].append({'alias':'黑之圣者','source':'《诡秘之主》第三部，第一百八十九章《第四个名字》'})
+  entry['aliasSources'].append({'alias':'黑之圣者','source':'《诡秘之主》第三部第189章 第四个名字'})
   entry['matchNote'] = '统计“利奥马斯特”和“黑之圣者”的字面匹配，邻接的称号和姓名只计一次；不同人格未分开统计。'
  if entry['id'] == 'hilaire':
   entry['alias'] = '“橘光” / 希拉里恩 / 赫尔莫修因曾自称希拉里昂'
-  entry['aliasSources'].append({'alias':'希拉里恩（原文异写）','source':'《诡秘之主》第三部，第二百四十二章《提醒的真正含义》'})
-  entry['aliasSources'].append({'alias':'橘光；赫尔莫修因曾自称希拉里昂','source':'《诡秘之主》第三部，第二百四十一章《今天又做了件好事》、第二百四十二章《提醒的真正含义》'})
+  entry['aliasSources'].append({'alias':'希拉里恩（原文异写）','source':'《诡秘之主》第三部第242章 提醒的真正含义'})
+  entry['aliasSources'].append({'alias':'橘光；赫尔莫修因曾自称希拉里昂','source':'《诡秘之主》第三部第241章 今天又做了件好事、第242章 提醒的真正含义'})
   entry['matchNote'] = '合计希拉里昂、原文异写希拉里恩与橘光称号。称号和姓名连写只计一次；赫尔莫修因另有档案。'
  if entry['id'] == 'omabella':
   entry['matchNote'] = '“欧弥贝拉”可能指古代丰收女神、以此名出现的神子或莉莉丝所窃取的身份；现有字面计数未逐处区分这些指代，神子与古代人物的具体关系尚待核实。'
  if entry['id'] == 'ikance':
   entry['name'] = '伊康瑟·伯纳德'
-  entry['aliasSources'].append({'alias':'伊康瑟·伯纳德','source':'《诡秘之主》第二部，第二百零三章《正正得负》'})
+  entry['aliasSources'].append({'alias':'伊康瑟·伯纳德','source':'《诡秘之主》第二部第203章 正正得负'})
  if entry['id'] == 'vermonda':
   entry['alias'] = '佛蒙达·索伦'
-  entry['aliasSources'].append({'alias':'佛蒙达·索伦','source':'《宿命之环》第三部，第七十八章《支系》、第八十章《反馈》'})
+  entry['aliasSources'].append({'alias':'佛蒙达·索伦','source':'《宿命之环》第三部第78章 支系、第80章 反馈'})
  if entry['id'] == 'drag_gail':
   entry['alias'] = '多拉格·盖尔（原文异写）'
-  entry['aliasSources'].append({'alias':'多拉格·盖尔（原文异写）','source':'《诡秘之主》第二部，第三十章《捉奸》、第三十三章《奇怪的预兆》'})
+  entry['aliasSources'].append({'alias':'多拉格·盖尔（原文异写）','source':'《诡秘之主》第二部第30章 捉奸、第33章 奇怪的预兆'})
   entry['matchNote'] = '合计“多拉古”和“多拉格”的字面匹配；其他同名用法仍需核查。'
  if entry['id'] == 'mary_short':
   entry['alias'] = '玛丽·盖尔 / 玛丽夫人'
-  entry['aliasSources'].append({'alias':'玛丽·盖尔','source':'《诡秘之主》第二部，第二十九章《贝克朗》；第四部，第六十一章《意外的来访者》'})
+  entry['aliasSources'].append({'alias':'玛丽·盖尔','source':'《诡秘之主》第二部第29章 贝克朗；第四部第61章 意外的来访者'})
   entry['matchNote'] = '包含两种完整姓名和“玛丽夫人”“玛丽太太”的字面匹配；后两种称呼可能混入同名人物，尚未逐处消歧。'
  if entry['id'] == 'basil_pirate':
   entry['alias'] = '拆骨者'
-  entry['aliasSources'].append({'alias':'拆骨者','source':'《宿命之环》第四部，第十八章《奇特的海盗船》'})
+  entry['aliasSources'].append({'alias':'拆骨者','source':'《宿命之环》第四部第18章 奇特的海盗船'})
   entry['matchNote'] = '仅统计“拆骨者”称号；“罗勒”也可指植物或其他人物，未直接纳入计数。'
  if entry['id'] == 'hisoka':
   entry['name'] = '特瓦纳科·图皮安'
   entry['alias'] = '“西索”'
-  entry['aliasSources'].append({'alias':'“西索”','source':'《宿命之环》第四部，第一百五十四章《团队合作》'})
+  entry['aliasSources'].append({'alias':'“西索”','source':'《宿命之环》第四部第154章 团队合作'})
   entry['matchNote'] = '合计“西索”和“特瓦纳科”的字面匹配；代号与姓名连写只计一次，其他同名用法仍需核查。'
  if entry['id'] == 'park_guard':
   entry['matchNote'] = '统计“帕克”的字面匹配；同名人物仍需逐处核查。'
@@ -1172,8 +1172,8 @@ for entry in out:
  if entry['id'] == 'essinger':
   entry['name'] = '艾辛格·斯坦顿'
   entry['alias'] = '斯坦顿 / “智慧之眼”'
-  entry['aliasSources'].append({'alias':'斯坦顿先生','source':'《诡秘之主》第二部，第五十八章《金玫瑰》、第五十九章《互相观察》'})
-  entry['aliasSources'].append({'alias':'“智慧之眼”','source':'《诡秘之主》第二部，第二百零二章《戒指》、第二百二十一章《陵墓和悬赏》'})
+  entry['aliasSources'].append({'alias':'斯坦顿先生','source':'《诡秘之主》第二部第58章 金玫瑰、第59章 互相观察'})
+  entry['aliasSources'].append({'alias':'“智慧之眼”','source':'《诡秘之主》第二部第202章 戒指、第221章 陵墓和悬赏'})
   entry['matchNote'] = '合计完整姓名、“艾辛格”“斯坦顿”和带引号的“智慧之眼”，部分相邻写法合并计数；姓氏和代号的其他用法仍需消歧。'
  if entry['id'] == 'philip_general':
   entry['matchNote'] = '统计“腓力”的字面匹配；同名人物及回忆中的称谓仍需逐处消歧。'
@@ -1185,21 +1185,21 @@ for entry in out:
   entry['matchNote'] = '洛希与奥萝尔曾关联同一身体；这里保留不同灵的条目，具体指代和身份仍需逐章核查。'
  if entry['id'] == 'louis_wien':
   entry['alias'] = 'X先生'
-  entry['aliasSources'].append({'alias':'X先生','source':'《诡秘之主》第四部，第四十九章《负面效果》、第一百一十三章《回归》'})
+  entry['aliasSources'].append({'alias':'X先生','source':'《诡秘之主》第四部第49章 负面效果、第113章 回归'})
   entry['matchNote'] = '统计“维恩”和“X先生”字面匹配；称号可由后继神使使用，部分上下文及其他同名用法需人工消歧。'
  if entry['id'] == 'alista':
   entry['alias'] = '血皇帝'
-  entry['aliasSources'].append({'alias':'血皇帝','source':'《宿命之环》第三部，第二十一章《入会》'})
+  entry['aliasSources'].append({'alias':'血皇帝','source':'《宿命之环》第三部第21章 入会'})
   entry['matchNote'] = '统计“亚利斯塔”和“血皇帝”，紧邻的称号与名字合并为一次；仅称“图铎”的歧义用法未计入。'
  if entry['id'] in {'edwina','senor','qilangos'}:
   title={'edwina':'冰山中将','senor':'血之上将','qilangos':'飓风中将'}[entry['id']]
   entry['alias'] = title
-  entry['aliasSources'].append({'alias':title,'source':'《诡秘之主》第二部，第七十九章《交流消息》' if entry['id'] != 'qilangos' else '《诡秘之主》第一部，第一百四十五章《合作的请求》'})
+  entry['aliasSources'].append({'alias':title,'source':'《诡秘之主》第二部第79章 交流消息' if entry['id'] != 'qilangos' else '《诡秘之主》第一部，第一百四十五章《合作的请求》'})
   entry['matchNote'] = '统计名字和称号，紧邻的称号与名字合并为一次；其他含糊指代仍需核对。'
  if entry['id'] == 'sasrir':
   entry['alias'] = '暗天使 / 萨斯列尔（原文异写）'
-  entry['aliasSources'].append({'alias':'暗天使','source':'《诡秘之主》第三部，第一百八十五章《祷文》'})
-  entry['aliasSources'].append({'alias':'萨斯列尔（原文异写）','source':'《诡秘之主》第三部，第一百八十六章《自信也许是缺点》'})
+  entry['aliasSources'].append({'alias':'暗天使','source':'《诡秘之主》第三部第185章 祷文'})
+  entry['aliasSources'].append({'alias':'萨斯列尔（原文异写）','source':'《诡秘之主》第三部第186章 自信也许是缺点'})
   entry['matchNote'] = '统计“萨斯利尔”“萨斯列尔”与“暗天使”；紧邻的称号和名字合并为一次，其余称号指代仍需逐处核查。'
  if entry['id'] == 'heraberg':
   entry['matchNote'] = '仅统计《宿命之环》的“赫拉贝格”；他是摩罗拉的人偶形态神职人员，与名字相似的赫拉伯根暂不合并。'
@@ -1213,15 +1213,15 @@ for entry in out:
   entry['matchNote'] = '“A先生”是极光会神使的代号，可能由继任者使用；统计未按身份时期拆分。'
  if entry['id'] == 'kisma':
   entry['alias'] = '“幽暗圣者”'
-  entry['aliasSources'].append({'alias':'幽暗圣者','source':'《诡秘之主》第六部，第四十四章《狮子搏兔》'})
+  entry['aliasSources'].append({'alias':'幽暗圣者','source':'《诡秘之主》第六部第44章 狮子搏兔'})
   entry['matchNote'] = '计入克斯玛的姓名及《诡秘之主》第六部“幽暗圣者”的称号；称号紧邻姓名时合计一次。第二部仅以职衔提及的一次馈赠未计入。'
  if entry['id'] == 'butis':
   entry['alias'] = '“秘之圣者”'
-  entry['aliasSources'].append({'alias':'秘之圣者','source':'《诡秘之主》第五部，第一百三十章《多里安的请求》'})
+  entry['aliasSources'].append({'alias':'秘之圣者','source':'《诡秘之主》第五部第130章 多里安的请求'})
   entry['matchNote'] = '计入姓名布提斯及称号“秘之圣者”；称号紧邻姓名时合计一次。含其他人物谈论其身份的段落。'
  if entry['id'] == 'jorg_neuins':
   entry['alias'] = '“巨鲨”'
-  entry['aliasSources'].append({'alias':'“巨鲨”','source':'《宿命之环》第五部，第四十八章《上船》'})
+  entry['aliasSources'].append({'alias':'“巨鲨”','source':'《宿命之环》第五部第48章 上船'})
   entry['matchNote'] = '仅统计姓名约尔格。巨鲨也可指动物，单独出现时未计入。'
  if entry['id'] == 'rozanne':
   entry['matchNote'] = '统计《诡秘之主》中的姓名，以及《宿命之环》第六部中介绍现实背景、保护措施和卷末母女同行时对本人的点名。'
@@ -1229,22 +1229,22 @@ for entry in out:
   entry['matchNote'] = '计入全名、休小姐、休女士及带有“审判”的姓名和人物称呼，连写计一次。单字休和单独牌名未计入，次数为下限。'
  if entry['id'] == 'danitz':
   entry['alias'] = '“烈焰”'
-  entry['aliasSources'].append({'alias':'“烈焰”','source':'《诡秘之主》第三部，第十七章《招揽》；《宿命之环》第三部，第二十八章《大人物》'})
+  entry['aliasSources'].append({'alias':'“烈焰”','source':'《诡秘之主》第三部第17章 招揽；《宿命之环》第三部第28章 大人物'})
   entry['matchNote'] = '统计姓名和带引号的绰号“烈焰”，对话中的内层引号亦计入。绰号紧接姓名时计一次。'
  if entry['id'] == 'yann':
   entry['alias'] = '“海王”（序列称呼）'
-  entry['aliasSources'].append({'alias':'“海王”','source':'《诡秘之主》第三部，第五十九章《访客》'})
+  entry['aliasSources'].append({'alias':'“海王”','source':'《诡秘之主》第三部第59章 访客'})
   entry['matchNote'] = '统计全名与姓氏考特曼。单称“海王”也可能指序列或其他非凡者，未计入。'
  if entry['id'] == 'renthas':
   entry['alias'] = '假埃夫（冒用身份）'
-  entry['aliasSources'].append({'alias':'假埃夫','source':'《宿命之环》第二部，第一百零二章《通灵》、第一百零三章《“演员”》'})
+  entry['aliasSources'].append({'alias':'假埃夫','source':'《宿命之环》第二部第102章 通灵、第103章 “演员”'})
   entry['matchNote'] = '合计伦塔司、假埃夫及假的埃夫。称呼紧接本名时计一次。'
  if entry['id'] == 'eve':
   entry['matchNote'] = '保守计数。收录第二部第四、五、四十三、四十七、四十八章对旅馆老板的称呼，以及后文明称真埃夫、真正的埃夫、真的埃夫和伦塔司列举同伙的提及。'
  if entry['id'] == 'hal_constantine':
   entry['alias'] = '“深海中将” / “深海上将”'
-  entry['aliasSources'].append({'alias':'深海中将','source':'《诡秘之主》第二部，第七十九章《交流消息》'})
-  entry['aliasSources'].append({'alias':'深海上将','source':'《宿命之环》第四部，第十八章《奇特的海盗船》'})
+  entry['aliasSources'].append({'alias':'深海中将','source':'《诡秘之主》第二部第79章 交流消息'})
+  entry['aliasSources'].append({'alias':'深海上将','source':'《宿命之环》第四部第18章 奇特的海盗船'})
   entry['matchNote'] = '统计完整姓名和“深海中将”“深海上将”，合并直接连写的称号与姓名；排除哈尔曼港和曼哈尔鱼。次数含他人谈论其身份的段落。'
  if entry['id'] == 'roselle':
   entry['matchNote'] = '排除格罗塞尔和明称镜中罗塞尔之处。续作的“黄涛”仅计明确谈及大帝本名之处。单称罗塞尔的行文仍可能涉及他人讨论其梦境形象。'
@@ -1252,35 +1252,35 @@ for entry in out:
   entry['matchNote'] = '排除“托斯卡诺”中的同名字串；其他同名用法仍需核查。'
  if entry['id'] == 'trissy':
   entry['alias'] = '特里斯 / 特莉丝奇克'
-  entry['aliasSources'].append({'alias':'特莉丝奇克','source':'《诡秘之主》第二部，第二百五十七章《名字》'})
+  entry['aliasSources'].append({'alias':'特莉丝奇克','source':'《诡秘之主》第二部第257章 名字'})
   entry['matchNote'] = '统计“特里斯”和“特莉丝”的字面匹配；完整名“特莉丝奇克”通过其中的“特莉丝”计入一次，其他同名用法仍需核查。'
  if entry['id'] == 'franca':
   entry['alias'] = '芙兰卡·罗兰 / “红靴子” / 查内姆 / “袖剑” / 罗芙（梦境假名）'
-  entry['aliasSources'].append({'alias':'芙兰卡·罗兰','source':'《宿命之环》第三部，第一百三十五章《人血面包》'})
-  entry['aliasSources'].append({'alias':'红靴子','source':'《宿命之环》第二部，第六十五章《奖赏》'})
-  entry['aliasSources'].append({'alias':'查内姆','source':'《宿命之环》第四部，第七十一章《可能的突破口》；第八十二章《“宫殿”》'})
-  entry['aliasSources'].append({'alias':'袖剑（研究会代号）','source':'《宿命之环》第二部，第六十六章《“袖剑”》'})
-  entry['aliasSources'].append({'alias':'罗芙（梦境假名）','source':'《宿命之环》第六部，第二十九章《一种象征》'})
+  entry['aliasSources'].append({'alias':'芙兰卡·罗兰','source':'《宿命之环》第三部第135章 人血面包'})
+  entry['aliasSources'].append({'alias':'红靴子','source':'《宿命之环》第二部第65章 奖赏'})
+  entry['aliasSources'].append({'alias':'查内姆','source':'《宿命之环》第四部第71章 可能的突破口；第82章 “宫殿”'})
+  entry['aliasSources'].append({'alias':'袖剑（研究会代号）','source':'《宿命之环》第二部第66章 “袖剑”'})
+  entry['aliasSources'].append({'alias':'罗芙（梦境假名）','source':'《宿命之环》第六部第29章 一种象征'})
   entry['matchNote'] = '统计“芙兰卡”“查内姆”“红靴子”“袖剑”和梦境假名“罗芙”；称号与名字连写只计一次，“袖剑”仅统计带双引号的写法，梦境经历与现实经历需区分。'
  if entry['id'] in {'hidden_sage','mother_tree','great_mother'}:
   entry['matchNote'] = '以原文中的称号建档，统计该称号的字面出现；其他称号及不同语境尚未合并。'
  if entry['id'] in {'mother_tree','great_mother'}:
   entry['alias'] = '原始月亮（部分信仰可能指向）'
-  entry['aliasSources'].append({'alias':'原始月亮（依具体信仰对象区分）','source':'《宿命之环》第五部，第二十四章《灵性直觉》'})
+  entry['aliasSources'].append({'alias':'原始月亮（依具体信仰对象区分）','source':'《宿命之环》第五部第24章 灵性直觉'})
   entry['matchNote'] = '仅统计该条目的主要称号；“原始月亮”在不同语境可能指向不同存在，未合并计数。'
  if entry['id'] == 'great_mother':
   entry['alias'] = '“堕落母神” / ' + entry['alias']
-  entry['aliasSources'].append({'alias':'“堕落母神”','source':'《宿命之环》第七部，第五十五章《序列之上》'})
+  entry['aliasSources'].append({'alias':'“堕落母神”','source':'《宿命之环》第七部第55章 序列之上'})
   entry['matchNote'] = '统计“伟大母亲”和“堕落母神”的字面出现。'
  if entry['id'] == 'chained_god':
   entry['matchNote'] = '以“被缚之神”称号统计；早期有关欲望母树化身的说法与后期揭示的关系不同，未将两个称号合并计数。'
  if entry['id'] == 'suah':
   entry['alias'] = '神孽 / 神之子'
-  entry['aliasSources'].append({'alias':'神之子；神孽','source':'《诡秘之主》第五部，第九十五章《王女》'})
+  entry['aliasSources'].append({'alias':'神之子；神孽','source':'《诡秘之主》第五部第95章 王女'})
   entry['matchNote'] = '只统计“斯厄阿”；“神孽”和“神之子”可能指其他存在，暂未合并计数。'
  if entry['id'] == 'agaritu':
   entry['alias'] = '不死之王 / 无信者'
-  entry['aliasSources'].append({'alias':'不死之王 / 无信者','source':'《诡秘之主》第三部，第一百六十二章《笑声》'})
+  entry['aliasSources'].append({'alias':'不死之王 / 无信者','source':'《诡秘之主》第三部第162章 笑声'})
   entry['matchNote'] = '合并“阿加里图”和“不死之王”的字面匹配；相邻称号与名字计为一次，“无信者”尚未计入。'
  if entry['id'] == 'ost':
   entry['name'] = '奥斯塔·特鲁尔'
@@ -1290,29 +1290,29 @@ for entry in out:
   entry['matchNote'] = '仅计明确指向真正候任者的名字，包括说明其家世、原貌与仪式后人选的段落。拉托假扮西蒙在船上行动时的称呼另行区分。'
  if entry['id'] == 'simon':
   entry['alias'] = '“巨人”（萨瓦党绰号）'
-  entry['aliasSources'].append({'alias':'“巨人”（萨瓦党绰号）','source':'《宿命之环》第二部，第四十七章《房东》'})
+  entry['aliasSources'].append({'alias':'“巨人”（萨瓦党绰号）','source':'《宿命之环》第二部第47章 房东'})
   entry['matchNote'] = '计入第二、三部及第四部第十一章的萨瓦党人西蒙；排除西蒙·吉亚罗和西蒙娜夫人；“巨人”可能指种族或其他人物，未计入。'
  if entry['id'] == 'luka':
   entry['alias'] = '卢卡·布鲁斯特'
-  entry['aliasSources'].append({'alias':'卢卡·布鲁斯特','source':'《诡秘之主》第五部，第一百五十三章《1368》'})
+  entry['aliasSources'].append({'alias':'卢卡·布鲁斯特','source':'《诡秘之主》第五部第153章 1368'})
   entry['matchNote'] = '统计“卢卡”的字面匹配；其他同名用法仍需逐处核查。'
  if entry['id'] == 'utravsky':
   entry['alias'] = '乌特拉夫斯基神父 / 丰收教堂主教'
-  entry['aliasSources'].append({'alias':'丰收教堂主教','source':'《诡秘之主》第二部，第九十三章《“巨人”主教》'})
+  entry['aliasSources'].append({'alias':'丰收教堂主教','source':'《诡秘之主》第二部第93章 “巨人”主教'})
   entry['matchNote'] = '统计“乌特拉夫斯基”的字面出现；“神父”和“主教”等单独称谓未计入。'
  if entry['id'] == 'mistral':
   entry['alias'] = '米斯特拉尔伯爵'
-  entry['aliasSources'].append({'alias':'米斯特拉尔伯爵','source':'《诡秘之主》第五部，第五十五章《第一乐章》'})
+  entry['aliasSources'].append({'alias':'米斯特拉尔伯爵','source':'《诡秘之主》第五部第55章 第一乐章'})
   entry['matchNote'] = '统计“米斯特拉尔”的字面出现；“伯爵”等单独称谓未计入。'
  if entry['id'] == 'aurore':
   entry['alias'] = '麻瓜（研究会代号）'
-  entry['aliasSources'].append({'alias':'麻瓜（研究会代号）','source':'《宿命之环》第一部，第四十八章《知识逐人》'})
+  entry['aliasSources'].append({'alias':'麻瓜（研究会代号）','source':'《宿命之环》第一部第48章 知识逐人'})
   entry['matchNote'] = '仅统计“奥萝尔”的字面写法；“麻瓜”也曾被卢米安冒用，暂未直接计入。'
  if entry['id'] == 'klein':
   entry['alias'] += ' / 愚者 / 世界（塔罗会身份） / “魔法师”（贝尔丹）'
-  entry['aliasSources'].append({'alias':'“魔法师”（贝尔丹众人对梅林的称呼）','source':'《诡秘之主》第七卷，第十六章《罪名》、第十八章《限制的漏洞》、第二十四章《完成愿望》'})
-  entry['aliasSources'].append({'alias':'愚者（塔罗会身份）','source':'《诡秘之主》第一部，第七章《代号》'})
-  entry['aliasSources'].append({'alias':'世界（塔罗会身份）','source':'《诡秘之主》第二部，第五十一章《五人聚会》'})
+  entry['aliasSources'].append({'alias':'“魔法师”（贝尔丹众人对梅林的称呼）','source':'《诡秘之主》第七部第16章 罪名、第18章 限制的漏洞、第24章 完成愿望'})
+  entry['aliasSources'].append({'alias':'愚者（塔罗会身份）','source':'《诡秘之主》第一部第7章 代号'})
+  entry['aliasSources'].append({'alias':'世界（塔罗会身份）','source':'《诡秘之主》第二部第51章 五人聚会'})
   entry['matchNote'] = '统计克莱恩、周明瑞及列出的部分身份姓名，另计贝尔丹已核对章节中的“魔法师”；“愚者”“世界”具有其他含义或指代，暂未直接计入。'
  if entry['id'] == 'green_dream':
   entry['matchNote'] = '“格林”字面匹配可能包括其他人名或地名；《宿命之环》中主要出现的是罗塞尔追随者格林的梦境形象。'
@@ -1322,37 +1322,37 @@ for entry in out:
   entry['matchNote'] = '只统计《宿命之环》第二部及之后的“查理”；排除《诡秘之主》的查理·雷克和第一部科尔杜村的同名男仆，其他同名用法仍需核查。'
  if entry['id'] == 'kali':
   entry['alias'] = '卡利'
-  entry['aliasSources'].append({'alias':'卡利','source':'《宿命之环》第四部，第一百六十八章《深夜》'})
+  entry['aliasSources'].append({'alias':'卡利','source':'《宿命之环》第四部第168章 深夜'})
   entry['matchNote'] = '统计本名与神甫称呼，排除“芙兰卡利用……”形成的跨词匹配。'
  if entry['id'] == 'wendell':
   entry['matchNote'] = '排除了“文德尔街”的字面命中；其他同名用法仍需核查。'
  if entry['id'] == 'bernadette':
   entry['alias'] += ' / 黄贝贝（梦境称呼）'
-  entry['aliasSources'].append({'alias':'黄贝贝（梦境称呼）','source':'《宿命之环》第六部，第二十一章《初来乍到》'})
+  entry['aliasSources'].append({'alias':'黄贝贝（梦境称呼）','source':'《宿命之环》第六部第21章 初来乍到'})
   entry['matchNote'] = '包含“贝尔纳黛”“神秘女王”和梦境称呼“黄贝贝”；称号与姓名连写只计一次，梦境与现实情节需区分。'
  if entry['id'] == 'jenna':
   entry['alias'] = '切莉娅·贝洛 / 切莉娅 / “小婊子”（舞台绰号） / “浮夸女”（表演身份）'
-  entry['aliasSources'].append({'alias':'切莉娅·贝洛（真名）','source':'《宿命之环》第二部，第一百三十章《灭火》'})
-  entry['aliasSources'].append({'alias':'“小婊子”（舞台绰号）','source':'《宿命之环》第二部，第四十六章《简娜》'})
-  entry['aliasSources'].append({'alias':'“浮夸女”（表演身份）','source':'《宿命之环》第二部，第五十三章《新鲜的尸体》'})
+  entry['aliasSources'].append({'alias':'切莉娅·贝洛（真名）','source':'《宿命之环》第二部第130章 灭火'})
+  entry['aliasSources'].append({'alias':'“小婊子”（舞台绰号）','source':'《宿命之环》第二部第46章 简娜'})
+  entry['aliasSources'].append({'alias':'“浮夸女”（表演身份）','source':'《宿命之环》第二部第53章 新鲜的尸体'})
   entry['matchNote'] = '合计“简娜”“切莉娅”和带双引号的舞台绰号“小婊子”；绰号与姓名连写只计一次。“浮夸女”也泛指其他表演者，尚未直接计入；其他同名用法仍需核查。'
  if entry['id'] == 'fernandez':
   entry['matchNote'] = '仅计第四部桑塔港奥罗家族成员的全名与短名；第二部同名走私者单列。'
  if entry['id'] == 'christo':
   entry['matchNote'] = '合计姓名与带引号的绰号，连写计一次。排除动物称呼及克里斯托弗主教。'
   entry['alias'] = '“老鼠”'
-  entry['aliasSources'].append({'alias':'“老鼠”','source':'《宿命之环》第二部，第四十六章《简娜》、第七十七章《奇怪的脚印》'})
+  entry['aliasSources'].append({'alias':'“老鼠”','source':'《宿命之环》第二部第46章 简娜、第77章 奇怪的脚印'})
  if entry['id'] == 'nast':
   entry['name'] = '纳斯特·所罗门'
   entry['alias'] = '“五海之王” / 白枫伯爵'
-  entry['aliasSources'].extend([{'alias':'纳斯特·所罗门 / “五海之王”','source':'《诡秘之主》第二部，第二十四章《序列2》'},{'alias':'白枫伯爵','source':'《诡秘之主》第五部，第二十五章《克制》、第二十六章《纳斯特的回忆》'}])
+  entry['aliasSources'].extend([{'alias':'纳斯特·所罗门 / “五海之王”','source':'《诡秘之主》第二部第24章 序列2'},{'alias':'白枫伯爵','source':'《诡秘之主》第五部第25章 克制、第26章 纳斯特的回忆'}])
   entry['matchNote'] = '按两部小说的章节正文统计，称号紧接姓名时只计一次，含悬赏、传闻与回忆中的提及。'
  if entry['id'] == 'bird_mustan':
   entry['alias'] = '“恐惧子爵”'
-  entry['aliasSources'].append({'alias':'“恐惧子爵”','source':'《诡秘之主》第五部，第二十五章《克制》'})
+  entry['aliasSources'].append({'alias':'“恐惧子爵”','source':'《诡秘之主》第五部第25章 克制'})
  if entry['id'] == 'ian':
   entry['name'] = '伊恩·赖特'
-  entry['aliasSources'].append({'alias':'伊恩','source':'《诡秘之主》第二部，第九章《第一单委托》、第十四章《发明家雷帕德》'})
+  entry['aliasSources'].append({'alias':'伊恩','source':'《诡秘之主》第二部第9章 第一单委托、第14章 发明家雷帕德'})
   entry['matchNote'] = '按“伊恩”计数，全名“伊恩·赖特”中的姓名只计一次。'
  if entry['id'] == 'julien_jenna':
   entry['matchNote'] = '只统计《宿命之环》中的“朱利安”；《诡秘之主》中有同名的萨默尔家女仆。已逐章核对从工厂火灾到婚后的姓名用法。'
@@ -1362,20 +1362,20 @@ for entry in out:
   entry['matchNote'] = '统计“欲望使徒”的字面出现，其中可能包括序列名称或其他使用者；帕特里克·杰森·贝利亚涉及两人的误导性身份，未作为此人的确定姓名。'
  if entry['id'] in {'bruce_walls','orpheus_ship'}:
   entry['alias'] = '“美食家”' if entry['id'] == 'bruce_walls' else '“歌唱家”'
-  entry['aliasSources'].append({'alias':entry['alias'],'source':'《诡秘之主》第三部，第二百一十章《嫌疑犯》'})
+  entry['aliasSources'].append({'alias':entry['alias'],'source':'《诡秘之主》第三部第210章 嫌疑犯'})
   entry['matchNote'] = '统计第三部已确认的姓名与带引号的绰号；绰号和姓名连写计一次。'
  if entry['id'] == 'jodson':
   entry['alias'] = '“花领结”'
-  entry['aliasSources'].append({'alias':'“花领结”','source':'《诡秘之主》第三部，第二百零八章《信使小姐》'})
+  entry['aliasSources'].append({'alias':'“花领结”','source':'《诡秘之主》第三部第208章 信使小姐'})
   entry['matchNote'] = '合计姓名与原文带引号的绰号，绰号后紧跟姓名计一次。'
  if entry['id'] == 'darkwill':
   entry['alias'] = '胖药师'
-  entry['aliasSources'].append({'alias':'胖药师','source':'《诡秘之主》第三部，第一百零三章《买药》、第一百零四章《告别与再会》'})
+  entry['aliasSources'].append({'alias':'胖药师','source':'《诡秘之主》第三部第103章 买药、第104章 告别与再会'})
   entry['matchNote'] = '合计姓名和原文已确认的“胖药师”称呼。同一处并列点明姓名与称呼时计一次。'
  if entry['id'] == 'lanervus':
   entry['alias'] = '埃尔 / 凯文'
-  entry['aliasSources'].append({'alias':'埃尔（假名）','source':'《诡秘之主》第一部，第一百七十四章《雪伦夫人》'})
-  entry['aliasSources'].append({'alias':'凯文（码头工人协会宿舍用名）','source':'《诡秘之主》第二部，第七十五章《充满象征意味的现场》'})
+  entry['aliasSources'].append({'alias':'埃尔（假名）','source':'《诡秘之主》第一部第174章 雪伦夫人'})
+  entry['aliasSources'].append({'alias':'凯文（码头工人协会宿舍用名）','source':'《诡秘之主》第二部第75章 充满象征意味的现场'})
   entry['matchNote'] = '埃尔仅计第一部第一百七十四至一百七十五章的探视记录与复述；凯文仅计第二部第七十五章宿舍调查中的称呼。'
  if entry['id'] == 'mahti_mori':
   entry['matchNote'] = '统计“莫里·马赫特”和“马赫特议员”；单独出现的姓氏未计入。'
@@ -1385,48 +1385,48 @@ for entry in out:
   entry['matchNote'] = '计入鲁尔先生及鲁尔夫妇等称呼，排除奥斯塔·特鲁尔和欧鲁尔安姓名中的重叠字。'
  if entry['id'] == 'xu_xinyang':
   entry['alias'] = '徐队长'
-  entry['aliasSources'].append({'alias':'徐队长','source':'《宿命之环》第六部，第五十七章《“相认”》、第六十五章《行动提纲》'})
+  entry['aliasSources'].append({'alias':'徐队长','source':'《宿命之环》第六部第57章 “相认”、第65章 行动提纲'})
   entry['matchNote'] = '合计徐新阳与徐队长在所提供原文中的字面提及，包含相邻两章重复写出的工作指派。'
  if entry['id'] == 'antigonus':
   entry['alias'] = '安小天（梦境形象）'
-  entry['aliasSources'].append({'alias':'安小天（对应梦境形象）','source':'《宿命之环》第六部，第八十七章《往事》'})
+  entry['aliasSources'].append({'alias':'安小天（对应梦境形象）','source':'《宿命之环》第六部第87章 往事'})
   entry['matchNote'] = '统计“安小天”及排除紧随“家族”“笔记”的“安提哥努斯”；其他家族、遗物语境仍可能混入。梦境形象不等同于本人。'
  if entry['id'] == 'frank':
   entry['alias'] = '李克己（梦境形象；原文文件亦作李克已）'
-  entry['aliasSources'].append({'alias':'李克己（对应梦境形象）','source':'《宿命之环》第六部，第七十六章《精神病科》'})
+  entry['aliasSources'].append({'alias':'李克己（对应梦境形象）','source':'《宿命之环》第六部第76章 精神病科'})
   entry['matchNote'] = '包含“弗兰克”及其梦境形象“李克己”“李克已”的字面匹配；后者为所提供原文文件中的异写，梦境经历与现实经历需区分。“弗兰克”可能有其他同名用法。'
  if entry['id'] == 'anderson':
   entry['name'] = '安德森·胡德'
   entry['alias'] = '“一个让你印象深刻的名字”（梦境都市网名）'
-  entry['aliasSources'].append({'alias':'“一个让你印象深刻的名字”','source':'《宿命之环》第六部，第六十六章《约饭》'})
+  entry['aliasSources'].append({'alias':'“一个让你印象深刻的名字”','source':'《宿命之环》第六部第66章 约饭'})
  if entry['id'] == 'will':
   entry['alias'] = '威尔·昂塞汀（异写）'
-  entry['aliasSources'].append({'alias':'威尔·昂塞汀','source':'《诡秘之主》第三部，第二百零七章《这就好了？》；第四部，第四十章《瓦尔特的异常》'})
+  entry['aliasSources'].append({'alias':'威尔·昂塞汀','source':'《诡秘之主》第三部第207章 这就好了？；第四部第40章 瓦尔特的异常'})
   entry['matchNote'] = '统计两书的完整姓名，合并昂赛汀、昂塞汀及原文分隔点异写。单称威尔另有同名与姓名片段，未计入。'
  if entry['id'] == 'radar':
   entry['alias'] = '“深蓝主祭”'
-  entry['aliasSources'].append({'alias':'“深蓝主祭”','source':'《诡秘之主》第五部，第八十四章《联合行动》'})
+  entry['aliasSources'].append({'alias':'“深蓝主祭”','source':'《诡秘之主》第五部第84章 联合行动'})
  if entry['id'] == 'archbishop_anthony':
   entry['alias'] = '圣安东尼 / 圣者安东尼'
-  entry['aliasSources'].append({'alias':'圣安东尼 / 圣者安东尼','source':'《诡秘之主》第二部，第二百六十一章《埃德萨克的“故事”》；第三部，第一百三十八章《替身任务》'})
+  entry['aliasSources'].append({'alias':'圣安东尼 / 圣者安东尼','source':'《诡秘之主》第二部第261章 埃德萨克的“故事”；第三部第138章 替身任务'})
   entry['matchNote'] = '按章节核对《诡秘之主》中“安东尼”的字面出现，含“圣安东尼”“圣者安东尼”和完整姓名；不合并《宿命之环》的安东尼·瑞德。'
  if entry['id'] == 'lumian':
   entry['alias'] += ' / 李明（梦境假名） / 卢米安娜（梦境形象） / “战车”'
-  entry['aliasSources'].append({'alias':'“战车”','source':'《宿命之环》第六部，第一百五十章《塔罗会》；第七部，第四章《团队》'})
-  entry['aliasSources'].append({'alias':'李明（梦境假名）','source':'《宿命之环》第六部，第三十六章《宛若真实》'})
-  entry['aliasSources'].append({'alias':'卢米安娜（梦境形象）','source':'《宿命之环》第六部，第九十八章《利用漏洞》、第一百零四章《父女》'})
+  entry['aliasSources'].append({'alias':'“战车”','source':'《宿命之环》第六部第150章 塔罗会；第七部第4章 团队'})
+  entry['aliasSources'].append({'alias':'李明（梦境假名）','source':'《宿命之环》第六部第36章 宛若真实'})
+  entry['aliasSources'].append({'alias':'卢米安娜（梦境形象）','source':'《宿命之环》第六部第98章《利用漏洞》、第104章 父女'})
   entry['matchNote'] = '含“战车”先生、“卢米安”“路易·贝里”“夏尔·杜布瓦”和梦境假名“李明”；“卢米安娜”因包含“卢米安”而计入，已排除姓名与“明明”连写产生的“李明”误匹配；梦境形象需与现实经历区分；单独的“夏尔”尚未计入。'
  if entry['id'] == 'anthony':
   entry['alias'] = '安瑞德（梦境假名）'
-  entry['aliasSources'].append({'alias':'安瑞德（梦境假名）','source':'《宿命之环》第六部，第三十九章《价格》'})
+  entry['aliasSources'].append({'alias':'安瑞德（梦境假名）','source':'《宿命之环》第六部第39章 价格'})
   entry['matchNote'] = '仅统计《宿命之环》中“安东尼”和梦境假名“安瑞德”的字面出现；安东尼存在同名人物，其他同名语境仍需核查，梦境经历与现实经历需区分。'
  if entry['id'] == 'ludwig':
   entry['alias'] = '李路（梦境称呼）'
-  entry['aliasSources'].append({'alias':'李路（梦境称呼）','source':'《宿命之环》第六部，第九十六章《一起》、第九十七章《收尾环节》'})
+  entry['aliasSources'].append({'alias':'李路（梦境称呼）','source':'《宿命之环》第六部第96章 一起、第97章 收尾环节'})
   entry['matchNote'] = '合计“路德维希”和梦境称呼“李路”的字面出现；梦境身份与现实经历需区分，其他同名或词语重叠仍需核查。'
  if entry['id'] == 'zarath':
   entry['alias'] = '查拉图斯特拉（梦境称呼）'
-  entry['aliasSources'].append({'alias':'查拉图斯特拉（梦境称呼）','source':'《宿命之环》第七部，第二十八章《任务》'})
+  entry['aliasSources'].append({'alias':'查拉图斯特拉（梦境称呼）','source':'《宿命之环》第七部第28章 任务'})
   entry['matchNote'] = '合计“查拉图”和梦境称呼“查拉图斯特拉”的字面出现，长称呼不重复计算；家族及其他同名语境仍需消歧，梦境经历与现实经历需区分。'
  if entry['id'] == 'zarathustra':
   entry['matchNote'] = '主要记录梦境都市中的查拉图斯特拉；与其他同名或相似称呼的身份关系须逐章核对。'
@@ -1434,27 +1434,27 @@ for entry in out:
   entry['matchNote'] = '尼基拉的身份曾被镜中人格里菲斯替换，字面次数未区分本人及冒名者；与格里菲斯的部分计数重叠。'
  if entry['id'] == 'bayenna':
   entry['alias'] = '“食肉动物”酒吧原老板兼厨师'
-  entry['aliasSources'].append({'alias':'“食肉动物”酒吧老板兼厨师','source':'《宿命之环》第五部，第六十三章《聘请》'})
+  entry['aliasSources'].append({'alias':'“食肉动物”酒吧老板兼厨师','source':'《宿命之环》第五部第63章 聘请'})
   entry['matchNote'] = '统计全书“拜恩纳”与第五部第六十一、六十二章中明确指他的“酒吧老板”；未统计单独的“老板”、其他称呼或代词，是已核对范围内的下限。'
  if entry['id'] == 'guy':
   entry['alias'] = '镜中人（以格伊为名）'
-  entry['aliasSources'].append({'alias':'镜中人（以格伊为名）','source':'《宿命之环》第五部，第一百章《污染源》'})
+  entry['aliasSources'].append({'alias':'镜中人（以格伊为名）','source':'《宿命之环》第五部第100章 污染源'})
   entry['matchNote'] = '统计“格伊”的字面出现；摩罗拉行动中的格伊被揭示为镜中人，不将未经核实的原身合并。'
  if entry['id'] == 'georgia_paco':
   entry['alias'] = '鲁维奥的妻子'
-  entry['aliasSources'].append({'alias':'鲁维奥的妻子','source':'《宿命之环》第四部，第四十八章《反常的情况》'})
+  entry['aliasSources'].append({'alias':'鲁维奥的妻子','source':'《宿命之环》第四部第48章 反常的情况'})
   entry['matchNote'] = '统计“乔吉娅”的字面出现；其中包含被“洛基”操纵为临时秘偶时的称呼，未逐处区分控制前后。'
  if entry['id'] == 'marta_paco':
   entry['alias'] = '玛尔塔夫人 / 帕科家族老祖母'
-  entry['aliasSources'].append({'alias':'帕科家族老祖母','source':'《宿命之环》第四部，第四十八章《反常的情况》、第八十四章《秘偶》'})
+  entry['aliasSources'].append({'alias':'帕科家族老祖母','source':'《宿命之环》第四部第48章 反常的情况、第84章 秘偶'})
   entry['matchNote'] = '统计“玛尔塔”的字面出现；包含被“洛基”操纵为秘偶时的称呼，未逐处区分控制前后。'
  if entry['id'] == 'griffith':
   entry['alias'] = '尼基拉'
-  entry['aliasSources'].append({'alias':'尼基拉','source':'《宿命之环》第五部，第八十六章《痴迷》、第八十七章《“荒野”》'})
+  entry['aliasSources'].append({'alias':'尼基拉','source':'《宿命之环》第五部第86章 痴迷、第87章 “荒野”'})
   entry['matchNote'] = '合计“尼基拉”和“格里菲斯”的字面出现；相邻称谓可能重复计数。同一人身份由其本人在受询时确认，并称自己就是原本的尼基拉。'
  if entry['id'] == 'pualis':
   entry['alias'] = '普阿利斯·德·罗克福尔'
-  entry['aliasSources'].append({'alias':'普阿利斯·德·罗克福尔','source':'《宿命之环》第六部，第一百三十二章《蘑菇怪物》'})
+  entry['aliasSources'].append({'alias':'普阿利斯·德·罗克福尔','source':'《宿命之环》第六部第132章 蘑菇怪物'})
  if entry['id'] in {'vijaypan','les_morora','kemolo','vanak','robert_south'}:
   entry['matchNote'] = '仅统计《宿命之环》的字面写法；同名或词语重叠仍需逐处消歧。'
  if entry['id'] == 'les_morora':
@@ -1463,28 +1463,28 @@ for entry in out:
   entry['matchNote'] = '仅统计《宿命之环》的字面写法；同名用法仍需逐处核查。'
  if entry['id'] == 'rato':
   entry['alias'] = '“咸蛋超人”'
-  entry['aliasSources'].append({'alias':'“咸蛋超人”','source':'《宿命之环》第四部，第八十六章《窃取》'})
+  entry['aliasSources'].append({'alias':'“咸蛋超人”','source':'《宿命之环》第四部第86章 窃取'})
   entry['matchNote'] = '合计“拉托”和“咸蛋超人”的字面匹配，连写按一次计数；排除埃拉托区及布拉托夫的姓名。第三部的“咸蛋超人”均为愚人节成员称呼，其他章节仍需逐处核查。'
  if entry['id'] == 'maric':
   entry['alias'] = '“宝剑骑士”'
-  entry['aliasSources'].append({'alias':'“宝剑骑士”','source':'《宿命之环》第五部，第三十七章《诅咒》'})
+  entry['aliasSources'].append({'alias':'“宝剑骑士”','source':'《宿命之环》第五部第37章 诅咒'})
   entry['matchNote'] = '包含“马里奇”和“宝剑骑士”的字面匹配；称号与姓名连写只计一次，称号也可能指牌本身，仍需消歧。'
  if entry['id'] == 'clarisse':
   entry['alias'] = '黑之魔女'
-  entry['aliasSources'].append({'alias':'黑之魔女','source':'《宿命之环》第三部，第一百九十一章《隐秘的尊名》'})
+  entry['aliasSources'].append({'alias':'黑之魔女','source':'《宿命之环》第三部第191章 隐秘的尊名'})
   entry['matchNote'] = '包含“克拉丽丝”和“黑之魔女”的字面匹配，称号与姓名连写只计一次；其他同名用法仍需核查。'
  if entry['id'] in {'mad_lady','bard_april','agent_007','friend_april'}:
   entry['matchNote'] = '以代号建立候选条目；字面统计可能包括非人物用法，真实身份仍需核查。'
  if entry['id'] == 'bulman':
   entry['alias'] = '“魔鬼巫师”'
-  entry['aliasSources'].append({'alias':'“魔鬼巫师”','source':'《宿命之环》第四部，第二十六章《魔鬼巫师》'})
+  entry['aliasSources'].append({'alias':'“魔鬼巫师”','source':'《宿命之环》第四部第26章 魔鬼巫师'})
   entry['matchNote'] = '合计正文中的本名与绰号，连写只计一次，含悬赏及死后回忆。'
  if entry['id'] == 'mad_lady':
-  entry['aliasSources'].append({'alias':'“疯女”（研究会代号）','source':'《宿命之环》第三部，第一百一十四章《更早的穿越者》'})
+  entry['aliasSources'].append({'alias':'“疯女”（研究会代号）','source':'《宿命之环》第三部第114章 更早的穿越者'})
   entry['matchNote'] = '计研究会代号及第四部第九十六章未加引号的本人称呼。排除布里乌旅馆事件中形容他人的“疯女人”。'
  if entry['id'] == 'bard_april':
   entry['alias'] = '曾冒用水手伊鲁·爱德拉、渔业公司职员米格尔的身份'
-  entry['aliasSources'].append({'alias':'冒用伊鲁及米格尔身份，同一人扮演假“海之总督”','source':'《宿命之环》第四部，第七十章《各自的角色》、第七十九章《“吟游诗人”》'})
+  entry['aliasSources'].append({'alias':'冒用伊鲁及米格尔身份，同一人扮演假“海之总督”','source':'《宿命之环》第四部第70章 各自的角色、第79章 “吟游诗人”'})
   entry['matchNote'] = '计带引号的研究会代号、冒名期间的米格尔及已核对的假总督、假伊鲁称呼。单称职衔、职业和真水手伊鲁的名字未合计。'
  if entry['id'] in {'professor','associate_professor','condensed_matter','periodic_table','isotope','underworld_taoist'}:
   entry['matchNote'] = '仅统计带中文引号的完整代号；其他标点写法和未加引号的称呼未计入。'
@@ -1492,54 +1492,54 @@ for entry in out:
   entry['matchNote'] = '按代号“甘道夫”字面统计；普通的同名文化引用仍可能混入。'
  if entry['id'] == 'leodero':
   entry['alias'] = '风天使 / 风暴之主'
-  entry['aliasSources'].append({'alias':'风天使 / 风暴之主','source':'《诡秘之主》第六部，第九十六章《遵从心的意愿》'})
+  entry['aliasSources'].append({'alias':'风天使 / 风暴之主','source':'《诡秘之主》第六部第96章 遵从心的意愿'})
   entry['matchNote'] = '包含“列奥德罗”和“风暴之主”的字面匹配；教会名称、祷文和其他间接提及尚未逐处区分。'
  if entry['id'] == 'aucuses':
   entry['alias'] = '纯白天使 / 永恒烈阳'
-  entry['aliasSources'].append({'alias':'纯白天使 / 永恒烈阳','source':'《诡秘之主》第五部，第一百七十一章《最强组织》、第一百七十二章《克莱恩的畏惧》'})
+  entry['aliasSources'].append({'alias':'纯白天使 / 永恒烈阳','source':'《诡秘之主》第五部第171章 最强组织、第172章 克莱恩的畏惧'})
   entry['matchNote'] = '仅统计“奥赛库斯”的字面提及；称号“永恒烈阳”可指向教会、祈祷对象等，未纳入次数。'
  if entry['id'] == 'herabergen':
   entry['alias'] = '智天使 / 知识与智慧之神'
-  entry['aliasSources'].append({'alias':'知识与智慧之神','source':'《诡秘之主》第六部，第一百一十二章《敌人的本质》'})
+  entry['aliasSources'].append({'alias':'知识与智慧之神','source':'《诡秘之主》第六部第112章 敌人的本质'})
   entry['matchNote'] = '包含“赫拉伯根”和“知识与智慧之神”的字面匹配；教会名称及其他间接提及尚未逐处区分。'
  if entry['id'] == 'cheek':
   entry['alias'] = '原初魔女'
-  entry['aliasSources'].append({'alias':'原初魔女','source':'《诡秘之主》第二部，第二百五十八章《克莱恩的准备》'})
+  entry['aliasSources'].append({'alias':'原初魔女','source':'《诡秘之主》第二部第258章 克莱恩的准备'})
   entry['matchNote'] = '包含“奇克”和“原初魔女”的字面匹配，排除“特莉丝奇克”中的同名字串；其余称号及指代仍需核查。'
  if entry['id'] == 'medici':
   entry['alias'] = '红天使 / 战争天使'
-  entry['aliasSources'].append({'alias':'红天使 / 战争天使','source':'《宿命之环》第三部，第一百七十章《隐秘的往事》'})
+  entry['aliasSources'].append({'alias':'红天使 / 战争天使','source':'《宿命之环》第三部第170章 隐秘的往事'})
   entry['matchNote'] = '排除了完整写作“阿不思·梅迪奇”及“梅迪奇家族”的命中；“红天使”等称号尚未计入，合体恶灵的阶段需结合上下文区分。'
  if entry['id'] == 'ouroboros':
   entry['alias'] = '命运天使 / 吞尾者 / 乌珞琉斯（原文异写）'
-  entry['aliasSources'].append({'alias':'命运天使 / 吞尾者','source':'《诡秘之主》第二部，第二百五十三章《吞尾者》'})
-  entry['aliasSources'].append({'alias':'乌珞琉斯（原文异写）','source':'《诡秘之主》第五部，第三十三章《生活的乐趣》'})
+  entry['aliasSources'].append({'alias':'命运天使 / 吞尾者','source':'《诡秘之主》第二部第253章 吞尾者'})
+  entry['aliasSources'].append({'alias':'乌珞琉斯（原文异写）','source':'《诡秘之主》第五部第33章 生活的乐趣'})
   entry['matchNote'] = '合计乌洛琉斯、原文异写乌珞琉斯和两个称号；连写及已核对的同处称谓去重，排除指威尔的“命运天使”和指物品命名的“吞尾者”。包含壁画、传闻等间接称呼。'
  if entry['id'] == 'elaine':
   entry['matchNote'] = '“伊莲”也曾被克莱恩用于伪装；字面次数没有区分本人、假扮者及其他同名用法。'
  if entry['id'] == 'tracy':
   entry['alias'] = '“疾病少女” / “疾病中将” / “疾病女王”'
-  entry['aliasSources'].append({'alias':'疾病少女 / 疾病中将','source':'《诡秘之主》第二部，第七十九章《交流消息》、第八十一章《星之上将》'})
-  entry['aliasSources'].append({'alias':'疾病女王','source':'《宿命之环》第四部，第二十一章《怪鱼》'})
+  entry['aliasSources'].append({'alias':'疾病少女 / 疾病中将','source':'《诡秘之主》第二部第79章 交流消息、第81章 星之上将'})
+  entry['aliasSources'].append({'alias':'疾病女王','source':'《宿命之环》第四部第21章 怪鱼'})
   entry['matchNote'] = '统计特雷茜及三个时期的称号，紧邻姓名的称号合计一次。字面提及包含书名、传闻及梦境中的称呼。'
  if entry['id'] == 'katarina':
   entry['alias'] = '白之圣女 / 白之魔女'
-  entry['aliasSources'].append({'alias':'白之圣女','source':'《诡秘之主》第五部，第八十三章《1号遗迹》'})
-  entry['aliasSources'].append({'alias':'白之魔女','source':'《诡秘之主》第五部，第一百五十章《协作》'})
+  entry['aliasSources'].append({'alias':'白之圣女','source':'《诡秘之主》第五部第83章 1号遗迹'})
+  entry['aliasSources'].append({'alias':'白之魔女','source':'《诡秘之主》第五部第150章 协作'})
   entry['matchNote'] = '合计卡特琳娜、“白之圣女”和“白之魔女”；称号与姓名紧接连写计一次，包含梦境及被附身时的称呼。'
  if entry['id'] == 'bulatov_ivan':
   entry['alias'] = '“黄昏中将” / “黄昏之王”'
-  entry['aliasSources'].append({'alias':'“黄昏中将” / “黄昏之王”','source':'《诡秘之主》第二部，第七十九章《交流消息》；《宿命之环》第五部，第四十四章《海盗之港》'})
+  entry['aliasSources'].append({'alias':'“黄昏中将” / “黄昏之王”','source':'《诡秘之主》第二部第79章 交流消息；《宿命之环》第五部第44章 海盗之港'})
   entry['matchNote'] = '统计布拉托夫及其先后使用的两个称号，紧邻姓名的称号合计一次。'
  if entry['id'] == 'ludwell':
   entry['alias'] = '“地狱上将”'
-  entry['aliasSources'].append({'alias':'地狱上将','source':'《诡秘之主》第二部，第七十九章《交流消息》'})
+  entry['aliasSources'].append({'alias':'地狱上将','source':'《诡秘之主》第二部第79章 交流消息'})
   entry['matchNote'] = '合计路德维尔及“地狱上将”，称号紧邻姓名时计一次，含成为秘偶后对其身份的称呼。'
  if entry['id'] == 'wisdom_eye':
   entry['matchNote'] = '以“智慧之眼”称号建档；字面统计尚未排除其他用法，真实姓名仍需核查。'
  if entry['id'] == 'kavituwa':
   entry['alias'] = '海神（旧信仰）'
-  entry['aliasSources'].append({'alias':'海神','source':'《诡秘之主》第三部，第五十四章《本地信仰》'})
+  entry['aliasSources'].append({'alias':'海神','source':'《诡秘之主》第三部第54章 本地信仰'})
   entry['matchNote'] = '仅统计“卡维图瓦”；“海神”在不同阶段可能指向不同存在，未直接合并计数。'
  if entry['id'] in {'walter','richardson','tracy','amilys','gawain','starling','heimm','gusin','gabriel','fidel','bainfel','rubio','rayasa','maislo'}:
   entry['matchNote'] = '按名字字面统计，可能包含同名人物或其他词语，尚需逐处消歧。'
@@ -1547,47 +1547,47 @@ for entry in out:
   entry['matchNote'] = '“鲁维奥”的字面次数混合了本人背景与洛基冒名活动，尚未逐处区分，不能当作本人实际提及总数。'
  if entry['id'] == 'loki':
   entry['alias'] = '曾冒用鲁维奥·帕科的身份'
-  entry['aliasSources'].append({'alias':'曾冒用鲁维奥·帕科的身份','source':'《宿命之环》第四部，第八十四章《秘偶》、第八十八章《高效找人法》'})
+  entry['aliasSources'].append({'alias':'曾冒用鲁维奥·帕科的身份','source':'《宿命之环》第四部第84章 秘偶、第88章 高效找人法'})
   entry['matchNote'] = '统计“洛基”的字面出现；冒用鲁维奥身份时使用的称呼尚未完整计入，不能与鲁维奥条目的字面次数直接相加。'
  if entry['id'] == 'abscess_hand':
   entry['alias'] = '断手老兄 / 疑似吉达斯'
-  entry['aliasSources'].append({'alias':'疑似吉达斯（卢米安的推测）','source':'《宿命之环》第六部，第八章《那个名字》；第七部，第二十五章《吉达斯》'})
+  entry['aliasSources'].append({'alias':'疑似吉达斯（卢米安的推测）','source':'《宿命之环》第六部第8章 那个名字；第七部第25章 吉达斯'})
   entry['matchNote'] = '统计“脓肿断手”的字面出现；“吉达斯”是后续推测的身份，未直接合并计数。'
  if entry['id'] == 'thibaut_jacques':
   entry['matchNote'] = '仅统计《宿命之环》中“提伯特”的字面出现；相关章节指向议员助理秘书提伯特·雅克。'
  if entry['id'] == 'angouleme':
   entry['alias'] = '“007”'
-  entry['aliasSources'].append({'alias':'“007”','source':'《宿命之环》第五部，第十九章《两股精神》'})
+  entry['aliasSources'].append({'alias':'“007”','source':'《宿命之环》第五部第19章 两股精神'})
   entry['matchNote'] = '统计“昂古莱姆”和带中文引号的代号“007”；紧邻的代号与名字合计一次，其他写法未纳入。'
   entry['classificationEvidence'].extend([
-   {'kind':'organization','value':'永恒烈阳教会','source':'《宿命之环》第七部，第十四章《“007”透露的信息》'},
-   {'kind':'organization','value':'卷毛狒狒研究会','source':'《宿命之环》第五部，第十九章《两股精神》'},
-   {'kind':'pathway','value':'太阳','source':'《宿命之环》第七部，第十四章《“007”透露的信息》'},
-   {'kind':'sequence','value':'无暗者','source':'《宿命之环》第七部，第十四章《“007”透露的信息》'}])
+   {'kind':'organization','value':'永恒烈阳教会','source':'《宿命之环》第七部第14章 “007”透露的信息'},
+   {'kind':'organization','value':'卷毛狒狒研究会','source':'《宿命之环》第五部第19章 两股精神'},
+   {'kind':'pathway','value':'太阳','source':'《宿命之环》第七部第14章 “007”透露的信息'},
+   {'kind':'sequence','value':'无暗者','source':'《宿命之环》第七部第14章 “007”透露的信息'}])
  if entry['id'] == 'amon':
   entry['alias'] = '“时天使” / 莫尼特（分身） / 曾冒用忒尔弥波洛斯之名'
-  entry['aliasSources'].append({'alias':'“时天使”','source':'《诡秘之主》第五部，第十五章《告知式提醒》'})
-  entry['aliasSources'].append({'alias':'莫尼特（被寄生的分身）','source':'《宿命之环》第三部，第九十四章《莫尼特的真实身份》'})
+  entry['aliasSources'].append({'alias':'“时天使”','source':'《诡秘之主》第五部第15章 告知式提醒'})
+  entry['aliasSources'].append({'alias':'莫尼特（被寄生的分身）','source':'《宿命之环》第三部第94章 莫尼特的真实身份'})
   entry['matchNote'] = '统计“阿蒙”及《诡秘之主》第六部八章已核对的独立“时天使”称号；其余同称号、莫尼特及曾冒用的忒尔弥波洛斯等称呼尚未纳入。愚者教会的“时天使”亦可指帕列斯。'
  if entry['id'] == 'chris_mana':
   entry['alias'] = '“灾难魔女”'
-  entry['aliasSources'].append({'alias':'“灾难魔女”','source':'《宿命之环》第六部，第九章《恐怖之事》'})
+  entry['aliasSources'].append({'alias':'“灾难魔女”','source':'《宿命之环》第六部第9章 恐怖之事'})
   entry['matchNote'] = '仅统计《宿命之环》中“克丽丝芒娜”的字面出现，包含幽影、残余意识与相关夜柱的提及。'
   entry['classificationEvidence'].extend([
-   {'kind':'pathway','value':'魔女','source':'《宿命之环》第六部，第九章《恐怖之事》'},
-   {'kind':'sequence','value':'灾难魔女','source':'《宿命之环》第六部，第九章《恐怖之事》'}])
+   {'kind':'pathway','value':'魔女','source':'《宿命之环》第六部第9章 恐怖之事'},
+   {'kind':'sequence','value':'灾难魔女','source':'《宿命之环》第六部第9章 恐怖之事'}])
  if entry['id'] == 'meviti':
   entry['alias'] = '“钢铁”'
-  entry['aliasSources'].append({'alias':'“钢铁”','source':'《诡秘之主》第三部，第三十六章《人之将死》'})
+  entry['aliasSources'].append({'alias':'“钢铁”','source':'《诡秘之主》第三部第36章 人之将死'})
   entry['matchNote'] = '合计姓名与带引号的“钢铁”，绰号紧接本名时计一次。包括身后他人提及其灵魂与非凡特性的段落。'
-  entry['classificationEvidence'].append({'kind':'sequence','value':'活尸','source':'《诡秘之主》第三部，第四十六章《放牧》'})
+  entry['classificationEvidence'].append({'kind':'sequence','value':'活尸','source':'《诡秘之主》第三部第46章 放牧'})
  if entry['id'] == 'huntley_pirate':
   entry['matchNote'] = '合计亨特利与带引号的“血色荆棘”，绰号紧接本名时计一次。'
   entry['alias'] = '“血色荆棘”'
-  entry['aliasSources'].append({'alias':'“血色荆棘”','source':'《诡秘之主》第三部，第四十三章《冷静的斯考尔》'})
+  entry['aliasSources'].append({'alias':'“血色荆棘”','source':'《诡秘之主》第三部第43章 冷静的斯考尔'})
  if entry['id'] == 'skoll_pirate':
   entry['alias'] = '冷静的斯考尔'
-  entry['aliasSources'].append({'alias':'冷静的斯考尔','source':'《诡秘之主》第三部，第四十三章《冷静的斯考尔》'})
+  entry['aliasSources'].append({'alias':'冷静的斯考尔','source':'《诡秘之主》第三部第43章 冷静的斯考尔'})
  for ident, alias, source in [
   ('ait_hammer','“铁锤”','《宿命之环》第二部，第五十六章《再遇简娜》'),
   ('harman_bald','“光头”','《宿命之环》第二部，第五十六章《再遇简娜》'),
@@ -1615,11 +1615,11 @@ for entry in out:
   entry['matchNote'] = '仅统计《诡秘之主》第一部已核对章节中的“安娜”；不合计奥利安娜、阿里安娜或其他同名人物。'
  if entry['id'] == 'harry_owl':
   entry['alias'] = '猫头鹰哈里'
-  entry['aliasSources'].append({'alias':'猫头鹰哈里','source':'《诡秘之主》第三部，第一百二十三章《“判定”》'})
+  entry['aliasSources'].append({'alias':'猫头鹰哈里','source':'《诡秘之主》第三部第123章 “判定”'})
   entry['matchNote'] = '仅统计《诡秘之主》第三部第一百零三至一百三十章中的“哈里”和“猫头鹰”；相邻称呼合计一次，不代表全书总数。'
  if entry['id'] == 'richard_fate':
   entry['alias'] = '“命运议员”'
-  entry['aliasSources'].append({'alias':'“命运议员”','source':'《诡秘之主》第三部，第一百二十九章《命运议员》'})
+  entry['aliasSources'].append({'alias':'“命运议员”','source':'《诡秘之主》第三部第129章 命运议员'})
   entry['matchNote'] = '合计姓名，以及在第三部托付骰子、桥洞会面和解除厄运等章节中逐处确认指向他的议员称呼。称号与姓名连写时计一次。'
  if entry['id'] == 'byers':
   entry['name'] = '拜尔斯（乌托邦）'
@@ -1648,11 +1648,11 @@ for entry in out:
     evidence['alias'] = '“' + title + '”'
  if entry['id'] == 'audrey':
   entry['alias'] += ' / “傲慢”'
-  entry['aliasSources'].append({'alias':'“傲慢”','source':'《诡秘之主》第七卷，第五十一章《“傲慢”》、第五十二章《七位委员》'})
+  entry['aliasSources'].append({'alias':'“傲慢”','source':'《诡秘之主》第七部第51章 “傲慢”、第52章 七位委员'})
  if entry['id'] == 'fors':
   entry['alias'] += ' / “星之天使” / “没有梦想的咸鱼”（梦境笔名）'
-  entry['aliasSources'].append({'alias':'“星之天使”','source':'《宿命之环》第六部，第四十五章《电影》'})
-  entry['aliasSources'].append({'alias':'“没有梦想的咸鱼”（梦境笔名）','source':'《宿命之环》第六部，第四十五章《电影》'})
+  entry['aliasSources'].append({'alias':'“星之天使”','source':'《宿命之环》第六部第45章 电影'})
+  entry['aliasSources'].append({'alias':'“没有梦想的咸鱼”（梦境笔名）','source':'《宿命之环》第六部第45章 电影'})
   entry['matchNote'] = '统计佛尔思、梦境笔名“没有梦想的咸鱼”和明确的人物称呼，如“魔术师”女士。称号与本名连写计一次。单独的牌名、序列名及“星之天使”尚未计入。'
  # 小说中这些海盗称号和代号常以双引号呈现。
  quoted_titles = {'black_scorpion':['黑蝎'], 'cattleya':['星之上将','星之女王'], 'bernadette':['神秘女王'],
@@ -1990,37 +1990,37 @@ for heading, documents in profiles.items():
    'matchNote': count_note, 'aliasSources': [], 'classificationEvidence': [],
   })
   if heading == '瓦哈娜·海森':
-   out[-1].update(short='瓦哈娜', alias='瓦哈娜', aliasSources=[{'alias':'瓦哈娜','source':'《诡秘之主》第四部，第十九章《鲁恩式含蓄》'}])
+   out[-1].update(short='瓦哈娜', alias='瓦哈娜', aliasSources=[{'alias':'瓦哈娜','source':'《诡秘之主》第四部第19章 鲁恩式含蓄'}])
   if heading == '萨法莉':
-   out[-1].update(alias='“12号房间”', aliasSources=[{'alias':'“12号房间”','source':'《宿命之环》第三部，第一百九十九章《关键的干扰》'}], matchNote='按姓名“萨法莉”计数。房间编号也指向地点或住客，未并入姓名次数。')
+   out[-1].update(alias='“12号房间”', aliasSources=[{'alias':'“12号房间”','source':'《宿命之环》第三部第199章 关键的干扰'}], matchNote='按姓名“萨法莉”计数。房间编号也指向地点或住客，未并入姓名次数。')
   if heading == '不熄的呓语':
-   out[-1].update(alias='“不熄呓语”', aliasSources=[{'alias':'“不熄呓语”','source':'《宿命之环》第八部，第五十三章《易爆的恶意和欲望》'}])
+   out[-1].update(alias='“不熄呓语”', aliasSources=[{'alias':'“不熄呓语”','source':'《宿命之环》第八部第53章 易爆的恶意和欲望'}])
   if heading == '孽龙':
    out[-1]['short'] = display_name
   if heading == '科塔尔':
-   out[-1].update(alias='“乌黯魔狼” / “愿望之神”', aliasSources=[{'alias':'“愿望之神” / 乌黯魔狼科塔尔','source':'《诡秘之主》第六部，第九十二章《人类迷惑行为》'}])
+   out[-1].update(alias='“乌黯魔狼” / “愿望之神”', aliasSources=[{'alias':'“愿望之神” / 乌黯魔狼科塔尔','source':'《诡秘之主》第六部第92章 人类迷惑行为'}])
   if heading == '弗雷格拉':
-   out[-1].update(alias='“毁灭魔狼” / “黑夜魔狼”', aliasSources=[{'alias':'“毁灭魔狼” / “黑夜魔狼”','source':'《诡秘之主》第二部，第一百章《古老的神灵》'}])
+   out[-1].update(alias='“毁灭魔狼” / “黑夜魔狼”', aliasSources=[{'alias':'“毁灭魔狼” / “黑夜魔狼”','source':'《诡秘之主》第二部第100章 古老的神灵'}])
   if heading == '丹尼尔斯':
-   out[-1].update(alias='“水桶”', aliasSources=[{'alias':'“水桶”','source':'《诡秘之主》第三部，第二百零八章《信使小姐》'}])
+   out[-1].update(alias='“水桶”', aliasSources=[{'alias':'“水桶”','source':'《诡秘之主》第三部第208章 信使小姐'}])
   if heading == '法布提':
    out[-1]['alias'] = '恶魔君王 / 拿波瑞狄斯利'
-   out[-1]['aliasSources'].append({'alias':'拿波瑞狄斯利','source':'《宿命之环》第八部，第二十七章《报酬》'})
+   out[-1]['aliasSources'].append({'alias':'拿波瑞狄斯利','source':'《宿命之环》第八部第27章 报酬'})
   if heading == '莫兰·阿维尼的镜中人':
    out[-1].update(short='莫兰（镜中人）', alias='冒用莫兰身份的镜中人',
-                  progression=[{'pathway':'仲裁人','sequence':'序列5“惩戒骑士”','source':'《宿命之环》第四部，第二百二十六章《强破替身》、第二百三十二章《到来》','note':'冒用部长身份期间的序列。'}],
-                  classificationEvidence=[{'kind':'pathway','value':'审判者','source':'《宿命之环》第四部，第二百二十六章《强破替身》','note':'镜中人被称为惩戒骑士。'}])
+                  progression=[{'pathway':'仲裁人','sequence':'序列5“惩戒骑士”','source':'《宿命之环》第四部第226章 强破替身、第232章 到来','note':'冒用部长身份期间的序列。'}],
+                  classificationEvidence=[{'kind':'pathway','value':'审判者','source':'《宿命之环》第四部第226章 强破替身','note':'镜中人被称为惩戒骑士。'}])
   if heading == '镜中的加德纳·马丁':
    out[-1].update(short='加德纳（镜中）', mark='加', alias='镜中人 / 假马丁')
   if heading == '黄总（梦境都市）':
    out[-1]['alias'] = '黄涛 / 黄总'
-   out[-1]['aliasSources'].append({'alias':'黄涛 / 黄总','source':'《宿命之环》第六部，第五十章《守护者》'})
+   out[-1]['aliasSources'].append({'alias':'黄涛 / 黄总','source':'《宿命之环》第六部第50章 守护者'})
   if heading == '镜中的罗塞尔':
    out[-1]['alias'] = '镜中罗塞尔 / 镜中的罗塞尔·古斯塔夫'
-   out[-1]['aliasSources'].append({'alias':'镜中罗塞尔 / 镜中的罗塞尔·古斯塔夫','source':'《宿命之环》第四部，第二百三十章《镜中世界第三层》、第二百三十一章《命运片段》'})
+   out[-1]['aliasSources'].append({'alias':'镜中罗塞尔 / 镜中的罗塞尔·古斯塔夫','source':'《宿命之环》第四部第230章 镜中世界第三层、第231章 命运片段'})
   if heading == '汉密尔顿':
    out[-1]['alias'] = '“白鲨”'
-   out[-1]['aliasSources'].append({'alias':'“白鲨”','source':'《诡秘之主》第三部，第十七章《招揽》、第十八章《审问“白鲨”》'})
+   out[-1]['aliasSources'].append({'alias':'“白鲨”','source':'《诡秘之主》第三部第17章 招揽、第18章 审问“白鲨”'})
   matched_paths.add(path)
 
 for entry in out:
@@ -2048,6 +2048,10 @@ for entry in out:
    if not period_notes:
     raise ValueError(f'普通人时期缺少原文说明: {document_path}')
    entry['ordinaryInCitedPeriod'] = True
+  if re.search(r'^ordinary_in_cited_period: inferred$', frontmatter, re.M):
+   if not period_notes:
+    raise ValueError(f'推测普通人时期缺少原文说明: {document_path}')
+   entry['ordinaryInCitedPeriodInferred'] = True
   if period_notes:
    entry['pathwayPeriodNotes'] = period_notes
   entry['documentProfileUrl'] = '../characters/entries/' + quote(document_path.stem, safe='') + '/'

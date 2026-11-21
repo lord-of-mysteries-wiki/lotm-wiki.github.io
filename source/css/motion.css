@@ -1,0 +1,30 @@
+/* Shared, short transitions; the graph's canvas motion is managed separately. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes wiki-appear {
+    from { opacity: .84; }
+    to { opacity: 1; }
+  }
+
+  .main-content, .story-workspace, .workspace {
+    animation: wiki-appear 200ms ease-out;
+  }
+
+  .site-title, .nav-links a, .directory-tools button,
+  .cluster-nav button, .graph-controls button, .icon-button,
+  .person-row, .palette-item, .organization-card summary,
+  .timeline-view-switch a, .stage-switch a {
+    transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  }
+
+  .directory-list > a, .artifact-directory ul > li > a {
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+  }
+
+  .person-hover:not([hidden]) { animation: wiki-appear 140ms ease-out; }
+
+  @media (hover: hover) {
+    .directory-list > a:hover, .artifact-directory ul > li > a:hover {
+      transform: translateY(-2px);
+    }
+  }
+}

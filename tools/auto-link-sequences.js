@@ -37,8 +37,26 @@ const pages = inputFiles.map(({file, raw}) => {
   const url = String(data.permalink || relative.replace(/index\.md$/, '').replace(/\.md$/, '.html'));
   return { file, raw, data, relative, url };
 });
-const sequences = new Map(), pathways = new Map(), people = new Map(), organizations = new Map(), countries = new Map();
+const sequences = new Map(), pathways = new Map(), people = new Map(), organizations = new Map(), countries = new Map(), artifacts = new Map();
+const nonArtifactTitles = new Set(pages.filter(p => /^(characters\/entries|worldview\/(?:pathways|organizations|countries))\//.test(p.relative)).map(p => String(p.data.title || '').trim().replace(/^[“「『]|[”」』]$/g, '')));
+function addArtifact(term, page) {
+  if (!term || term.length < 2) return;
+  const targets = artifacts.get(term) || [];
+  if (!targets.includes(page)) targets.push(page);
+  artifacts.set(term, targets);
+}
 for (const page of pages) {
+  if (/^artifacts\/entries\/[^/]+\.md$/.test(page.relative)) {
+    const title = String(page.data.title || '').trim();
+    const filename = path.basename(page.relative, '.md');
+    if (/^[0-3]-\d{2,4}$/.test(filename)) addArtifact(filename, page);
+    if (/^“[^”]+”(?:（“[^”]+”）)?$/.test(title)) {
+      for (const match of title.matchAll(/“([^”]+)”/g)) addArtifact(match[1], page);
+    } else if (/^“[^”]+”[^（）]+$/.test(title)) addArtifact(title, page);
+    const plain = title.replace(/（(?:暂称|暂定名|待核实)）/g, '').trim();
+    if (!/[（）“”《》]/.test(plain) && plain.length >= 4) addArtifact(plain, page);
+    if (/^《[^》]+》$/.test(title)) addArtifact(title, page);
+  }
   if (page.relative.startsWith('characters/entries/')) {
     const name = String(page.data.title || '').trim();
     if (/^[\p{Script=Han}]{2,}·[\p{Script=Han}·]{1,}$/u.test(name)) {
@@ -68,6 +86,20 @@ for (const page of pages) {
     }
   }
 }
+// 简称只映射到明确指定的物品文件；同名候选仍由唯一性检查拦截。
+const artifactAliases = {
+  '0-08': '0-08.md', '阿勒苏霍德之笔': '0-08.md',
+  '许愿神灯': '0-05.md', '神灯': '0-05.md',
+  '变异的太阳圣徽': '3-0782.md', '太阳圣徽': '3-0782.md',
+  '厄运布偶': '3-0625.md', '通灵者镜子': '3-0217.md', '通灵者的镜子': '3-0217.md',
+  '莱曼诺旅行笔记': '莱曼诺的旅行笔记.md', '旅行笔记': '莱曼诺的旅行笔记.md',
+  '阿兹克铜哨': '阿兹克铜哨.md', '海神权杖': '海神权杖.md',
+  '魔镜阿罗德斯': '2-111.md', '阿罗德斯': '2-111.md'
+};
+for (const [alias, filename] of Object.entries(artifactAliases)) {
+  const target = pages.find(p => p.relative === `artifacts/entries/${filename}`);
+  if (target) addArtifact(alias, target);
+}
 // 常见简称只在明确维护且全名唯一时使用；其他简称留给建议清单。
 const aliases = new Map(Object.entries({
   '克莱恩': '克莱恩·莫雷蒂', '奥黛丽': '奥黛丽·霍尔',
@@ -84,7 +116,8 @@ const escaped = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const personTerms = [...people.keys()].sort((a,b) => b.length - a.length);
 const organizationTerms = [...organizations.keys()];
 const countryTerms = [...countries.keys()].sort((a,b) => b.length - a.length);
-const re = new RegExp('序列\\s*([0-9])\\s*[“「『]([^”」』\\n]+)[”」』]' + (pathwayTerms.length ? '|' + pathwayTerms.map(escaped).join('|') : '') + (personTerms.length ? '|' + personTerms.map(escaped).join('|') : '') + (organizationTerms.length ? '|' + organizationTerms.map(escaped).join('|') : '') + (countryTerms.length ? '|' + countryTerms.map(escaped).join('|') : ''), 'gu');
+const artifactTerms = [...artifacts.keys()].sort((a,b) => b.length - a.length);
+const re = new RegExp('序列\\s*([0-9])\\s*[“「『]([^”」』\\n]+)[”」』]' + (artifactTerms.length ? '|[“「『](?:' + artifactTerms.map(escaped).join('|') + ')[”」』]|' + artifactTerms.filter(s => s.length >= 4 || /^[0-3]-\d{2,4}$/.test(s) || /^《/.test(s)).map(escaped).join('|') : '') + (pathwayTerms.length ? '|' + pathwayTerms.map(escaped).join('|') : '') + (personTerms.length ? '|' + personTerms.map(escaped).join('|') : '') + (organizationTerms.length ? '|' + organizationTerms.map(escaped).join('|') : '') + (countryTerms.length ? '|' + countryTerms.map(escaped).join('|') : ''), 'gu');
 let changedFiles = 0, changedLinks = 0;
 for (const page of pages) {
   if (staged && !stagedFiles.has('source/' + page.relative)) continue;
@@ -109,14 +142,27 @@ for (const page of pages) {
       if (line.includes('-->')) comment = false;
       return line;
     }
+    let inlineOffset = 0;
     return Lexer.lexInline(line).map(token => {
+      const tokenOffset = inlineOffset;
+      inlineOffset += token.raw.length;
       if (token.type !== 'text' || token.raw !== token.text) return token.raw;
       return token.raw.replace(re, (whole, level, name, offset, text) => {
+        // Chapter headings are citations, not mentions of their title words.
+        // Titles follow a chapter number and a space in the current format.
+        const prefix = line.slice(0, tokenOffset + offset);
+        if (/第\d+章\s+[^，。；\n]*$/u.test(prefix)) return whole;
+        const artifactName = /^[“「『].*[”」』]$/u.test(whole) ? whole.slice(1, -1) : whole;
+        const artifactTargets = artifacts.get(artifactName);
+        if (artifactTargets && /^[0-3]-\d{2,4}$/.test(artifactName) && (/[\d-]/.test(text[offset - 1] || '') || /[\d-]/.test(text[offset + whole.length] || ''))) return whole;
         if (level === undefined && people.has(whole)) {
           const before = text.slice(0, offset), after = text.slice(offset + whole.length);
           if (/^(?:[·\p{Script=Han}]*·|家族|途径|陵墓)/u.test(after) || before.lastIndexOf('《') > before.lastIndexOf('》')) return whole;
         }
-        const targets = level === undefined ? (pathways.get(whole) || people.get(whole) || organizations.get(whole) || countries.get(whole)) : sequences.get(`${level}\0${name}`);
+        const others = level === undefined ? (pathways.get(whole) || people.get(whole) || organizations.get(whole) || countries.get(whole)) : null;
+        const ambiguousName = nonArtifactTitles.has(artifactName) || pathways.has(artifactName) || people.has(artifactName) || organizations.has(artifactName) || countries.has(artifactName);
+        if (artifactTargets && (others || ambiguousName)) return whole;
+        const targets = level === undefined ? (artifactTargets || others) : sequences.get(`${level}\0${name}`);
         if (!targets || targets.length !== 1) return whole;
         const target = targets[0];
         const normalized = path.posix.normalize(target.url).replace(/\/$/, '');

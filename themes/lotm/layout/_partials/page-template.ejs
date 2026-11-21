@@ -1,14 +1,1 @@
-<article class="article<%= page.character_directory ? ' character-directory' : '' %>"><h1><%= page.title || '' %></h1><%- page.content %><% if (page.organization_members) { %>
-  <h2>成员与章节依据</h2>
-  <ul>
-    <% for (const member of site.pages.sort('title').toArray()) {
-      const facts = member.graph_classifications?.organization?.filter(fact => fact.value === page.organization_members) || [];
-      if (!member.character_profile || !facts.length) continue; %>
-      <li><a href="<%= url_for(member.path) %>"><%= member.title %></a>
-        <% for (const fact of facts) { %>
-          <p><%= [fact.unit, fact.note, fact.source].filter(Boolean).join(' · ') %></p>
-        <% } %>
-      </li>
-    <% } %>
-  </ul>
-<% } %></article>
+<article class="article<%= page.character_directory ? ' character-directory' : '' %><%= page.artifact_directory ? ' artifact-directory' : '' %>"><h1><%= page.title || '' %></h1><%- page.content %><% if (page.organization_members) { %><%- partial('_partials/organization-members') %><% } %></article>

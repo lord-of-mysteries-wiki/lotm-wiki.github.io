@@ -24,19 +24,12 @@
 .palette-item i{outline:1px solid #bbc4d5;outline-offset:1px}
 
 /* Navigation layout comes from the shared navigation stylesheet. */
-.topbar{display:block;padding:0;border:0}
+.topbar{height:68px;display:block;padding:0;border:0}
+.workspace{height:calc(100vh - 68px)}
+@media(max-width:800px){.topbar{height:54px}.workspace{height:auto}}
+@media(max-width:600px){.topbar{height:auto}}
 
-/* Keep the selected person's recorded progression visible on the graph. */
-.progression-preview{position:absolute;left:42px;right:42px;bottom:76px;max-width:760px;padding:12px 15px;border:1px solid #697b90;border-radius:10px;background:rgba(28,34,49,.96);box-shadow:0 5px 24px rgba(0,0,0,.25);color:#e7edf5;font-size:12px}
-.progression-preview[hidden]{display:none}
-.progression-preview strong{display:block;font-size:13px}
-.progression-preview>small,.progression-preview p{display:block;margin:6px 0 0;color:#aebbd0;font-size:11px}
-.progression-steps{display:flex;gap:7px;overflow-x:auto;padding:9px 0 3px}
-.progression-step{flex:none;padding:5px 8px;border:1px solid #52677a;border-radius:6px;background:#354455;white-space:nowrap;color:#ecf4f4}
-.progression-step small{color:#a8d9d4}
-@media(max-width:800px){.progression-preview{left:16px;right:16px;bottom:66px;padding:9px 11px}.progression-preview>small{line-height:1.4}}
-
-.pathway-hover{position:absolute;left:50%;bottom:3.5rem;transform:translateX(-50%);width:max-content;max-width:85%;padding:.45rem .75rem;border:1px solid var(--line);border-radius:.5rem;background:var(--panel);color:var(--text);font: .85rem/1.5 sans-serif;pointer-events:none;z-index:3}
+.person-hover{position:absolute;left:50%;bottom:3.5rem;transform:translateX(-50%);width:max-content;max-width:85%;padding:.45rem .75rem;border:1px solid var(--line);border-radius:.5rem;background:var(--panel);color:var(--text);font: .85rem/1.5 sans-serif;pointer-events:none;z-index:3}
 .pathway-badge{display:inline-grid;place-items:center;width:1.2em;height:1.2em;margin-inline-end:.3em;border-radius:50%;vertical-align:text-bottom}
 .pathway-badge::after{content:"";width:.76em;height:.76em;background:var(--core);border:1px solid var(--panel);border-radius:50%}
 

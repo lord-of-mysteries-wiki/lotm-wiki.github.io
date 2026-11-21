@@ -1,0 +1,10 @@
+<%
+const overview = site.pages.toArray().find(item => item.path === 'worldview/pathways/index.html');
+const base = new URL('https://wiki.invalid/worldview/pathways/');
+const content = (overview?.content || '').replace(/href="([^"]+)"/g, (whole, href) => {
+  if (/^(?:[a-z][a-z0-9+.-]*:|\/|#)/i.test(href)) return whole;
+  const resolved = new URL(href, base);
+  return 'href="' + url_for(resolved.pathname) + resolved.search + resolved.hash + '"';
+});
+%>
+<article class="article"><h1><%= page.title %></h1><%- content %></article>

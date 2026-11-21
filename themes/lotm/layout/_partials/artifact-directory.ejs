@@ -1,0 +1,44 @@
+<%
+const chineseNumber = text => {
+  if (/^\d+$/.test(text)) return Number(text);
+  const digits = {'零':0,'〇':0,'一':1,'二':2,'三':3,'四':4,'五':5,'六':6,'七':7,'八':8,'九':9};
+  let total = 0, digit = 0;
+  for (const c of text) {
+    if (digits[c] !== undefined) digit = digits[c];
+    else if (c === '十') { total += (digit || 1) * 10; digit = 0; }
+    else if (c === '百') { total += (digit || 1) * 100; digit = 0; }
+    else return NaN;
+  }
+  return total + digit;
+};
+const pages = new Map(site.pages.toArray().filter(p => p.path.startsWith('artifacts/entries/')).map(p => [decodeURIComponent(p.path.replace(/^artifacts\//, '').replace(/index\.html$/, '')), p]));
+const links = [...page.content.matchAll(/<a\s+href="(entries\/[^"#]+)"[^>]*>([\s\S]*?)<\/a>/g)];
+const cards = links.map(([, href, label]) => {
+  const entry = pages.get(decodeURIComponent(href));
+  const raw = entry?._content || entry?.content || '';
+  const matches = [...raw.matchAll(/第([一二三四五六七八九十\d]+)[部卷]第([零〇一二三四五六七八九十百\d]+)章/g)]
+    .map(m => ({volume: chineseNumber(m[1]), chapter: chineseNumber(m[2])}))
+    .filter(m => m.volume >= 1 && m.volume <= 8 && m.chapter > 0)
+    .sort((a,b) => a.volume - b.volume || a.chapter - b.chapter);
+  const num = label.match(/([0-3])-(\d{2,4})/);
+  const displayNumber = num ? num[0] : null;
+  const displayName = displayNumber ? label.replace(/^\s*[0-3]-\d{2,4}\s*(?:·\s*)?/, '') : label;
+  return {href, label, displayNumber, displayName, num: num ? Number(num[1]) * 10000 + Number(num[2]) : null, first: matches[0]};
+});
+const collator = new Intl.Collator('zh-CN-u-co-pinyin', {numeric:true, ignorePunctuation:true});
+cards.sort((a,b) => (a.num === null) - (b.num === null) || (a.num ?? 0) - (b.num ?? 0) || collator.compare(a.label,b.label));
+%>
+<article class="article artifact-directory">
+  <h1><%= page.title %></h1>
+  <div class="directory-tools" role="group" aria-label="物品目录排序" hidden>
+    <button type="button" data-mode="number" aria-pressed="true" aria-controls="artifact-list">按编号和名称</button>
+    <button type="button" data-mode="appearance" aria-pressed="false" aria-controls="artifact-list">按出场顺序</button>
+  </div>
+  <p id="artifact-order-note" hidden>按词条中最早明确注明的章节排列；实际首次出场待进一步核实。</p>
+  <div id="artifact-list" class="directory-list">
+    <% let group = ''; for (const item of cards) { const heading = item.num === null ? '无编号物品' : '有编号物品'; if (heading !== group) { group = heading; %><h2 class="directory-group-heading"><%= group %></h2><% } %>
+      <a href="<%= item.href %>" data-name="<%= item.label.replace(/<[^>]*>/g, '') %>" data-volume="<%= item.first?.volume || '' %>" data-chapter="<%= item.first?.chapter || '' %>"><% if (item.displayNumber) { %><span class="artifact-number"><%= item.displayNumber %></span><% } %><% if (item.displayName) { %><span class="artifact-name"><%- item.displayName %></span><% } %></a>
+    <% } %>
+  </div>
+</article>
+<script defer src="<%= url_for('/js/artifact-directory.js') %>?v=2"></script>

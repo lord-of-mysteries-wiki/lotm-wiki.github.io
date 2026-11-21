@@ -1,0 +1,31 @@
+<%
+const collator = new Intl.Collator('zh-CN', {numeric: true, ignorePunctuation: true});
+const pages = site.pages.toArray();
+const organizations = new Map();
+for (const person of pages.filter(p => p.character_profile)) {
+  for (const fact of person.graph_classifications?.organization || []) {
+    const name = String(fact.value || '').trim();
+    if (!name || name === '独立') continue;
+    if (!organizations.has(name)) organizations.set(name, new Map());
+    organizations.get(name).set(person.path, person);
+  }
+}
+for (const entry of pages.filter(p => p.organization_members)) {
+  if (!organizations.has(entry.organization_members)) organizations.set(entry.organization_members, new Map());
+}
+const entries = [...organizations].sort((a, b) => collator.compare(a[0], b[0]));
+%>
+  <div class="directory-list organization-list">
+    <% for (const [name, memberMap] of entries) {
+      const members = [...memberMap.values()].sort((a, b) => collator.compare(a.title, b.title));
+      const entry = pages.find(p => p.organization_members === name);
+    %>
+    <details class="organization-card">
+      <summary><span><%= name %></span><small><%= members.length %> 位已收录成员</small></summary>
+      <% if (entry) { %><p><a href="<%= url_for(entry.path) %>">查看组织词条</a></p><% } %>
+      <% if (members.length) { %>
+      <ul><% for (const member of members) { %><li><a href="<%= url_for(member.path) %>"><%= member.title %></a></li><% } %></ul>
+      <% } %>
+    </details>
+    <% } %>
+  </div>

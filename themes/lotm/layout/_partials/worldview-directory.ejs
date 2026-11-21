@@ -1,0 +1,30 @@
+<%
+const pages = site.pages.toArray();
+const collator = new Intl.Collator('zh-CN', {numeric: true, ignorePunctuation: true});
+const countries = pages.filter(p => /^worldview\/countries\/entries\/[^/]+\.html$/.test(p.path)).sort((a,b) => collator.compare(a.title,b.title));
+const pathways = pages.filter(p => {
+  const match = /^worldview\/pathways\/([^/]+)\/([^/]+)\.html$/.exec(p.path);
+  return match && match[1] === match[2];
+}).sort((a,b) => collator.compare(a.title,b.title));
+%>
+<article class="article worldview-directory">
+  <h1><%= page.title %></h1>
+  <h2>国家与地区</h2>
+  <div class="directory-list">
+    <% for (const entry of countries) { %><a href="<%= url_for(entry.path) %>"><span><%= entry.title %></span></a><% } %>
+  </div>
+  <h2>组织与势力</h2>
+  <%- partial('_partials/organization-cards') %>
+  <h2>非凡途径</h2>
+  <div class="directory-list">
+    <% for (const entry of pathways) { %><a href="<%= url_for(entry.path) %>"><span><%= entry.title %></span></a><% } %>
+  </div>
+  <h2>世界与历史</h2>
+  <div class="directory-list">
+    <a href="<%= url_for('/timeline/') %>#event-预付的报酬"><span>扮演法</span></a>
+    <a href="<%= url_for('/artifacts/entries/第一块亵渎石板/') %>"><span>第一块亵渎石板</span></a>
+    <a href="<%= url_for('/timeline/') %>#event-七光"><span>灵界七光、外神与旧日</span></a>
+    <a href="<%= url_for('/timeline/永劫-诡秘/') %>"><span>末日与诡秘之主</span></a>
+    <a href="<%= url_for('/timeline/') %>"><span>故事时间线</span></a>
+  </div>
+</article>
