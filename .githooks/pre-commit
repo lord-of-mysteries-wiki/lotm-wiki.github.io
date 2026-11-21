@@ -2,3 +2,5 @@
 set -eu
 cd "$(git rev-parse --show-toplevel)"
 node tools/auto-link-sequences.js --check-staged
+node tools/check-staged-citations.js
+npm run architecture:check

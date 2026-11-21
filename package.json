@@ -3,14 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prebuild": "python3 tools/build-character-index.py && node tools/build-timeline-file-index.js",
-    "build": "hexo generate",
+    "build": "node tools/guarded-build.js",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
     "links:preview": "node tools/auto-link-sequences.js",
     "links:apply": "node tools/auto-link-sequences.js --apply",
-    "links:check-staged": "node tools/auto-link-sequences.js --check-staged"
+    "links:check-staged": "node tools/auto-link-sequences.js --check-staged",
+    "citations:check-staged": "node tools/check-staged-citations.js",
+    "content:check": "node tools/check-content-model.js",
+    "content:check-generated": "node tools/check-generated-content.js",
+    "architecture:check": "node tools/check-architecture.js",
+    "architecture:verify": "npm run architecture:check && npm run build && npm run content:check-generated",
+    "hooks:install": "git config --local core.hooksPath .githooks"
   },
   "hexo": {
     "version": "8.1.2"
@@ -22,5 +27,8 @@
     "hexo-renderer-marked": "^7.0.1",
     "hexo-renderer-stylus": "^3.0.0",
     "hexo-server": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
   }
 }

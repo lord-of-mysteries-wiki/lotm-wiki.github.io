@@ -1,8 +1,11 @@
 ---
+entry_id: "mr_a"
+entry_type: character
+graph_profile: {"short":"“A先生”","mark":"A","alias":"","group":"其他人物","aliasSources":[],"classificationEvidence":[{"kind":"pathway","value":"倒吊人","source":"《诡秘之主》第四卷第104章","note":"克莱恩提及A先生具有“蔷薇主教”的能力；该序列属于秘祈人途径。"}],"progression":[{"pathway":"秘祈人","sequence":"序列5“牧羊人”","source":"《诡秘之主》第二卷第32章；《诡秘之主》第四卷第105章","note":"早期克莱恩判断其大概率为“牧羊人”；第四卷对战中将其与“秘偶大师”相比较。"}],"documentProfile":["所属组织：极光会。克莱恩见到对方后将他认作刺杀贝克朗的极光会A先生。（《诡秘之主》第二卷第262章）","国籍：鲁恩（相遇地暂定）。克莱恩在贝克兰德与A先生相遇。不证明法律国籍。（《诡秘之主》第二卷第262章）"]}
 title: "“A先生”"
 layout: index
 character_profile: true
-graph_classifications: {"organization": [{"value": "极光会", "source": "《诡秘之主》第二部第262章 绝望女士"}], "nationality": [{"value": "鲁恩", "certainty": "inferred", "source": "《诡秘之主》第二部第262章 绝望女士", "note": "克莱恩在贝克兰德与A先生相遇。仅依据相遇地点暂定，不证明法律国籍。"}]}
+graph_classifications: {"organization": [{"value": "极光会", "source": "《诡秘之主》第二卷第262章"}], "nationality": [{"value": "鲁恩", "certainty": "inferred", "source": "《诡秘之主》第二卷第262章", "note": "克莱恩在贝克兰德与A先生相遇。仅依据相遇地点暂定，不证明法律国籍。"}]}
 permalink: "characters/entries/“A先生”/"
 profile_work: "诡秘之主"
 document_name: "“A先生”"
@@ -19,12 +22,12 @@ profile_facts:
 
 ## 途径与序列经历
 
-- 途径与已核实的阶段：[秘祈人途径](../../../worldview/pathways/秘祈人途径/秘祈人途径.html)，序列5“[牧羊人](../../../worldview/pathways/秘祈人途径/序列5-牧羊人.html)”（《诡秘之主》第二部第32章 确认；第四部第105章 悬挂者）早期[克莱恩](../克莱恩·莫雷蒂/)判断其大概率为“牧羊人”；第四部对战中将其与“秘偶大师”相比较。其他阶段待核实。
+- 途径与已核实的阶段：[秘祈人途径](../../../worldview/pathways/秘祈人途径/秘祈人途径.html)，序列5“[牧羊人](../../../worldview/pathways/秘祈人途径/序列5-牧羊人.html)”（《诡秘之主》第二卷第32章；《诡秘之主》第四卷第105章）早期[克莱恩](../克莱恩·莫雷蒂/)判断其大概率为“牧羊人”；第四卷对战中将其与“秘偶大师”相比较。其他阶段待核实。
 
 ## 所属组织与身份
 
-- 所属组织：极光会。克莱恩见到对方后将他认作刺杀贝克朗的极光会A先生。（《诡秘之主》第二部第262章 绝望女士）
+- 所属组织：极光会。克莱恩见到对方后将他认作刺杀贝克朗的极光会A先生。（《诡秘之主》第二卷第262章）
 
 ## 身份与国籍
 
-- 国籍：鲁恩（相遇地暂定）。克莱恩在贝克兰德与A先生相遇。不证明法律国籍。（《诡秘之主》第二部第262章 绝望女士）
+- 国籍：鲁恩（相遇地暂定）。克莱恩在贝克兰德与A先生相遇。不证明法律国籍。（《诡秘之主》第二卷第262章）

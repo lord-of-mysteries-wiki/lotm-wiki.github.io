@@ -47,11 +47,8 @@ def main():
             if match:
                 chapters.append((book, volume, match[1], normalise(match[2])))
 
-    script = ("const fs=require('fs'),vm=require('vm'),c={};vm.createContext(c);"
-              "vm.runInContext(fs.readFileSync('source/relationships/relationship-data.js','utf8')"
-              "+'\\n'+fs.readFileSync('source/relationships/character-index.js','utf8')"
-              "+';this.d={relations,characters,indexedCharacters}',c);console.log(JSON.stringify(c.d))")
-    data = json.loads(subprocess.check_output(['node', '-e', script], cwd=ROOT))
+    from content_model import load_model
+    data = load_model()
     records = []
     for relation in data['relations']:
         label = f"{relation['a']} / {relation['b']}"
@@ -59,7 +56,7 @@ def main():
         records.extend((label, m.get('source', '')) for m in relation.get('milestones', []))
     # Manually defined graph characters may have evidence too (for example,
     # a mirror person separated from the generated, ambiguous name index).
-    for person in data['characters'] + data['indexedCharacters']:
+    for person in data['characters']:
         records.extend((person['name'], item.get('source', ''))
                        for item in person.get('classificationEvidence', []) + person.get('aliasSources', []))
     checked, titled, errors = 0, 0, []

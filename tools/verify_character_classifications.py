@@ -7,8 +7,8 @@ from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / 'source/characters/entries'
-index = (ROOT / 'source/relationships/character-index.js').read_text(encoding='utf-8')
-people = json.loads(index.split('const indexedCharacters = ', 1)[1].rstrip().removesuffix(';'))
+from content_model import load_model
+people = load_model()['characters']
 errors = []
 organization_nodes = set()
 unit_parents = {}

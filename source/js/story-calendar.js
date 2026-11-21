@@ -40,6 +40,17 @@
   const jump = root.querySelector('.almanac-tools select');
   function clueMonths(event) {
     if (event.start) return [];
+    if (/^\d{4}-\d{2}$/.test(event.period || '')) {
+      const months = [];
+      const last = event.periodEnd || event.period;
+      for (let year = Number(event.period.slice(0,4)); year <= Number(last.slice(0,4)); year++) {
+        for (let month = 1; month <= 12; month++) {
+          const key = year + '-' + String(month).padStart(2,'0');
+          if (key >= event.period && key <= last) months.push(key);
+        }
+      }
+      return months;
+    }
     const hit = event.note.match(/(\d{4})\s*年\s*(\d{1,2})\s*月/);
     if (!hit) return [];
     const end = event.note.slice(hit.index + hit[0].length).match(/至\s*(\d{1,2})\s*月/);
@@ -66,6 +77,8 @@
       if (!event.title.includes(query) && !event.summary.includes(query)) return false;
       if (scope.value === 'all') return true;
       if (event.start) return event.start <= last && (event.end || event.start) >= first;
+      // A known year alone does not establish membership in the selected month.
+      if (/^\d{4}$/.test(event.period || '')) return false;
       return clues.get(event).some(month => month >= first.slice(0,7) && month <= last.slice(0,7));
     }).sort((a,b) => Number(!a.start) - Number(!b.start) || a.start.localeCompare(b.start));
     agenda.replaceChildren(element('small',results.length + ' 个事件'));
@@ -74,8 +87,8 @@
       const title = element(event.url ? 'a' : 'p',event.url ? event.title : '');
       if (event.url) title.href = event.url;
       else appendSummary(title, event);
-      const when = event.start ? event.start + (event.end ? ' 至 ' + event.end : '') : event.note || '日期待考证';
-      card.append(element('small',(event.inferred ? '推算 · ' : '') + when), title);
+      const when = event.start ? event.start + (event.end ? ' 至 ' + event.end : '') : [event.period ? event.period + (event.periodEnd ? ' 至 ' + event.periodEnd : '') : '', event.note].filter(Boolean).join(' · ') || '日期待考证';
+      card.append(title, element('small',(event.inferred ? '时间推定 · ' : '') + when + (event.source ? ' · ' + event.source : '')));
       if (!event.summary && event.description) card.append(element('p',event.description));
       if (mode === 'day' && scope.value === 'period' && event.start) card.append(element('p',event.basis));
       agenda.append(card);

@@ -15,11 +15,7 @@ from corpus_review import BOOKS, iter_chapters
 
 ROOT = Path(__file__).resolve().parents[1]
 CUES = re.compile(r'父亲|母亲|兄弟|兄妹|姐弟|姐妹|哥哥|姐姐|弟弟|妹妹|妻子|丈夫|儿子|女儿|老师|学生|队友|同伴|朋友|下属|手下|信使')
-LOAD = r"""
-const fs=require('fs'),vm=require('vm'),c={};vm.createContext(c);
-vm.runInContext(fs.readFileSync('source/relationships/relationship-data.js','utf8')+'\n'+fs.readFileSync('source/relationships/character-index.js','utf8')+'\nthis.d={characters,indexedCharacters,relations}',c);
-process.stdout.write(JSON.stringify(c.d));
-"""
+LOAD = "const m=require('./tools/lib/content-model').loadModel(); process.stdout.write(JSON.stringify({...m,indexedCharacters:[]}));"
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)

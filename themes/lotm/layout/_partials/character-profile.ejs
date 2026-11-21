@@ -35,6 +35,6 @@
       </dl>
       <a class="character-profile__graph" href="<%= url_for('/relationships/') %>">查看人物关系网 <span aria-hidden="true">↗</span></a>
     </aside>
-    <div class="article character-profile__content"><%- page.content %></div>
+    <div class="article character-profile__content"><%- page.content %><%- partial('_partials/character-relations') %></div>
   </div>
 </article>

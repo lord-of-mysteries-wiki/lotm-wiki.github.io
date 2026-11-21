@@ -1,0 +1,8 @@
+<% const model = wiki_model(); const relations = model.relations.filter(r => r.a === page.entry_id || r.b === page.entry_id); %>
+<% if (relations.length) { %><section class="character-relations"><h2>关系记录</h2><ul>
+<% for (const relation of relations) { const other = model.characters.find(p => p.id === (relation.a === page.entry_id ? relation.b : relation.a)); const profile = model.profiles.find(p => p.entry_id === other.id); %>
+<li><a href="<%= url_for('/' + profile.path) %>"><%= other.name %></a> · <%= (relation.categories || []).map(category => { const d=relation.direction?.[category]; return category + (d==='both'?'（双向）':d?((d==='a-to-b'?relation.a:relation.b)===page.entry_id?'（本人物指向对方）':'（对方指向本人物）'):''); }).join('、') %>
+<p><%= relation.summary || relation.detail || '' %><% if (relation.scope) { %>（<%= relation.scope %>）<% } %></p>
+<% if (relation.sourceHint) { %><p><%= relation.sourceHint %></p><% } %>
+<% for (const stage of relation.milestones || []) { %><p><%= [stage.tag,stage.note,stage.source].filter(Boolean).join(' · ') %></p><% } %>
+</li><% } %></ul></section><% } %>

@@ -26,8 +26,8 @@ def main():
     parser.add_argument('--min-count', type=int, default=50)
     parser.add_argument('--limit', type=int, default=100)
     args = parser.parse_args()
-    raw = (ROOT / 'source/relationships/character-index.js').read_text(encoding='utf-8')
-    entries = json.loads(raw[raw.index('['):raw.rindex(']')+1])
+    from content_model import load_model
+    entries = load_model()['characters']
     names = set()
     for item in entries:
         names.update(filter(None, re.split(r'\s*/\s*', item.get('alias',''))))
