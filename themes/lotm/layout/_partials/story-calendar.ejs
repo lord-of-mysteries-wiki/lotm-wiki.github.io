@@ -1,11 +1,12 @@
 <%
-const records = site.pages.toArray().filter(item => item.timeline_event).map(item => ({
+const records = wiki_events().map(item => ({
   start: String(item.event_time || ''), end: item.event_time_end || '', title: item.title,
   work: item.event_work || '', summary: item.event_summary || '',
   summaryParts: event_summary_parts(item).map(part => ({ text: part.text, url: part.target ? url_for('/' + part.target) : '' })),
+  period: item.event_time_period || '', periodEnd: item.event_time_period_end || '',
   note: item.event_time_note || '',
   description: strip_html((item.content.match(/<p>([\s\S]*?)<\/p>/) || [])[1] || ''),
-  basis: item.event_time_basis || '', source: item.event_time_source || '',
+  basis: item.event_time_basis || '', source: timeline_source(item.event_time_source || ''),
   url: item.event_summary ? '' : url_for('/' + item.path),
   inferred: item.event_time_certainty === 'inferred'
 })).sort((a,b) => a.start.localeCompare(b.start) || a.title.localeCompare(b.title,'zh-CN'));

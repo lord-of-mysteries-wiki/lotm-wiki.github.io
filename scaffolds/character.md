@@ -1,7 +1,16 @@
 ---
+# 章节来源写作《作品名》第一卷第9章；保留多章或范围，不写章节标题。
+# 数据架构：新建前阅读 docs/词条数据与多视图架构.md；事实只维护一个来源，复用共享模板。
+# 新字段须配套读取器；构建从词条生成视图，不手改生成数据。
 title: {{ title }}
 layout: index
 character_profile: true
+# entry_id 使用唯一且稳定的标识；新增前检查现有别名与提及门槛。
+entry_id:
+entry_type: character
+# graph_profile 保存图谱名称、简称、别名、途径依据和晋升阶段；组织与国籍只填 graph_classifications。
+graph_profile: {"short": "", "mark": "", "alias": "", "group": "其他人物", "classificationEvidence": [], "progression": []}
+# 关系统一维护于 source/_data/relations.json，以双方 entry_id 引用。
 # 办公地点、普通雇主和学校写入人物履历。组织分类用于有章节依据的团体归属。
 # 原文能确认角色独立且没有组织归属时，可在 organization 中填写 value 为“独立”的条目，并注明章节依据和适用时期。资料不足时保留空数组。
 graph_classifications: {"organization": [], "nationality": []}

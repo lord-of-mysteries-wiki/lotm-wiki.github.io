@@ -1,5 +1,4 @@
 'use strict';
-indexedCharacters.forEach(p=>{const existing=characters.find(c=>c.id===p.id);if(existing)Object.assign(existing,{mentions:p.mentions,mentionTerm:p.mentionTerm,counts:p.counts,alias:p.alias||existing.alias,aliasSources:p.aliasSources,matchNote:p.matchNote,classificationEvidence:p.classificationEvidence,progression:p.progression,pathwayPeriodNotes:p.pathwayPeriodNotes,ordinaryInCitedPeriod:p.ordinaryInCitedPeriod,ordinaryInCitedPeriodInferred:p.ordinaryInCitedPeriodInferred,documentProfile:p.documentProfile,documentProfileUrl:p.documentProfileUrl});else characters.push(p)});
 const canvas=document.getElementById('graph'),ctx=canvas.getContext('2d'),content=document.getElementById('content'),search=document.getElementById('search'),isolates=document.getElementById('isolates');
 const byId=new Map(characters.map(p=>[p.id,p])), adjacency=new Map(characters.map(p=>[p.id,[]]));
 relations.forEach(r=>{adjacency.get(r.a)?.push(r);adjacency.get(r.b)?.push(r)});

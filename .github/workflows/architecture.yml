@@ -1,0 +1,23 @@
+name: Architecture
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  architecture:
+    name: Architecture checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.20.2'
+          cache: npm
+      - run: npm ci
+      - run: npm run architecture:verify
+      - run: node --test tools/tests/architecture-guard.test.js

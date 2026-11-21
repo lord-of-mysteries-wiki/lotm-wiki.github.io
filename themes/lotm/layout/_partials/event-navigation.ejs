@@ -1,0 +1,4 @@
+<% const events = wiki_events(); const position = events.findIndex(event => event.entry_id === page.entry_id); %>
+<% if (position >= 0) { %><nav aria-label="事件顺序"><% for (const [index, label] of [[position-1,'前一事件'],[position+1,'后一事件']]) { const event = events[index]; if (!event) continue; %>
+<p><%= label %>：<a href="<%= wiki_event_url(event) %>"><%= event.narrative_order.label || event.title %></a></p>
+<% } %></nav><% } %>

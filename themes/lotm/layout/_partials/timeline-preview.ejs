@@ -1,22 +1,42 @@
 <%
-const events = site.pages.toArray().filter(item => item.timeline_event === true);
+const events = wiki_events();
 const { groups, unplaced } = story_timeline(events, page);
 const validDate = item => /^\d{4}-\d{2}-\d{2}$/.test(String(item.event_time || ''));
 const isRange = item => validDate(item) && item.event_time_precision === 'range' && item.event_time_end;
 const dateText = date => `${Number(date.slice(5,7))} 月 ${Number(date.slice(8,10))} 日`;
 const fullDate = date => `${date.slice(0,4)} 年 ${dateText(date)}`;
-// An undated scene stays unassigned unless its own evidence names a year.
+// Offer years with an actual date or period endpoint, rather than every year
+// inside a broad historical range. Existing year choices still include matching ranges.
+const knownYears = [...new Set(events.flatMap(item => [item.event_time, item.event_time_end, item.event_time_period, item.event_time_period_end].filter(Boolean).map(value => String(value).slice(0,4))))].sort();
 function stageYears(group) {
-  if (!group.date) return [group.label?.match(/(\d{4})\s*年/)?.[1] || 'unknown'];
+  if (!group.date) {
+    const years = group.items.flatMap(item => {
+      if (!item.event_time_period) return [];
+      const start = Number(item.event_time_period.slice(0,4));
+      const end = Number((item.event_time_period_end || item.event_time_period).slice(0,4));
+      return knownYears.filter(year => Number(year) >= start && Number(year) <= end);
+    });
+    return years.length ? [...new Set(years)] : ['unknown'];
+  }
   return [group.date.slice(0,4), ...group.items.filter(isRange).map(event => String(event.event_time_end).slice(0,4))];
 }
 const stages = [...new Set(groups.flatMap(stageYears).concat(unplaced.length ? ['unknown'] : []))].sort();
+let currentGroupLabel = '';
+function briefTimeNote(item) {
+  let note = String(item.event_time_note || '').trim();
+  if (!note || note === '日期待考证' || note === currentGroupLabel) return '';
+  if (item.event_time_period && !item.event_time_period_end) {
+    const [year, month] = item.event_time_period.split('-');
+    const prefix = new RegExp('^' + year + '\\s*年' + (month ? '\\s*' + Number(month) + '\\s*月' : ''));
+    note = note.replace(prefix, '').replace(/^[，,：:；;、\s]+/, '');
+  }
+  return note;
+}
 const nodeLink = function(item) {
   if (item.event_summary && item.event_summary.trim()) { %>
     <li data-event-years="<%= validDate(item) ? [String(item.event_time).slice(0,4), String(item.event_time_end || item.event_time).slice(0,4)].join(' ') : '' %>" class="timeline-nodes__item timeline-brief" id="event-<%= item.event_anchor || item.title %>">
-      <strong><%= item.title %></strong>
       <p><% for (const part of event_summary_parts(item)) { %><% if (part.target) { %><a href="<%= url_for('/' + part.target) %>"><%= part.text %></a><% } else { %><%= part.text %><% } %><% } %></p>
-      <small><% if (isRange(item)) { %>至 <%= fullDate(String(item.event_time_end)) %> · <% } else if (!validDate(item) && item.event_time_note) { %><%= item.event_time_note %> · <% } %><% if (item.event_time_certainty === 'inferred') { %>日期推算 · <% } %><%= item.event_time_source || item.event_work %></small>
+      <small><% if (isRange(item)) { %>至 <%= fullDate(String(item.event_time_end)) %> · <% } else if (!validDate(item) && briefTimeNote(item)) { %><%= briefTimeNote(item) %> · <% } %><% if (item.event_time_certainty === 'inferred') { %>时间推定 · <% } %><%= timeline_source(item.event_time_source || item.event_work) %></small>
     </li>
     <% return;
   } %>
@@ -33,15 +53,15 @@ const nodeLink = function(item) {
     </nav>
     </div>
     <nav data-stage-options aria-label="选择年份" hidden><% for (const year of stages) { %><a href="#year-<%=year%>"><%=year === 'unknown' ? '年份待考' : year + ' 年'%></a><% } %></nav>
-    <ol class="story-axis" aria-label="按原文章节排列的事件">
-      <% for (const group of groups) { const {date, label, items} = group; %>
+    <ol class="story-axis" aria-label="按故事日期排列的事件">
+      <% for (const group of groups) { const {date, label, items} = group; currentGroupLabel = label || ''; %>
       <li data-stage="<%= stageYears(group).join(' ') %>" class="story-axis__day<%= date ? '' : ' story-axis__day--relative' %>">
         <h3 class="timeline-group-title"><% if (date) { %><time datetime="<%= date %>"><%= fullDate(date) %></time><% } else { %><%= label %><% } %></h3>
         <ul class="timeline-nodes" aria-label="<%= date ? fullDate(date) : label %>事件"><% items.forEach(nodeLink); %></ul>
       </li>
       <% } %>
     </ol>
-  <% if (unplaced.length) { %><section data-stage="unknown" class="timeline-undated"><h2>顺序待考证</h2><ul class="timeline-nodes"><% unplaced.forEach(nodeLink); %></ul></section><% } %>
-  <details class="timeline-event-index" id="event-index"><summary>完整事件目录（按原文叙述顺序）</summary><div class="timeline-event-index__content"><%- page.content %></div></details>
+  <% currentGroupLabel = ''; if (unplaced.length) { %><section data-stage="unknown" class="timeline-undated"><h2>日期待考证</h2><ul class="timeline-nodes"><% unplaced.forEach(nodeLink); %></ul></section><% } %>
+  <details class="timeline-event-index" id="event-index"><summary>完整事件目录（按原文叙述顺序）</summary><div class="timeline-event-index__content"><%- partial('_partials/event-directory') %></div></details>
   </section>
 </article>

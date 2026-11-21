@@ -1,26 +1,34 @@
-// The source index records narrative order, including flashbacks and time loops.
+// Event metadata supplies stable narrative order independently of story dates.
 hexo.extend.helper.register('story_timeline', function (events, index) {
-  const byLink = new Map();
-  for (const item of events) {
-    const link = item.event_summary?.trim() ? '#event-' + (item.event_anchor || item.title)
-      : item.path.replace(/^timeline\//, '').replace(/index\.html$/, '');
-    byLink.set(link, item);
-  }
-  const seen = new Set();
-  const groups = [];
-  for (const match of (index?.content || '').matchAll(/href="([^"]+)"/g)) {
-    const item = byLink.get(decodeURIComponent(match[1]));
-    if (!item || seen.has(item)) continue;
-    seen.add(item);
+  const dated = [];
+  const undated = [];
+  for (const item of events.slice().sort((a,b) => a.narrative_order.position - b.narrative_order.position)) {
     const date = String(item.event_time || '');
-    const previous = groups.at(-1);
     if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-      if (previous?.date === date && previous.items[0].event_work === item.event_work) previous.items.push(item);
-      else groups.push({ date, items: [item] });
+      dated.push({ date, key: date, item });
     } else {
-      const label = item.event_time_precision === 'partial' ? item.event_time_note : '按原文顺序';
-      groups.push({ label, items: [item] });
+      const period = String(item.event_time_period || '');
+      if (period) {
+        const format = value => { const [year, month] = value.split('-'); return year + '年' + (month ? Number(month) + '月' : ''); };
+        const end = String(item.event_time_period_end || '');
+        dated.push({ label: format(period) + (end ? '至' + format(end) : ''), key: period + (period.length === 7 ? '-00' : '-00-00'), item });
+        continue;
+      }
+      undated.push(item);
     }
   }
-  return { groups, unplaced: events.filter(item => !seen.has(item)) };
+  dated.sort((a, b) => a.key.localeCompare(b.key));
+  const groups = [];
+  const byPeriod = new Map();
+  for (const { date, label, item } of dated) {
+    const key = date ? 'date:' + date : 'period:' + label;
+    let group = byPeriod.get(key);
+    if (!group) {
+      group = {date, label, items: []};
+      byPeriod.set(key, group);
+      groups.push(group);
+    }
+    group.items.push(item);
+  }
+  return { groups, unplaced: undated };
 });

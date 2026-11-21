@@ -149,3 +149,6 @@ __pycache__/
 
 /db [0-9]*.json
 /.playwright-cli/
+
+# 构建生成的图谱数据不得作为手工数据源
+/source/relationships/graph-data.js

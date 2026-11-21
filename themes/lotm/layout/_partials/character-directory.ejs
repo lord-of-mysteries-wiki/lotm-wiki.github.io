@@ -1,5 +1,5 @@
 <%
-const stats = site.data.character_directory || {};
+const stats = wiki_model().directory;
 const books = ['诡秘之主', '宿命之环'];
 const collator = new Intl.Collator('zh-CN', {numeric: true, ignorePunctuation: true});
 const profiles = site.pages.toArray()
