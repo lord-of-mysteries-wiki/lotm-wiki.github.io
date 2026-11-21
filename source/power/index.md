@@ -1,5 +1,5 @@
 ---
 title: 力量体系
+layout: index
+power_overview: true
 ---
-
-[非凡途径与序列](../worldview/pathways/)

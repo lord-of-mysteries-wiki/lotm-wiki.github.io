@@ -37,6 +37,146 @@ a:hover
 .main-content h2
   color #e2e5f0
 
+.home-hero
+  position relative
+  overflow hidden
+  min-height 300px
+  display flex
+  align-items center
+  padding 56px 64px
+  border 1px solid #414b60
+  border-radius 16px
+  background radial-gradient(ellipse at 80% 45%, #40576a 0%, #30394d 36%, #232a3c 100%)
+.home-hero-copy
+  position relative
+  z-index 1
+.home-eyebrow
+  color #98c8c5
+  font 600 .75rem/1.4 sans-serif
+  letter-spacing .18em
+.home-hero h1
+  margin 18px 0 26px
+  color #edf0f7
+.home-primary
+  display inline-block
+  padding 11px 18px
+  border 1px solid #8abfbd
+  border-radius 8px
+  background #344d56
+  color #e0f5f1
+  font-family sans-serif
+.home-primary:hover
+  background #42616a
+.home-constellation
+  position absolute
+  width 290px
+  height 290px
+  right 8%
+  top 50%
+  transform translateY(-50%) rotate(-18deg)
+  border 1px solid rgba(168,223,215,.22)
+  border-radius 50%
+  box-shadow 0 0 0 38px rgba(168,223,215,.025), inset 0 0 60px rgba(168,223,215,.05)
+.home-constellation::before,.home-constellation::after
+  content ''
+  position absolute
+  inset 35px
+  border 1px solid rgba(168,223,215,.19)
+  border-radius 50%
+.home-constellation::after
+  inset 82px
+.home-constellation i
+  position absolute
+  width 8px
+  height 8px
+  border-radius 50%
+  background #b4e7dc
+  box-shadow 0 0 16px #a3e6da
+.home-constellation i:nth-child(1)
+  top 12%; left 18%
+.home-constellation i:nth-child(2)
+  top 6%; right 30%
+.home-constellation i:nth-child(3)
+  top 40%; right -4px
+.home-constellation i:nth-child(4)
+  bottom 9%; right 22%
+.home-constellation i:nth-child(5)
+  bottom 23%; left 5%
+.home-constellation i:nth-child(6)
+  top 47%; left 48%
+.home-section
+  margin-top 46px
+.home-section-heading
+  display flex
+  justify-content space-between
+  align-items baseline
+  margin-bottom 16px
+  font-family sans-serif
+.home-section-heading h2
+  margin 0
+.home-section-heading span
+  color #8797aa
+  font-size .75rem
+  letter-spacing .15em
+.home-grid,.home-people
+  display grid
+  grid-template-columns repeat(3, minmax(0,1fr))
+  gap 12px
+.home-card,.home-person
+  display flex
+  align-items center
+  gap 16px
+  padding 20px
+  border 1px solid #40485c
+  border-radius 12px
+  background #252b3d
+  color #e1e7ef
+  font-family sans-serif
+  transition background .2s, border-color .2s
+.home-card:hover,.home-person:hover
+  border-color #78b5b4
+  background #303b4c
+.home-card-icon,.home-person-mark
+  flex none
+  display grid
+  place-items center
+  width 46px
+  height 46px
+  border 1px solid #536b76
+  border-radius 12px
+  color #a7d8d2
+  background #303f4c
+  font-size 1.35rem
+.home-person-mark
+  border-radius 50%
+  font-family serif
+  background linear-gradient(145deg,#66798b,#323e56)
+.home-card strong,.home-person strong
+  display block
+  font-size 1rem
+.home-card small,.home-person small
+  display block
+  margin-top 5px
+  color #aab6c8
+  font-size .875rem
+@media (max-width: 700px)
+  .home-hero
+    min-height 250px
+    padding 36px 24px
+  .home-constellation
+    right -110px
+    opacity .55
+  .home-grid
+    grid-template-columns repeat(2, minmax(0,1fr))
+  .home-people
+    grid-template-columns 1fr
+  .home-card
+    align-items flex-start
+    flex-direction column
+    padding 16px
+  .home-section
+    margin-top 32px
+
 .article
   padding 32px
   border 1px solid #3a4054

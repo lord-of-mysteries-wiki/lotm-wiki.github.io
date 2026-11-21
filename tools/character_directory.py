@@ -6,6 +6,7 @@ from pathlib import Path
 from urllib.parse import unquote
 
 from corpus_review import iter_chapters, reference_texts
+from verify_relationship_sources import chapter_number
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -30,12 +31,17 @@ SEQUEL_NAME_PATTERNS = {
 }
 
 
+def chapter_key(heading):
+    match = re.match(r'(第[一二三四五六七八九十百千万零〇0-9]+章)\s*(.*)', heading)
+    return (chapter_number(match[1]), match[2]) if match else heading
+
+
 def reviewed_mentions(scope, parts, offsets):
     """Count only the named passages in one profile's reviewed volume."""
     if scope['chapters'] == []:
         # All name matches can belong to an impersonator.
         return 0, -1
-    requested = set(scope['chapters'])
+    requested = {chapter_key(chapter) for chapter in scope['chapters']}
     if not requested or len(requested) != len(scope['chapters']):
         raise ValueError(f'具名章节无效或重复：{scope}')
     forms = sorted(scope.get('forms', [scope['term']]), key=len, reverse=True)
@@ -45,12 +51,12 @@ def reviewed_mentions(scope, parts, offsets):
     count = 0
     first = None
     for index, (volume, chapter, body) in enumerate(parts):
-        if volume != scope['volume'] or chapter not in requested:
+        if volume.replace('卷', '部') != scope['volume'].replace('卷', '部') or chapter_key(chapter) not in requested:
             continue
         matches = list(pattern.finditer(body))
         if not matches:
             raise ValueError(f'章节中未找到本人称呼：{chapter} {scope["term"]}')
-        requested.remove(chapter)
+        requested.remove(chapter_key(chapter))
         count += len(matches)
         if first is None:
             first = offsets[index] + matches[0].start()

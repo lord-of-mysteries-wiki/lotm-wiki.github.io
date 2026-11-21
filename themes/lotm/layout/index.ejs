@@ -9,12 +9,20 @@
   <header><%- partial('_partials/navbar') %></header>
   <main class="main-content">
     <%- partial('_partials/breadcrumbs') %>
-    <% if (page.timeline_event) { %>
+    <% if (page.worldview_directory) { %>
+      <%- partial('_partials/worldview-directory') %>
+    <% } else if (page.timeline_event) { %>
       <%- partial('_partials/event-entry') %>
     <% } else if (page.character_profile) { %>
       <%- partial('_partials/character-profile') %>
     <% } else if (page.character_directory) { %>
       <%- partial('_partials/character-directory') %>
+    <% } else if (page.artifact_directory) { %>
+      <%- partial('_partials/artifact-directory') %>
+    <% } else if (page.organization_directory) { %>
+      <%- partial('_partials/organization-directory') %>
+    <% } else if (page.power_overview) { %>
+      <%- partial('_partials/power-overview') %>
     <% } else if (page.home) { %>
       <%- partial('_partials/home-content') %>
     <% } else { %>

@@ -1,5 +1,5 @@
 'use strict';
-indexedCharacters.forEach(p=>{const existing=characters.find(c=>c.id===p.id);if(existing)Object.assign(existing,{mentions:p.mentions,mentionTerm:p.mentionTerm,counts:p.counts,alias:p.alias||existing.alias,aliasSources:p.aliasSources,matchNote:p.matchNote,classificationEvidence:p.classificationEvidence,progression:p.progression,pathwayPeriodNotes:p.pathwayPeriodNotes,ordinaryInCitedPeriod:p.ordinaryInCitedPeriod,documentProfile:p.documentProfile,documentProfileUrl:p.documentProfileUrl});else characters.push(p)});
+indexedCharacters.forEach(p=>{const existing=characters.find(c=>c.id===p.id);if(existing)Object.assign(existing,{mentions:p.mentions,mentionTerm:p.mentionTerm,counts:p.counts,alias:p.alias||existing.alias,aliasSources:p.aliasSources,matchNote:p.matchNote,classificationEvidence:p.classificationEvidence,progression:p.progression,pathwayPeriodNotes:p.pathwayPeriodNotes,ordinaryInCitedPeriod:p.ordinaryInCitedPeriod,ordinaryInCitedPeriodInferred:p.ordinaryInCitedPeriodInferred,documentProfile:p.documentProfile,documentProfileUrl:p.documentProfileUrl});else characters.push(p)});
 const canvas=document.getElementById('graph'),ctx=canvas.getContext('2d'),content=document.getElementById('content'),search=document.getElementById('search'),isolates=document.getElementById('isolates');
 const byId=new Map(characters.map(p=>[p.id,p])), adjacency=new Map(characters.map(p=>[p.id,[]]));
 relations.forEach(r=>{adjacency.get(r.a)?.push(r);adjacency.get(r.b)?.push(r)});
@@ -33,7 +33,7 @@ function ringColor(key){
  const pair=pathwayPalette[key];
  return pair?blendColor(pair.primary,pair.accent,.32):'#B8C4D5';
 }
-function pathwayStatus(p){return p.ordinaryInCitedPeriod?'所引时期为普通人':'途径待核实'}
+function pathwayStatus(p){return p.ordinaryInCitedPeriod?'所引时期为普通人':p.ordinaryInCitedPeriodInferred?'所引时期可能为普通人（推测）':'途径待核实'}
 function pathwayDescription(p){
  const {main,rings}=pathwayStyle(p);
  const parts=[];
@@ -47,7 +47,7 @@ function pathwayDescription(p){
   else if(fact.relation==='authority')parts.push('权柄／唯一性关联：'+fact.value);
   else if(fact.inferred&&!alternatives.some(stage=>stage.candidatePathways.includes(fact.value)))parts.push('推定途径：'+fact.value);
  }
- if(p.ordinaryInCitedPeriod)parts.push(pathwayStatus(p));
+ if(p.ordinaryInCitedPeriod||p.ordinaryInCitedPeriodInferred)parts.push(pathwayStatus(p));
  return parts.join(' · ')||pathwayStatus(p);
 }
 let expandedOrganization=null;
@@ -87,10 +87,9 @@ function category(p,kind){if(kind==='pathway'){const value=pathway(p);return pat
 const isolatePreferences = new Map([['organization', true], ['nationality', true]]);
 const grouping=document.getElementById('group-mode');let groupMode='network',groupAnchors=new Map();
 function groupKey(p,mode){return category(p,mode)}
-function groupKeys(p,mode){if(mode==='organization'||mode==='nationality'){const values=(p.classificationEvidence||[]).filter(x=>x.kind===mode).map(x=>x.value);return values.length?[...new Set(values)]:[mode==='organization'?'组织待核实':'国籍待核实']}if(mode!=='pathway')return [groupKey(p,mode)];const values=pathways(p).map(x=>pathwayNames[x.value]||x.value);if(p.ordinaryInCitedPeriod)values.push(pathwayStatus(p));return values.length?[...new Set(values)]:[pathwayStatus(p)]}
+function groupKeys(p,mode){if(mode==='organization'||mode==='nationality'){const values=(p.classificationEvidence||[]).filter(x=>x.kind===mode).map(x=>x.value);return values.length?[...new Set(values)]:[mode==='organization'?'组织待核实':'国籍待核实']}if(mode!=='pathway')return [groupKey(p,mode)];const values=pathways(p).filter(x=>x.relation==='member').map(x=>pathwayNames[x.value]||x.value);if(p.ordinaryInCitedPeriod||p.ordinaryInCitedPeriodInferred)values.push(pathwayStatus(p));return values.length?[...new Set(values)]:[pathwayStatus(p)]}
 function layoutGroupKeys(person, mode) {
- const keys=groupKeys(person, mode);
- return mode==='organization' ? keys.filter(key=>key!=='独立') : keys;
+ return groupKeys(person, mode);
 }
 function inferredGroup(person, kind, value) {
  if(kind==='pathway')return pathways(person).some(fact=>fact.value===value && fact.inferred);
@@ -148,7 +147,7 @@ function personSpring(categories,shared){
  if(antagonistic){
   // Keep mixed relationships between their positive and hostile targets.
   const mixed=close||cooperative;
-  return {distance:mixed?275:has('仇恨')?580:505,stiffness:mixed?.065:.095,repulsive:!mixed};
+  return {distance:mixed?200:has('仇恨')?300:270,stiffness:.055,repulsive:false,community:mixed};
  }
  if(has('同事')&&has('上下级','盟友'))return {distance:90-support*4,stiffness:.28,priority:true};
  const distance=close?96:cooperative?158:has('上下级','信仰')?193:243;
@@ -172,7 +171,7 @@ for(const {source,target,network} of layoutEdges){
 function assignSocialCircles(){
  const links=new Map(nodes.map(n=>[n,new Map()]));
  for(const {source,target,network} of layoutEdges){
-  if(network.repulsive)continue;
+  if(network.repulsive||network.community===false)continue;
   const weight=network.stiffness*100/network.distance;
   links.get(source).set(target,(links.get(source).get(target)||0)+weight);
   links.get(target).set(source,(links.get(target).get(source)||0)+weight);
@@ -222,31 +221,34 @@ function matchSlots(slots,origins){
  }
 }
 const centralGroup={organization:'塔罗会',pathway:'占卜家'};
-// Accumulate the same affinity distances used by the pairwise forces:
-// a hostile connection to a protagonist should not seed an inner-ring slot.
-const storyLinks=new Map(nodes.map(n=>[n.p.id,[]]));
-for(const {source,target,network} of layoutEdges){
- storyLinks.get(source.p.id).push({id:target.p.id,cost:network.distance});
- storyLinks.get(target.p.id).push({id:source.p.id,cost:network.distance});
+// Lay out each connected component separately; disconnected people do not
+// inherit an artificial distance from any protagonist.
+const components=[];
+const remaining=new Set(nodes);
+while(remaining.size){
+ const first=remaining.values().next().value,queue=[first],members=[];
+ remaining.delete(first);
+ for(let i=0;i<queue.length;i++){
+  const n=queue[i];members.push(n);
+  for(const other of n.known)if(other&&remaining.delete(other))queue.push(other);
+ }
+ components.push(members);
 }
-function relationDistances(root){
- const distances=new Map([[root,0]]),pending=new Set([root]);
- while(pending.size){
-  let id;
-  for(const next of pending)if(id===undefined||distances.get(next)<distances.get(id))id=next;
-  pending.delete(id);
-  for(const link of storyLinks.get(id)){
-   const cost=distances.get(id)+link.cost;
-   if(cost>=(distances.get(link.id)??Infinity))continue;
-   distances.set(link.id,cost);pending.add(link.id);
+components.sort((a,b)=>Number(b.some(n=>n.p.id==='klein'))-Number(a.some(n=>n.p.id==='klein'))||b.length-a.length||a[0].p.id.localeCompare(b[0].p.id));
+const componentSlots=[];
+for(const members of components){
+ const radius=members.length===1?65:Math.max(120,95*Math.sqrt(members.length));
+ let x=0,y=0;
+ if(componentSlots.length){
+  for(let i=1;;i++){
+   const angle=i*2.399963, distance=80*Math.sqrt(i);
+   x=Math.cos(angle)*distance;y=Math.sin(angle)*distance;
+   if(componentSlots.every(slot=>Math.hypot(x-slot.x,y-slot.y)>=radius+slot.radius+80))break;
   }
  }
- return distances;
-}
-const fromKlein=relationDistances('klein');
-const outerRadiusForDisconnected=Math.max(...fromKlein.values())+150;
-for(const n of nodes){
- n.storyRadius=fromKlein.get(n.p.id)??outerRadiusForDisconnected;
+ const slot={x,y,radius};componentSlots.push(slot);
+ members.sort((a,b)=>a.p.id.localeCompare(b.p.id,'zh-CN'));
+ members.forEach((n,i)=>{n.component=slot;n.componentIndex=i;n.storyRadius=n.p.id==='klein'?0:1});
 }
 const layoutOrigins=new Map();
 function captionsBelow(mode){return mode==='organization'||mode==='nationality'||mode==='pathway'}
@@ -276,8 +278,8 @@ function arrangeGroups(){
  const list=activeNodes(),members=new Map();for(const n of list){for(const key of layoutGroupKeys(n.p,groupMode)){if(!members.has(key))members.set(key,[]);members.get(key).push(n)}}
  const keys=[...members.keys()].filter(key=>!key.endsWith('待核实')).sort((a,b)=>members.get(b).length-members.get(a).length||a.localeCompare(b,'zh-CN'));
  const aspect=width>0&&height>0?width/height:1;
- const cols=Math.max(1,Math.min(keys.length,Math.ceil(Math.sqrt(keys.length*aspect)))),rows=Math.ceil(keys.length/cols),spacing=250;
- keys.forEach((key,i)=>{const people=members.get(key),radius=48+Math.sqrt(people.length)*28;groupAnchors.set(key,{key,x:(i%cols-(cols-1)/2)*spacing,y:(Math.floor(i/cols)-(rows-1)/2)*spacing,radius,count:people.length})});
+ const cols=Math.max(1,Math.min(keys.length,Math.ceil(Math.sqrt(keys.length*aspect)))),rows=Math.ceil(keys.length/cols),spacing=340;
+ keys.forEach((key,i)=>{const people=members.get(key),radius=56+Math.sqrt(people.length)*36;groupAnchors.set(key,{key,x:(i%cols-(cols-1)/2)*spacing,y:(Math.floor(i/cols)-(rows-1)/2)*spacing,radius,count:people.length})});
  const hubs=[...groupAnchors.values()];
  const origins=layoutOrigins.get(groupMode);
  if(origins){
@@ -291,13 +293,6 @@ function arrangeGroups(){
   hubs.forEach((h,i)=>Object.assign(h,cells[i]));
  }
  const central=groupAnchors.get(centralGroup[groupMode]);
- if(central){
-  const nearest=hubs.reduce((a,b)=>Math.hypot(a.x,a.y)<Math.hypot(b.x,b.y)?a:b);
-  [central.x,nearest.x]=[nearest.x,central.x];
-  [central.y,nearest.y]=[nearest.y,central.y];
-  const dx=central.x,dy=central.y;
-  for(const h of hubs){h.x-=dx;h.y-=dy}
- }
  const weights=new Map();
  for(const {source,target,relation} of layoutEdges){
   const left=layoutGroupKeys(source.p,groupMode),right=layoutGroupKeys(target.p,groupMode);
@@ -309,8 +304,7 @@ function arrangeGroups(){
    const pair=[x,y].sort().join('\0'),weight=weights.get(pair)||{pull:0,push:0};
    const share=1/(left.length*right.length);
    weight.pull+=(friendly?1:hostile?0:.25)*share;
-   weight.push+=(hostile?1:0)*share;
-   weights.set(pair,weight);
+      weights.set(pair,weight);
   }
  }
  const pairs=hubs.flatMap((left,i)=>hubs.slice(i+1).map(right=>{
@@ -327,15 +321,20 @@ function arrangeGroups(){
     pull*Math.max(0,clearance-65)*.06-repel-push*Math.max(0,430-clearance)*.085));
    left.fx+=dx/d*force;left.fy+=dy/d*force;right.fx-=dx/d*force;right.fy-=dy/d*force;
   }
-  for(const h of hubs){if(h===central)continue;h.x+=h.fx*.55;h.y+=h.fy*.55}
+  for(const h of hubs){h.x+=h.fx*.55;h.y+=h.fy*.55}
  }
  if(captionsBelow(groupMode))spaceForCaptions(hubs,central);
  const slots=new Map(),cohorts=new Map();
  // Use the spread of the actual hubs to seed free nodes; there is no outer contour.
  const spread=Math.max(180,Math.sqrt(hubs.reduce((sum,h)=>sum+h.x*h.x+h.y*h.y,0)/Math.max(1,hubs.length)));
  for(const n of list){
-  const anchorKey=groupMode==='pathway'?pathwayStyle(n.p).main?.value:null;
-  const h=groupAnchors.get(anchorKey)||layoutGroupKeys(n.p,groupMode).map(key=>groupAnchors.get(key)).find(Boolean);
+  const keys=layoutGroupKeys(n.p,groupMode);
+  const confirmed=keys.filter(key=>!inferredGroup(n.p,groupMode,key));
+  const explicit=groupMode==='pathway'?pathwayStyle(n.p).main?.value:null;
+  const placement=explicit?[explicit]:(confirmed.length?confirmed:keys);
+  const anchors=placement.map(key=>groupAnchors.get(key)).filter(Boolean);
+  const h=anchors[0];
+  n.multiGroup=anchors.length>1;
   n.peripheral=!h;
   n.contactWeight=0;
   if(h){
@@ -343,8 +342,9 @@ function arrangeGroups(){
    cohorts.get(h).push(n);
    const i=slots.get(h)||0;
    slots.set(h,i+1);
-   const angle=i*2.399963,rad=Math.sqrt(1+i)*27+28;
-   n.slotX=h.x+Math.cos(angle)*rad;n.slotY=h.y+Math.sin(angle)*rad;
+   const angle=i*2.399963,rad=Math.sqrt(1+i)*38+32;
+   const cx=anchors.reduce((sum,anchor)=>sum+anchor.x,0)/anchors.length,cy=anchors.reduce((sum,anchor)=>sum+anchor.y,0)/anchors.length;
+   n.slotX=cx+Math.cos(angle)*rad;n.slotY=cy+Math.sin(angle)*rad;
   }else{
    let sumX=0,sumY=0;
    if(groupMode==='organization'){
@@ -370,7 +370,7 @@ function arrangeGroups(){
  }
  for(const cohort of cohorts.values()){
   const targets=cohort.map(n=>({x:n.slotX,y:n.slotY}));
-  if(origins)matchSlots(targets,cohort.map(n=>origins.get(n)));
+  if(origins&&!cohort.some(n=>n.multiGroup))matchSlots(targets,cohort.map(n=>origins.get(n)));
   cohort.forEach((n,i)=>{
    n.x=n.slotX=targets[i].x;n.y=n.slotY=targets[i].y;n.vx=n.vy=0;
   });
@@ -400,7 +400,7 @@ function frameCharacters(list,center,animate=false){
   return Math.min(dx?Math.max(1,width/2-r)/dx:Infinity,
                   dy?Math.max(1,height/2-r)/dy:Infinity);
  }).sort((a,b)=>b-a);
- const scale=Math.min(3.5,limits[Math.ceil(list.length*.8)-1]);
+ const scale=Math.min(3.5,Math.max(width<=700?.75:groupMode==='network'?0:Math.min(width,height)<600?.25:.35,limits[Math.ceil(list.length*.8)-1]));
  minimumZoom=Math.min(.25,scale*.5);
  moveCamera(-center.x*scale,-center.y*scale,scale,animate?300:0,'default');
 }
@@ -447,7 +447,7 @@ function placeDots(list){
   if(reservedLabels.some(p=>Math.abs(x-p.x)<p.half+r+2&&y+r+2>p.y+16&&y-r-2<p.y+32))return false;
   for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){
    const nearby=grid.get(key(x+dx*cell,y+dy*cell));
-   if(nearby?.some(p=>Math.hypot(x-p.x,y-p.y)<r+p.r+2))return false;
+   if(nearby?.some(p=>Math.hypot(x-p.x,y-p.y)<r+p.r+(groupMode==='network'?2:6)))return false;
   }
   return true;
  }
@@ -510,13 +510,8 @@ function updatePhysics(){const list=activeNodes(),alpha=temperature;
  }
  for(const n of list){if(drag?.node===n)continue;const grouped=groupMode!=='network';
  const tether=n.peripheral?(n.contactWeight>0 ? .09 : 0):.22;
- let fx=grouped?(n.slotX-n.x)*tether:-n.x*.0008,fy=grouped?(n.slotY-n.y)*tether:-n.y*.0008;if(!grouped){
-  if(n.storyRadius===0){n.x=n.y=n.vx=n.vy=0;continue}
-  const dx=n.x,dy=n.y,d=Math.hypot(dx,dy)||1;
-  const gap=n.storyRadius-d;
-  const radial=Math.sign(gap)*Math.max(0,Math.abs(gap)-n.storyRadius*.40)*.035/d;
-  fx+=dx*radial;fy+=dy*radial;
- }
+ let fx=grouped?(n.slotX-n.x)*tether:(n.component.x-n.x)*.002;
+ let fy=grouped?(n.slotY-n.y)*tether:(n.component.y-n.y)*.002;
  const damping=grouped?.84:.72;
  n.vx=(n.vx+fx*alpha)*damping;n.vy=(n.vy+fy*alpha)*damping;
  if(!grouped){const cap=Math.min(1,18/(Math.hypot(n.vx,n.vy)||1));n.vx*=cap;n.vy*=cap}n.x+=n.vx;n.y+=n.vy}temperature*=.986;
@@ -565,10 +560,9 @@ const networkLayouts=new Map();
 function settleNetwork(){
  const key=isolates.checked;
  if(!networkLayouts.has(key)){
-  nodes.forEach((n,i)=>{
-   const radius=n.storyRadius*(.60+.80*(i*.618034%1));
-   const angle=n.linkWeight?n.circle.phase+.32*Math.sin(n.phase):n.phase;
-   n.x=Math.cos(angle)*radius;n.y=Math.sin(angle)*radius;n.vx=n.vy=0;
+  nodes.forEach(n=>{
+   const radius=32*Math.sqrt(n.componentIndex),angle=n.componentIndex*2.399963;
+   n.x=n.component.x+Math.cos(angle)*radius;n.y=n.component.y+Math.sin(angle)*radius;n.vx=n.vy=0;
   });
   temperature=1;
   for(let i=0;i<300;i++)updatePhysics();
@@ -628,10 +622,9 @@ function blendColor(from,to,t){const a=parseInt(from.slice(1),16),b=parseInt(to.
 function rgba(hex,alpha){const value=parseInt(hex.slice(1),16);return `rgba(${value>>16},${(value>>8)&255},${value&255},${alpha})`}
 let inspectedHub=null;
 function draw(){
- const tip=document.getElementById('pathway-hover'),person=byId.get(hover);
- const hub=groupAnchors.get(inspectedHub);
- tip.hidden=!!drag||(!hub&&((groupMode!=='pathway'&&groupMode!=='network')||!person));
- if(!tip.hidden){const message=hub?hub.key:person.name+' · '+pathwayDescription(person)+(groupMode==='pathway'?' · '+(nodeMap.get(person.id).finalRank?.label||'位阶待核实'):'');if(tip.textContent!==message)tip.textContent=message}
+ const tip=document.getElementById('person-hover'),person=byId.get(hover);
+ tip.hidden=!!drag||!person;
+ if(person&&tip.textContent!==person.name)tip.textContent=person.name;
  const labels=[];ctx.clearRect(0,0,width,height);const list=activeNodes(),focus=b||a,neighbors=new Set(focus?[focus,...edgesOf(focus).map(e=>other(e,focus))]:[]),q=search.value.trim().toLowerCase();
  if(layoutTransition){
   const {startDots,endDots,progress}=layoutTransition;
@@ -645,7 +638,7 @@ function draw(){
  if(layoutTransition&&layoutTransition.oldHubs.length){ctx.save();ctx.globalAlpha=1-layoutTransition.progress;for(const h of layoutTransition.oldHubs){const x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom;drawHub(x,y,h.mode,h.color,categoryColors(h.mode,h.key).accent);ctx.font='12px sans-serif';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillStyle='rgba(228,234,245,.92)';labels.push({text:h.key,x,y,r:12,below:captionsBelow(h.mode),priority:0,alpha:ctx.globalAlpha})}ctx.restore()}
  // Membership links are separate from person-to-person relationships.
  if(groupMode!=='network'){ctx.save();if(layoutTransition)ctx.globalAlpha=layoutTransition.progress;
-  for(const n of [...list].sort((x,y)=>Number(x.p.id===focus)-Number(y.p.id===focus)))for(const key of groupKeys(n.p,groupMode)){const h=groupAnchors.get(key);if(!h)continue;const p=screen(n),x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom,highlight=n.p.id===focus;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(p.x,p.y);ctx.lineWidth=highlight?2.5:.5;ctx.strokeStyle=highlight?rgba(hubColor(key,groupMode),.95):'rgba(175,193,211,.12)';ctx.setLineDash(groupMode==='pathway'&&pathways(n.p).some(x=>x.value===key && x.relation!=='member')?[4,3]:[]);ctx.stroke()}ctx.setLineDash([]);
+  for(const n of [...list].sort((x,y)=>Number(x.p.id===focus)-Number(y.p.id===focus)))for(const key of groupKeys(n.p,groupMode)){const h=groupAnchors.get(key);if(!h)continue;const p=screen(n),x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom,highlight=n.p.id===focus;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(p.x,p.y);ctx.lineWidth=highlight?2.5:.5;ctx.strokeStyle=highlight?rgba(hubColor(key,groupMode),.95):'rgba(175,193,211,.12)';ctx.setLineDash(inferredGroup(n.p,groupMode,key)?[4,3]:[]);ctx.stroke()}ctx.setLineDash([]);
   for(const h of groupAnchors.values()){const x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom;if(x< -100||x>width+100||y< -50||y>height+50)continue;const color=hubColor(h.key,groupMode);drawHub(x,y,groupMode,color,categoryColors(groupMode,h.key).accent);labels.push({text:h.key,x,y,r:12,below:captionsBelow(groupMode),required:x>=0&&x<=width&&y>=0&&y<=height,priority:h.key===inspectedHub?5:h.key===centralGroup[groupMode]?4:1+Math.min(.9,h.count/100),alpha:ctx.globalAlpha})}
   ctx.restore();
  }
@@ -706,7 +699,7 @@ function organizationNames(person) {
 }
 function matchesSearch(person, query) {
  const names = [person.name, person.short, person.alias, ...organizationNames(person)];
- if(person.ordinaryInCitedPeriod)names.push(pathwayStatus(person));
+ if(person.ordinaryInCitedPeriod||person.ordinaryInCitedPeriodInferred)names.push(pathwayStatus(person));
  return names.some(name => name && name.toLowerCase().includes(query));
 }
 function searchResults(query) {
@@ -723,34 +716,7 @@ function searchResults(query) {
  const more=results.length>limit?'<p class="more">继续输入名字或别名，缩小搜索范围。</p>':'';
  return `<h3 class="section-label">${heading} <span>${results.length} 位</span></h3><div class="list">${rows.join('')||'<p class="empty">没有找到相关人物，试试其他名字、别名或组织。</p>'}</div>${more}`;
 }
-function renderProgressionSteps(stages){
- const periods=[];
- for(const stage of stages){
-  if(!stage.samePeriodAsPrevious || !periods.length)periods.push([]);
-  periods[periods.length-1].push(stage);
- }
- return periods.map((period,index)=>{
-  const labels=period.map(stage=>{
-   const certainty=stageCertaintyLabel(stage);
-   const authority=stage.relation==='authority'?'（权柄／唯一性关联）':'';
-   return esc(stage.pathway||stage.scopeLabel||'途径待核实')+' · '+esc(stage.sequence)+certainty+authority;
-  });
-  const shared=period.length>1?'（并存）':'';
-  return '<span class="progression-step"><small>'+(index+1)+'</small> '+labels.join(' ＋ ')+shared+'</span>';
- }).join('');
-}
 function render(){
- const preview=document.getElementById('progression-preview');
- const selected=byId.get(b||a);
- preview.hidden=!selected;
- if(selected){
-  const notes=(selected.pathwayPeriodNotes||[]).map(note=>'<p>'+esc(note)+'</p>').join('');
-  const stages=selected.progression||[];
-  const steps=stages.length?`<div class="progression-steps">${renderProgressionSteps(stages)}</div>`:'';
-  preview.innerHTML=`<strong>${esc(selected.name)} · 序列经历</strong>${(notes+steps)||'<p>序列经历待核实。</p>'}`;
- }else{
-  preview.replaceChildren();
- }
  document.getElementById('person-count').textContent=characters.length;document.getElementById('relation-count').textContent=relations.length;document.getElementById('visible-count').textContent=`图中 ${activeNodes().length} 人`;
  const query=search.value.trim().toLowerCase();
  if(expandedOrganization&&(groupMode!=='organization'||query!==expandedOrganization.toLowerCase())){
@@ -775,7 +741,21 @@ function hit(x,y){const list=activeNodes().sort((x,y)=>nodeOrder(x)-nodeOrder(y)
 function local(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
 canvas.addEventListener('pointerdown',e=>{layoutTransition=null;cameraAnimation=null;const p=local(e),hub=hitHub(p.x,p.y),n=hub?null:hit(p.x,p.y);inspectedHub=hub?.key||null;drag={node:n,startX:p.x,startY:p.y,lastX:p.x,lastY:p.y,moved:false};canvas.setPointerCapture(e.pointerId)});
 canvas.addEventListener('pointermove',e=>{const p=local(e);if(drag){if(Math.hypot(p.x-drag.startX,p.y-drag.startY)>4)drag.moved=true;if(drag.node&&drag.moved){const w=world(p.x,p.y);drag.node.x=w.x;drag.node.y=w.y;drag.node.vx=drag.node.vy=0;temperature=Math.max(temperature,.15)}else if(!drag.node){defaultCamera=false;panX+=p.x-drag.lastX;panY+=p.y-drag.lastY}drag.lastX=p.x;drag.lastY=p.y;requestDraw()}else{const hub=hitHub(p.x,p.y);inspectedHub=hub?.key||null;const n=hub?null:hit(p.x,p.y),next=n?.p.id||null;if(next!==hover){hover=next;canvas.style.cursor=hover?'pointer':'grab'}requestDraw()}});
-canvas.addEventListener('pointerup',e=>{if(!drag)return;if(drag.node&&!drag.moved)select(drag.node.p.id);drag=null;requestDraw()});canvas.addEventListener('pointercancel',()=>{drag=null;requestDraw()});canvas.addEventListener('pointerleave',e=>{hover=null;if(e.pointerType!=='touch')inspectedHub=null;requestDraw()});
+let pendingNodeClick=null;
+canvas.addEventListener('pointerup',e=>{
+ if(!drag)return;
+ if(drag.node&&!drag.moved){
+  const person=drag.node.p;
+  if(pendingNodeClick&&pendingNodeClick.id===person.id){
+   clearTimeout(pendingNodeClick.timer);pendingNodeClick=null;
+   if(person.documentProfileUrl)location.assign(person.documentProfileUrl);else select(person.id);
+  }else{
+   if(pendingNodeClick){clearTimeout(pendingNodeClick.timer);select(pendingNodeClick.id)}
+   pendingNodeClick={id:person.id,timer:setTimeout(()=>{select(person.id);pendingNodeClick=null},300)};
+  }
+ }
+ drag=null;requestDraw();
+});canvas.addEventListener('pointercancel',()=>{drag=null;requestDraw()});canvas.addEventListener('pointerleave',e=>{hover=null;if(e.pointerType!=='touch')inspectedHub=null;requestDraw()});
 motionPreference.addEventListener('change',()=>{requestDraw()});document.addEventListener('visibilitychange',()=>{if(!document.hidden){requestDraw()}});
 function moveCamera(targetX,targetY,targetZoom,duration,kind='view'){
  defaultCamera=kind==='default';

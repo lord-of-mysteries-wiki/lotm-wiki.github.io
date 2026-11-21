@@ -2,7 +2,7 @@
 title: "“Z先生”"
 layout: index
 character_profile: true
-graph_classifications: {"organization": [{"value": "极光会", "source": "《诡秘之主》第一部，第一百八十六章《帅气的队长》"}], "nationality": []}
+graph_classifications: {"organization": [{"value": "极光会", "source": "《诡秘之主》第一部第186章 帅气的队长"}], "nationality": []}
 permalink: "characters/entries/“Z先生”/"
 profile_work: "诡秘之主"
 document_name: "“Z先生”"
@@ -16,8 +16,8 @@ profile_facts:
 
 ## 所属组织与身份
 
-- 所属组织：极光会。邓恩和[克莱恩](../克莱恩·莫雷蒂/)讨论极光会的Z先生，并认为兰尔乌斯不是此人。（《诡秘之主》第一部，第一百八十六章《帅气的队长》）
+- 所属组织：极光会。邓恩和[克莱恩](../克莱恩·莫雷蒂/)讨论极光会的Z先生，并认为兰尔乌斯不是此人。（《诡秘之主》第一部第186章 帅气的队长）
 
 ## 身份与国籍
 
-邓恩与克莱恩在廷根讨论的是极光会的代号，谈话没有交代Z先生本人的所在地。见《诡秘之主》第一部第一百八十六章《帅气的队长》。
+邓恩与克莱恩在廷根讨论的是极光会的代号，谈话没有交代Z先生本人的所在地。见《诡秘之主》第一部第186章 帅气的队长。

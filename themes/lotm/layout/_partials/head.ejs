@@ -1,23 +1,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="<%= url_for('/favicon.svg') %>">
   <title><%= page.title ? page.title + ' | ' + config.title : config.title %></title>
   <%- css('css/styles') %>
   <% if (page.relationship_graph) { %>
-  <link rel="stylesheet" href="<%= url_for('/relationships/graph.css') %>">
+  <link rel="stylesheet" href="<%= url_for('/relationships/graph.css') %>?v=2">
   <% } %>
   <%- css('css/site-navigation') %>
   <%- css('css/typography') %>
-  <% if (page.character_profile || page.character_directory) { %>
-  <%- css('css/character-profile') %>
+  <%- css('css/motion') %>
+  <% if (page.character_profile || page.character_directory || page.artifact_directory || page.organization_directory || page.worldview_directory) { %>
+  <link rel="stylesheet" href="<%= url_for('/css/character-profile.css') %>?v=3">
   <% } %>
   <script defer src="<%= url_for('/js/site-navigation.js') %>"></script>
+  <script defer src="<%= url_for('/js/motion.js') %>"></script>
   <% if (page.relationship_graph) { %>
   <script defer src="<%= url_for('/relationships/relationship-data.js') %>"></script>
   <script defer src="<%= url_for('/relationships/character-index.js') %>"></script>
   <script defer src="<%= url_for('/relationships/pathway-palette.js') %>"></script>
   <script defer src="<%= url_for('/relationships/group-palette.js') %>"></script>
-  <script defer src="<%= url_for('/relationships/graph.js') %>"></script>
+  <script defer src="<%= url_for('/relationships/graph.js') %>?v=7"></script>
   <% } %>
   <% if (page.timeline_view) { %>
   <%- css('css/timeline') %>

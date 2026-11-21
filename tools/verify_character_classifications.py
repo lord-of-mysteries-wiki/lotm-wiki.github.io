@@ -51,7 +51,12 @@ for person in people:
     if not path.is_file():
         errors.append(f'{person["id"]}: missing document')
         continue
-    match = re.search(r'^graph_classifications: (.+)$', path.read_text(encoding='utf-8'), re.M)
+    document = path.read_text(encoding='utf-8')
+    for value, key in [('true', 'ordinaryInCitedPeriod'), ('inferred', 'ordinaryInCitedPeriodInferred')]:
+        expected_status = bool(re.search(r'^ordinary_in_cited_period: ' + value + r'$', document, re.M))
+        if bool(person.get(key)) != expected_status:
+            errors.append(f'{person["id"]}: {key} differs from document')
+    match = re.search(r'^graph_classifications: (.+)$', document, re.M)
     if not match:
         continue  # Already reported above.
     data = json.loads(match[1])

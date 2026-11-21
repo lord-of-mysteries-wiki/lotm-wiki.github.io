@@ -1,0 +1,13 @@
+<h2>成员与章节依据</h2>
+<ul>
+  <% for (const member of site.pages.sort('title').toArray()) {
+    const facts = member.graph_classifications?.organization?.filter(fact => fact.value === page.organization_members) || [];
+    if (!member.character_profile || !facts.length) continue; %>
+    <li><a href="<%= url_for(member.path) %>"><%= member.title %></a>
+      <% for (const fact of facts) { %>
+        <p><%= [fact.unit, fact.note, fact.source].filter(Boolean).join(' · ') %></p>
+      <% } %>
+    </li>
+  <% } %>
+</ul>
+<p><a href="<%= url_for('/relationships/') %>?organization=<%= encodeURIComponent(page.organization_members) %>">在人物关系网中查看<%= page.organization_members %></a></p>
