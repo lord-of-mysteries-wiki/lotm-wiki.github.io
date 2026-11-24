@@ -8,9 +8,11 @@ hexo.extend.helper.register('timeline_source', function (value) {
     if (!volumes.length) return part.trim();
     const entries = volumes.map((volume, index) => {
       const segment = part.slice(volume.index + volume[0].length, volumes[index + 1]?.index);
-      const chapters = segment.match(/第[\d一二三四五六七八九十百零〇、,，—–至\-\s]+章(?:\s*[-—–至]\s*第?[\d一二三四五六七八九十百零〇]+章)?/g);
-      if (!chapters) return work + '第' + volume[1] + '卷' + segment.trim().replace(/[、，,及]+$/, '');
-      return work + '第' + volume[1] + '卷' + chapters.map(chapter => chapter.replace(/\s+/g, '').replace(/[—–]/g, '–')).join('、');
+      const chapterPattern = /第\s*([\d一二三四五六七八九十百零〇]+)(?:\s*章?\s*[-—–至～~]\s*第?\s*([\d一二三四五六七八九十百零〇]+))?\s*章/g;
+      const chapters = [...segment.matchAll(chapterPattern)];
+      if (!chapters.length) return work + '第' + volume[1] + '卷' + segment.trim().replace(/[、，,及]+$/, '');
+      const formatted = chapters.map(([, start, end]) => end ? `第${start}章–第${end}章` : `第${start}章`);
+      return work + '第' + volume[1] + '卷' + formatted.join('、');
     });
     const prefix = /事件\s*[：:]/.test(part) ? '事件：' : '';
     return prefix + entries.join('；');

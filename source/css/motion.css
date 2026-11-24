@@ -1,5 +1,11 @@
 /* Shared, short transitions; the graph's canvas motion is managed separately. */
 @media (prefers-reduced-motion: no-preference) {
+  html.theme-changing::view-transition-old(root),
+  html.theme-changing::view-transition-new(root) {
+    animation-duration: 320ms;
+    animation-timing-function: ease-in-out;
+  }
+
   @keyframes wiki-appear {
     from { opacity: .84; }
     to { opacity: 1; }

@@ -1,7 +1,7 @@
 nav_label: Main navigation
 explore_relationships: Explore the relationship graph
 footer_note: Unofficial fan site
-related_timeline_events: Related timeline events
+related_timeline_events: Related events
 home_explore: Explore
 home_featured: Featured characters
 home_all_characters: All characters
@@ -21,3 +21,208 @@ home_world_desc: History, nations and organizations
 home_klein: Klein Moretti
 home_audrey: Audrey Hall
 home_lumian: Lumian Lee
+
+pathway_sequences: Sequences
+
+pathway_sources: Sources
+
+timeline_fifth_epoch: Fifth Epoch
+
+event_sources: Sources
+event_source_facts: Event summary and account
+event_source_time: Time evidence
+event_time_uncertain_label: Tentative
+event_time_basis: Time reasoning
+
+character_sources: Sources
+character_source_back: Back to citation
+
+character_source_infobox: "Infobox: "
+
+character_relation_scope: "Relationship: "
+
+character_basic_facts: Basic information
+
+character_pathway: Pathway
+character_inferred_suffix: ' (inferred)'
+
+entry_information: Information
+entry_time_evidence: Time evidence
+
+# Historical map
+map_title: "World map"
+map_play: "Play history"
+map_pause: "Pause"
+map_era: "Select epoch"
+map_date: "Historical checkpoint"
+map_previous: "Previous checkpoint"
+map_next: "Next checkpoint"
+map_empty: "Territorial extent in this period remains unverified."
+map_outline: "Schematic coastlines and boundaries"
+map_source: "Sources and scope"
+map_boundary_inferred: "Inferred territory"
+map_entry: "View country entry"
+map_event: "Historical event"
+map_select: "Countries and regions"
+map_regions: "On this map"
+map_zoom_in: "Zoom in"
+map_zoom_out: "Zoom out"
+map_reset: "Reset view"
+map_north: "Northern Continent"
+map_south: "Southern Continent"
+map_east: "Eastern Continent"
+map_fog: "Fog Sea"
+map_sonia: "Sonia Sea"
+map_berserk: "Berserk Sea"
+map_details: "Map details"
+map_noscript: "Enable JavaScript for the interactive map."
+map_directory: "Countries and Regions"
+map_era_1: "Epoch 1"
+map_era_2: "Epoch 2"
+map_era_3: "Epoch 3"
+map_era_4: "Epoch 4"
+map_era_5: "Epoch 5"
+map_west: Western Continent
+
+map_city_schematic: "Schematic city location"
+map_city_entry: "View city information"
+
+map_legend: "Legend"
+map_hover_hint: "Hover or select a country or region to preview its entry."
+map_preview_entry: "Read full entry"
+
+map_era_0: "Prehistory"
+map_prehistory: "Prehistory"
+map_earth: "Prehistory"
+map_earth_note: "Prehistoric geography"
+map_earth_info: "Continents and seas in prehistory."
+
+map_midsea: "Midseashire"
+
+theme_day: "Switch to day mode"
+theme_night: "Switch to night mode"
+
+pathway_symbol_credit: "Symbol reference: official LoM Weibo (simplified vector adaptation)"
+
+pathway_symbol_label: "Symbol"
+
+worldview_creatures: Extraordinary creatures
+
+map_date_inferred: inferred
+
+map_year_format: "{year}"
+
+map_month_format: "{year}-{month}"
+
+map_day_format: "{year}-{month}-{day}"
+
+map_year_range_format: "Years {start}–{end}"
+
+wiki_related: Related entries
+wiki_related_characters: People
+wiki_related_events: Events
+wiki_related_artifacts: Items
+wiki_related_organizations: Organizations
+wiki_related_places: Places
+wiki_related_pathways: Pathways
+wiki_related_creatures: Creatures
+wiki_related_other: Other entries
+wiki_related_out: Links from this entry
+wiki_related_in: Links to this entry
+wiki_related_both: Mutual links
+wiki_related_more: Show all
+wiki_related_less: Show less
+
+wiki_link_internal: "Open entry or page: {title}"
+wiki_link_section: "Jump within this page: {title}"
+wiki_link_external: "Visit external site: {title} ({host})"
+wiki_link_new_tab: " (new tab)"
+
+catalog_worldview: "World"
+catalog_characters: "Characters"
+catalog_artifacts: "Extraordinary items"
+catalog_overview: "Overview"
+catalog_all: "All entries"
+catalog_all_characters: "All characters"
+catalog_countries: "Countries and regions"
+catalog_organizations: "Organizations"
+catalog_creatures: "Creatures"
+catalog_history: "World and history"
+catalog_by_organization: "By organization"
+catalog_by_pathway: "By pathway"
+catalog_sealed: "Sealed artifacts"
+catalog_materials: "Materials and characteristics"
+catalog_equipment: "Equipment"
+catalog_consumables: "Charms and preparations"
+catalog_texts: "Texts and other items"
+catalog_group_countries_states: "States and historical polities"
+catalog_group_countries_regions: "Regions and islands"
+catalog_group_organizations_churches: "Churches"
+catalog_group_organizations_families: "Families and peoples"
+catalog_group_organizations_institutions: "Civil and military institutions"
+catalog_group_organizations_societies: "Societies and groups"
+catalog_group_creatures_spirit: "Spirit-world creatures"
+catalog_group_creatures_dragons: "Dragons"
+catalog_group_creatures_others: "Other creatures"
+catalog_group_history_eras: "Epochs"
+catalog_group_history_topics: "Historical topics"
+catalog_group_materials_characteristics: "Beyonder characteristics"
+catalog_group_materials_materials: "Other materials and characteristics"
+catalog_group_equipment_weapons: "Weapons and armor"
+catalog_group_equipment_accessories: "Accessories and personal items"
+catalog_group_equipment_transport: "Ships and transport"
+catalog_group_consumables_charms: "Charms, ammunition and amulets"
+catalog_group_consumables_preparations: "Potions, oils and powders"
+catalog_group_texts_documents: "Books, slates and cards"
+catalog_group_texts_other: "Other items and clues"
+catalog_group_sealed_unnumbered: "Number unspecified"
+catalog_search: "Search entries, aliases or categories"
+catalog_search_action: "Search"
+catalog_category: "Category"
+catalog_all_groups: "All categories"
+catalog_work: "Book"
+catalog_all_works: "All books"
+catalog_sort: "Sort"
+catalog_sort_name: "Name"
+catalog_sort_mentions: "Mention count"
+catalog_sort_order: "Recorded appearance order"
+catalog_entries: "entries"
+catalog_empty: "No matching entries."
+catalog_open: "View: "
+catalog_back: "Back to directory"
+catalog_breadcrumbs: "Directory path"
+catalog_unclassified: "Unclassified"
+catalog_unclassified_work: "Book unspecified"
+catalog_ordinary: "Ordinary in the cited period"
+catalog_ordinary_inferred: "Possibly ordinary in the cited period"
+catalog_unknown_pathway: "Pathway unspecified"
+catalog_inferred: "Inferred"
+catalog_group_sealed_0: "Grade 0"
+catalog_group_sealed_1: "Grade 1"
+catalog_group_sealed_2: "Grade 2"
+catalog_group_sealed_3: "Grade 3"
+
+catalog_search_groups: "Find a category"
+catalog_unknown_organization: "Organization unspecified"
+catalog_group_history_structure: "World structure"
+catalog_group_history_concepts: "Core concepts"
+
+organization_members: Members
+organization_graph: "View %s in the relationship graph"
+
+catalog_sort_number: "Number and name"
+catalog_sort_chapters: "Chapter order"
+catalog_chapter_scope: "Order by chapter references recorded in entries"
+
+timeline_year_label: "Year %s"
+
+timeline_depth: "Timeline detail"
+timeline_depth_spoiler: "Spoiler-free"
+timeline_depth_era: "By epoch"
+timeline_depth_year: "By year"
+timeline_depth_all: "Expand all"
+timeline_month_label: "Month %s"
+timeline_phase_before: "Before the story"
+timeline_phase_lotm: "Lord of the Mysteries"
+timeline_phase_coi: "Circle of Inevitability"
+calendar_count_label: " events"

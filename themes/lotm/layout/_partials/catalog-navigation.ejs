@@ -1,0 +1,11 @@
+<% const context=catalog_context(page); if(context){const section=catalog_section(context.owner); %>
+<div class="catalog-nav"<% if(section.id==='characters'&&context.directory){ %> hidden<% } %> data-catalog-navigation data-owner="<%= section.id %>" data-branch="<%= context.branch %>" data-group="<%= context.group || '' %>" data-title="<%= page.title %>" data-source="<%= url_for('/catalog-data/'+section.id+'.json') %>">
+<% if(section.id!=='characters'||!context.directory){ %>
+<nav aria-label="<%= catalog_label(section) %>">
+<% if(section.id!=='characters'){ %><a href="<%= url_for('/'+section.path) %>"<% if(context.branch==='overview'||section.branches.find(b=>b.id===context.branch)?.hidden){ %> aria-current="page"<% } %>><%= __('catalog_overview') %></a><% } %>
+<% for(const branch of section.branches.filter(b=>!b.hidden)){ %><a href="<%= url_for('/'+branch.path) %>"<% if(context.branch===branch.id){ %> aria-current="page"<% } %>><%= catalog_label(branch) %></a><% } %>
+</nav>
+<% } %>
+<% if(!context.directory){ %><a class="catalog-back" data-catalog-back href="<%= url_for('/'+section.path) %>"><%= __('catalog_back') %></a><% } %>
+</div>
+<% } %>

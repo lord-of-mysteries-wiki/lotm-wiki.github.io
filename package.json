@@ -12,10 +12,13 @@
     "links:check-staged": "node tools/auto-link-sequences.js --check-staged",
     "citations:check-staged": "node tools/check-staged-citations.js",
     "content:check": "node tools/check-content-model.js",
-    "content:check-generated": "node tools/check-generated-content.js",
+    "content:check-generated": "node tools/check-generated-content.js && node tools/check-related-pages.js && node tools/check-catalog-pages.js",
     "architecture:check": "node tools/check-architecture.js",
-    "architecture:verify": "npm run architecture:check && npm run build && npm run content:check-generated",
-    "hooks:install": "git config --local core.hooksPath .githooks"
+    "architecture:verify": "npm run architecture:check && npm run build && npm run content:check-generated && npm run pathways:check",
+    "pathways:check": "node tools/tests/pathway-view.test.js && node tools/check-pathway-pages.js",
+    "hooks:install": "git config --local core.hooksPath .githooks",
+    "related:check": "node --test tools/tests/wiki-links.test.js",
+    "catalog:check": "node --test tools/tests/catalog.test.js && node tools/check-catalog-sources.js"
   },
   "hexo": {
     "version": "8.1.2"
@@ -26,7 +29,8 @@
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^7.0.1",
     "hexo-renderer-stylus": "^3.0.0",
-    "hexo-server": "^3.0.0"
+    "hexo-server": "^3.0.0",
+    "htmlparser2": "^10.1.0"
   },
   "engines": {
     "node": ">=20.19.0"

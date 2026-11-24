@@ -1,0 +1,19 @@
+<% const data=world_map_data(); const keys=['map_era_0','map_era_1','map_era_2','map_era_3','map_era_4','map_era_5','map_year_format','map_year_range_format','map_month_format','map_day_format','map_date_inferred','map_midsea','map_earth_note','map_earth_info','map_earth','map_hover_hint','map_preview_entry','map_city_schematic','map_city_entry','map_era','map_date','map_empty','map_outline','map_source','map_boundary_inferred','map_entry','map_event','map_select','map_regions','map_zoom_in','map_zoom_out','map_reset','map_north','map_south','map_east','map_west','map_fog','map_sonia','map_berserk']; const labels=Object.fromEntries(keys.map(k=>[k,__(k)])); %>
+<main class="world-map" data-world-map>
+  <section class="map-timebar" aria-label="<%= __('map_date') %>">
+    <div class="map-slider"><div class="map-era-band" aria-hidden="true"></div><div class="map-track-segments" aria-hidden="true"></div><input data-time type="range" min="0" max="0" value="0" step="1" aria-label="<%=__('map_date')%>"><div class="map-ticks" aria-hidden="true"></div></div>
+    <button type="button" data-step="-1" aria-label="<%=__('map_previous')%>"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-prev"></use></svg></button>
+    <button type="button" data-step="1" aria-label="<%=__('map_next')%>"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-next"></use></svg></button>
+  </section>
+  <div class="map-workspace">
+    <section class="map-canvas" aria-label="<%=__('map_title')%>">
+      <svg class="map-svg" preserveAspectRatio="xMidYMid meet" viewBox="<%=data.geometry.viewBox.join(' ')%>" role="group" aria-label="<%=__('map_title')%>"><defs><% for(const id of data.geometry.coasts){ %><clipPath id="map-clip-<%=id%>"><path d="<%=data.geometry.shapes[id].path%>"/></clipPath><% } %></defs><g data-map-viewport></g></svg>
+      <div class="map-zoom"><button data-zoom="in" aria-label="<%=__('map_zoom_in')%>"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-plus"></use></svg></button><button data-zoom="out" aria-label="<%=__('map_zoom_out')%>"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-minus"></use></svg></button><button data-zoom="reset" aria-label="<%=__('map_reset')%>"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-reset"></use></svg></button></div>
+    </section>
+    <aside class="map-panel" aria-label="<%=__('map_details')%>">
+      <section data-selection aria-live="polite"></section>
+    </aside>
+  </div>
+  <noscript><p><%=__('map_noscript')%> <a href="<%=url_for('/worldview/countries/')%>"><%=__('map_directory')%></a> · <a href="<%=url_for('/timeline/')%>"><%=__('map_event')%></a></p></noscript>
+  <script type="application/json" data-map-data><%-JSON.stringify(world_map_payload({...data,labels})).replace(/</g,'\\u003c')%></script>
+</main>

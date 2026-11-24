@@ -1,0 +1,9 @@
+<%
+const collator = new Intl.Collator('zh-CN', {numeric: true, ignorePunctuation: true});
+const creatures = site.pages.toArray()
+  .filter(entry => entry.creature_profile === true)
+  .sort((a, b) => collator.compare(a.title, b.title));
+%>
+<div class="directory-list creature-directory">
+  <% for (const entry of creatures) { %><a href="<%= url_for(entry.path) %>"><span><%= entry.title %></span></a><% } %>
+</div>

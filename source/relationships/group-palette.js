@@ -1,6 +1,8 @@
 // 国家及组织色卡；取色依据见 docs/组织与国家配色方案.html。
 const groupPalette = {
   nationality: {
+    "帕斯王国": { primary: "#9CAE9A", accent: "#C8D7C4" },
+    "哈加提王国": { primary: "#AEA0B8", accent: "#D6CADF" },
     "奥拉维岛": { primary: "#B39F77", accent: "#DBCFB6" },
     "加尔加斯群岛": { primary: "#8EA1C3", accent: "#C2CADB" },
     "罗思德群岛": { primary: "#70B7BA", accent: "#B6D8CF" },
@@ -8,6 +10,8 @@ const groupPalette = {
     "拜朗": { primary: "#C3A062", accent: "#DDD1A9" },
     "白银城": { primary: "#A6B8CA", accent: "#DEE6E9" },
     "因蒂斯": { primary: "#E3AC69", accent: "#F1DFB5" },
+    "马锡": { primary: "#9CAE9A", accent: "#C8D7C4" },
+    "塞加尔": { primary: "#AEA0B8", accent: "#D6CADF" },
     "伦堡": { primary: "#C0B992", accent: "#D5CEB4" },
     "高地王国": { primary: "#C99472", accent: "#D9BDA4" },
     "所罗门帝国": { primary: "#9C93B6", accent: "#C4BCC5" },
@@ -26,6 +30,7 @@ const groupPalette = {
     "卡尔德隆": { primary: "#C5C4B9", accent: "#92979B" }
   },
   organization: {
+    "恶魔一族": { primary: "#AC9A81", accent: "#CBBFAC" },
     "黑夜女神教会": { primary: "#D97F97", accent: "#48424F" },
     "风暴教会": { primary: "#759AC7", accent: "#A9BBC9" },
     "海神教会": { primary: "#5ABCB6", accent: "#B9D5DA" },
@@ -118,3 +123,6 @@ const groupPalette = {
     "王家气象学会": { primary: "#A6BFE1", accent: "#C8D1DA" }
   }
 };
+
+// Shared by build-time map readers and the browser graph.
+if (typeof module !== "undefined" && module.exports) module.exports = groupPalette;

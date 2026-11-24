@@ -1,0 +1,41 @@
+<% const context=catalog_context(page);const view=catalog_selection(context);const section=view.section;const heading=section.id==='characters'?catalog_label(section):view.overview||view.branch?.path===section.path&&!view.group?catalog_label(section):view.group?catalog_label(view.group):catalog_label(view.branch); %>
+<article class="catalog-directory<%= view.branch && view.branch.groups.length>4 ? ' catalog-has-side' : '' %>" data-catalog-directory data-owner="<%= section.id %>" data-branch="<%= context.branch %>" data-source="<%= url_for('/catalog-data/'+section.id+'.json') %>" data-root="<%= url_for('/') %>">
+<header class="catalog-heading"><div class="catalog-heading-label"><h1><%= heading %></h1><span class="catalog-total" data-catalog-count aria-live="polite"><%= view.count %> <%= __('catalog_entries') %></span></div><form class="catalog-search" role="search" action="<%= url_for('/'+section.path) %>"><label><svg class="wiki-icon" aria-hidden="true"><use href="#wiki-icon-search"></use></svg><span class="catalog-sr"><%= __('catalog_search') %></span><input type="search" name="q" placeholder="<%= __('catalog_search') %>" autocomplete="off" data-catalog-search></label><button type="submit"><%= __('catalog_search_action') %></button></form></header>
+
+<div class="catalog-toolbar"<%= section.id==='characters'||section.id==='artifacts'||view.branch?.groups.length>4?'':' hidden' %>>
+<% if(view.branch?.groups.length>4){ %><div class="catalog-filters catalog-group-control"><label><%= __('catalog_category') %><select data-catalog-group disabled><option value=""><%= __('catalog_all_groups') %></option><% for(const group of view.branch.groups){ %><option value="<%= group.id %>"<%= group.id===context.group?' selected':'' %>><%= catalog_label(group) %>（<%= group.count %>）</option><% } %></select></label></div><% } %>
+<div class="catalog-filters" data-catalog-filters>
+<% if(section.id==='characters'||section.id==='artifacts'){const sorts=section.id==='characters'?[['mentions','catalog_sort_mentions'],['order','catalog_sort_order']]:[[view.branch&&view.branch.id!=='sealed'?'name':'number',view.branch&&view.branch.id!=='sealed'?'catalog_sort_name':'catalog_sort_number'],['chapters','catalog_sort_chapters']]; %>
+<div class="directory-tools" role="group" aria-label="<%= __('catalog_sort') %>" data-catalog-sort-controls>
+<% for(const [key,label]of sorts){ %><button type="button" data-catalog-sort="<%= key %>" aria-controls="catalog-results" aria-pressed="<%= key===(section.id==='characters'?(context.branch==='organizations'||context.branch==='pathways'?context.branch:'mentions'):view.branch&&view.branch.id!=='sealed'?'name':'number') %>"<% if(key==='chapters'){ %> title="<%= __('catalog_chapter_scope') %>"<% } %>><%= __(label) %></button><% } %>
+<% if(section.id==='characters')for(const key of ['organizations','pathways']){ %><button type="button" data-catalog-view="<%= key %>" aria-controls="catalog-results" aria-pressed="<%= context.branch===key %>"><%= catalog_label(section.branches.find(branch=>branch.id===key)) %></button><% } %>
+</div><% } %>
+</div>
+</div>
+<% if(section.id==='characters'){const works=section.branches.find(b=>b.id==='all').groups; %>
+<nav class="catalog-quick-groups" aria-label="<%= __('catalog_work') %>"><a href="<%= url_for('/'+view.base) %>" data-catalog-work-filter=""><%= __('catalog_all_works') %></a><% for(const work of works){ %><a href="<%= url_for('/'+view.base) %>?work=<%= encodeURIComponent(catalog_label(work)) %>" data-catalog-work-filter="<%= catalog_label(work) %>"><%= catalog_label(work) %><small><%= work.count %></small></a><% } %></nav>
+<% } %>
+<div class="catalog-browser">
+<aside class="catalog-side"<%= view.branch&&view.branch.groups.length>4?'':' hidden' %>>
+<label class="catalog-side-search"><span><%= __('catalog_category') %></span><input type="search" data-catalog-group-search placeholder="<%= __('catalog_search_groups') %>"></label>
+<nav aria-label="<%= __('catalog_category') %>">
+<% if(view.branch){ %><a href="<%= url_for('/'+view.branch.path) %>" data-catalog-side-group=""<%= context.group?'':' aria-current="page"' %>><span><%= __('catalog_all_groups') %></span><small><%= view.branch.count %></small></a><% } %>
+<% if(view.branch)for(const group of view.branch.groups){ %><a href="<%= url_for('/'+group.path) %>" data-catalog-side-group="<%= group.id %>"<%= context.group===group.id?' aria-current="page"':'' %>><span><%= catalog_label(group) %></span><small><%= group.count %></small></a><% } %>
+</nav>
+</aside>
+<div class="catalog-main">
+<% if(section.id==='characters'&&context.branch!=='all'){ %><h2 class="catalog-view-title" data-catalog-view-title><%= view.group?catalog_label(view.group):catalog_label(view.branch) %></h2><% } %>
+<% if(section.id!=='characters'&&view.branch?.groups.length && view.branch.groups.length<=4){ %>
+<nav class="catalog-quick-groups" aria-label="<%= __('catalog_category') %>"><a href="<%= url_for('/'+view.branch.path) %>" data-catalog-side-group=""<%= context.group?'':' aria-current="page"' %>><%= __('catalog_all_groups') %></a><% for(const group of view.branch.groups){ %><a href="<%= url_for('/'+group.path) %>" data-catalog-side-group="<%= group.id %>"<%= context.group===group.id?' aria-current="page"':'' %>><%= catalog_label(group) %><small><%= group.count %></small></a><% } %></nav>
+<% } %>
+<div class="catalog-result-groups" id="catalog-results" data-catalog-results>
+<% const entryGroups=new Map();for(const entry of view.items){const m=!context.group&&section.id!=='characters'?entry.memberships.find(m=>context.branch==='overview'||context.branch==='all'||m.branch===context.branch):null;const key=m?(context.branch==='overview'||context.branch==='all'?m.branch:m.group):'';if(!entryGroups.has(key))entryGroups.set(key,[]);entryGroups.get(key).push(entry);}
+const order=view.overview||context.branch==='all'?section.branches.map(b=>b.id):view.branch.groups.map(g=>g.id);for(const [key,entries]of [...entryGroups].sort((a,b)=>order.indexOf(a[0])-order.indexOf(b[0]))){const groupTitle=key?(context.branch==='overview'||context.branch==='all'?section.branches.find(branch=>branch.id===key):view.branch.groups.find(group=>group.id===key)):null; %>
+<section class="catalog-result-group"><% if(groupTitle){ %><h2><%= catalog_label(groupTitle) %></h2><% } %><div class="directory-list catalog-results">
+<% for(const entry of entries){ %><a href="<%= url_for('/'+entry.url) %>?from=<%= encodeURIComponent(url_for('/'+view.base)) %>"><% if(entry.displayNumber){ %><span class="artifact-number"><%= entry.displayNumber %></span><% if(entry.displayName){ %><span class="artifact-name"><%= entry.displayName %></span><% } %><% }else{ %><span><%= entry.title %></span><% } %></a><% } %>
+</div></section><% } %>
+</div>
+
+</div>
+</div>
+</article>

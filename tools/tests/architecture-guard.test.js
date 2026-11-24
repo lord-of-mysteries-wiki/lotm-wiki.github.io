@@ -26,3 +26,19 @@ test('reject restoring a retired data source', () => {
 test('reject runtime references to a retired data source', () => {
   probe('source/.architecture-test-probe.js', "require('./character-index.js')",() => assert.throws(checkPolicy,/旧数据源引用/));
 });
+
+test('reject retired character pages and newly invented alias stubs', () => {
+  const {loadModel}=require('../lib/content-model');
+  const folder=path.join(root,'source/characters/aliases');
+  assert.ok(!fs.existsSync(folder));
+  fs.mkdirSync(folder);
+  try {
+    const retired=require('../architecture-policy.json').retiredFiles.find(file=>file.startsWith('source/characters/aliases/'));
+    probe(retired,'---\ntitle: retired\n---\n',()=>assert.throws(checkPolicy,/已退役文件重新出现/));
+    probe('source/characters/aliases/new-alias-probe.md','---\ntitle: alias\n---\n',()=>assert.throws(loadModel,/不允许别名或兼容文档/));
+  } finally { fs.rmdirSync(folder); }
+});
+
+test('reject restoring a retired directory renderer', () => {
+  probe('source/js/artifact-directory.js','',()=>assert.throws(checkPolicy,/已退役文件重新出现/));
+});

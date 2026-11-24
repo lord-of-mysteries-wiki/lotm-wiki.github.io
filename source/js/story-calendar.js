@@ -1,6 +1,18 @@
 'use strict';
 (() => {
   const root = document.querySelector('[data-story-calendar]');
+  function appendReferences(target,event) {
+    if (!event.references?.length) return;
+    const details=element('details','');
+    details.className='event-sources';
+    details.append(element('summary','来源'));
+    const list=element('ul','');
+    for(const ref of event.references) list.append(element('li',ref.scope+'：'+ref.source));
+    details.append(list);
+    if(event.basis) details.append(element('p',event.basis));
+    target.append(details);
+  }
+
   if (!root) return;
   const events = JSON.parse(root.querySelector('script').textContent);
   const oneDay = 86400000;
@@ -24,15 +36,16 @@
     const anchor = read(anchorDate);
     return (((date - anchor) / oneDay + anchorWeekday) % 7 + 7) % 7;
   }
+  const ranges = events.filter(event => event.rangeKind && event.start && event.end > event.start);
   const byDay = new Map();
   for (const event of events) {
-    if (!event.start) continue;
+    if (!event.start || ranges.includes(event)) continue;
     for (const date of new Set([event.start, event.end].filter(Boolean))) {
       if (!byDay.has(date)) byDay.set(date, []);
       byDay.get(date).push(event);
     }
   }
-  const dates = [...byDay.keys()].sort();
+  const dates = [...new Set(events.flatMap(event => [event.start,event.end].filter(Boolean)))].sort();
   let selected = read(dates[0] || '1349-06-28');
   let mode = 'month';
   let weekStart;
@@ -45,7 +58,7 @@
       const last = event.periodEnd || event.period;
       for (let year = Number(event.period.slice(0,4)); year <= Number(last.slice(0,4)); year++) {
         for (let month = 1; month <= 12; month++) {
-          const key = year + '-' + String(month).padStart(2,'0');
+          const key = String(year).padStart(4,'0') + '-' + String(month).padStart(2,'0');
           if (key >= event.period && key <= last) months.push(key);
         }
       }
@@ -74,9 +87,11 @@
     if (!finder.open) return;
     const query = search.value.trim();
     const results = events.filter(event => {
-      if (!event.title.includes(query) && !event.summary.includes(query)) return false;
+      if (![event.title,event.summary,event.label].some(text => String(text || '').includes(query))) return false;
       if (scope.value === 'all') return true;
       if (event.start) return event.start <= last && (event.end || event.start) >= first;
+      if (event.windowStart) return event.windowStart <= last && event.windowEnd >= first;
+      if (mode !== 'month') return false;
       // A known year alone does not establish membership in the selected month.
       if (/^\d{4}$/.test(event.period || '')) return false;
       return clues.get(event).some(month => month >= first.slice(0,7) && month <= last.slice(0,7));
@@ -84,13 +99,13 @@
     agenda.replaceChildren(element('small',results.length + ' 个事件'));
     for (const event of results) {
       const card = element('article','');
-      const title = element(event.url ? 'a' : 'p',event.url ? event.title : '');
+      const title = element(event.url ? 'a' : 'p',event.label || event.title);
       if (event.url) title.href = event.url;
-      else appendSummary(title, event);
-      const when = event.start ? event.start + (event.end ? ' 至 ' + event.end : '') : [event.period ? event.period + (event.periodEnd ? ' 至 ' + event.periodEnd : '') : '', event.note].filter(Boolean).join(' · ') || '日期待考证';
-      card.append(title, element('small',(event.inferred ? '时间推定 · ' : '') + when + (event.source ? ' · ' + event.source : '')));
-      if (!event.summary && event.description) card.append(element('p',event.description));
-      if (mode === 'day' && scope.value === 'period' && event.start) card.append(element('p',event.basis));
+      const when = event.note || '日期待考证';
+      card.append(title, element('small',(event.uncertain ? root.dataset.uncertainLabel + ' · ' : '') + when));
+      if (event.summary) { const summary = element('p',''); appendSummary(summary,event); card.append(summary); }
+      else if (event.description) card.append(element('p',event.description));
+      appendReferences(card,event);
       agenda.append(card);
     }
     agenda.scrollTop = 0;
@@ -133,37 +148,83 @@
       year + ' 年 ' + month + ' 月' + (mode === 'day' ? ' ' + day + ' 日 · 周' + '一二三四五六日'[weekday(selected, referenceMonth)] : '');
     grid.style.setProperty('--rows', mode === 'month' ? count / 7 : 1);
     grid.replaceChildren();
+    let week;
     for (let i = 0; i < count; i++) {
       const n = first + i * oneDay, key = iso(n);
       const cell = element('section','');
       cell.className = 'almanac-cell';
+      if(mode !== 'day')cell.style.gridColumn=String(i % 7 + 1);
+      const dayEvents=mode === 'day' ? cell : element('div','');
+      if(mode !== 'day')dayEvents.className='almanac-day-events';
       if (mode === 'month' && monthStart(n) !== monthStart(selected)) cell.classList.add('outside');
-      const matches = byDay.get(key) || [];
+      if(mode !== 'day' && i % 7 === 0) { week=element('section',''); week.className='almanac-week'; week.setAttribute('aria-label',iso(n)+'起的一周'); grid.append(week); }
+      const activeRanges=ranges.filter(event=>event.start<=key && event.end>=key);
+      const matches = [...(byDay.get(key) || []), ...(mode === 'day' ? activeRanges : [])];
+      const dayCount=(byDay.get(key) || []).length+activeRanges.length;
       if (mode !== 'day') {
         const button = element('button', String(new Date(n).getUTCDate()));
-        button.setAttribute('aria-label',key + '，' + matches.length + ' 个事件，查看当天');
-        if (matches.length) button.dataset.count = matches.length;
+        button.setAttribute('aria-label',key + '，' + dayCount + ' 个事件，查看当天');
+        if (dayCount) {
+          button.dataset.count = dayCount;
+          const countLabel = element('span', dayCount + root.dataset.countLabel);
+          countLabel.className = 'almanac-mobile-count';
+          countLabel.setAttribute('aria-hidden', 'true');
+          button.append(countLabel);
+        }
         button.onclick = () => openDay(n);
         cell.append(button);
       }
       if (key === iso(selected)) cell.classList.add('selected');
-      if (matches.length) cell.classList.add('has-events');
+      if (dayCount) cell.classList.add('has-events');
       for (const event of matches) {
-        const text = (event.end ? (key === event.start ? '起 · ' : '止 · ') : '') + (event.summary || event.title);
-        const entry = element(event.url ? 'a' : 'div',event.url ? text : '');
+        const text = (event.end && !event.rangeKind ? (key === event.start ? '起 · ' : '止 · ') : '') + (event.label || event.title);
+        const entry = element(event.url ? 'a' : (mode === 'day' ? 'div' : 'button'), mode === 'day' ? event.title : text);
+        if (entry.tagName === 'BUTTON') { entry.type = 'button'; entry.onclick = () => openDay(n); }
         entry.className = 'almanac-event';
         if (event.url) entry.href = event.url;
-        else appendSummary(entry, event, event.end ? (key === event.start ? '起 · ' : '止 · ') : '');
         entry.title = event.summary || event.description || event.note;
-        cell.append(entry);
-        if (!event.summary && mode === 'day') cell.append(element('p',event.description));
-        if (mode === 'day' && event.basis) cell.append(element('p',event.basis));
-        if (mode === 'day' && event.source) cell.append(element('small',event.source));
+        dayEvents.append(entry);
+        if (mode === 'day') {
+          if(event.uncertain) cell.append(element('small', root.dataset.uncertainLabel));
+          if(event.rangeKind) cell.append(element('small',event.start+'—'+event.end+(event.rangeKind==='staged' ? ' · 分阶段' : '')));
+          const description = element('p','');
+          if (event.summary) appendSummary(description,event);
+          else description.textContent = event.description;
+          if (description.textContent) cell.append(description);
+        }
+        if (mode === 'day') appendReferences(cell,event);
       }
       if (mode === 'day' && !matches.length) cell.append(element('p','当天暂无已定位的事件。'));
-      grid.append(cell);
+      if(mode !== 'day')cell.append(dayEvents);
+      (mode === 'day' ? grid : week).append(cell);
+      if(mode !== 'day' && i % 7 === 6) renderRanges(week,n-6*oneDay,n);
     }
     renderAgenda(iso(mode === 'month' ? monthStart(selected) : first), iso(mode === 'month' ? moveMonth(selected,1)-oneDay : first+(count-1)*oneDay));
+  }
+  function renderRanges(week,first,last) {
+    const start=iso(first),end=iso(last),laneEnds=[];
+    for(const event of ranges.filter(event=>event.start<=end && event.end>=start).sort((a,b)=>a.start.localeCompare(b.start)||a.end.localeCompare(b.end))){
+      const a=Math.max(0,Math.round((read(event.start)-first)/oneDay));
+      const b=Math.min(6,Math.round((read(event.end)-first)/oneDay));
+      let lane=laneEnds.findIndex(previous=>previous<a);
+      if(lane<0)lane=laneEnds.length;
+      laneEnds[lane]=b;
+      const bar=element(event.url ? 'a' : 'button','');
+      if(event.url)bar.href=event.url;
+      else {bar.type='button';bar.onclick=()=>openDay(Math.max(first,read(event.start)));}
+      bar.className='almanac-range almanac-range--'+event.rangeKind;
+      bar.dataset.eventId=event.id;
+      bar.style.gridColumn=(a+1)+' / '+(b+2);
+      bar.style.gridRow=String(lane+2);
+      if(event.start<start){const continuation=element('span','续');continuation.className='almanac-range__continuation';bar.append(continuation);}
+      bar.append(document.createTextNode(event.label || event.title));
+      bar.setAttribute('aria-label',(event.label || event.title)+'，'+event.start+'至'+event.end+(event.rangeKind==='staged'?'，分阶段':''));
+      bar.title=event.summary;
+      week.append(bar);
+    }
+    week.style.setProperty('--range-rows',String(laneEnds.length));
+    week.style.gridTemplateRows='var(--calendar-date-height,2.3rem) '+(laneEnds.length ? 'repeat('+laneEnds.length+',1.9rem) ' : '')+'minmax(var(--calendar-events-height,3rem),1fr)';
+    for(const cell of week.querySelectorAll('.almanac-cell'))cell.style.gridRow='1 / '+String(laneEnds.length+3);
   }
   function openDay(n) {
     selected = n; mode = 'day'; scope.value = 'period'; search.value = ''; render();

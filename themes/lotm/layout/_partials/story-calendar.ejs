@@ -1,22 +1,31 @@
 <%
-const records = wiki_events().map(item => ({
-  start: String(item.event_time || ''), end: item.event_time_end || '', title: item.title,
-  work: item.event_work || '', summary: item.event_summary || '',
-  summaryParts: event_summary_parts(item).map(part => ({ text: part.text, url: part.target ? url_for('/' + part.target) : '' })),
-  period: item.event_time_period || '', periodEnd: item.event_time_period_end || '',
-  note: item.event_time_note || '',
-  description: strip_html((item.content.match(/<p>([\s\S]*?)<\/p>/) || [])[1] || ''),
-  basis: item.event_time_basis || '', source: timeline_source(item.event_time_source || ''),
-  url: item.event_summary ? '' : url_for('/' + item.path),
-  inferred: item.event_time_certainty === 'inferred'
-})).sort((a,b) => a.start.localeCompare(b.start) || a.title.localeCompare(b.title,'zh-CN'));
+const records = wiki_events().map(item => {
+  const dayWindow = item.event_time_window && item.event_time;
+  const cycle = item.event_cordu_cycle ? cordu_cycle_label(item) : '';
+  return ({
+    id: item.entry_id,
+    start: dayWindow ? '' : String(item.event_time || ''), end: dayWindow ? '' : item.event_time_end || '', title: item.title,
+    work: item.event_work || '', summary: item.event_summary || '',
+    label: (item.event_calendar_label || event_timeline_title(item)) + (cycle ? '（' + cycle.slice('科尔杜'.length) + '）' : ''),
+    windowStart: dayWindow ? item.event_time : '', windowEnd: dayWindow ? item.event_time_end : '',
+    rangeKind: item.event_range_kind || '',
+    summaryParts: event_summary_parts(item).map(part => ({ text: part.text, url: part.target ? url_for('/' + part.target) : '' })),
+    period: dayWindow ? item.event_time.slice(0,7) : item.event_time_period || '',
+    periodEnd: dayWindow ? item.event_time_end.slice(0,7) : item.event_time_period_end || '',
+    note: [cycle, event_date_label(item) || item.event_time_note].filter(Boolean).join(' · '),
+    description: strip_html((item.content.match(/<p>([\s\S]*?)<\/p>/) || [])[1] || ''),
+    basis: item.event_time_basis || '', references: event_references(item).map(ref => ({source: ref.source, scope: event_reference_scope(ref.scopes)})),
+    url: is_brief_event(item) ? '' : url_for('/' + item.path),
+    uncertain: item.event_time_uncertain === true
+  });
+}).sort((a,b) => a.start.localeCompare(b.start) || a.title.localeCompare(b.title,'zh-CN'));
 %>
-<article class="almanac" data-story-calendar>
+<article class="almanac" data-story-calendar data-count-label="<%= __('calendar_count_label') %>" data-uncertain-label="<%= __('event_time_uncertain_label') %>">
   <header class="almanac-toolbar">
     <%- partial('_partials/timeline-navigation') %>
     <div class="almanac-period">
       <h1 aria-live="polite">故事日历</h1>
-      <div><button data-step="-1" aria-label="上一时段">‹</button><button data-step="1" aria-label="下一时段">›</button></div>
+      <div><button data-step="-1" aria-label="上一时段"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-prev"></use></svg></button><button data-step="1" aria-label="下一时段"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-next"></use></svg></button></div>
     </div>
     <div class="almanac-tools">
       <div role="group" aria-label="日历视图"><button data-mode="day">日</button><button data-mode="week">周</button><button data-mode="month" aria-pressed="true">月</button></div>

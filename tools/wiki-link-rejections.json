@@ -770,46 +770,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "fb14f71b008af3c148ef3d004f0ea958443e7009e1de590633635d20f3900669",
-    "source": "source/timeline/日期待考证-假海之总督的身份.md",
-    "term": "米格尔",
-    "targets": [
-      "source/characters/entries/米格尔.md"
-    ],
-    "excerpt": "event_summary: \"祈海节期间，扮演假“海之总督”的米格尔显露了另一层身份：他是“愚人节”的“吟游诗人”，也是曾以水手伊鲁身份上船的人。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "408e2d6733b1d9907b9488e71a42313516398c24f4cdde5625135a7dde1f7969",
-    "source": "source/timeline/日期待考证-假海之总督的身份.md",
-    "term": "水手",
-    "targets": [
-      "source/worldview/pathways/水手途径/序列9-水手.md"
-    ],
-    "excerpt": "event_summary: \"祈海节期间，扮演假“海之总督”的米格尔显露了另一层身份：他是“愚人节”的“吟游诗人”，也是曾以水手伊鲁身份上船的人。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "6d5d8c31850fa2dcb1ddcc1dd8a238401b5d1b549a2d02912a749c050888531e",
-    "source": "source/timeline/日期待考证-克莱恩以流浪魔术师身份为人实现愿望.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "event_summary: \"克莱恩以流浪魔术师的身份为人们实现愿望，摸索“奇迹师”的扮演方式。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "1cf8e8d2353ceca55ea1d51eb22d5f7f44be424a4132054110cc6134af517848",
-    "source": "source/timeline/日期待考证-克莱恩向“白之魔女”打听王室陵寝.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "event_summary: \"克莱恩向“白之魔女”打听王室陵寝的消息。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "5ef2589d20d29e80c8a13d87ee5fb7e365d0fb4ab03e769656ee5bd8fc2ed138",
     "source": "source/timeline/日期待考证-克莱恩在南大陆列车上阻止原始月亮信徒献祭.md",
     "term": "月亮",
@@ -830,46 +790,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "2a90da335efba0059454aa480ccc97ae169b5fc12c698281d6019466362ae783",
-    "source": "source/timeline/日期待考证-克莱恩请奥黛丽封存有关末日的记忆.md",
-    "term": "末日",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列1-末日.md"
-    ],
-    "excerpt": "event_summary: \"克莱恩请奥黛丽封存自己有关末日的记忆。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "63b800ed1e6eba29e8534f27b889d072901fe07a533d061442a4217d184d9f0b",
-    "source": "source/timeline/日期待考证-卢米安请人解读科尔杜梦境中的象征.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "event_summary: \"卢米安请神秘学专家解读科尔杜梦境中的象征，并与“魔术师”讨论结果。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "5a2b4466983bac92e60c3e1048d58d06196725a00be60a6223610441cbbd2ca9",
-    "source": "source/timeline/日期待考证-周明瑞在阳都梦境告别.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"周明瑞告诉卢米安，在他完全醒来前，格尔曼·斯帕罗将作为“愚者”体现他的一部分意志。随后他饮下撒玛利亚妇人泉的泉水，退入黑暗。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b3d78810c4b752d9c58db42a86f7a346c773952542a327f291b415a10ba88e7b",
-    "source": "source/timeline/日期待考证-周明瑞在阳都梦境告别.md",
-    "term": "黑暗",
-    "targets": [
-      "source/worldview/pathways/不眠者途径/序列0-黑暗.md"
-    ],
-    "excerpt": "event_summary: \"周明瑞告诉卢米安，在他完全醒来前，格尔曼·斯帕罗将作为“愚者”体现他的一部分意志。随后他饮下撒玛利亚妇人泉的泉水，退入黑暗。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "5befc34a7d332def1d6c72e25bd34d4ac340bd952d2775dbf8ddd4100f97aeb5",
     "source": "source/timeline/日期待考证-嘉德丽雅摆脱知识追逐，以“隐者”身份加入塔罗会.md",
     "term": "隐者",
@@ -877,16 +797,6 @@
       "source/worldview/pathways/窥秘人途径/序列0-隐者.md"
     ],
     "excerpt": "event_summary: \"嘉德丽雅在克莱恩协助下摆脱“知识逐人”的威胁，以“隐者”为代号加入塔罗会。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "69762120303fa452547a345d8abe3e5e4e10e2545ebcfbafbbb4e0e49282c2b4",
-    "source": "source/timeline/日期待考证-埃姆林击杀原始月亮信徒凯文与阿尔戈斯.md",
-    "term": "月亮",
-    "targets": [
-      "source/worldview/pathways/药师途径/序列0-月亮.md"
-    ],
-    "excerpt": "event_summary: \"埃姆林追查并击杀原始月亮信徒加利斯·凯文和阿尔戈斯。\"",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -920,46 +830,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "3e4ee84418e9f94cfc34d43f8f09f99eef765d73570f596c8ba5eee6266578a4",
-    "source": "source/timeline/日期待考证-宿命-原本的安排.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "event_summary: \"卷末战斗后，卢米安与“魔术师”讨论后续计划，众人处理缴获物品与奖励；芙兰卡和简娜另有行动，相关情节交错。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "0302b9aad5343d4770ab8a71a1609e51a709fc036f5f2d411b87c3240a6db2f3",
-    "source": "source/timeline/日期待考证-宿命-幽蓝复仇者探索.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "event_summary: \"卢米安随“魔术师”等人搭乘“幽蓝复仇者”探索迷雾海，寻找与丰收女神欧弥贝拉遗骸有关的线索，并遭遇危险。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "53d289c5b17bd3434ed4d44271f623568372be41ff2ccca76dac97b0a2bb0d01",
-    "source": "source/timeline/日期待考证-宿命-魅惑.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "event_summary: \"芙兰卡返回特里尔两天后，在卢米安与简娜协助下接受火刑，服下魔药，晋升序列5“痛苦魔女”。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "7368cd04a1d227e2a6ad62a686d4944791d6c1e1bf9ff1d6fbba91fe034159fe",
-    "source": "source/timeline/日期待考证-小阿卡那牌.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"简娜在愚者教堂遇见“审判”女士，接受邀请抽到“圣杯七”，受命调查特殊镜中世界。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "e8afe7bb2a2c0cc88e50d083cc0ef867e919350a6df5787a703b20265e10df36",
     "source": "source/timeline/日期待考证-帕列斯误入阿蒙的陷阱，失去序列1特性.md",
     "term": "列斯",
@@ -967,26 +837,6 @@
       "source/characters/entries/列斯.md"
     ],
     "excerpt": "event_summary: \"帕列斯寻找雅各家族宝藏时落入阿蒙的陷阱，掩护伦纳德脱身后失去序列1特性，并以较低位格复生。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b2fcd00ee7960e303a0e76ebd3ea4ee65ff240bd121df0e71f7cdd0c70baa940",
-    "source": "source/timeline/日期待考证-微小的希望.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "event_summary: \"循环破碎后，卢米安在科尔杜废墟问起复活奥萝尔的可能。“魔术师”告诉他，仪式遇难者的灵魂残片与污染一起封印在他左胸。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "c2b4bfbde2cf7ac99a271216a5b2ba526163022ab0d82ea21cf95d8ad3dd5631",
-    "source": "source/timeline/日期待考证-慰问午宴上的刺杀.md",
-    "term": "母亲",
-    "targets": [
-      "source/worldview/pathways/耕种者途径/序列0-母亲.md"
-    ],
-    "excerpt": "event_summary: \"慰问午宴上，简娜用长柄银叉刺入新当选的议员于格·阿图瓦的眼窝，为母亲复仇。\"",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -1030,36 +880,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "c3a00ca44a9a0f093bf42579f2a9013ceed4d12d9133750eb94debd3b0b9e9b8",
-    "source": "source/timeline/日期待考证-最后一课.md",
-    "term": "黑皇帝",
-    "targets": [
-      "source/worldview/pathways/律师途径/序列0-黑皇帝.md"
-    ],
-    "excerpt": "event_summary: \"原始岛屿的“黑皇帝”陵寝内，罗塞尔与贝尔纳黛谈起自己犯过的错，也听到了女儿对污染失衡的担忧。他拥抱贝尔纳黛，随后打开陵寝的大门。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "94ed2fff87c20da77f1595cf58820511edc226f1e2cae0a4f7e2059d1b69c9d6",
-    "source": "source/timeline/日期待考证-最后的询问.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"阿兹克把带有“愚者”气息的幸运金币交给卢米安。“魔术师”向五位金币持有者说明梦境的限制，给他们最后一次选择的机会。众人答应尝试唤醒“愚者”，各自握着金币入睡。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9733eeddce406f8258e32bc248e3d9ac96cf7e4319289a810cbd9c434ab86edb",
-    "source": "source/timeline/日期待考证-最后的询问.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "event_summary: \"阿兹克把带有“愚者”气息的幸运金币交给卢米安。“魔术师”向五位金币持有者说明梦境的限制，给他们最后一次选择的机会。众人答应尝试唤醒“愚者”，各自握着金币入睡。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "401cae0c593a08aa9230d248a0b2a927d35fe4ef97e4ab34c81814f742e969e4",
     "source": "source/timeline/日期待考证-月城与白银城居民穿过巨人王庭迁往新居.md",
     "term": "愚者",
@@ -1067,16 +887,6 @@
       "source/worldview/pathways/占卜家途径/序列0-愚者.md"
     ],
     "excerpt": "event_summary: \"月城与白银城居民会合后，在愚者帮助下穿过巨人王庭，迁往外界的新居。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "98b1f7437e3383fc88c4eb8c1c4ac20986baa23f50d0298ab66bd3b8f95f1ee2",
-    "source": "source/timeline/日期待考证-权杖七正式加入塔罗会.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "event_summary: \"“魔术师”告诉卢米安，他已正式以“权杖七”加入塔罗会，并揭晓芙兰卡是“圣杯二”。\"",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -1090,16 +900,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "7fec71fcdc601d6df2daef3bd7b9729661c61612c99e9499c01a7f4369ebeb6c",
-    "source": "source/timeline/日期待考证-永劫-最终的选择.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"“愚者”召集临时集会，各方交换资源并商议接下来的行动；卢米安和同伴各自作出选择，为即将到来的战斗准备。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "1f07a5f44636551418c42570f7a54b1c7adc361f694a46e7184e5d417e5279ac",
     "source": "source/timeline/日期待考证-白银城探索队在神庙陷入循环.md",
     "term": "愚者",
@@ -1107,156 +907,6 @@
       "source/worldview/pathways/占卜家途径/序列0-愚者.md"
     ],
     "excerpt": "event_summary: \"白银城探索队在神庙遭遇反复重演的经历，戴里克向愚者求助并恢复记忆，科林分析其与“命运天使”的联系。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9aada221ea16faf7f22ac1097a3cb4a4be08224029ece2e216285ffd3f152087",
-    "source": "source/timeline/日期待考证-第二定律-同一个目的.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "event_summary: \"卢米安与芙兰卡等人在“魔术师”协助下处理镜中人的问题，卢米安成为“不老魔女”。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "683187351ff44b25533fbe9f23e0e18e8e444b702c55099794267c2518db8e4a",
-    "source": "source/timeline/日期待考证-第二定律-同一个目的.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "event_summary: \"卢米安与芙兰卡等人在“魔术师”协助下处理镜中人的问题，卢米安成为“不老魔女”。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "92ebe4652a8bf8398098418cf72cbdbaa4bf0045d4279cf103f13b8830378124",
-    "source": "source/timeline/日期待考证-第二定律-序列之上.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"“愚者”、佛尔思与卢米安谈论神性、人性、序列之上、支柱与末日预言；1368年是预言年份。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "07ff81b08d77da1e39c8ed1b0b2ee9f6879d58d1e0b40f0a9cc8febb10b80403",
-    "source": "source/timeline/日期待考证-第二定律-序列之上.md",
-    "term": "末日",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列1-末日.md"
-    ],
-    "excerpt": "event_summary: \"“愚者”、佛尔思与卢米安谈论神性、人性、序列之上、支柱与末日预言；1368年是预言年份。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "e71fa3082d28928b6f4ae78df728a2e7cae2b4feec96940d0f98a2260422a7ae",
-    "source": "source/timeline/日期待考证-第二定律-注定收下的信.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "event_summary: \"众人调查妮塞娅、魔女与镜中世界的线索，卢米安等人收到与伟大存在有关的信，并与阿蒙交流。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "5b0768e84373b1110ec628f849e0ede631f8ffe51b037df72adbf1738a50fab3",
-    "source": "source/timeline/日期待考证-第二定律-白纸.md",
-    "term": "灾难",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列2-灾难.md"
-    ],
-    "excerpt": "event_summary: \"奥萝尔留下召唤“白纸”的提示，卢米安等人追查这一线索及其与科尔杜灾难、“隐匿贤者”的联系。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9f5da056a98faa1c0a559681ee18e377a461a62686f08ad80f906843f04443ac",
-    "source": "source/timeline/日期待考证-第二定律-蒙苏里鬼魂.md",
-    "term": "母亲",
-    "targets": [
-      "source/worldview/pathways/耕种者途径/序列0-母亲.md"
-    ],
-    "excerpt": "event_summary: \"地下特里尔封印异动，众人应对蒙苏里鬼魂相关危机及“母亲”牌、巨大橡树的变化。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "7550fe11f7a5a8dc8162d599ecb5d8dadf5d1bcdbaad83007a9f08a43b7f207d",
-    "source": "source/timeline/日期待考证-第二定律-魔女的拜访.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "event_summary: \"卢米安与芙兰卡等人追查“病教”，遭遇魔女与多方力量，并在聚会上进一步讨论“白纸”线索。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "063c8060744ff55738ab7bdcd9d06d89f6df07740fa5a3576d9e46f72c79599c",
-    "source": "source/timeline/日期待考证-简娜的镜中世界碎片震动.md",
-    "term": "观众",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列9-观众.md"
-    ],
-    "excerpt": "event_summary: \"简娜在剧场散场时察觉来自塔玛拉家族墓室的碎片震动。她压住寻找来源的冲动，混在观众中离开。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "ec20593b88771577d74afa3405ee8ad0d10705dddc8c8611461e01a4818b3044",
-    "source": "source/timeline/日期待考证-织梦-条件满足.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "event_summary: \"现实世界中，卢米安等人在新白银城处理此前事件的后果，向“魔术师”了解晋升后的变化，并接触“大地的恩赐”。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "55f950cb258efaaf41b0ed0cc9323946d7e3ef6c39541c4a61daa881cf4d2ae0",
-    "source": "source/timeline/日期待考证-织梦-梦中狩猎.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "event_summary: \"卢米安等人在现实中继续追查地下墓穴与魔女的线索，进行梦中狩猎，为进入“愚者”的梦境作准备。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "d4664b2f63eef39197d9b70837b47315f088f64652715a3c34eca2d34f0ebdf9",
-    "source": "source/timeline/日期待考证-织梦-梦中狩猎.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"卢米安等人在现实中继续追查地下墓穴与魔女的线索，进行梦中狩猎，为进入“愚者”的梦境作准备。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "52e92e930df9082ac724b57ca0459fe5cb0e83424d760c6934ac48781b75fe3c",
-    "source": "source/timeline/日期待考证-织梦-站台.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"卢米安一行进入“愚者”的梦境，在梦境都市阳都寻找周明瑞并调查复活女尸。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9a8d7deed2352014043ebb7ad9262469d6a56e0ccdc696f4640d1166f9ced4b3",
-    "source": "source/timeline/日期待考证-织梦-问题的答案.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "event_summary: \"目曙医院地下发生异变。芙兰卡为引来“原初魔女”的注视，选择当场服下“绝望”魔药，在困住众人的梦境里完成晋升。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "585e329af5896c0e9becbb7302395eb1063e0f3ab44a024357e9f43642152555",
-    "source": "source/timeline/日期待考证-织梦-预备.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"众人就唤醒“愚者”的行动作准备，在梦境中与黄涛、罗珊等形象接触，同时安排现实世界中的配合。\"",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -1277,26 +927,6 @@
       "source/worldview/pathways/药师途径/序列0-月亮.md"
     ],
     "excerpt": "event_summary: \"阿尔杰请嘉德丽雅协助调查疑似受原始月亮信徒控制的工匠夏尔夫，行动后取得“海之言”手杖等物。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "395e86560f8f54f22a578d5a41f9d6add3041f71645ad206bd6921a07116215d",
-    "source": "source/timeline/日期待考证-魔鬼巫师布尔曼在法林港交战后身亡.md",
-    "term": "魔鬼",
-    "targets": [
-      "source/worldview/pathways/罪犯途径/序列4-魔鬼.md"
-    ],
-    "excerpt": "event_summary: \"飞鸟号途经法林港，卢米安等人卷入与魔鬼巫师布尔曼的战斗，布尔曼最终死亡。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "1e28ad09ae3cc178e5b613dcdb65291d58f4c7dcbf86dbdc62f14acab1734b74",
-    "source": "source/timeline/日期待考证-魔鬼巫师布尔曼在法林港交战后身亡.md",
-    "term": "巫师",
-    "targets": [
-      "source/worldview/pathways/窥秘人途径/序列7-巫师.md"
-    ],
-    "excerpt": "event_summary: \"飞鸟号途经法林港，卢米安等人卷入与魔鬼巫师布尔曼的战斗，布尔曼最终死亡。\"",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -1371,7 +1001,7 @@
   },
   {
     "key": "2d4e4591ada8d8a1a447ccdc68e7bd8eeff1d0f8ce8e83c7e24b3253faf377ba",
-    "source": "source/timeline/1349-07-12-值夜者用封印物追踪瑞尔·比伯.md",
+    "source": "source/timeline/1349-07-06至1349-07-18-安提哥努斯家族笔记调查.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -1381,7 +1011,7 @@
   },
   {
     "key": "74c98ff096ee19f11187dda5675ab1a6bd65056ce4161cdb8fec187841fc1ead",
-    "source": "source/timeline/1349-08-19-作死能手.md",
+    "source": "source/timeline/1349-08-28-克莱恩制成阳炎符咒.md",
     "term": "太阳",
     "targets": [
       "source/worldview/pathways/歌颂者途径/序列0-太阳.md"
@@ -1470,16 +1100,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "22cdb549c4877b66e24199c6f7f7de685ee1fc08f3b4f1f5ee0a81e253ae1f41",
-    "source": "source/timeline/1349年9月周日-再看一眼.md",
-    "term": "小丑",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列8-小丑.md"
-    ],
-    "excerpt": "event_summary: \"离开廷根前，克莱恩扮成小丑在马戏团为班森和梅丽莎变出一束花，与家人道别。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "f07efca9488e0061036987259730847b8264f83c1a404fd857b5b48ccb62c571",
     "source": "source/timeline/1350-01-03-埃姆林首次出席塔罗会.md",
     "term": "月亮",
@@ -1487,26 +1107,6 @@
       "source/worldview/pathways/药师途径/序列0-月亮.md"
     ],
     "excerpt": "event_summary: \"埃姆林第一次以“月亮”的身份出席塔罗会，与成员交流血族历史和晋升方法。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "698c3ac4e02d436824a1a0da226c2f187ab60e830da6897bcb290e8d610ce76f",
-    "source": "source/timeline/1350年1月5日至2月1日间-阿兹克在黑死号取回死神文献的拓印本.md",
-    "term": "死神",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列0-死神.md"
-    ],
-    "excerpt": "event_summary: \"阿兹克在黑死号取回死神文献的拓印本。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "76ca4c2b072e34a30477689385794d3adfd7c82765af59d29ed4778d0928b6c7",
-    "source": "source/timeline/1350年4月上中旬线索-克莱恩在修道院梦中遇见苦修士利奥马斯特.md",
-    "term": "苦修士",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列6-苦修士.md"
-    ],
-    "excerpt": "event_summary: \"克莱恩在修道院梦中遇见苦修士利奥马斯特。\"",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -1560,16 +1160,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "6750967f7615d3606d4f0cbf2c9fe5d5b1a497c800e6459cb38b2aa0036682ef",
-    "source": "source/timeline/1351-09-08-克莱恩把蘑菇带给月城居民.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"克莱恩向月城居民讲述外界和愚者，并提供蘑菇与展示“无暗十字”的光辉。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "582e1f85807e3dbb86801121e84532af238054efde9e15eaf0ccc79c464bd365",
     "source": "source/timeline/1351年1月以后线索-多里安为家族寻求满月庇护，向愚者祈求.md",
     "term": "愚者",
@@ -1610,16 +1200,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "201d202060fb169c9bd4a8de5d6d6a2bc0274c310785f0f98897039897ffcceb",
-    "source": "source/timeline/1358-04-05-卢米安在梦境废墟设伏猎杀火焰怪物.md",
-    "term": "怪物",
-    "targets": [
-      "source/worldview/pathways/怪物途径/序列9-怪物.md"
-    ],
-    "excerpt": "event_summary: \"四旬节前夜，卢米安在梦境废墟设伏，利用“堕落水银”斩杀火焰怪物。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "29cce0a7d2d4945e219ddb5bcb70dd0107b76ee7beec45dd67b79a94651c76f2",
     "source": "source/timeline/1358年3月末至4月4日间-卢米安击杀持枪怪物，取得非凡特性.md",
     "term": "怪物",
@@ -1627,16 +1207,6 @@
       "source/worldview/pathways/怪物途径/序列9-怪物.md"
     ],
     "excerpt": "event_summary: \"卢米安在梦中击杀持枪怪物，取得析出的非凡特性。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "ba6d7dfdd27b2c4e0e72be89035bd48cf8c977e86b2afdf756529fc9698082d7",
-    "source": "source/timeline/1358年4月1日至四旬节前-卢米安从梦中的“铁匠”手中夺得短刀.md",
-    "term": "怪物",
-    "targets": [
-      "source/worldview/pathways/怪物途径/序列9-怪物.md"
-    ],
-    "excerpt": "event_summary: \"卢米安在梦境废墟从“铁匠”怪物手中夺得短刀，后来将它命名为“堕落水银”。\"",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -1657,26 +1227,6 @@
       "source/worldview/pathways/歌颂者途径/序列0-太阳.md"
     ],
     "excerpt": "event_summary: \"戴里克遭阿蒙寄生体潜藏后向愚者求助，克莱恩引导他举行密契仪式，借灰雾与太阳胸针驱除寄生体。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "8ed08321e7ebd8aa9c11868c0e1c0951f106fb1d8e824239f3dc3a36c367c700",
-    "source": "source/timeline/十一月中旬-卢米安登上汉特岛调查魔鬼传说.md",
-    "term": "魔鬼",
-    "targets": [
-      "source/worldview/pathways/罪犯途径/序列4-魔鬼.md"
-    ],
-    "excerpt": "event_summary: \"卢米安趁船只在汉特岛补给，上岸查访森林里的魔鬼传说。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "58a69f0ffbf1b8012d41dc4f1c4dea2c73e6c768f6532e88f133354429b3bbec",
-    "source": "source/timeline/四月底至五月初线索-卢米安化名夏尔，在特里尔金鸡旅店落脚.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "event_summary: \"卢米安化名夏尔抵达特里尔，在金鸡旅店落脚，并通过信使与“魔术师”联系。\"",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -1730,16 +1280,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "1523a729eadfa7b99119940f4d3f11fa2b10c13518b69e85db08704044aa6c19",
-    "source": "source/timeline/日期待考证-伦纳德入梦追问道恩与克莱恩的关系.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"伦纳德察觉夏洛克与克莱恩的联系，进入道恩的梦境追问；克莱恩以道恩身份承认与信奉“愚者”的组织有关。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "09cc1d24a64306090d7bb6ce400c5d95b19909cecef6c83e2b24675b7fd15d56",
     "source": "source/timeline/日期待考证-佛尔思借恶魔油画完成仪式，晋升“秘法师”.md",
     "term": "恶魔",
@@ -1747,16 +1287,6 @@
       "source/worldview/pathways/罪犯途径/序列6-恶魔.md"
     ],
     "excerpt": "event_summary: \"佛尔思借恶魔油画封印半神生物，完成仪式并晋升“秘法师”；晋升中她与“门”先生接触。\"",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "e0e6de185d8dcc8b091e128a21e86feb3a64de3bfc6d429c67c24f2e2363582d",
-    "source": "source/timeline/日期待考证-新的委托.md",
-    "term": "魔鬼",
-    "targets": [
-      "source/worldview/pathways/罪犯途径/序列4-魔鬼.md"
-    ],
-    "excerpt": "event_summary: \"佩德罗船长请卢米安帮忙处理家事。一行人抵达科利亚港后，卢米安和芙兰卡在调查弗洛雷斯时遇到自称魔鬼的拿波瑞狄斯利。\"",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -3967,26 +3497,6 @@
       "source/worldview/pathways/耕种者途径/序列0-母亲.md"
     ],
     "excerpt": "第七卷第四十一至第四十三章，罗塞尔回忆制作“亵渎之牌”的过程，警告克莱恩不要集齐二十二张并小心“母亲”牌；他当时已受污染，具体风险与影响范围尚未得到完整说明。克莱恩随后将自己持有的四张牌封存。（第七卷第四十一至第四十三章）",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "282254a5a79501d36b20fbf45960fa4bb0a5a6e80f8ef7e6807d1f63d5338d74",
-    "source": "source/characters/aliases/月夫人.md",
-    "term": "夫人",
-    "targets": [
-      "source/worldview/pathways/恶棍途径/序列4-夫人.md"
-    ],
-    "excerpt": "“月夫人”是[“月女士”](../“月女士”/)的旧称。“铁锤”[艾特](../艾特/)供述毒刺帮对她改用新称呼的经过，卢米安随后向“魔术师”提及同一人。见《宿命之环》第二部第六十一章《夜游会》、第一百二十章《等价交换》。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "a2e93fcd84b66008d164b0663163f2207bc589edf72a456ae25d82172828447a",
-    "source": "source/characters/aliases/月夫人.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "“月夫人”是[“月女士”](../“月女士”/)的旧称。“铁锤”[艾特](../艾特/)供述毒刺帮对她改用新称呼的经过，卢米安随后向“魔术师”提及同一人。见《宿命之环》第二部第六十一章《夜游会》、第一百二十章《等价交换》。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -8460,16 +7970,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "e7cecf0bd8c0ebe98e6901b54c997b0b9983fe08478d5f6c7fbda587ba5ff287",
-    "source": "source/timeline/1352年9月附近待核实-亚当将克莱恩困入尸骨教堂.md",
-    "term": "倒吊人",
-    "targets": [
-      "source/worldview/pathways/秘祈人途径/序列0-倒吊人.md"
-    ],
-    "excerpt": "《诡秘之主》第七卷“倒吊人”第七十六至八十章；乌托邦调查始于第六十三章。克莱恩为晋升而经营秘偶城镇乌托邦；各方调查者进入镇中，[查拉图](../../characters/entries/查拉图/)和[亚当](../../characters/entries/亚当/)等人的行动逐渐逼近。冲突爆发后，克莱恩逃入历史迷雾，仍被亚当擒入尸骨教堂；双方随后的交谈涉及旧日和源质。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "40e9705ad417ae6123152dbc013136d5ac6752fbbd723087dcce17a5c628241b",
     "source": "source/timeline/1358-03-29至1358-04-05-卢米安确认科尔杜村陷入时间循环.md",
     "term": "梦魇",
@@ -8477,116 +7977,6 @@
       "source/worldview/pathways/不眠者途径/序列7-梦魇.md"
     ],
     "excerpt": "《宿命之环》第一部“梦魇”第三十至三十六章。科尔杜村开始四旬节庆典，之后出现异变；卢米安发现村中经历的事情重新出现。他再次见到神秘女士，确认村庄陷入时间循环，并听她解释“环中人”一词。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "bda00d73e3b59dd667a1540723b5102b1823403b53d624466ee0683a7320ad12",
-    "source": "source/timeline/1358-04-05-科尔杜循环破碎，卢米安启程前往特里尔.md",
-    "term": "梦魇",
-    "targets": [
-      "source/worldview/pathways/不眠者途径/序列7-梦魇.md"
-    ],
-    "excerpt": "《宿命之环》第一部“梦魇”第九十八至一百零七章。四旬节庆典结束后，卢米安等人观察到村民行为异常；当晚，神秘女士在梦境中为卢米安分离出“[挑衅者](../../worldview/pathways/猎人途径/序列8-挑衅者.html)”非凡特性并提供配方，他醒来后又发现奥萝尔身上的异常。随后，卢米安及调查员面对神甫一方的仪式与异变，卢米安努力营救奥萝尔；循环最终破碎，他得知科尔杜村现实与梦境的真相。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "a5ee4575899f48362d73b3fc2c0363522e33fd5a28ec7afd7e4e310c7a7fde83",
-    "source": "source/timeline/1359年-第二定律-绯红.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第七十七至八十一章。多方战斗继续，卢米安与奥萝尔面对[欧弥贝拉](../../characters/entries/欧弥贝拉/)、[普阿利斯夫人](../../characters/entries/普阿利斯夫人/)和相关隐秘；卷末绯红圆月下降，妖异月光笼罩大地。原文同时切换多个战场。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "cd81270a43ab02bbb1861d9ad3177b8e8c9cbca586e6c5ccec7718840ac56f39",
-    "source": "source/timeline/1360-06-25-永劫-诡秘.md",
-    "term": "末日",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列1-末日.md"
-    ],
-    "excerpt": "《宿命之环》第八部第三十一至三十五章。各方继续为末日前的斗争行动；卢米安面对吉达斯和[奇克](../../characters/entries/奇克/)，绯红月光再现；与此同时，第35章明确时间为1360年6月25日，克莱恩容纳源堡，“诡秘之主”诞生，灵界的主宰回归；同一跨章事件中其他行动的确切日期仍需核实。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "581d88454f1987a938285daf6d70d85fc87dd9cd5c5cc563466d5066db6fb113",
-    "source": "source/timeline/index.md",
-    "term": "小丑",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列8-小丑.md"
-    ],
-    "excerpt": "第一部“小丑”： [笔记](笔记/) → [绯红](#event-绯红) → [罗塞尔称帝](#event-罗塞尔称帝) → [仪式](#event-仪式) → [值夜者](#event-值夜者) → [魔药](#event-魔药) → [预付的报酬](#event-预付的报酬) → [奥黛丽和她的苏茜](#event-奥黛丽和她的苏茜) → [寻人](#event-寻人) → [占卜术](#event-占卜俱乐部) → [苜蓿号惨案的调查](#event-苜蓿号惨案的调查) → [四皇之战](#event-四皇之战) → [“回应”](#event-回应) → [瑞尔·比伯](#event-瑞尔·比伯) → [祈求](#event-祈求) → [简单任务](#event-简单任务) → [“祈求者”](#event-祈求者) → [红烟囱](#event-红烟囱) → [Z先生](#event-Z先生) → [深夜](#event-深夜) → [请求](#event-阿兹克的请求) → [兰尔乌斯的孩子](#event-兰尔乌斯的孩子) → [接触](#event-接触) → [超凡战](#event-超凡战) → [失控者](#event-失控者) → [贝克兰德的隐秘聚会](#event-贝克兰德的隐秘聚会) → [男爵的画像](#event-男爵的画像) → [白银之城](#event-白银之城) → [作死能手](#event-作死能手) → [三方交易](#event-三方交易) → [深夜来访者](#event-深夜来访者) → [阿兹克的发现](#event-阿兹克的发现) → [分享“经验”](#event-分享经验) → [倒立的陵寝](#event-倒立的陵寝) → [可怜虫](#event-可怜虫) → [“小丑”魔药](#event-小丑魔药) → [铜哨](#event-铜哨) → [“尸检”](#event-尸检) → [漫游者克莱恩](#event-漫游者克莱恩) → [心灵世界](#event-心灵世界) → [舞会](#event-齐林格斯) → [欢愉魔女](#event-欢愉魔女) → [来访者](#event-来访者) → [守护者](守护者/) → [故事](#event-廷根市的故事) → [葬礼](葬礼/) → [再看一眼](#event-再看一眼)",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "7dc42284a0f5060a4d3af000ecb35b98189a98e1a9fc49b6a99f197173009c25",
-    "source": "source/timeline/index.md",
-    "term": "无面人",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列6-无面人.md"
-    ],
-    "excerpt": "第二部“无面人”： [希望之地](#event-希望之地) → [克莱恩的献祭仪式](#event-克莱恩的献祭仪式) → [第一单委托](#event-第一单委托) → [发明家雷帕德](#event-发明家雷帕德) → [勇敢者酒吧](#event-勇敢者酒吧) → [刺杀贝克朗](刺杀贝克朗/) → [杀人案](#event-杀人案) → [地下建筑](#event-地下建筑) → [五人聚会](#event-五人聚会) → [拉夫特·庞德](#event-第二部-拉夫特庞德) → [午夜钟楼](午夜钟楼/) → [魔术师](#event-魔术师魔药) → [满月的呓语](#event-满月的呓语) → [灵舞](#event-灵舞) → [“巨人”主教](#event-巨人主教的委托) → [互相观察](#event-互相观察) → [罗塞尔纪念展](#event-罗塞尔纪念展) → [亚伯拉罕家族](#event-威尔迪街的笔记) → [灿烂的烟花](#event-灿烂的烟花) → [东区“冒险”记](#event-东区冒险记) → [密契仪式](#event-密契仪式) → [埃姆林的归家](#event-埃姆林的归家) → [侠盗](侠盗/) → [探索梦境](#event-探索梦境) → [被污染者](#event-被污染者) → [挖掘](#event-挖掘) → [嘱托](#event-劳伦斯的嘱托) → [心灵的力量](#event-奥黛丽加入心理炼金会) → [时代的选择](时代的选择/) → [佛尔思拜多里安·格雷为师](#event-佛尔思的老师) → [塔利姆之死](#event-塔利姆之死) → [一个人的表演](#event-一个人的表演) → [无面人](#event-无面人) → [红蔷薇庄园的调查](#event-红蔷薇庄园的调查) → [恶灵提供的消息](#event-庞德与地下恶灵) → [循环的探索](#event-循环的探索) → [月亮](#event-月亮) → [贝克兰德大雾霾](贝克兰德大雾霾/) → [诚实的回报](#event-阿兹克赠予蠕动的饥饿) → [辞旧迎新](#event-辞旧迎新)",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "1030963f5ec83a972c871ed3420a2bbb7e38a6c828cf5376dd3107263fe822ce",
-    "source": "source/timeline/index.md",
-    "term": "旅行家",
-    "targets": [
-      "source/worldview/pathways/学徒途径/序列5-旅行家.md"
-    ],
-    "excerpt": "第三部“旅行家”： [新的身份](#event-新的身份) → [成长的塔罗会](#event-成长的塔罗会) → [格尔曼登上白玛瑙号](#event-白玛瑙号) → [审问“白鲨”](#event-审问白鲨) → [红骷髅海盗团](#event-烈焰达尼兹) → [风中的班西港](#event-风中的班西港) → [慷慨之城](#event-慷慨之城) → [速战](#event-速战) → [克莱恩化作温特向蕊妮告别](#event-西弥姆岛的告别) → [狂怒的卡维图瓦](狂怒的卡维图瓦/) → [扮神](#event-扮神) → [深夜来“电”](#event-深夜来“电”) → [“招聘会”](#event-招聘会) → [知识逐人](#event-知识逐人) → [“挑衅”](#event-挑衅) → [旧相识](#event-旧相识) → [苍白之灾](#event-苍白之灾) → [一周三晋升](#event-旅行家-一周三晋升) → [寻找罗伊·金](#event-寻找罗伊·金) → [龙威](#event-龙威) → [掷骰](#event-掷骰) → [伦纳德的调查](#event-伦纳德的调查) → [替身任务](#event-替身任务) → [天体教派](#event-旅行家-天体教派) → [未来号](#event-未来号) → [莱曼诺的魔法书](#event-莱曼诺的魔法书) → [黑色修道院](#event-黑色修道院) → [囚犯与看守](#event-囚犯与看守) → [恐怖的生命力](#event-恐怖的生命力) → [灵体之线](#event-灵体之线) → [下午镇](#event-下午镇) → [离船](#event-离船) → [敲打](#event-旅行家-敲打) → [遭遇战](#event-遭遇战) → [故事尾声](#event-故事尾声) → [风暴来袭](#event-风暴来袭) → [岛屿与遗迹](#event-旅行家-岛屿与遗迹) → [梦境之旅](#event-梦境之旅) → [收获](#event-收获) → [终点](#event-终点)",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "1aa3727a48781451b06987aeb48c38098aced46c8a91698455d9ecc923486527",
-    "source": "source/timeline/index.md",
-    "term": "不死者",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列4-不死者.md"
-    ],
-    "excerpt": "第四部“不死者”： [归来记](#event-归来记) → [首杀](#event-首杀) → [莎伦通过召唤仪式与蕾妮特重逢](#event-师徒重逢) → [梦遇](#event-梦遇) → [复国会](#event-黑骷髅党的来历) → [一枪](#event-一枪) → [隐秘通道](#event-伯克伦德街的隐秘通道) → [日记的尾声](#event-罗塞尔的陵寝与日记) → [逐渐熟练](#event-逐渐熟练) → [窥视](#event-窥视) → [远古太阳神之死](#event-远古太阳神之死) → [暴君](#event-暴君) → [遗忘的念头](#event-遗忘的念头) → [克莱恩被困迷雾小镇，遇见查拉图](迷雾小镇/) → [诊金](#event-诊金) → [单刀直入](#event-单刀直入) → [慈善晚会](#event-慈善晚会) → [理事](#event-理事) → [核心的诡计](#event-核心的诡计) → [惊魂一瞥](#event-惊魂一瞥) → [相逢](#event-相逢) → [首席的暗示](#event-首席的暗示) → [陵寝深处的呼喊](陵寝深处的呼喊/) → [菇与鱼](#event-菇与鱼) → [往下的城市](#event-往下的城市) → [鱼饵](#event-鱼饵) → [第四幕](第四幕/) → [一个恩赐，或者，一个诅咒](#event-灰雾之上的蚕茧)",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "259c69022ab248592fdb6dba193b33a0a2e2c685297799da4fa5ae244131503a",
-    "source": "source/timeline/index.md",
-    "term": "红祭司",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列0-红祭司.md"
-    ],
-    "excerpt": "第五部“红祭司”： [存在的意义](#event-存在的意义) → [抽牌](#event-抽牌) → [列车](#event-列车) → [新的“天使”](#event-新的天使) → [初次布道](#event-初次布道) → [“诡法师”VS“寄生者”](#event-诡法师与寄生者) → [第一乐章](#event-第一乐章) → [终章与尾声](终章与尾声/) → [各自的成长](#event-伦纳德重返廷根) → [梅森·迪尔之死](#event-休查明父亲之死) → [1号遗迹](1号遗迹/) → [要有光](#event-无暗十字的来历) → [三打一](#event-三打一) → [“月亮”的权柄](#event-月亮的权柄) → [诚实大厅](诚实大厅/) → [多里安的请求](#event-多里安的请求) → [四个选择](#event-四个选择) → [突如其来](突如其来/) → [可笑之人](#event-可笑之人) → [1368](#event-1368) → [关键日记](#event-关键日记) → [“扑克高手”](#event-扑克高手) → [王庭内部](#event-王庭内部) → [丰收教堂的保护性关押](#event-丰收教堂的保护性关押) → [“出乎意料”](#event-出乎意料) → [“门”先生](#event-门先生) → [“古代学者”](#event-古代学者) → [真正的神棍](真正的神棍/) → [狂奔](#event-阿蒙借恩尤尼追踪克莱恩)",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "028f035eb66da8c21e495c323b362a8a0405a982404a1ada74a736494da2bb13",
-    "source": "source/timeline/index.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "第六部“逐光者”： [我的锚](我的锚/) → [阳谋](#event-阳谋) → [诺斯古城](#event-诺斯古城) → [重现](#event-重现) → [冬礼日](#event-冬礼日) → [各司其职](#event-各司其职) → [长达千年的陷阱](#event-长达千年的陷阱) → [多里安的决断](#event-多里安的决断) → [两个选择](#event-两个选择) → [月城](#event-月城) → [耐心终有回报](#event-耐心终有回报) → [五蘑二菇](#event-五蘑二菇) → [留言](#event-月城留言) → [“研究所”](#event-研究所) → [对末日的猜测](#event-对末日的猜测) → [发放蘑菇](#event-发放蘑菇) → [联动](#event-联动) → [传承](#event-许愿神灯的托付) → [“潮水”](#event-贝克兰德粮食游行) → [灯神](#event-灯神) → [愿望](#event-愿望) → [展现威能](#event-展现威能) → [祝安好](#event-巨人王庭正门的银骑士) → [天变](天变/) → [光](光/)",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "f34fa9ef58a228adbd0ac81fb7209fd65d6e5e29c77060bdeee62bc9b84949cf",
-    "source": "source/timeline/index.md",
-    "term": "倒吊人",
-    "targets": [
-      "source/worldview/pathways/秘祈人途径/序列0-倒吊人.md"
-    ],
-    "excerpt": "第七卷“倒吊人”： [欢迎](#event-欢迎) → [“奇迹师”](奇迹师/) → [七光](#event-七光) → [流浪魔术师](#event-流浪魔术师) → [提醒](#event-提醒) → [谁也别想离开](#event-谁也别想离开) → [初入拜亚姆](#event-初入拜亚姆) → [恶魔油画](#event-恶魔油画) → [奇迹之“森”](#event-奇迹之“森”) → [奶和蜜](#event-奶和蜜) → [封印](#event-贝尔纳黛封印罗塞尔) → [见面](见面/) → [使者](#event-大地教会托付贝克兰德血族事务) → [全自动许愿机](#event-全自动许愿机) → [七位委员](#event-七位委员) → [发展大计](#event-发展大计) → [成功的“弥撒”](#event-成功的弥撒) → [台下功夫](#event-台下功夫) → [入住](#event-文德尔入住) → [门后](#event-班西电报局门后) → [梦中](#event-梦中相遇) → [人性](人性/) → [诡秘侍者](诡秘侍者/)",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "87b6b3100d5eaf44a1aacdc842e603aa459445ed30e6f37f81fb9bfd59067354",
-    "source": "source/timeline/index.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "第八部“愚者”： [这一晚](#event-这一晚) →  [对话](#event-对话) → [清晨](#event-清晨) → [联合行动](#event-联合行动) → [见证](#event-班森婚礼) → [死亡烙印](#event-死亡烙印) → [一个奇迹](#event-克莱恩晋升愚者) → [狭路](狭路/) → [“愚者”的委托](#event-沉睡前的塔罗会) → [问答](#event-克莱恩放出蚕茧中的人) → [新的旅程](新的旅程/)",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -8660,36 +8050,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "7a0b0e6e8ebf9e988ed16a0de866967a9f7dd1f9378dffce3604eebbac82a099",
-    "source": "source/timeline/十一月第一周-各方在祈海节争夺海底封印，拉托·吉亚罗身亡.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第七十六至九十七章。祈海节期间，渔业公会与多方势力围绕海祭、海底宫殿与封印展开争夺；“愚人节”成员[拉托·吉亚罗](../../characters/entries/拉托·吉亚罗/)身亡，“魔术师”说明封印与宇宙飞船的来历。海上和城中行动相互交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "e65ded783016692230c9e4f2c1a1060ab6f43466aef855464bff3bcef1a08920",
-    "source": "source/timeline/十一月第一周-各方在祈海节争夺海底封印，拉托·吉亚罗身亡.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第七十六至九十七章。祈海节期间，渔业公会与多方势力围绕海祭、海底宫殿与封印展开争夺；“愚人节”成员[拉托·吉亚罗](../../characters/entries/拉托·吉亚罗/)身亡，“魔术师”说明封印与宇宙飞船的来历。海上和城中行动相互交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "fdd049f94ef9b5e0eed6626a9ff5038c610282fae11e4496ca824bf72f777d8f",
-    "source": "source/timeline/十二月十一日线索-卢米安在蒂扎莫梦节中再遇“西索”.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第一百六十九至二百零四章。蒂扎莫“梦节”中，众人进入并调查特殊梦境；卢米安再遇“西索”，围绕黑色古墓、黄金面具和神秘存在发生冲突，随后处理梦节结束后的事件。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "dc17fda2f6e8437f90c52fe890f829629cd320122af1b500034e8478c12d445d",
     "source": "source/timeline/十月塔罗聚会前夜-克莱恩在下水道杀死兰尔乌斯.md",
     "term": "无面人",
@@ -8760,16 +8120,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "13ff5f540b3dd43fa473296627ccf2dd190e00ca6ad6110997de88c89be061bc",
-    "source": "source/timeline/日期待考证-克莱恩与罗塞尔在陵寝中相见.md",
-    "term": "倒吊人",
-    "targets": [
-      "source/worldview/pathways/秘祈人途径/序列0-倒吊人.md"
-    ],
-    "excerpt": "《诡秘之主》第七卷“倒吊人”第四十一至四十二章。贝尔纳黛离开后，克莱恩让替身纸人以周明瑞的模样出现在陵寝里。罗塞尔向他谈起亵渎之牌和来自星空的污染。告别前，两人以黄涛和周明瑞的本名称呼彼此。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "d82c77da17ece883474372a621c5f57beabc4e9bbef76250517a7d0a73d442b3",
     "source": "source/timeline/日期待考证-克莱恩借白银城重返现实的仪式晋升“奇迹师”.md",
     "term": "倒吊人",
@@ -8800,56 +8150,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "d9125f0ad8d927704e4535f91bcd30e3b21817470cd6b30bb7cf9ebb83b99d9c",
-    "source": "source/timeline/日期待考证-化工厂出事，卢米安与简娜救出艾洛蒂.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一百二十八至一百三十八章。卢米安追查[于格·阿图瓦](../../characters/entries/于格·阿图瓦/)竞选团队时，古德维尔化工厂发生事故；他和[简娜](../../characters/entries/简娜/)赶赴现场，救出简娜的母亲[艾洛蒂](../../characters/entries/艾洛蒂/)。卢米安随后晋升“[纵火家](../../worldview/pathways/猎人途径/序列7-纵火家.html)”，追查相关人员；艾洛蒂后来坠楼身亡，简娜决定寻找责任人。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "13d99cf03cf39cb6dffe71820fb3a23f13ff7db9a6d38bf9a6a6bae8ec48c720",
-    "source": "source/timeline/日期待考证-化工厂出事，卢米安与简娜救出艾洛蒂.md",
-    "term": "母亲",
-    "targets": [
-      "source/worldview/pathways/耕种者途径/序列0-母亲.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一百二十八至一百三十八章。卢米安追查[于格·阿图瓦](../../characters/entries/于格·阿图瓦/)竞选团队时，古德维尔化工厂发生事故；他和[简娜](../../characters/entries/简娜/)赶赴现场，救出简娜的母亲[艾洛蒂](../../characters/entries/艾洛蒂/)。卢米安随后晋升“[纵火家](../../worldview/pathways/猎人途径/序列7-纵火家.html)”，追查相关人员；艾洛蒂后来坠楼身亡，简娜决定寻找责任人。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "f23cfdd5943e2b92d2da5a9a9cd16092cd706d0f5dc3f18b9e2ad5ac077a6f1e",
-    "source": "source/timeline/日期待考证-宿命-摩罗拉神降.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第九十一至一百零七章。卢米安等人进入摩罗拉地下陵寝，围绕“0—01”展开争夺，[朱莉](../../characters/entries/朱莉/)、阿不思与[瓦纳克](../../characters/entries/瓦纳克/)等人各怀目的，多方冲突引发神降和连锁危机。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9deb7b4f7637acdc050ae29bf8c40f5263146a9e0ab711a8c975966f760a293b",
-    "source": "source/timeline/日期待考证-宿命-绝望魔女.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第一百四十四至一百四十七章。卢米安在摩罗拉利用“0—01”召集流放者，举行仪式并服下魔药，从“[猎人](../../worldview/pathways/猎人途径/猎人途径.html)”途径转入“[魔女](../../worldview/pathways/刺客途径/刺客途径.html)”途径，晋升序列4“[绝望魔女](../../worldview/pathways/刺客途径/序列4-绝望.html)”。他回到同伴身边，在随后的交锋中追上[瓦赞·桑松](../../characters/entries/瓦赞·桑松/)，用冰柱贯穿了他。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "a015059000f0495fdb850d063c9c97cbad8bcbe5100bda987eb98583ec103ea4",
-    "source": "source/timeline/日期待考证-宿命-解除封印.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第一百三十九至一百四十三章。[瓦赞·桑松](../../characters/entries/瓦赞·桑松/)要释放他所信奉的[忒尔弥波洛斯](../../characters/entries/忒尔弥波洛斯/)。封印开启后，回应卢米安的是[阿蒙](../../characters/entries/阿蒙/)。阿蒙向他念出治疗报告，并说出[亚当](../../characters/entries/亚当/)为他与奥萝尔安排的晋升道路。为救仍在与[希格顿](../../characters/entries/希格顿/)战斗的同伴，卢米安带着“[绝望魔女](../../worldview/pathways/刺客途径/序列4-绝望.html)”的特性和辅助材料回到摩罗拉。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "b8ae4a743368f7d4369d8df3e7beeae97972b22d9156e227bf5a20259051106c",
     "source": "source/timeline/日期待考证-戴里克推开大门看见阳光与大海.md",
     "term": "逐光者",
@@ -8867,146 +8167,6 @@
       "source/worldview/pathways/秘祈人途径/序列1-暗天使.md"
     ],
     "excerpt": "《诡秘之主》第六部“逐光者”第九十八至一百一十六章。白银城探索小队离开家乡，前往巨人王庭；克莱恩与他们会合。在沉睡之地，[萨斯利尔](../../characters/entries/萨斯利尔/)留下的声音向他们讲述救赎蔷薇的成立经过。第一块亵渎石板显现后，众人与“暗天使”的恶灵交战，[洛薇雅](../../characters/entries/洛薇雅/)和科林先后牺牲。戴里克最终推开大门，看见阳光与大海。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "864754822da9c9dc4abcb356bb4ad2ccd31790e14b126e2a9593f2aeb027ce66",
-    "source": "source/timeline/日期待考证-梅迪奇在第四纪特里尔重登天使之王位阶.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第二百一十九至二百三十一章。众人进入第四纪特里尔，面对封印、镜中人及多方强者的冲突；红天使[梅迪奇](../../characters/entries/梅迪奇/)在混战中吞食佛蒙达·索伦的力量，重新成为天使之王。事后卢米安等人整理线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "06bea0fcf495e008279431d404ee5bba6c46b06e0979c197b230e4708f332ce4",
-    "source": "source/timeline/日期待考证-永劫-新的平衡.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第八部第十四至二十五章。卢米安在废墟界遭遇“原初魔女”[奇克](../../characters/entries/奇克/)，多方势力和[塔罗会](../../worldview/organizations/塔罗会/)成员进入交战；[阿蒙](../../characters/entries/阿蒙/)对[查拉图](../../characters/entries/查拉图/)出手，交错的战斗暂时形成新的平衡。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b2385ebd51440b13f1cca592608549bf8d3340355157151c8927759c272719f3",
-    "source": "source/timeline/日期待考证-第二定律-强闯.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第二十八至三十八章。“隐者”“魔术师”与卢米安等人围绕摩斯苦修会总部和“[隐匿贤者](../../characters/entries/隐匿贤者/)”行动，多处交锋交错；事后众人分配所得。本地原文将两段连续内容均标为第三十六章《往前走》，应以文本先后理解。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "2f84791def137e1925a6cd7db5bbfd0c941307d2711c70583a54b8e3d5dffb50",
-    "source": "source/timeline/日期待考证-第二定律-强闯.md",
-    "term": "隐者",
-    "targets": [
-      "source/worldview/pathways/窥秘人途径/序列0-隐者.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第二十八至三十八章。“隐者”“魔术师”与卢米安等人围绕摩斯苦修会总部和“[隐匿贤者](../../characters/entries/隐匿贤者/)”行动，多处交锋交错；事后众人分配所得。本地原文将两段连续内容均标为第三十六章《往前走》，应以文本先后理解。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "559d61f88d915a81b2e834a1b93cc0c860475827a759502af5fb7e829252f1bd",
-    "source": "source/timeline/日期待考证-第二定律-强闯.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第二十八至三十八章。“隐者”“魔术师”与卢米安等人围绕摩斯苦修会总部和“[隐匿贤者](../../characters/entries/隐匿贤者/)”行动，多处交锋交错；事后众人分配所得。本地原文将两段连续内容均标为第三十六章《往前走》，应以文本先后理解。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "525693693f310c3fa6728ea698b2ed7f53d7bd09452ae8619f0525b74293e963",
-    "source": "source/timeline/日期待考证-第二定律-王子公主.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第七十至七十六章。特殊镜中世界爆发战斗，卢米安、[芙兰卡](../../characters/entries/芙兰卡/)与[简娜](../../characters/entries/简娜/)等人分别面对“原初魔女”及其手下；简娜作出关键选择。不同战场交错叙述。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "55734473335fee7c5825ecc08b62ed723c700b87e941753697e59480ef4c8686",
-    "source": "source/timeline/日期待考证-第二定律-王子公主.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第七十至七十六章。特殊镜中世界爆发战斗，卢米安、[芙兰卡](../../characters/entries/芙兰卡/)与[简娜](../../characters/entries/简娜/)等人分别面对“原初魔女”及其手下；简娜作出关键选择。不同战场交错叙述。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "39d215e3115a14572d5cbf68307dce28d5af828791dbe52cfcf4e9e228fb1bd9",
-    "source": "source/timeline/日期待考证-简娜刺杀于格·阿图瓦，卢米安等人迎战苏珊娜.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一百三十九至一百五十二章。[简娜](../../characters/entries/简娜/)与同伴追查工厂事故及家人遭遇；[苏珊娜·马蒂斯](../../characters/entries/苏珊娜·马蒂斯/)和“暗影之树”引发严重异变。两条行动线在第一百四十九章《刺客》和第一百五十章《震慑》中交错：简娜在慰问活动上刺杀新当选的国会议员[于格·阿图瓦](../../characters/entries/于格·阿图瓦/)，卢米安、[芙兰卡](../../characters/entries/芙兰卡/)等人则与苏珊娜交锋，在各方介入后苏珊娜化为灰烬。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9b42b175e5e6071e72358525ed59be04ba6d257f4f7af3860bca20757204a4a8",
-    "source": "source/timeline/日期待考证-简娜刺杀于格·阿图瓦，卢米安等人迎战苏珊娜.md",
-    "term": "刺客",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列9-刺客.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一百三十九至一百五十二章。[简娜](../../characters/entries/简娜/)与同伴追查工厂事故及家人遭遇；[苏珊娜·马蒂斯](../../characters/entries/苏珊娜·马蒂斯/)和“暗影之树”引发严重异变。两条行动线在第一百四十九章《刺客》和第一百五十章《震慑》中交错：简娜在慰问活动上刺杀新当选的国会议员[于格·阿图瓦](../../characters/entries/于格·阿图瓦/)，卢米安、[芙兰卡](../../characters/entries/芙兰卡/)等人则与苏珊娜交锋，在各方介入后苏珊娜化为灰烬。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b43295411a7f5edba98a99c7ebde91e6d4ed4981b3004b0b1bc9168c9f83fda5",
-    "source": "source/timeline/日期待考证-织梦-塔罗会.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一百五十章《塔罗会》。阳都梦境崩解后，卢米安来到灰雾上的青铜长桌旁。奥黛丽向成员介绍“节制”女士和代表“战车”的卢米安，随后起身向“愚者”问候。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "8b859c49a5881628da836e44856d9ea536c40f19abcca943f869eba59ff2024c",
-    "source": "source/timeline/日期待考证-织梦-塔罗会.md",
-    "term": "塔罗会",
-    "targets": [
-      "source/worldview/organizations/塔罗会/index.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一百五十章《塔罗会》。阳都梦境崩解后，卢米安来到灰雾上的青铜长桌旁。奥黛丽向成员介绍“节制”女士和代表“战车”的卢米安，随后起身向“愚者”问候。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "d3c164938531c47547de1db0d4b45511cd23f9804d21e4d9466cc4c22db52b63",
-    "source": "source/timeline/日期待考证-织梦-塔罗会.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一百五十章《塔罗会》。阳都梦境崩解后，卢米安来到灰雾上的青铜长桌旁。奥黛丽向成员介绍“节制”女士和代表“战车”的卢米安，随后起身向“愚者”问候。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "ad58a52d0e23f3adff92e639d809205f28c2fb3b01b1d834b247819b684047bf",
-    "source": "source/timeline/日期待考证-织梦-直面.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一百四十四至一百四十八章。梦境都市局势骤变，众人分头行动、面对深沉黑暗，并合力推动格尔曼·斯帕罗这一身份重新出现；现实与梦境中的协助交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "29b2c9bf20f98ac797278f2bca964d63faec95508647299dda2b65c59e809a84",
-    "source": "source/timeline/日期待考证-织梦-直面.md",
-    "term": "黑暗",
-    "targets": [
-      "source/worldview/pathways/不眠者途径/序列0-黑暗.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一百四十四至一百四十八章。梦境都市局势骤变，众人分头行动、面对深沉黑暗，并合力推动格尔曼·斯帕罗这一身份重新出现；现实与梦境中的协助交错。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -9671,22 +8831,12 @@
   },
   {
     "key": "40f0d4de0841cf00e06143046087b2965b497859e2eec526660d626a2505d64c",
-    "source": "source/timeline/1349-06-28至1349-06-29-邓恩邀请克莱恩加入值夜者.md",
+    "source": "source/timeline/1349-06-29至1349-07-02-克莱恩加入值夜者并成为占卜家.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
     ],
     "excerpt": "《诡秘之主》第一部“小丑》第十至十九章。邓恩等人调查韦尔奇的死亡；克莱恩接受调查和通灵，随后得知值夜者与非凡世界，并受到加入邀请。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "67ad5408c2330b63f8a2a023b33d8b1e5ed47866ebd94d1c139161ee32f80f2d",
-    "source": "source/timeline/1349-06-30至1349-07-02-克莱恩服下“占卜家”魔药.md",
-    "term": "小丑",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列8-小丑.md"
-    ],
-    "excerpt": "《诡秘之主》第一部“小丑”第二十八至三十三章。克莱恩了解密修会和魔药的隐患，选择“占卜家”途径，服下魔药并学习使用灵视。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -9701,7 +8851,7 @@
   },
   {
     "key": "9f1b68c667e7b2bad88fdf7fda2ff2814b14bbec2f038b448ced3d02350201e8",
-    "source": "source/timeline/1349-07-06-值夜者追查少年绑架案，发现笔记线索.md",
+    "source": "source/timeline/1349-07-06-艾略特绑架案.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -9741,7 +8891,7 @@
   },
   {
     "key": "68cf0025bebb48e029e4b99256789e1df60f18e07e732e88d5513c0b2c5114c0",
-    "source": "source/timeline/1349-07-12-值夜者用封印物追踪瑞尔·比伯.md",
+    "source": "source/timeline/1349-07-06至1349-07-18-安提哥努斯家族笔记调查.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -9770,16 +8920,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "10b9df3a4d3f2835aaf16ce443b17232ee176191d336cd48f423e69fe32af1f5",
-    "source": "source/timeline/1349-07-18-克莱恩追查笔记来源，击毙西里斯.md",
-    "term": "小丑",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列8-小丑.md"
-    ],
-    "excerpt": "《诡秘之主》第一部“小丑”第九十八至一百零五章。克莱恩追查安提哥努斯家族笔记的来源，由借阅记录追查至布料商人西里斯；交战中西里斯失控，克莱恩击毙并通灵，从其遗留线索中发现针对廷根的阴谋。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "8613214b5f0bcd3564e9beb2252cdc8ff58d045827f0f08727c197d52d4a9543",
     "source": "source/timeline/1349-07-22-查尼斯门后的厄运布偶异动.md",
     "term": "小丑",
@@ -9791,7 +8931,7 @@
   },
   {
     "key": "5007f0410af69e0eb32402dbd369f8bb3a00b8cf6a40ff46cb4be28f8da152de",
-    "source": "source/timeline/1349-07-23-梅高欧丝前来占卜兰尔乌斯的下落.md",
+    "source": "source/timeline/1349-09-04-兰尔乌斯下落调查.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -9801,7 +8941,7 @@
   },
   {
     "key": "8be8600588a544c8a617fc3509656a3826ddd706adea4a2b94ac136528108627",
-    "source": "source/timeline/1349-07-23-阿兹克请克莱恩帮他追查身世.md",
+    "source": "source/timeline/1349-08-19至1349-08-21-阿兹克身世调查.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -9811,7 +8951,7 @@
   },
   {
     "key": "9842dc1ecc49f8eb3aa42282079b04605c474a89d73c19e61d02454578552094",
-    "source": "source/timeline/1349-07-27至1349-07-28-克莱恩与心理炼金会的古德里安建立联系.md",
+    "source": "source/timeline/1349-07-28-克莱恩与古德里安建立联系.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -9841,7 +8981,7 @@
   },
   {
     "key": "ce442e31164754b1ed9e88c951403bccfa9d98a0d4b84eb019b72073b62add3a",
-    "source": "source/timeline/1349-08-19-克莱恩发现初代男爵的画像酷似阿兹克.md",
+    "source": "source/timeline/1349-08-19至1349-08-21-阿兹克身世调查.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -9871,7 +9011,7 @@
   },
   {
     "key": "ad147570beeae98f1f26ff1c896b170d3515db817e1889199e5228995d9ae4c0",
-    "source": "source/timeline/1349-08-21-阿兹克重访古堡，记起部分往事.md",
+    "source": "source/timeline/1349-08-19至1349-08-21-阿兹克身世调查.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -9881,7 +9021,7 @@
   },
   {
     "key": "032b90e2a735b2d18963b506addd513e4205c546f6f07829c532251e181325bf",
-    "source": "source/timeline/1349-08-28-克莱恩赴莫尔斯小镇调查灵异事件.md",
+    "source": "source/timeline/1349-08-28-克莱恩制成阳炎符咒.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -9890,33 +9030,13 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "37f79224bd4032320d616e5f85a83cb57ad7cfeff7890c098319ac1f2e5aaee6",
-    "source": "source/timeline/1349-08-29至1349-08-30-老尼尔失控，廷根值夜者将他击毙.md",
-    "term": "小丑",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列8-小丑.md"
-    ],
-    "excerpt": "《诡秘之主》第一部“小丑”第一百六十三至一百六十五章。老尼尔未到岗，克莱恩和邓恩等人前去探望，发现他已经失控；值夜者被迫将其击毙，随后举行葬礼。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "5e9975e91f56bd6cf8b4d13721939f6702365e36112c93ca185fd7662b11fc97",
-    "source": "source/timeline/1349-08-31-阿兹克将召唤信使的铜哨交给克莱恩.md",
+    "source": "source/timeline/1349-08-19至1349-08-21-阿兹克身世调查.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
     ],
     "excerpt": "《诡秘之主》第一部“小丑”第一百七十章《铜哨》。克莱恩向阿兹克讲述倒立陵寝的见闻，并询问信使之事。阿兹克取出醒来时随身携带的古旧铜哨，示范召唤自己的信使后将铜哨交给克莱恩，便于日后通信。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9818d0985611ac4fe0478f58f6997b0c36386e9c752d405cdd7810a9252d8f4b",
-    "source": "source/timeline/1349-09-01-克莱恩为梅纳德通灵，发现雪伦夫人的线索.md",
-    "term": "小丑",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列8-小丑.md"
-    ],
-    "excerpt": "《诡秘之主》第一部“小丑”第一百七十二至一百七十四章。克莱恩协助调查梅纳德议员死亡，对尸体通灵时发现其死前与一位女士在一起；尸体随后活尸化，被克莱恩制服。警方认出画像中的女士是雪伦夫人。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -9931,7 +9051,7 @@
   },
   {
     "key": "a99f6799797174406ffd068b018146bf7f54a7ce00173d7e5bac01b8bd5b201e",
-    "source": "source/timeline/1349-09-04-克莱恩与胡德·欧根沟通，追查兰尔乌斯.md",
+    "source": "source/timeline/1349-09-04-兰尔乌斯下落调查.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -9950,16 +9070,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "dfc043ae1ca620f40ffcfdc01cf2614344c2babb0834cbb63632354b8f13d830",
-    "source": "source/timeline/1349-09-09-克莱恩与伦纳德找到兰尔乌斯的留信.md",
-    "term": "小丑",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列8-小丑.md"
-    ],
-    "excerpt": "《诡秘之主》第一部“小丑”第二百零三至二百零四章《“异种”》《来访者》。伦纳德追查兰尔乌斯的住所，克莱恩占卜找到暗格，两人发现其留信。读信并向邓恩报告后，他们回到公司，恰逢梅高欧丝来访。信的内容与她腹中孩子的危险在随后的事件中联系起来。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "482683d9990f91009906c3ea7c14bad4a1656b47baeb98d49cfc65b080045ce0",
     "source": "source/timeline/1349-12-18-塔利姆之死.md",
     "term": "无面人",
@@ -9967,16 +9077,6 @@
       "source/worldview/pathways/占卜家途径/序列6-无面人.md"
     ],
     "excerpt": "《诡秘之主》第二部“无面人”第二百二十三至二百二十六章。塔利姆在克拉格俱乐部见到克莱恩时突然死亡，克莱恩发现疑似诅咒的迹象；案件被王室接手。埃德萨克王子请克莱恩调查塔利姆的死。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "fc12485adb242e8f88e80acbe9b541c37edf95c9c5c3a02605ce346caa115c3d",
-    "source": "source/timeline/1349-12-24-红蔷薇庄园的调查.md",
-    "term": "无面人",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列6-无面人.md"
-    ],
-    "excerpt": "《诡秘之主》第二部“无面人”第二百三十九至二百四十章。接受埃德萨克王子的委托后，克莱恩前往红蔷薇庄园询问仆人，调查塔利姆生前的来访；他发现塔利姆与王子身边的一位女子相熟，进而怀疑她与塔利姆之死有关，并在她回来前离开。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -10050,18 +9150,8 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "b81b45b7d64443fd4755d8754c3770dcd5933c9b87566943cd526a7f034969a3",
-    "source": "source/timeline/1349年11月初周六晚-克莱恩进入艾伦的噩梦，追查威尔的线索.md",
-    "term": "无面人",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列6-无面人.md"
-    ],
-    "excerpt": "《诡秘之主》第二部“无面人”第一百七十二至一百七十六章。艾伦医生向克莱恩讲述与威尔·昂赛汀有关的困扰和噩梦；克莱恩调查千纸鹤，在灰雾之上占卜，并用梦境符咒探索艾伦的梦。后续调查见[艾伦与克莱恩在墓园附近挖出疑似威尔的遗体](../#event-挖掘)。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "0f26938da51530d8479dcaf66f0f98abf585f7fea8187f1a4d3a026b9bfaf140",
-    "source": "source/timeline/1349年7月初-苏茜误饮“观众”魔药.md",
+    "source": "source/timeline/1349-07-02至1349-07-08-苏茜误饮观众魔药.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
@@ -10120,16 +9210,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "af28a95a522d63ffcc7a08779d489c1ef77c70c751f2ea3ad5fa3751e40fe142",
-    "source": "source/timeline/1350-01-05-格尔曼登上白玛瑙号.md",
-    "term": "旅行家",
-    "targets": [
-      "source/worldview/pathways/学徒途径/序列5-旅行家.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第八至十二章。克莱恩购买白玛瑙号船票，并在对隐秘聚会的占卜中看见伦纳德；随后他以格尔曼·斯帕罗的身份登船。贝克兰德的机械之心则通过阿罗德斯调查夏洛克·莫里亚蒂的经历。航行中，克里维斯等人在船上捕猎鱼人，克莱恩负责照看堂娜和丹顿。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "6787d58cc1795c6abcd10a4204c74aed65b2041055b7582f47542877467b6b1c",
     "source": "source/timeline/1350-01-08-达尼兹现身，吓退逼近白玛瑙号的海盗.md",
     "term": "旅行家",
@@ -10170,16 +9250,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "49384ebbe5c788e8b2b57e6419b849e8d0a082ac15b8cec1e142904601be31dc",
-    "source": "source/timeline/1350-02-01-格尔曼在酒吧击杀“巧言者”米索尔.md",
-    "term": "旅行家",
-    "targets": [
-      "source/worldview/pathways/学徒途径/序列5-旅行家.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第一百一十六至一百一十八章。克莱恩在香树叶酒吧发现追查自己的“巧言者”米索尔·金，以格尔曼·斯帕罗的身份主动出手；交战中他击杀米索尔，并用“蠕动的饥饿”放牧其灵魂。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "9d146703146e253bd350596d990688239419f6e9451c1e9433c01d614969afaf",
     "source": "source/timeline/1350-02-04-克莱恩受雇假扮海军上将艾弥留斯.md",
     "term": "旅行家",
@@ -10200,16 +9270,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "616772d48851e91e51bc88d04189a6351d03eae24307efa81dccf300e9f6ef2a",
-    "source": "source/timeline/1350-06-06-奥黛丽为离开迷雾小镇的克莱恩做心理安抚.md",
-    "term": "不死者",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列4-不死者.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第一百一十五至一百一十七章。迷雾小镇经历后，克莱恩向奥黛丽请求诊金；奥黛丽在灰雾之上使用心理医生的能力，为精神紧绷的“世界”进行安抚和交谈。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "2eb8b20987b996d8518fb0165a45557ae708e5b2bf9fe82ed172efb49242bd5d",
     "source": "source/timeline/1350-06-11-道恩捐出股份，倡设鲁恩慈善助学基金.md",
     "term": "不死者",
@@ -10217,16 +9277,6 @@
       "source/worldview/pathways/收尸人途径/序列4-不死者.md"
     ],
     "excerpt": "《诡秘之主》第四部“不死者”第一百三十一至一百三十四章。黑夜教会举行慈善晚会，道恩·唐泰斯讲述贫民求学的困境，并捐赠股份倡设鲁恩慈善助学基金；霍尔伯爵和奥黛丽捐款。奥黛丽会后与苏茜讨论道恩的异常，考虑进一步调查。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "2c7c71b095fbf7c6086ef00182c3ece497ed0748b7dda36fca9f3d3447ee34eb",
-    "source": "source/timeline/1350年12月-克莱恩借留在白银城的血液复活.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第十九至二十六章。克莱恩的灵体回到源堡，但阿蒙守着他的遗骸。他与塔罗会成员恢复联系，听取帕列斯的建议，利用“欺瞒”能力和送往白银城的血液制造复活点，成功复活。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -10260,26 +9310,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "e048ff384f0ca691083f3294257787a0c0cdaec7c309de0c43f6d38125de71d3",
-    "source": "source/timeline/1350年1月5日至2月1日间-寻找罗伊·金.md",
-    "term": "旅行家",
-    "targets": [
-      "source/worldview/pathways/学徒途径/序列5-旅行家.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第一百零八至一百一十章。克莱恩借无线电收报机向魔镜阿罗德斯询问达克威尔老师罗伊·金的下落，得知其被鲁恩军方秘密抓捕；他利用威尔·昂赛汀留下的千纸鹤尝试梦中沟通，并向达克威尔转达得到的线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "3a799a823079c14b300d9e5e4d5996540e7f3d1081fbed6dfaa36f088d8039fd",
-    "source": "source/timeline/1350年1月5日至2月1日间-阿兹克在黑死号取回死神文献的拓印本.md",
-    "term": "旅行家",
-    "targets": [
-      "source/worldview/pathways/学徒途径/序列5-旅行家.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第一百零四至一百零七章。克莱恩与阿兹克重逢，告诉他死神相关文献的线索；两人循线前往黑死号，遇见前来保护特雷茜的“不老魔女”卡特琳娜。她认出阿兹克，两人的交谈涉及拜朗帝国和“苍白灾难”；阿兹克取得文献的拓印本后带克莱恩离开。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "af474d54305835279eca5896412e555bcc69bba955d6c9adfd529e6aeeeaf2a9",
     "source": "source/timeline/1350年1月5日至2月1日间-阿罗德斯通过无线电收报机联系克莱恩.md",
     "term": "旅行家",
@@ -10300,16 +9330,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "383ecc2a0e0d6a75c73d3ba9e6298e8d6941bcab99034d07f4d58f9ea069bbaf",
-    "source": "source/timeline/1350年4月上中旬线索-克莱恩借美人鱼的歌声晋升“秘偶大师”.md",
-    "term": "旅行家",
-    "targets": [
-      "source/worldview/pathways/学徒途径/序列5-旅行家.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第一百八十二至一百八十三章。克莱恩寻找美人鱼，以歌声辅助完成仪式，服下“秘偶大师”魔药并获得感知、操纵灵体之线的能力；嘉德丽雅随后命令“未来号”返航。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "c9af8406e12444524edc26fa72916a65fcb5cee4ff128d05c763330f49edb495",
     "source": "source/timeline/1350年4月上中旬线索-克莱恩击杀“不死之王”的二副吉尔希艾斯.md",
     "term": "旅行家",
@@ -10317,16 +9337,6 @@
       "source/worldview/pathways/学徒途径/序列5-旅行家.md"
     ],
     "excerpt": "《诡秘之主》第三部“旅行家”第二百零一至二百零三章。克莱恩在酒吧偶遇“不死之王”的二副吉尔希艾斯，双方交战；他操纵对方的灵体之线，击杀吉尔希艾斯后以“蠕动的饥饿”放牧其灵魂。此次并未将对方制成秘偶。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "e2df8386cf86e18b44709059cfe215d325e1c831a8d5171f3f95c248a156c981",
-    "source": "source/timeline/1350年4月上中旬线索-克莱恩在修道院梦中遇见苦修士利奥马斯特.md",
-    "term": "旅行家",
-    "targets": [
-      "source/worldview/pathways/学徒途径/序列5-旅行家.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第一百七十至一百七十三章。克莱恩与安德森在岛上遭遇石巨人，并带他返回“未来号”。再次陷入修道院梦境时，克莱恩遇见自称苦修士的利奥马斯特和异常的镜中影像；醒后他与嘉德丽雅分析梦境中的发现。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -10370,16 +9380,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "27a043c80481c2ff838df895cb88ab2eee2050bdc20f33f1e5fc080534dad22e",
-    "source": "source/timeline/1350年4月中旬至6月初线索-克莱恩将龙泽尔的骨灰带回贝克兰德.md",
-    "term": "旅行家",
-    "targets": [
-      "source/worldview/pathways/学徒途径/序列5-旅行家.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第二百五十章。克莱恩绕道康纳特市，看望已故红手套戴维·雷蒙的女儿；之后返回贝克兰德，将龙泽尔·爱德华的骨灰安置在风暴教会墓园。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "f36f7ae093f76af65a0cf7daf2fd12b5edd7e5e8f7e4eabcb6b8c295b15899b3",
     "source": "source/timeline/1350年4月中旬至6月初线索-克莱恩用海神权杖袭击“疯船长”的船.md",
     "term": "旅行家",
@@ -10387,16 +9387,6 @@
       "source/worldview/pathways/学徒途径/序列5-旅行家.md"
     ],
     "excerpt": "《诡秘之主》第三部“旅行家”第二百二十五至二百三十章。克莱恩与达尼兹等人为捕获“疯船长”康纳斯制订方案；风暴来临时，他借海神权杖发动攻击，单眼骷髅号上的神秘强者出手，随后风暴教会的“海王”赶到。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "4f32c8033226e126d7d93f90bfaa9b149e5853f27ee3430326537d59f37f2cd6",
-    "source": "source/timeline/1350年4月中旬至6月初线索-克莱恩重返书中，进入格罗塞尔的梦境.md",
-    "term": "旅行家",
-    "targets": [
-      "source/worldview/pathways/学徒途径/序列5-旅行家.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第二百三十五至二百三十八章。克莱恩再次进入《格罗塞尔游记》的书中世界，发现格罗塞尔、莫贝特等角色以新的背景继续生活；他进入书中格罗塞尔的梦境，观察巨人王庭与衰败森林，尝试探索其潜意识后因危险退回，又在离开前与书中龙泽尔交谈。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -10430,16 +9420,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "2c06d90a128c5ab0e9fe121390d57d12a38a73950697b017cf6522748594da80",
-    "source": "source/timeline/1350年春至6月初线索-克莱恩用心魇蜡烛处理窥视教堂引发的副人格.md",
-    "term": "不死者",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列4-不死者.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第六十七至七十章。克莱恩在圣赛缪尔教堂观察内部看守者时受到精神污染，出现副人格；他通过塔罗会向埃姆林租借“心魇蜡烛”，在灰雾之上借蜡烛和海神权杖解决问题。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "0ddd5ab5708c5b223013789e6242c0c8783ca79963b55f79e181a6629ea709cd",
     "source": "source/timeline/1350年春至6月初线索-埃姆林击杀原始月亮信徒温莎.md",
     "term": "不死者",
@@ -10467,16 +9447,6 @@
       "source/worldview/pathways/收尸人途径/序列4-不死者.md"
     ],
     "excerpt": "《诡秘之主》第四部“不死者”第七十三至八十三章。阿尔杰与克莱恩在海上会合，夜入原始岛屿，探查教堂与墓葬厅，取得“暴君”亵渎之牌后脱险；两人随后分别离开，克莱恩复盘岛上的线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "240c45e0e2373f59b41cb658763f4ee7355ca6d3b3ab01656def990bdce61144",
-    "source": "source/timeline/1351-09-08-克莱恩把蘑菇带给月城居民.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第六十七至六十九章。月城大祭司尼姆召集居民；克莱恩向众人讲述外界及愚者，并提供蘑菇。居民初尝后感动，克莱恩随后展示“无暗十字”的光辉；尼姆带领鲁斯等人回城后，获救者与亲属相见。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -10580,26 +9550,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "671ab65e2f670d65fdee0561a23eaa02f48f60361b82c6d7524a67b5e7c18d1b",
-    "source": "source/timeline/日期待考证-伦纳德入梦追查夏洛克.md",
-    "term": "不死者",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列4-不死者.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第十九章、第二十五章。伦纳德追查夏洛克·莫里亚蒂，先后在梦中询问斯塔琳太太及艾伦医生；离开艾伦的梦境后，他在陌生街区遇见异常房屋与戏谑的声音，逃回自己的梦境。与此同时，克莱恩发现有人夜间潜入道恩宅邸，寻找贴身男仆理查德森。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "570b3ba91860252916975ac187936a3bc32138897c293993d7e57fa099e18b6c",
-    "source": "source/timeline/日期待考证-伦纳德入梦追问道恩与克莱恩的关系.md",
-    "term": "不死者",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列4-不死者.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第一百一十八至一百二十二章。伦纳德比对夏洛克的肖像，察觉他与克莱恩·莫雷蒂的联系，并到廷根墓园查看；随后伦纳德进入道恩·唐泰斯的梦境追问。克莱恩以道恩身份与他交谈，承认与信奉“愚者”的组织有关，谈及因斯·赞格威尔，但有意让伦纳德把道恩与克莱恩视为不同的人。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "94dfddbb1dbddceaecb71f842c845e2279e2088097da9ec2f6061ced7fb298ed",
     "source": "source/timeline/日期待考证-伦纳德走访黛西等人，追查夏洛克的行踪.md",
     "term": "旅行家",
@@ -10610,16 +9560,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "16e5092f3f9fe895393c87590baf430c6e17b18b7a4a9d3b3da450c7ac09e47d",
-    "source": "source/timeline/日期待考证-佛尔思受劳伦斯临终所托，将遗物交给多里安.md",
-    "term": "无面人",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列6-无面人.md"
-    ],
-    "excerpt": "《诡秘之主》第二部“无面人”第一百九十至一百九十五章。佛尔思遇到身体衰弱的劳伦斯，接受他临终嘱托，在他去世后取走遗留物与笔记，前往普利兹港交给多里安·格雷。多里安核查事情经过，与佛尔思交流神秘学，并表示她日后可以写信询问。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "89d0fdee82b6db57bc63cf9282d54f296864a2e7ce67a64b0485c1ae15fcb467",
     "source": "source/timeline/日期待考证-佛尔思拜多里安·格雷为师.md",
     "term": "无面人",
@@ -10627,16 +9567,6 @@
       "source/worldview/pathways/占卜家途径/序列6-无面人.md"
     ],
     "excerpt": "《诡秘之主》第二部“无面人”第二百一十八至二百一十九章。佛尔思与多里安·格雷共同祭奠劳伦斯、安丽萨等人；多里安提出教导她成为非凡者，两人建立师生关系。他召唤契约生物取来材料并调配“学徒”魔药，已经是“学徒”的佛尔思为不暴露身份再次服下。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "858c750b627a4b02b7c4a6333c53f0bfc45ea5880c25697e6ae2fe76431dee33",
-    "source": "source/timeline/日期待考证-克莱恩与海柔尔的老师交手，阿蒙现身.md",
-    "term": "红祭司",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列0-红祭司.md"
-    ],
-    "excerpt": "《诡秘之主》第五部“红祭司”第三十四至三十九章。海柔尔被形似老鼠的老师咬伤，克莱恩前往庄园查探，与那位“寄生者”交战；阿蒙分身随后出现并控制了对方。克莱恩脱身后告知伦纳德，商讨应对阿蒙的办法。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -10667,16 +9597,6 @@
       "source/worldview/pathways/占卜家途径/序列0-愚者.md"
     ],
     "excerpt": "《诡秘之主》第八部“愚者”的《第六章 清晨》（本章之后的《选择》也标作第六章）。克莱恩获得黑夜女神交给的鸟形黄金饰品；同一章节中，阿蒙与“红天使”恶灵会面。回到贝克兰德街头后，克莱恩写信给阿兹克，回忆廷根值夜者的同事和过去的生活。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "cf8038eacd5b315a814065a6b526710e0defc28e096cefc432aa53296fecd8db",
-    "source": "source/timeline/日期待考证-克莱恩向“白之魔女”打听王室陵寝.md",
-    "term": "红祭司",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列0-红祭司.md"
-    ],
-    "excerpt": "《诡秘之主》第五部“红祭司”第一百六十一至一百六十五章。克莱恩通过特雷茜获得[“白之魔女”卡特琳娜](../../characters/entries/卡特琳娜·佩莱/)的线索，设法引来“红天使”恶灵；卡特琳娜陷入袭击，克莱恩随后借机向她询问王室陵寝等事项。事后他确认卡特琳娜仍然活着。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -10730,36 +9650,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "ea71d074ca65933b9b6da4d8f009e43a6ee5ebe32365cc40408a5d84eaf010c0",
-    "source": "source/timeline/日期待考证-克莱恩在诺斯古城与“圣言天使”交手.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第三十一至三十三章。克莱恩为寻找乌黯魔狼前往诺斯古城，在供奉魔狼的教堂遇上“圣言天使”斯提弗；双方交锋时，克莱恩借当地残余风暴神力攻击对方，随后脱身。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "4333fd1827109bf9faa82a71967b9382a6cd3deebecfe4637669ccb44de3c7d3",
-    "source": "source/timeline/日期待考证-克莱恩处理晋升后乌托邦的异变.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《诡秘之主》第八部“愚者”第一至二章。乌托邦在晋升风波后出现异常，克莱恩借历史影像与祝福处理善后；亚伯拉罕家族众人则面对伯特利归来及阿蒙夺取权柄后的变化。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b7eaf89f3bd63b42eaf883cd24666d1343349326dac3ba50b261ee8f42d6ad3e",
-    "source": "source/timeline/日期待考证-克莱恩察觉阿蒙分身已到贝克兰德.md",
-    "term": "不死者",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列4-不死者.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第一百五十五至一百五十八章。克莱恩先安排前往南大陆的行程，随后察觉阿蒙分身已来到贝克兰德，提醒塔罗会成员提高警惕。阿蒙的动向与军火交易、各方调查交错叙述，具体日期待核实。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "ef1d25bd4f8624eb7b6f5be80d3c0592d485215cda13088ebb50b9be5c65db2e",
     "source": "source/timeline/日期待考证-克莱恩将赫温·兰比斯制成秘偶.md",
     "term": "红祭司",
@@ -10780,16 +9670,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "a420c1d19d25e1932492e04136487f6a733edbdecc765ce42d98f13910688f9f",
-    "source": "source/timeline/日期待考证-克莱恩用黄金饰品汲取永暗之河的河水.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《诡秘之主》第八部“愚者”第十四至十五章。克莱恩进入卡尔德隆城深处，找到永暗之河支流与萨林格尔；经过尝试，他利用格蕾嘉莉的力量与“嫁接”，以鸟形黄金饰品汲取少量河水，并将饰品带回源堡。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "4a707fe9022c88b44f6bbdd1edf12ecd6d3d97a525097fabcce21bfa088b056f",
     "source": "source/timeline/日期待考证-克莱恩要求人造死神派停止唤醒仪式.md",
     "term": "红祭司",
@@ -10800,26 +9680,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "ebac34c5bb92d44d35c540b8cb00caf5580d01555fc50ad36ad9b97e537026ea",
-    "source": "source/timeline/日期待考证-克莱恩请奥黛丽封存有关末日的记忆.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第七十四至七十五章。克莱恩结合研究所的经历和既有线索，推测外神、源质与末日的联系；为避免危险，他请奥黛丽在灰雾之上帮助封存相关记忆。奥黛丽听闻后陷入迷茫，两人互相开解，并讨论如何帮助战争中的贝克兰德民众。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "d8b721292f5e55665aa52a00138ed28183cc54a49ee0ddffe8126f4b3c997c1b",
-    "source": "source/timeline/日期待考证-克莱恩请奥黛丽帮他梳理今后的目标.md",
-    "term": "红祭司",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列0-红祭司.md"
-    ],
-    "excerpt": "《诡秘之主》第五部“红祭司”第一至二章。克莱恩因得知自身追寻的真相而陷入痛苦和迷茫，以“世界”身份请求奥黛丽出诊；奥黛丽运用心理医生的知识帮助他梳理情绪与未来的目标。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "33426e129c840b9f301ab88801b3b1a70e68b0eaa7e00a880437e2dc7b0b15fa",
     "source": "source/timeline/日期待考证-嘉德丽雅摆脱知识追逐，以“隐者”身份加入塔罗会.md",
     "term": "旅行家",
@@ -10827,16 +9687,6 @@
       "source/worldview/pathways/学徒途径/序列5-旅行家.md"
     ],
     "excerpt": "《诡秘之主》第三部“旅行家”第八十一至八十五章。嘉德丽雅遭遇危险时向愚者祈求，被拉入灰雾之上；克莱恩协助她摆脱“知识逐人”的威胁，并邀请她加入隐秘聚会。嘉德丽雅选择“隐者”为代号，随后首次参加塔罗会。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "3b615ec6493bc525533e4b56028727e5522c9159663b096176b314e5ede83089",
-    "source": "source/timeline/日期待考证-埃姆林击杀原始月亮信徒凯文与阿尔戈斯.md",
-    "term": "不死者",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列4-不死者.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第六十二至六十五章。埃姆林追查原始月亮信徒加利斯·凯文和阿尔戈斯，耐心等待两人分开后行动；阿尔戈斯中途返回，埃姆林使用莱曼诺旅行笔记应战，先后击杀两人，带回遗留物并领取血族给予的奖励。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -10871,22 +9721,12 @@
   },
   {
     "key": "2710ff085104a548fb134d08147582975d4fd37d4cd038f130f1edbe1babca9e",
-    "source": "source/timeline/日期待考证-奥黛丽参加A先生在贝克兰德召集的聚会.md",
+    "source": "source/timeline/1349年7月至8月-奥黛丽参加A先生的聚会.md",
     "term": "小丑",
     "targets": [
       "source/worldview/pathways/占卜家途径/序列8-小丑.md"
     ],
     "excerpt": "《诡秘之主》第一部“小丑”第一百三十至一百三十二章。奥黛丽随佛尔思、休和格莱林特参加A先生召集的隐秘聚会，接触非凡者交易；回家后她与苏茜交谈，得知苏茜听到的消息。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "4bfdefb8edd3d1d40b14802e3eade6131f8170cdc24e38ae49a5f1dc230b174f",
-    "source": "source/timeline/日期待考证-奥黛丽察觉赫温·兰比斯侵入自己的心灵.md",
-    "term": "红祭司",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列0-红祭司.md"
-    ],
-    "excerpt": "《诡秘之主》第五部“红祭司”第二十七至二十九章。奥黛丽拜访赫温·兰比斯前向愚者祈求；交谈时，赫温借集体潜意识海洋侵入她的心灵，愚者眷顾触发警戒，使她能够察觉并控制自身的反应。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -10940,16 +9780,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "493834d9b175bc546aa2c8289f8c644559b134ebe677c693d5f560afbfc2d56f",
-    "source": "source/timeline/日期待考证-灯神请求解除封印，克莱恩拒绝交易.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第八十九至九十一章。贝尔纳黛准备探索罗塞尔的秘密线索，将许愿神灯等物品交给嘉德丽雅；嘉德丽雅向愚者汇报时，灯神借祈祷与克莱恩对话，提出解除封印的交易，克莱恩没有答应。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "1c13eb4a6024f69e59f562bd8ff12b3ef284d0e55590d81ca80a3fcb5425a70c",
     "source": "source/timeline/日期待考证-白银城探索队在神庙陷入循环.md",
     "term": "无面人",
@@ -10960,16 +9790,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "217c7150a808f945b7cdf95e3d75d49f9f7c5617883d98d8d07516b5562cacf7",
-    "source": "source/timeline/日期待考证-福根之犬主动向克莱恩交出眼珠和血液.md",
-    "term": "红祭司",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列0-红祭司.md"
-    ],
-    "excerpt": "《诡秘之主》第五部“红祭司”第一百七十九至一百八十一章。克莱恩准备搜集“古代学者”的魔药材料，使用“生命手杖”等物引出福根之犬；出乎他的意料，两条犬俯伏并主动交出相应的眼珠和血液。他据此推测它们与源堡之间的联系。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "c014ec118a4730b6550243985f6faf321d9868a78d37de59e4f2c94fc5a1fbb9",
     "source": "source/timeline/日期待考证-科林与两位长老进入陵寝，迎战异变的前任首席.md",
     "term": "不死者",
@@ -10977,16 +9797,6 @@
       "source/worldview/pathways/收尸人途径/序列4-不死者.md"
     ],
     "excerpt": "《诡秘之主》第四部“不死者”第一百六十五至一百七十章。科林向戴里克询问时之虫的利用方法；戴里克向愚者祈求并转达制作符咒的仪式。科林随后与洛薇雅、韦特进入前任首席的陵寝，穿过幽暗河流，在棺椁旁与异变的前任首席交战。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "bcc8bffa9941f9fbe3d6380e5d041ab66e54a98bd89bd591ef72dbb574affb9d",
-    "source": "source/timeline/日期待考证-艾伦与克莱恩在墓园附近挖出疑似威尔的遗体.md",
-    "term": "无面人",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列6-无面人.md"
-    ],
-    "excerpt": "《诡秘之主》第二部“无面人”第一百八十九至一百九十章。艾伦再次梦见威尔·昂赛汀，随后与克莱恩前往格林墓园附近挖掘，发现一具被艾伦认作威尔的遗体。这是此前[克莱恩进入艾伦的噩梦，追查威尔的线索](../#event-探索梦境)的后续。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -11010,26 +9820,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "fd7b439888cbb0616af8d240abc9e8049efabdc5b76545f73667c1c101b6a1c7",
-    "source": "source/timeline/日期待考证-道恩在飞往南大陆的途中遇见戴莉与伦纳德.md",
-    "term": "不死者",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列4-不死者.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第一百六十二至一百六十四章。克莱恩以道恩·唐泰斯的身份乘飞空艇前往南大陆，在途中遇见戴莉和伦纳德等红手套；他收到久未回信的阿兹克来信，戴莉也与他交谈试探。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "fa33008d7fffb31a90f675a6934ff7befe98de30c44bdd96fe6bc1b2a8a85193",
-    "source": "source/timeline/日期待考证-阿尔杰在海底宫殿取下深蓝珊瑚.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第五十八至五十九章。阿尔杰在海中进入珊瑚宫殿，取得一根深蓝珊瑚；珊瑚在深蓝光芒中虚化并融入他的身体。这一行动与高希纳姆此前提出的约定有关。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "54356f484ad7b3d2df7056ff1c04ca278d5c798fddf7f7a6aa70508f8ba00a20",
     "source": "source/timeline/日期待考证-阿尔杰在精灵遗迹接受有关西大陆的约定.md",
     "term": "逐光者",
@@ -11047,26 +9837,6 @@
       "source/worldview/pathways/收尸人途径/序列4-不死者.md"
     ],
     "excerpt": "《诡秘之主》第四部“不死者”第一百七十一至一百七十二章、第一百八十章、第一百八十九至一百九十一章。阿尔杰发现“工匠”夏尔夫疑似被原始月亮信徒控制，向嘉德丽雅请求协助；两人在拜亚姆采取行动，弗兰克的蘑菇也参与其中。事后，夏尔夫交出部分物品，阿尔杰取得“海之言”手杖等成果。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "2f2c016dc1e4fe3472a3cb48b0bb304fd2936d7d2fe19c17a25ecee0622b3ae7",
-    "source": "source/timeline/日期待考证-韦特晋升“银骑士”，阿尔杰获准筹备晋升仪式.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第六十六章。白银城长老韦特·希尔蒙晋升“银骑士”；首席科林说明绕至海边的路线无法通行，以及再次探索巨人王庭的准备。另一条线中，阿尔杰经过风暴教会的长期考察，得到准备“灾难主祭”晋升仪式的许可。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "02995eebfb0f344a141b486befc73dae3b653cd0d1ec6c407e01d26516324eee",
-    "source": "source/timeline/满月之夜-特莉丝在满月之夜向“门”先生询问陵寝入口.md",
-    "term": "红祭司",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列0-红祭司.md"
-    ],
-    "excerpt": "《诡秘之主》第五部“红祭司”第一百八十六至一百八十八章。克莱恩得知特莉丝准备联络“门”先生，提醒黑夜女神；满月之夜，特莉丝举行仪式，询问进入秘密陵寝和解除亚伯拉罕家族诅咒的方法，并将答案转告克莱恩。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -11210,16 +9980,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "4c1d6e5e526e6f5e3838e14f42acae3b0d4aa5abcc4ea15321008f6ec4a1f0c5",
-    "source": "source/timeline/1351-09-08-克莱恩把蘑菇带给月城居民.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第六十七至六十九章。月城大祭司尼姆召集居民；克莱恩向众人讲述外界及愚者，并提供蘑菇。居民初尝后感动，克莱恩随后展示“无暗十字”的光辉；尼姆带领鲁斯等人回城后，获救者与亲属相见。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "4b13e6fa4d5281c9548b26eecbe6b0726d6471fea22869d93e4ab24772569ae0",
     "source": "source/timeline/1351年1月以后线索-多里安为家族寻求满月庇护，向愚者祈求.md",
     "term": "愚者",
@@ -11260,46 +10020,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "abe681831bbf665561b5f6417c3395eddf7298ce23c256c568a14d0148563a03",
-    "source": "source/timeline/日期待考证-伦纳德入梦追问道恩与克莱恩的关系.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第一百一十八至一百二十二章。伦纳德比对夏洛克的肖像，察觉他与克莱恩·莫雷蒂的联系，并到廷根墓园查看；随后伦纳德进入道恩·唐泰斯的梦境追问。克莱恩以道恩身份与他交谈，承认与信奉“愚者”的组织有关，谈及因斯·赞格威尔，但有意让伦纳德把道恩与克莱恩视为不同的人。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "a7ab64929bff5a370ccfe419b0461f46dff4c6b652ecb6e792acd2b00a421710",
-    "source": "source/timeline/日期待考证-关键日记.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "贝尔纳黛挑出的日记经嘉德丽雅转交给“愚者”。克莱恩对照罗塞尔留下的笔记，推测大帝选择先死后复活，借此摆脱疯狂和污染，也重新审视无名小岛是否足够隐秘，能成为最后一座陵寝的位置。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "ed2500442a0132df09a93edb52a97d991034813b2e3827f7b664fd38b8b4269e",
-    "source": "source/timeline/日期待考证-卢米安请人解读科尔杜梦境中的象征.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第二十四至三十七章。卢米安认识自荐担任助手的卢加诺，在拉维尼遇见愚者教会的达尼兹；其后神秘学专家协助解读科尔杜梦境象征，卢米安与“魔术师”女士讨论结果。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "68f65e14a8b0d61c3dccdf7e417cfed82ec0516b87eabfaa11f2f720828c7016",
-    "source": "source/timeline/日期待考证-周明瑞在阳都梦境告别.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "周明瑞告诉卢米安，在他完全醒来前，格尔曼·斯帕罗将作为“愚者”体现他的一部分意志。随后他饮下撒玛利亚妇人泉的泉水，退入黑暗。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "76a873ea4abb35bf98be0d5a651bd933ba13ea273c8909fba0c1aab60993ba39",
     "source": "source/timeline/日期待考证-嘉德丽雅摆脱知识追逐，以“隐者”身份加入塔罗会.md",
     "term": "愚者",
@@ -11317,26 +10037,6 @@
       "source/worldview/pathways/占卜家途径/序列0-愚者.md"
     ],
     "excerpt": "《诡秘之主》第二部“无面人”第二百五十一至二百五十六章。埃姆林依血族始祖的启示向愚者祈求；克莱恩在确认风险后延迟回应，将他拉入灰雾。埃姆林同意加入隐秘聚会，选择“月亮”为代号。随后，他向愚者讲述血月女王奥尔尼娅与夜皇成婚、两人陨落于四皇之战以及血族退隐的经过（第二百五十六章《吸血鬼女王》）。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "c1a063edf71907692d05eae11f4eca3f5a28ad9dae499a6870a448d83f208004",
-    "source": "source/timeline/日期待考证-奥黛丽察觉赫温·兰比斯侵入自己的心灵.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《诡秘之主》第五部“红祭司”第二十七至二十九章。奥黛丽拜访赫温·兰比斯前向愚者祈求；交谈时，赫温借集体潜意识海洋侵入她的心灵，愚者眷顾触发警戒，使她能够察觉并控制自身的反应。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "94a1bd51f2065b9cf8781d0276f0e085699b882a36d0b018a1fe5885c2559204",
-    "source": "source/timeline/日期待考证-小阿卡那牌.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "简娜在愚者教堂遇见“审判”女士，接受邀请抽到“圣杯七”，受命调查特殊镜中世界。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -11410,26 +10110,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "0b6d5db8afde817de28f91889291685bf695c41f93e6f7e7ed2b2af8e147e048",
-    "source": "source/timeline/五月初线索-卢米安用“堕落水银”避开蒙苏里鬼魂.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第十至十六章。卢米安委托情报贩子安东尼·瑞德寻找纪尧姆·贝内和普阿利斯，随后与萨瓦党头目布里涅尔男爵会面。奥斯塔答应引荐他参加K先生召集的聚会；返回途中卢米安遭遇传说中的蒙苏里鬼魂。夜间，他遭遇鬼魂袭击，以“堕落水银”交换被袭击的命运，暂时脱险，并从“魔术师”女士的回信中得知应对建议。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "e86752e83cf43eb653b1918fbe2726ff3f3b1b512219882a8f72dd59f7e3c135",
-    "source": "source/timeline/四月底至五月初线索-卢米安化名夏尔，在特里尔金鸡旅店落脚.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一至四章《外乡人》《信使》《查理》《住客们》。卢米安以“夏尔”为名抵达特里尔，识破带路者拉马耶及其同伴的勒索，从地下特里尔进入乱街，在金鸡旅店租住。他通过“魔术师”女士的信使送出抵达后的第一封信，询问治疗及调查线索；当晚收到回信，得知心理治疗的约定，以及取得奥斯塔·特鲁尔信任的任务。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "df170736f467192ae200e23d364c10421142f9ce8f1d04eade188168ce6b048b",
     "source": "source/timeline/日期待考证-克莱恩与阿里安娜破解困住贝尔丹的黄铜书规则.md",
     "term": "魔术师",
@@ -11440,126 +10120,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "a19371ef3f682550808fce87761d12a53950379df74a393016b6a736969d5ecd",
-    "source": "source/timeline/日期待考证-克莱恩以流浪魔术师身份为人实现愿望.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《诡秘之主》第七卷“倒吊人”第九至十章。克莱恩以流浪魔术师的形象行走，尝试为人们实现愿望，以此探索“奇迹师”的扮演方式；他见到战争给普通家庭带来的损失。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "dafc115701c61abbbf91cbc3e3773bff9a32eac283b578a8d9c577ce2e62f46b",
-    "source": "source/timeline/日期待考证-卢米安一行追查镜中人时迎战佩尔乐.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第二百三十二至二百四十章。众人循镜中人线索行动，遭遇佩尔乐；“魔术师”“审判”“隐者”等人的追踪与卢米安一行的战斗交错。卷末卢米安面对战斗后的伤势与自身罪责。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "36cb09069b797d09f3d459d90e9e85f93cfd18b5887bfc2f0666eb21ca9f9d49",
-    "source": "source/timeline/日期待考证-卢米安参加普伊弗的沙龙，遇上红天鹅堡异变.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百至一百零九章。卢米安调查看门人失踪线索并受邀到红天鹅堡参加普伊弗的沙龙；城堡出现异常，参与者遭遇危险。加德纳·马丁后来谈及索伦家族先祖佛蒙达的状况，卢米安将相关梦境告知“魔术师”女士。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "0ad1e61b82b63f8078ab76f71e85590da7464cdde710afd73b275709b19ef930",
-    "source": "source/timeline/日期待考证-卢米安深入地下特里尔寻找撒玛利亚妇人泉.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第八十四至九十五章。卢米安与海拉等人深入地下特里尔，追索撒玛利亚妇人泉，途中遭遇莫尼特及其他势力。异常爆发后卢米安脱险，但手掌受到地血矿石及锈蚀般事物的侵蚀；他随后向“魔术师”女士求助。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "806640bbd2b3ebe09f907bc07ccadbe9eafc32b4d4c649618054401710187877",
-    "source": "source/timeline/日期待考证-卢米安请人解读科尔杜梦境中的象征.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第二十四至三十七章。卢米安认识自荐担任助手的卢加诺，在拉维尼遇见愚者教会的达尼兹；其后神秘学专家协助解读科尔杜梦境象征，卢米安与“魔术师”女士讨论结果。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "de817c2df3fcfaf0fc8a4ccfb6083ce8deb368f0b748f49c8c551ccde217612d",
-    "source": "source/timeline/日期待考证-卢米安追查愚人节小组时遭洛基跟踪.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百一十六至一百三十章。卢米安追查“愚人节”线索，遭洛基跟踪；双方周旋时他身上的恐怖气息爆发。海拉随后组织调查，“魔术师”女士也与他交流有关线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "bce284cdc0b21ee970283c765e2154f36ba22a1a41a5120c71e27315d464e46e",
-    "source": "source/timeline/日期待考证-奥斯塔引荐卢米安参加K先生的聚会.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第二十四至三十章。查理因艾丽斯太太之死被警方带走；卢米安调查后，通过信使向“魔术师”女士求助，并在奥斯塔引荐下参加K先生召集的聚会。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "3cf50ce6566313e9da390c10b01e24e0133a2ea89619a40085936da0661f1c2a",
-    "source": "source/timeline/日期待考证-宿命-原本的安排.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第一至七章。卷末战斗后，卢米安与“魔术师”讨论后续计划，众人处理缴获物品与奖励；芙兰卡和简娜另有行动，相关情节交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9d6c3b25803687b667ab43d7c446976e4b7adabadca49cbab443e53b7217f386",
-    "source": "source/timeline/日期待考证-宿命-幽蓝复仇者探索.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第八至十三章。卢米安随“魔术师”等人搭乘“幽蓝复仇者”探索迷雾海，寻找与丰收女神欧弥贝拉遗骸有关的线索，并遭遇危险。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "163a3b8e5bc174f6f5a5c8925ed0f007114fd2f4449b6f0dacc755aa9e1d2229",
-    "source": "source/timeline/日期待考证-微小的希望.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "循环破碎后，卢米安在科尔杜废墟问起复活奥萝尔的可能。“魔术师”告诉他，仪式遇难者的灵魂残片与污染一起封印在他左胸。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "f5ba6b1677c18209cfb9de201218339c6bb2f8127c4ecec5ffc442a0e4a2a163",
-    "source": "source/timeline/日期待考证-最后的询问.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "阿兹克把带有“愚者”气息的幸运金币交给卢米安。“魔术师”向五位金币持有者说明梦境的限制，给他们最后一次选择的机会。众人答应尝试唤醒“愚者”，各自握着金币入睡。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "d30002a450aa5e27208dd4bf1a84323beb4e21e6701e1afc6868b72a709a270f",
-    "source": "source/timeline/日期待考证-权杖七正式加入塔罗会.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "“魔术师”告诉卢米安，他已正式以“权杖七”加入塔罗会，并揭晓芙兰卡是“圣杯二”。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "b655330f3fc21cc82a4d3e5efbfca02956bcb842a9bae5254e0143507272d585",
     "source": "source/timeline/日期待考证-梅林让康斯顿毁于战火的房屋重现.md",
     "term": "魔术师",
@@ -11567,26 +10127,6 @@
       "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
     ],
     "excerpt": "《诡秘之主》第七卷“倒吊人”第三十至三十一章。流浪魔术师梅林·赫尔墨斯来到遭战火破坏的康斯顿，听取居民的愿望并帮助恢复受损房屋；经过多日，城市的建筑重现。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "579d6bf6b775438060aa168dd3754d65a385aef827108d0113bd8b1463004c27",
-    "source": "source/timeline/日期待考证-第二定律-同一个目的.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第五至十章。卢米安与芙兰卡等人在“魔术师”协助下处理镜中人的问题；卢米安成为“不老魔女”，芙兰卡也面对镜中的自己。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "f5063f8804b8ca071a988a1c1077014aced0d8371b2065ef449b8df22eb855d8",
-    "source": "source/timeline/日期待考证-织梦-条件满足.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一至八章。现实世界中，卢米安等人在新白银城处理此前事件的后果，向“魔术师”了解晋升后的变化，并接触“大地的恩赐”。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -11641,7 +10181,7 @@
   },
   {
     "key": "4861f7518a4d6f5b26cf2fb2ffc990d58512dcdccf7cfd4c68219901bf6da14b",
-    "source": "source/timeline/1349-08-28-克莱恩赴莫尔斯小镇调查灵异事件.md",
+    "source": "source/timeline/1349-08-28-克莱恩制成阳炎符咒.md",
     "term": "太阳",
     "targets": [
       "source/worldview/pathways/歌颂者途径/序列0-太阳.md"
@@ -11651,7 +10191,7 @@
   },
   {
     "key": "c1c4106ac89adaa88fdf3ba96f2389a48c639a0027765d384b524d9459276441",
-    "source": "source/timeline/1349-07-16-克莱恩听见白银城少年的祈求.md",
+    "source": "source/timeline/1349-08-19-戴里克向愚者祈求，选定“太阳”代号.md",
     "term": "太阳",
     "targets": [
       "source/worldview/pathways/歌颂者途径/序列0-太阳.md"
@@ -11677,196 +10217,6 @@
       "source/worldview/pathways/刺客途径/序列0-魔女.md"
     ],
     "excerpt": "《诡秘之主》第一部“小丑”第一百九十三至二百零一章。梅纳德夫人委托调查雪伦夫人；值夜者潜入她的住处并展开战斗，雪伦夫人死亡，科恩黎牺牲。克莱恩通灵后发现她与魔女教派有关。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "4538ec7cf3dc6079997bd31c547614feb94efaeed6a0850a499adaed3222e47f",
-    "source": "source/timeline/1350年1月5日至2月1日间-阿兹克在黑死号取回死神文献的拓印本.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第一百零四至一百零七章。克莱恩与阿兹克重逢，告诉他死神相关文献的线索；两人循线前往黑死号，遇见前来保护特雷茜的“不老魔女”卡特琳娜。她认出阿兹克，两人的交谈涉及拜朗帝国和“苍白灾难”；阿兹克取得文献的拓印本后带克莱恩离开。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "5af8c97893f8d353f7aebecb4c0d897daae7f6c2abc966e37acb5714d7b2514e",
-    "source": "source/timeline/日期待考证-宿命-两个选择.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第一百零八至一百二十四章。卢米安离开摩罗拉后，众人处理身体变化与镜中世界线索；阿芒迪娜来到特里尔，芙兰卡、简娜和卢米安面对各自的选择并交流隐秘。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "7cae2c5c16037d7f5c0c5de0f21a1af1be2302171aa239ca3f6161e6f22fa10a",
-    "source": "source/timeline/日期待考证-宿命-原本的安排.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第一至七章。卷末战斗后，卢米安与“魔术师”讨论后续计划，众人处理缴获物品与奖励；芙兰卡和简娜另有行动，相关情节交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "23a38773addda1015de7d069bc96870ff14a6a2e42935621f53a974e9eb463d4",
-    "source": "source/timeline/日期待考证-宿命-幽蓝复仇者探索.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第八至十三章。卢米安随“魔术师”等人搭乘“幽蓝复仇者”探索迷雾海，寻找与丰收女神欧弥贝拉遗骸有关的线索，并遭遇危险。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9411737daeb2c37176615b9303c4dceeca2413d6b838da6aa9bb8a1d38858c77",
-    "source": "source/timeline/日期待考证-宿命-摩罗拉.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第五十七至七十五章。卢米安被流放至摩罗拉，在这座城市接触执法者、古辛与阿不思等人，搜集“0—01”相关线索；特里尔的芙兰卡等人同时另有调查。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "17478fa4e6dfdd43329c1e31552fa3a469cc503e1ede661ae10c37dbb14e1939",
-    "source": "source/timeline/日期待考证-宿命-海盗之港.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第四十三至五十三章。卢米安、简娜和安东尼抵达巴纳摩港，接近海盗船“纽因斯”号及其船长，围绕目标展开行动。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "4474c1ffe2e00c856b2420128a7ed7b958af9c7dbf0aab9784233cb7a9fb8cf2",
-    "source": "source/timeline/日期待考证-宿命-漩涡的中心.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第一百二十五至一百三十八章。卢米安一行追查哈里森和佩尔乐，并卷入特里尔植物园的漩涡计划；镜中世界、原始岛屿与其他地点的多方行动交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "67a96e7a1af9b043e4a990fad3412712c16ee270579198b468d9a532365341c8",
-    "source": "source/timeline/日期待考证-宿命-生命之源.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第十四至二十三章。卢米安等人继续调查欧弥贝拉遗骸及相关污染；特里尔地下墓穴的行动、卷毛狒狒研究会聚会与其他人物的经历交错叙述。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "89f0d938d4cc3819f4c09ffe6936f119708eb2cfb070331bfe7dcd20e84f3b19",
-    "source": "source/timeline/日期待考证-宿命-祂宣称的未来.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第一百四十八至一百四十九章。罗塞尔牵制试图退去的白雾，阿蒙以第二块“亵渎石板”引来混沌洪流，重创屏障外的“不定之雾”。罗塞尔也被洪流淹没。阿蒙向贝尔纳黛说明，在没有新的“黑皇帝”等条件下，她的父亲百年后仍有复活的可能。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "731ddeb73c98c300a54a23832ae3849976accafa5ebbf6a2e46f15955f7895d6",
-    "source": "source/timeline/日期待考证-宿命-祈福节.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第二十四至三十一章。卢米安一行到南大陆拉克雷地区调查异常死亡与当地祈福节，追寻遇害者共同生日等线索，并遭遇魔女及相关危险。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "f136b541118d999f8e7d226e8cd71cfe31464c353ef5b6ba5aa8cfee2121470d",
-    "source": "source/timeline/日期待考证-宿命-苍白国度.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第三十二至四十二章。卢米安进入冥界，渡过冥河，探索苍白国度与残缺尸体，遭遇与欧弥贝拉有关的危险；同行者及特里尔的情节交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "214a8813645479f229ef45da6e096cbec4a50712cd8f7861a7c5187ef34bf5f7",
-    "source": "source/timeline/日期待考证-宿命-魅惑.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "芙兰卡站上火刑架，承受火焰灼烧，由简娜将魔药送到嘴边。晋升之后，她向两人说明疾病与魅惑能力的变化。见《宿命之环》第五部“魔女”第五十四章《火刑》、第五十五章《魅惑》。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "eb28d60a8a892447f858cf6ad20b8f398f1a8af8474c4024ea7912a46b723753",
-    "source": "source/timeline/日期待考证-宿命-黑暗森林.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第五部“魔女”第七十六至九十章。摩罗拉各方围绕“0—01”暗中试探、结盟与交锋；芙兰卡等人在特里尔追查相关线索，两个地点的行动交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "e6495bb99ff44c81f3824609158725a1f860cfe1bad059277e794f50b6d531d5",
-    "source": "source/timeline/日期待考证-最后一课.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "这场交谈与特里尔植物园的战斗交错，发生在解除封印之前。见《宿命之环》第五部“魔女”第一百三十三章《面对》、第一百三十四章《最后一课》。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "a11740d14e6ad425bf90bce53a06ed01a2de205d15197901d10dfa75d16549e2",
-    "source": "source/timeline/日期待考证-第二定律-同一个目的.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第五至十章。卢米安与芙兰卡等人在“魔术师”协助下处理镜中人的问题；卢米安成为“不老魔女”，芙兰卡也面对镜中的自己。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "385dd931c0b21d3a5ef4c67e4e27f9905bbc68d9f30331ad9229622cc86b1688",
-    "source": "source/timeline/日期待考证-第二定律-注定收下的信.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第五十九至六十四章。众人调查妮塞娅、魔女与镜中世界的线索，卢米安等人收到与伟大存在有关的信，并与阿蒙交流；各线交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "6829f7f6a209fc0dc4663f1eb755e78aadc1b9e307f1e84889a26a33f8c6ccbe",
-    "source": "source/timeline/日期待考证-第二定律-魔女的拜访.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第十九至二十三章。卢米安与芙兰卡等人追查“病教”，遭遇魔女与多方力量，并在聚会上进一步讨论“白纸”线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "09c7726b9d215baf8bae8461210960844ae53ef6aa2c1ce2c60ce5d61fd4b938",
-    "source": "source/timeline/日期待考证-织梦-问题的答案.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "芙兰卡向简娜解释，她希望借晋升引来“原初魔女”的注视。梦中力量受到压制，她仍借周围的绝望情绪度过晋升的最后阶段。“审判”把她被迫在梦中晋升的消息传了出去。见《宿命之环》第六部第一百一十五章《“机会”》、第一百一十六章《注视》。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "7247cdb3b0f001653f4e0e22aa3280a2538ed11ce4e307d5a8580fa66fb22f8b",
-    "source": "source/timeline/日期待考证-翻译.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "发生在三人谈过彼此的选择后，追查植物园漩涡之前。见《宿命之环》第五部“魔女”第一百一十九章《翻译》至第一百二十一章《所谓天道》。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -11970,36 +10320,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "5a98f4778232e363c3594c31257d37b044f923bd576a086d751c637fb4f61c71",
-    "source": "source/timeline/1358年4月1日至四旬节前-卢米安从梦中的“铁匠”手中夺得短刀.md",
-    "term": "梦魇",
-    "targets": [
-      "source/worldview/pathways/不眠者途径/序列7-梦魇.md"
-    ],
-    "excerpt": "《宿命之环》第一部“梦魇”第八十一至八十九章。奥萝尔和卢米安讨论循环的成因及破解办法；卢米安在梦境废墟接近血色山峰，遭遇持短刀的“铁匠”怪物，设法夺得短刀，后来将它命名为“堕落水银”。姐弟俩与联合调查组共同商议并守护奥萝尔。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "e09d29ce583b1c5176974a383ca1133054659f0688cfd77d669b28939d243f69",
-    "source": "source/timeline/五月初-卢米安在地下墓穴结识奥斯塔，请他引荐聚会.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第五至九章《生活经验》《传说》《时尚之都》《报酬》《招摄》。卢米安前往地下墓穴，接近奥斯塔·特鲁尔，以寻求遗忘痛苦为由与他交谈，并跟踪他到住处。卢米安识破其说辞后，与他达成交易，请他引荐神秘学聚会；奥斯塔教他招摄仪式，两人招来一名怪异生物。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "6cd40afb25005c13f21fc67211047f3e0816b7e3800a8a3c00007d486e3a042e",
-    "source": "source/timeline/五月初线索-卢米安用“堕落水银”避开蒙苏里鬼魂.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第十至十六章。卢米安委托情报贩子安东尼·瑞德寻找纪尧姆·贝内和普阿利斯，随后与萨瓦党头目布里涅尔男爵会面。奥斯塔答应引荐他参加K先生召集的聚会；返回途中卢米安遭遇传说中的蒙苏里鬼魂。夜间，他遭遇鬼魂袭击，以“堕落水银”交换被袭击的命运，暂时脱险，并从“魔术师”女士的回信中得知应对建议。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "4d07d8c84cceaff7355488047897e7cec1568feec719c6dbaeae153b3fa12c96",
     "source": "source/timeline/四月下旬（外界回报）-科尔杜调查组发现村内外日期矛盾.md",
     "term": "梦魇",
@@ -12007,356 +10327,6 @@
       "source/worldview/pathways/不眠者途径/序列7-梦魇.md"
     ],
     "excerpt": "《宿命之环》第一部“梦魇”第六十至六十三章。神秘女士向卢米安解释“舞蹈家”的恩赐与仪式思路；卢米安随后向莱恩、莉雅、瓦伦泰说明时间循环及调查结果。众人讨论求助信和日期，卢米安又从阿娃处得知雷蒙德失踪，奥萝尔推测他可能与水边仪式的献祭有关。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "48dc85c192b8a35afb3affda70e52dd03848d3a5628a652559c57b8bad33940e",
-    "source": "source/timeline/四月底至五月初线索-卢米安化名夏尔，在特里尔金鸡旅店落脚.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一至四章《外乡人》《信使》《查理》《住客们》。卢米安以“夏尔”为名抵达特里尔，识破带路者拉马耶及其同伴的勒索，从地下特里尔进入乱街，在金鸡旅店租住。他通过“魔术师”女士的信使送出抵达后的第一封信，询问治疗及调查线索；当晚收到回信，得知心理治疗的约定，以及取得奥斯塔·特鲁尔信任的任务。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "1a84bcdf57f2eabe53fd594ea15d7e7fd2802aa49536cc4df78ec0e6560e7f7e",
-    "source": "source/timeline/日期待考证-“替罪羊”.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一百一十九至一百二十一章。卢米安发现弗拉芒死去，重新审视蒙苏里鬼魂造成的命运交换。翌晨八点，警察到金鸡旅馆询问死者生前的情况。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "76ce3575aee1f5bc08c2ce3fe1d762926822fc0b9e7f4139104c860d79530c13",
-    "source": "source/timeline/日期待考证-卢加诺在船上遇到异常病人，卢米安调查神降学派.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第一百零六至一百一十八章。航行途中，卢加诺遭遇异常病人及婴儿哭声；卢米安等人调查神降学派和蒙塞拉特神父引发的危机。特里尔的镜中世界调查与航行线交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "d667efdc36d5987d0f3a24b5a83827d7f448abf16a5f7afe9583a0c7e80a16b8",
-    "source": "source/timeline/日期待考证-卢米安一行追查镜中人时迎战佩尔乐.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第二百三十二至二百四十章。众人循镜中人线索行动，遭遇佩尔乐；“魔术师”“审判”“隐者”等人的追踪与卢米安一行的战斗交错。卷末卢米安面对战斗后的伤势与自身罪责。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "6ec0cb51380eaa7e4c2e12b1826c08a37f3dbf8e71ec525f3d7772398ca1bc6c",
-    "source": "source/timeline/日期待考证-卢米安与“盔甲幽影”签订契约.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第四十七至五十五章。卢米安在寻找契约生物的过程中遇见奇怪的小男孩，并遭遇带单片眼镜的莫尼特；他随后召唤“盔甲幽影”，经过谈判签订契约。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "32f2c2f24b470bbad388e203a408855b3877bd95242a29d838d03253a77ddd39",
-    "source": "source/timeline/日期待考证-卢米安与卢加诺搭乘飞鸟号南下.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第十五至二十章。卢米安与卢加诺搭乘飞鸟号，继续向南航行。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "f924fd2869bf7ec5aea99d57888a393a7f69b39111026080d9dc4426f6b22484",
-    "source": "source/timeline/日期待考证-卢米安与芙兰卡击杀“黑蝎”罗杰.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一百一十三至一百一十八章。卢米安和芙兰卡前往市场大道126号，对付毒刺帮的“黑蝎”罗杰及其相关雕像。两人将罗杰制服并杀死，K先生随后现身。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "5dcfe995f2e1c191e6c70af97cf9c3d6f533a2cc33bacbbb347af855d90be878",
-    "source": "source/timeline/日期待考证-卢米安与芙兰卡向“盔甲幽影”打听另一世界.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百七十四至一百七十六章。应“倒吊人”请求，卢米安和芙兰卡再次召唤“盔甲幽影”，获取有关另一世界的回答。作为报酬，卢米安请求未来探索“幽蓝复仇者”号，并选择暂缓行动。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "7c3421a290c86da1efb051bffdbbfedb05bba9228ab3bd2e9bf70ee9cdff4a99",
-    "source": "source/timeline/日期待考证-卢米安与芙兰卡审问路易斯·隆德.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第八十四至九十六章。卢米安追查可疑的埃夫及路易斯·隆德，并再次接受苏茜的心理治疗；他与芙兰卡合作控制路易斯，询问科尔杜村及普阿利斯夫人的线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "5f0c34fe30203b7ed818c714ddd6d873eb1442045540c5be0247efa2ef33d563",
-    "source": "source/timeline/日期待考证-卢米安与芙兰卡揭露“西索”的阴谋.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第一百五十一至一百六十一章。卢米安、芙兰卡等人合作对付“西索”特瓦纳科，揭露其阴谋；相关冲突后，众人继续调查蒂扎莫镇与“梦节”。原文在第一百六十一章附近存在同号章节。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "0738130556569b6468b8c910d4b8ff8556243c44ecb27e2695005a4b3cbd0984",
-    "source": "source/timeline/日期待考证-卢米安与芙兰卡识破假埃夫，向伦塔司通灵.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第九十七至一百零四章。卢米安确认查理面临危险，和芙兰卡调查微风舞厅的异常；两人对假扮埃夫的伦塔司动手并通灵，得知苏珊娜即将恢复的线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "cc1936d98226a408f7d96eac6bd9d5de1c02faabcff88f1d02b9cd78c7fc53fd",
-    "source": "source/timeline/日期待考证-卢米安与芙兰卡追查失踪的走私货物.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第七十六至八十三章。萨瓦党调查地下特里尔失踪的走私货物；卢米安和芙兰卡沿线探索，遭遇危险的黑影与异常脚印。返回后，两人继续查问走私货物及克里斯托的异常。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "589bf3a0a1e08a875de7b716482598e419358d1f567237d0889d526f4249ec13",
-    "source": "source/timeline/日期待考证-卢米安与马格特交换命运，马格特死于鬼魂袭击.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第二十至二十三章。卢米安跟踪毒刺帮头目马格特，在夜间交战并以“堕落水银”交换命运。马格特逃回据点后遭蒙苏里鬼魂袭击身亡，卢米安则暂时摆脱被袭击的命运。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "bc2efb9ae4ff262d6ad76d4a820ebbba3f5860b0199b60b67c2ba40fb7bf0fa8",
-    "source": "source/timeline/日期待考证-卢米安以“麻瓜”身份参会，接触愚人节小组.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百一十至一百一十五章。卢米安借“盔甲幽影”提供的线索寻找穿越者相关信息，并在海拉安排下以“麻瓜”的身份参加卷毛狒狒研究会聚会，接触“愚人节”小组。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "a10820ff9d21adc69a1111e711a4285430bf3b86477cb72de4ca75a2b14947bc",
-    "source": "source/timeline/日期待考证-卢米安参加普伊弗的沙龙，遇上红天鹅堡异变.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百至一百零九章。卢米安调查看门人失踪线索并受邀到红天鹅堡参加普伊弗的沙龙；城堡出现异常，参与者遭遇危险。加德纳·马丁后来谈及索伦家族先祖佛蒙达的状况，卢米安将相关梦境告知“魔术师”女士。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "73f4c21f38a6e46ed4d4c23bfa0b6c50717424625aff2168d2968edbc43c4359",
-    "source": "source/timeline/日期待考证-卢米安受加德纳邀请加入铁血十字会.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第十八至二十二章。加德纳·马丁邀请卢米安参加聚会，向他介绍铁血十字会的理念和仪式；卢米安加入该组织，继续执行K先生此前交付的调查任务。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "327b7e4c3a3be1a9e531ccfda0801214703310c2b3e4b2f65d5ce1a425eb4765",
-    "source": "source/timeline/日期待考证-卢米安在桑塔港追查渔业公会与祈海仪式.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第三十七至七十五章。卢米安抵达桑塔港，调查渔业公会、祈海仪式和“愚人节”成员；芙兰卡与简娜在特里尔调查地下墓穴，两条线交错推进。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "fe3fbc219e1d41ed515d368b6716e824b28652f8d74a0832a4e69f1e959a74d5",
-    "source": "source/timeline/日期待考证-卢米安在矿洞击败纪尧姆·贝内，通灵追问村庄真相.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第六十至七十章。卢米安追查纪尧姆·贝内，与芙兰卡、简娜进入地下矿洞并遭遇其本尊。三人合作对抗神甫，卢米安通灵追问科尔杜村真相，随后净化其灵体。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "f90c0cfc7a585ab4d182de01ca4445460496f977855e7989ba7be75e1182bf89",
-    "source": "source/timeline/日期待考证-卢米安在磨坊舞厅击杀“铁锤”艾特.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第四十四至六十六章。卢米安接触萨瓦党成员并认识简娜，随后在磨坊舞厅设局对付毒刺帮的“铁锤”艾特，将其击杀并带回微风舞厅。萨瓦党老大加德纳·马丁给予他头目身份；芙兰卡随后透露自己属于卷毛狒狒研究会。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "56cc968c2a64d3222bc4fdc3387b42975271126eacda87ebf25367fc0ce5c68d",
-    "source": "source/timeline/日期待考证-卢米安在蒂扎莫镇走访居民，打听梦节.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第一百六十一至一百六十八章。卢米安一行来到蒂扎莫镇，接触当地居民，围绕“梦节”和特瓦纳科屋宅收集线索。原文有两个第一百六十一章，以章节标题区分。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "6abeb87fd59af2eed1254b2dee615ae631d6f91a36e5d2de5dc7b89dce375eb7",
-    "source": "source/timeline/日期待考证-卢米安在西拜朗结识加缪，追查“西索”.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第一百三十八至一百五十章。卢米安一行抵达西拜朗，结识巡查队员加缪，调查“西索”特瓦纳科的行踪。特里尔另有交错叙事。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "e90f40bdb6e556d0f09664f4b0e549ae2c64cac67077481b0d2a43fd1597a8bd",
-    "source": "source/timeline/日期待考证-卢米安奉命到地下特里尔接应交易者.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第六至十二章。加德纳·马丁派卢米安与萨瓦党成员前往地下特里尔接应交易者。途中小队遭遇危险并撤离；卢米安和芙兰卡推测，这次任务可能涉及加德纳对他的考验。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "090e38f55027e17de48bff4e62dda5484cb564702f0f62959e3a0c0bd8b85368",
-    "source": "source/timeline/日期待考证-卢米安深入地下特里尔寻找撒玛利亚妇人泉.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第八十四至九十五章。卢米安与海拉等人深入地下特里尔，追索撒玛利亚妇人泉，途中遭遇莫尼特及其他势力。异常爆发后卢米安脱险，但手掌受到地血矿石及锈蚀般事物的侵蚀；他随后向“魔术师”女士求助。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "d6d433ac3427c92d8540bd820023a4fd12367d0aabcc5273177d837634f97467",
-    "source": "source/timeline/日期待考证-卢米安等人审问“我有个朋友”，追查愚人节小组.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百三十一至一百四十六章。卢米安、简娜和芙兰卡追查“我有个朋友”，在诊所与其交锋并将其控制。经过询问，他们获得愚人节小组及相关事件的情报，最后处置了这名敌人。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "29ee388e54988547c97e415c918e086d266ee4007cf2ddb4859ce53a59a9032b",
-    "source": "source/timeline/日期待考证-卢米安等人追查布瓦尔，发现他的尸体再度出现.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百七十七至一百八十三章。卢米安、芙兰卡和简娜调查布瓦尔·蓬派罗，以伪装和配合接近目标并取得线索；布瓦尔死后，其尸体又以异常状态出现。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "615bd23e5636c757db230957220d2d45033f1811972934c12ab33a355fe5c9fb",
-    "source": "source/timeline/日期待考证-卢米安等人追查镜中人，审问工业部长莫兰.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第二百零九至二百三十一章。卢米安等人调查工业部长莫兰·阿维尼及镜中人线索，遭遇“阴影商人”耶布斯，随后围绕莫兰展开追捕与审问。镜中世界及其他势力的行动交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "45815bbccf32d92823f1e7bbd89055e81b482604c34129784f9783aab6e0f41f",
-    "source": "source/timeline/日期待考证-卢米安请人解读科尔杜梦境中的象征.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第二十四至三十七章。卢米安认识自荐担任助手的卢加诺，在拉维尼遇见愚者教会的达尼兹；其后神秘学专家协助解读科尔杜梦境象征，卢米安与“魔术师”女士讨论结果。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "679ed470fb70e7d0d9c01f3befedbcd5bd09c84bf65eff003241cb60b63781db",
-    "source": "source/timeline/日期待考证-卢米安调查特里尔洞穴协会.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百四十七至一百五十七章。研究会召开特别聚会并推进内部审查；卢米安继续调查特里尔洞穴协会及可疑人物，芙兰卡等人追查至福会成员碧翠丝。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "0658209841548a8786fec2ad603fafd5067b476a2968372977d4a7c8a7ae52fc",
-    "source": "source/timeline/日期待考证-卢米安调查达德尔在旅途中的疯病.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第十一至十四章。旅途中，卢米安接触达德尔的异常疯病，并调查背后的非凡因素。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "8abef5ede7f412da118cc1a82adab657d90edde6c128676e8a153ce5d0d5d96a",
-    "source": "source/timeline/日期待考证-卢米安赴地下墓穴安置弗拉芒和鲁尔夫妇的骨灰.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一至五章。市场区事件后，卢米安与芙兰卡讨论各自的隐秘组织，随后前往地下墓穴处理弗拉芒、鲁尔夫妇的骨灰与遗物；他继续思考蒙苏里鬼魂及自身处境。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "2f9a6a98ad345ae11750bf1a79314a15df01a16a49e3fb1aa25654b73ed8e3c2",
-    "source": "source/timeline/日期待考证-卢米安赶走毒刺帮，接管金鸡旅馆.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第三十一至四十三章。查理再次遭遇梦中女子苏珊娜·马蒂斯，卢米安与前来处理的官方人员交换线索；他随后驱逐金鸡旅馆里的毒刺帮成员，接手旅馆地盘。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "03b7200dec9b4e7250a311d179e30acf9b61c20c084dcf5eee19b860991dcf9b",
-    "source": "source/timeline/日期待考证-卢米安返回特里尔，晋升“猎命师”.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第二百零五至二百零八章。卢米安返回特里尔，与芙兰卡会合，并晋升“猎命师”，开始观察与运势相关的新能力。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "bb0d0e6ed6fbc3370f8237bd7395272a2613b0e6db26071dd8b78cde4c6a72b5",
-    "source": "source/timeline/日期待考证-卢米安追查愚人节小组时遭洛基跟踪.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百一十六至一百三十章。卢米安追查“愚人节”线索，遭洛基跟踪；双方周旋时他身上的恐怖气息爆发。海拉随后组织调查，“魔术师”女士也与他交流有关线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "0789347dd05ebf1b8fce999e8243edd34b4eaa9092b67e0952244e135897d500",
-    "source": "source/timeline/日期待考证-吟游诗人的处决.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第九十八至一百零五章。祈海仪式后，卢米安等人审问“吟游诗人”，获知“愚人节”和卷毛狒狒研究会的部分往事；“吟游诗人”被处决，众人处理战利品。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "d155b82e6fd6a85c0a7aedf4c3cfb190a0883aaa17c79b0106b730e4ec341fd8",
-    "source": "source/timeline/日期待考证-奥斯塔引荐卢米安参加K先生的聚会.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第二十四至三十章。查理因艾丽斯太太之死被警方带走；卢米安调查后，通过信使向“魔术师”女士求助，并在奥斯塔引荐下参加K先生召集的聚会。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -12370,36 +10340,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "645da6fd4a151465c1b07ca3369869e032cb9254d5750d5daa3520940404266a",
-    "source": "source/timeline/日期待考证-普阿利斯夫人向卢米安讲述奥萝尔袭击她的经过.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一百零九至一百一十二章。卢米安再次见到普阿利斯夫人，询问科尔杜村的过去；她称奥萝尔曾袭击自己，并讲述有关村庄事件的见闻。卢米安听后情绪激烈，返回旅馆。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "7909669ada5b72a7f18efd702505f0c4c183d942c2501c738b1d391d81a95780",
-    "source": "source/timeline/日期待考证-海拉安排卢米安接触普伊弗·索伦.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第七十三至七十六章。卷毛狒狒研究会的海拉抵达特里尔，与卢米安见面并说明来意，安排他接触“黑猫”成员普伊弗·索伦。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "d9113f90c57a6cddbf54166f6bb3e34f429500372a6352c8d494de1ffb6f53cc",
-    "source": "source/timeline/日期待考证-特里尔地下异变，卢米安等人与腓力交手.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第二百零六至二百一十八章。特里尔的地下异常扩散，多方力量介入。卢米安、简娜、芙兰卡和安东尼在混乱中与腓力等敌人交锋，并取得相关战利品。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "69d6de993b1390188b03f3e94ae964d13cf8e73266412e2e75efb74c7a34d47d",
     "source": "source/timeline/日期待考证-皮埃尔的羊在地上写字向卢米安求救.md",
     "term": "梦魇",
@@ -12407,296 +10347,6 @@
       "source/worldview/pathways/不眠者途径/序列7-梦魇.md"
     ],
     "excerpt": "《宿命之环》第一部“梦魇”第三十七至三十九章。卢米安调查牧羊人皮埃尔·贝里的三只羊，其中一只在地上写字求救；奥萝尔辨认出文字，怀疑羊原本是人。姐弟随后商量离开科尔杜村并寻求外界帮助。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "3e19da732fe4a607e909ae2645bc8f5e920ccddf10af53f3e3749be8900ba1e9",
-    "source": "source/timeline/日期待考证-第二定律-保护者.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第十四至十八章。众人处理信仰、尊名与保护者相关事务，继续查找“病教”线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "cf3dab5595d120cea50ef909aa80e0368c8071e672fbd53b78cef5f0b4e3e3a7",
-    "source": "source/timeline/日期待考证-第二定律-台风.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第五十一至五十三章。卢米安深入狂暴海的台风并晋升“天气术士”，极端天气逐渐平息；他回到特里尔，与同伴讨论晋升后的变化。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "72b95aa5630a723b24960b74f4043f808e6592b0782ef275ee0291124aa246b8",
-    "source": "source/timeline/日期待考证-第二定律-同一个目的.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第五至十章。卢米安与芙兰卡等人在“魔术师”协助下处理镜中人的问题；卢米安成为“不老魔女”，芙兰卡也面对镜中的自己。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b5887ac67679340bcb523b92d64b15be3f360b8f8f8b79b0ec79fdf25a4a608d",
-    "source": "source/timeline/日期待考证-第二定律-后启示书.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第三十九至四十三章。众人处理战利品及晋升准备，“后启示书”的预言引出后续线索；简娜等人继续处理病教和信众事务。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "2a84ab0960f1f4eb74bfae1db8f5e6bc1075b3dfed07ce245645783947b58250",
-    "source": "source/timeline/日期待考证-第二定律-嫁衣.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第一至四章。卢米安等人探查图铎宝藏中的棺材与异常尸体，处理所得非凡特性，并准备后续仪式。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "c650dfd34cd7840eb66c261035aa13001f70461d2b8947c16c3441df70538b56",
-    "source": "source/timeline/日期待考证-第二定律-序列之上.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第五十四至五十八章。“愚者”、佛尔思与卢米安谈论神性、人性、序列之上、支柱与末日预言。1368年是人物讨论中的预言年份，不能当作此会面日期。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "d8c3c80c8c01dc318d42ffbeb71e227849735f481ab40d4407f52589d023a07f",
-    "source": "source/timeline/日期待考证-第二定律-时近八月.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第四十三至四十四章。经历数个月的相对平静后，时间接近八月；卢米安盘点“天气术士”非凡特性的线索，决定前往班西港。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b3d81345474bc4a6ec96b34df8fac721aacd919d256361dc79bf749d19cdfb75",
-    "source": "source/timeline/日期待考证-第二定律-暗藏的条件.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第四十八至五十章。班西港冲突继续，卢米安面对紫焰巨鸟并获得“天气术士”相关特性；与此同时，多地相继出现异常天气和人物活动。原文多地场景交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "00ed4be39f3e300611714d21e26ff64039be82572b1808edd69157522f9a098d",
-    "source": "source/timeline/日期待考证-第二定律-注定收下的信.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第五十九至六十四章。众人调查妮塞娅、魔女与镜中世界的线索，卢米安等人收到与伟大存在有关的信，并与阿蒙交流；各线交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "af56f5c2d220353b095033574a743d060f6843fed3226b206a2f04747f1b5a2f",
-    "source": "source/timeline/日期待考证-第二定律-白纸.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第十一至十三章。奥萝尔留下召唤“白纸”的提示，卢米安等人追查这一线索及其与科尔杜灾难、“隐匿贤者”的联系。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "231968ecdf240e5708edb3ca92000eaa2835dc244e9f1a103828dfdb83501aa7",
-    "source": "source/timeline/日期待考证-第二定律-石碑.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第四十五至四十七章。卢米安、芙兰卡与简娜抵达班西港废墟，探索木制高塔和第五代天师留下的石碑，遭遇镜中“血皇帝”相关陷阱。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "018032c75a49a911f4c325bbd96a58cf3b406e062a348bdb3c705ae08f8195c4",
-    "source": "source/timeline/日期待考证-第二定律-碰面.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第二十四至二十七章。卢米安和简娜前往撒玛利亚妇人泉，与相关人物会面；众人继续处理教会与非凡材料事宜。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "6eaab7371da93935d077631bc0fbed6a634fdd5cb0fefa3f79d1b656f59391d4",
-    "source": "source/timeline/日期待考证-第二定律-蒙苏里鬼魂.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第六十五至六十九章。地下特里尔的封印异动，蒙苏里鬼魂相关危机与多方行动汇合；众人围绕“母亲”牌及巨大橡树展开应对。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "268089736be5b903e22c38b8e3ff225cabf30b55b4425ea804ee480076d87315",
-    "source": "source/timeline/日期待考证-第二定律-魔女的拜访.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第十九至二十三章。卢米安与芙兰卡等人追查“病教”，遭遇魔女与多方力量，并在聚会上进一步讨论“白纸”线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "ee063da1222b2de87d9597730e538fb6adbad0c8752012fb247e1ed90d748432",
-    "source": "source/timeline/日期待考证-简娜进入异常客房，众人追查“旅舍”与旧墓园的联系.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百八十四至二百零五章。众人追查失踪的作家及“旅舍”的线索，简娜进入异常空间；卢米安等人逐步发现房间和旧墓园之间的关联，并继续设法脱险。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "01c98ca5be3447b84add8ddecb60c9549dbc5b2ffdf3821a4d5b3f2e1ad6d08b",
-    "source": "source/timeline/日期待考证-织梦-再入梦境.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一百二十五至一百三十五章。众人在梦内外交换信息并重返梦境，围绕李克己、目曙医院和神秘婴儿的异常展开行动。梦中医院事件与现实讨论交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b9e40de34e34523295d8cc70435727f05d8dbdaf703c502520f58f6ad3772026",
-    "source": "source/timeline/日期待考证-织梦-守护者.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第四十八至六十四章。梦境中，众人继续调查梦境倾向与罗珊的异常，尝试通过工作、居住和其他身份接近周明瑞。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "e2473397e6b5ad6a6204f9088991f73f34648478b548d24e7e8f14fc50efb218",
-    "source": "source/timeline/日期待考证-织梦-愿望.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第九十三至一百章。梦境中众人围绕查拉图斯特拉展开行动与战斗，随后处理战斗后果和梦中身份的变化。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "4cfc77e0613515898bdc6b8f56f39074280cc25d440b9beba660ed5b0dd7f6bb",
-    "source": "source/timeline/日期待考证-织梦-条件满足.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一至八章。现实世界中，卢米安等人在新白银城处理此前事件的后果，向“魔术师”了解晋升后的变化，并接触“大地的恩赐”。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "2aa080b4b6b16cc6cb02ef0b168c6673e2ba07d7bf1b004a3926388993b50110",
-    "source": "source/timeline/日期待考证-织梦-梦里梦外.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第六十五至七十四章。梦境中多方围绕画室等线索行动；芙兰卡一度退出梦境，在现实特里尔醒来，随后众人继续核查梦境与外界的联系。梦内事件与现实苏醒须区分。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "ed0150c6e08fd00cafb3a3649a62a5165242d61947c5228a805fd5b8d63b6c3a",
-    "source": "source/timeline/日期待考证-织梦-真与假.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第二十八至三十七章。众人在梦境都市追踪复活女尸，遭遇监控和镜中世界的异常，并获得接近周明瑞的角色线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "09a4ab460bc666ec44ebc5ab5ec5619bf6631bf8a8099ed1f9b75064529dee62",
-    "source": "source/timeline/日期待考证-织梦-站台.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第十八至二十七章。卢米安一行进入“愚者”的梦境，来到貌似现代都市的阳都，开始寻找周明瑞并调查复活女尸。都市和人物为梦境中的形象，不能直接等同现实经历。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b61ade4b816b1e1f42dc2eab1d227d8c717b02ab20fb7c56c76d1542056c41ae",
-    "source": "source/timeline/日期待考证-织梦-精神病科.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第七十五至九十二章。卢米安等人在梦境都市调查目曙医院、李克己与植物人安小天；简娜等人的调查与卢米安行动交错。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "d31b706b88b4150be33f38a07062cf9d42c78c85324f6fe9159eff1a93dc68c1",
-    "source": "source/timeline/日期待考证-织梦-补习班.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第三十八至四十七章。众人在梦中接触梦想补习班、星梦杂货店等地点，收集接近周明瑞及梦境异常的线索，并设法与外界联络。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "829c98133dde6e3c6a0d8ee9d8a02716c0390538df050b2958287478ce414203",
-    "source": "source/timeline/日期待考证-织梦-重要人物.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一百零一至一百一十章。众人在梦境都市继续接近周明瑞，调查李克己、罗珊与医院之间的线索。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "518388cfb0f52e8b2d6a4796c779361792cc5b2e8adac48631969d8280c9b98f",
-    "source": "source/timeline/日期待考证-织梦-预备.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一百三十六至一百四十三章。众人就唤醒“愚者”的行动作准备，在梦境中与黄涛、罗珊等形象接触，同时安排现实世界中的配合。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9b98805a57ad71799a9cfd3a9f9638ac09656fc7a748a7686cded282a70385ee",
-    "source": "source/timeline/日期待考证-苏茜在梅森咖啡馆引导卢米安回忆科尔杜.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第十七至十九章《寻找猎物》《咖啡馆》《梦里》。卢米安思考如何交换与蒙苏里鬼魂相遇的命运，并向查理打听可能的目标。随后他按约定前往梅森咖啡馆接受苏茜的心理治疗，逐渐回忆起纪尧姆·贝内一方与普阿利斯一方交战的片段。苏茜引导他探索梦境并分析其中的象征，约定两周后继续治疗。离开后，卢米安从报纸上看到奥萝尔的讣告。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "5609a98a36fd3d0445f2154b1d2025fa3bbddccb81475a4d1050532810f18d8e",
-    "source": "source/timeline/日期待考证-金鸡旅馆的拾荒者鲁尔病逝.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一百二十四至一百二十七章。卢米安向加德纳·马丁说明预支舞厅款项的事；金鸡旅馆的拾荒者鲁尔突然生病，卢米安和米歇尔设法照顾他，鲁尔最终病逝。天亮时，米歇尔在亡夫身边吃了最后一餐，随后自尽。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "884680de4d3a9501320509b4876e466e667614ba8ff48ad4a07c9128634d4821",
-    "source": "source/timeline/日期待考证-魔鬼巫师布尔曼在法林港交战后身亡.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第二十一至三十六章。飞鸟号途经法林港，卢米安等人卷入魔鬼巫师布尔曼相关事件并展开战斗，布尔曼最终死亡。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -12710,16 +10360,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "dabcda79654e9ab0c5abc9b0afbad57cdbc41f60e85003db0fafd0d44251a75a",
-    "source": "source/timeline/1351年秋-发放蘑菇.md",
-    "term": "怪物",
-    "targets": [
-      "source/worldview/pathways/怪物途径/序列9-怪物.md"
-    ],
-    "excerpt": "鲁恩济贫基金发完食物后，梅丽莎把自己的面包、蘑菇干和果脯给了一对母子。奥黛丽将自己的那份交给她。同章转至月城：第五批居民接受净化后，克莱恩入城主持弥撒，向城民交代怎样用怪物血肉培育蘑菇、分离有毒的种类。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "da89ed515fe900a0d0481e8b05c8ae24d8d0159b2c2670fc73ad6aa85028c1a1",
     "source": "source/timeline/1358-03-29至1358-03-30-卢米安在梦境废墟发现怪物身上的黑色印记.md",
     "term": "怪物",
@@ -12730,16 +10370,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "db35e0df100f351f58d1d7b0f2920038899bceef30bfdc1d817b6710e55abbb6",
-    "source": "source/timeline/1358-04-05-卢米安在梦境废墟设伏猎杀火焰怪物.md",
-    "term": "怪物",
-    "targets": [
-      "source/worldview/pathways/怪物途径/序列9-怪物.md"
-    ],
-    "excerpt": "《宿命之环》第一部“梦魇》第九十四至九十七章。四旬节前夜，卢米安在梦境废墟设置陷阱，利用“堕落水银”与火焰怪物周旋，最终斩杀怪物；醒来后他与奥萝尔讨论得到的非凡特性。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "ae861b6f3afb383237ddd4bd4d8157d67a9b7234278f74b4f6f096a029769e0e",
     "source": "source/timeline/1358年3月末至4月4日间-卢米安击杀持枪怪物，取得非凡特性.md",
     "term": "怪物",
@@ -12747,26 +10377,6 @@
       "source/worldview/pathways/怪物途径/序列9-怪物.md"
     ],
     "excerpt": "《宿命之环》第一部“梦魇”第十九至二十四章。卢米安为获取非凡力量，在梦中筹划并利用环境对抗持猎枪的怪物，最终将其击杀；他从遗体上取得析出的非凡特性，醒来后准备继续寻求神秘女士的帮助。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "2320d0e25dbeb86b6d76370a50a2b46f904864d788a2235093595f789bbea7c6",
-    "source": "source/timeline/1358年4月1日至四旬节前-三只羊失踪，卢米安等人怀疑献祭提前.md",
-    "term": "怪物",
-    "targets": [
-      "source/worldview/pathways/怪物途径/序列9-怪物.md"
-    ],
-    "excerpt": "《宿命之环》第一部“梦魇》第九十至九十三章。卢米安在梦境中尝试让怪物附身、观察火焰怪物，使用“堕落水银”剥离“面条人”的一段命运，准备猎杀火焰怪物。现实中，他与莱恩、瓦伦泰发现皮埃尔·贝里的三只羊失踪；他们推测本堂神甫等人修复祭坛并提前献祭。卢米安随后与奥萝尔商量狩猎计划。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "36422c130e82deeac959bdff47701fe2036efc37481e02c0eba838b3c7ca3cc8",
-    "source": "source/timeline/1358年4月1日至四旬节前-卢米安从梦中的“铁匠”手中夺得短刀.md",
-    "term": "怪物",
-    "targets": [
-      "source/worldview/pathways/怪物途径/序列9-怪物.md"
-    ],
-    "excerpt": "《宿命之环》第一部“梦魇”第八十一至八十九章。奥萝尔和卢米安讨论循环的成因及破解办法；卢米安在梦境废墟接近血色山峰，遭遇持短刀的“铁匠”怪物，设法夺得短刀，后来将它命名为“堕落水银”。姐弟俩与联合调查组共同商议并守护奥萝尔。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -12810,16 +10420,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "f8c9a1bfbe718245b20624938115560d377873f52f27b0174b2705a4c240524d",
-    "source": "source/timeline/1350年1月5日至2月1日间-阿兹克在黑死号取回死神文献的拓印本.md",
-    "term": "死神",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列0-死神.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第一百零四至一百零七章。克莱恩与阿兹克重逢，告诉他死神相关文献的线索；两人循线前往黑死号，遇见前来保护特雷茜的“不老魔女”卡特琳娜。她认出阿兹克，两人的交谈涉及拜朗帝国和“苍白灾难”；阿兹克取得文献的拓印本后带克莱恩离开。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "c05cf41dcb4df499bd7225534f5ac6c60fc4ea9f0ac768ea724e382f6b44fe18",
     "source": "source/timeline/日期待考证-克莱恩在地下通道屡次忘记调查目的.md",
     "term": "黑皇帝",
@@ -12850,16 +10450,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "4725b714329786f31b0c602bb8b2f669b6e8641bace7890244da334ae5cc50e4",
-    "source": "source/timeline/日期待考证-故事.md",
-    "term": "死神",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列0-死神.md"
-    ],
-    "excerpt": "手稿最后交代，因斯在战斗结束后杀死克莱恩，取走圣赛琳娜的骨灰，举行仪式，从死神途径的“看门人”晋升为黑夜途径的“守夜人”。见《诡秘之主》第一部第二百一十章《故事》。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "1408fcd7635400666152f30f5c5e54596ca5bff855b4ed144e805e0385a094b8",
     "source": "source/timeline/日期待考证-日记的尾声.md",
     "term": "黑皇帝",
@@ -12867,16 +10457,6 @@
       "source/worldview/pathways/律师途径/序列0-黑皇帝.md"
     ],
     "excerpt": "克莱恩读到罗塞尔记下陵寝已全部建成，据此推测大帝晚年打算转入“黑皇帝”途径。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "1c5f95de200042c4cfac687cba16e8b23fa5637e11fccf0f912f48ba28b2e4fa",
-    "source": "source/timeline/日期待考证-最后一课.md",
-    "term": "黑皇帝",
-    "targets": [
-      "source/worldview/pathways/律师途径/序列0-黑皇帝.md"
-    ],
-    "excerpt": "原始岛屿的“黑皇帝”陵寝内，罗塞尔与贝尔纳黛谈起自己犯过的错，也听到了女儿对污染失衡的担忧。他拥抱贝尔纳黛，随后打开陵寝的大门。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -12910,16 +10490,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "f75dea006218094a421cd3ae332cf788b3a19af8735e6fddfe3b6a4c3a9f2b0d",
-    "source": "source/timeline/1350年12月-克莱恩借留在白银城的血液复活.md",
-    "term": "列斯",
-    "targets": [
-      "source/characters/entries/列斯.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第十九至二十六章。克莱恩的灵体回到源堡，但阿蒙守着他的遗骸。他与塔罗会成员恢复联系，听取帕列斯的建议，利用“欺瞒”能力和送往白银城的血液制造复活点，成功复活。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "b40303a6a60f0fa0e9c49d2a8757882c831044f15cff69ce872af1c8798482b0",
     "source": "source/timeline/1350年4月上中旬线索-安德森在托斯卡特岛遇袭.md",
     "term": "斯卡特",
@@ -12950,16 +10520,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "489905353d6ca1475111896953c61f4c5810ef3d7b1fb6da1cd98c3fc0fda91e",
-    "source": "source/timeline/日期待考证-伦纳德入梦追问道恩与克莱恩的关系.md",
-    "term": "泰斯",
-    "targets": [
-      "source/characters/entries/泰斯.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第一百一十八至一百二十二章。伦纳德比对夏洛克的肖像，察觉他与克莱恩·莫雷蒂的联系，并到廷根墓园查看；随后伦纳德进入道恩·唐泰斯的梦境追问。克莱恩以道恩身份与他交谈，承认与信奉“愚者”的组织有关，谈及因斯·赞格威尔，但有意让伦纳德把道恩与克莱恩视为不同的人。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "2651a1b0dea0bb16fee4b82ec9b97248e453f73bb97755cdebc6412975e2990d",
     "source": "source/timeline/日期待考证-克莱恩要求人造死神派停止唤醒仪式.md",
     "term": "泰斯",
@@ -12970,16 +10530,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "29f7a7405ddaddf6e2d3d3de4fe2959be0aa1ff2fac67516d60c0b844e521c6c",
-    "source": "source/timeline/日期待考证-埃姆林击杀原始月亮信徒凯文与阿尔戈斯.md",
-    "term": "泰斯",
-    "targets": [
-      "source/characters/entries/泰斯.md"
-    ],
-    "excerpt": "具体日期待核实；埃姆林的行动与道恩·唐泰斯在贝克兰德的经历交错叙述。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "17a0dffdbf26b683ed58dde63378cf30a56f0e1b8c11bd6a299d19e8c54e4141",
     "source": "source/timeline/日期待考证-帕列斯误入阿蒙的陷阱，失去序列1特性.md",
     "term": "列斯",
@@ -12987,16 +10537,6 @@
       "source/characters/entries/列斯.md"
     ],
     "excerpt": "《诡秘之主》第六部“逐光者”第五十四至五十六章。帕列斯借伦纳德的帮助寻找雅各家族宝藏，却遇到阿蒙的陷阱。帕列斯掩护伦纳德脱身，自己失去序列1非凡特性，并以较低位格复生；伦纳德随后向愚者传递情况。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "5e7c3784e3461e8f884c4f5b7b563c643752dd8ebfe63c76b7c1167f3895abfe",
-    "source": "source/timeline/日期待考证-道恩在飞往南大陆的途中遇见戴莉与伦纳德.md",
-    "term": "泰斯",
-    "targets": [
-      "source/characters/entries/泰斯.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第一百六十二至一百六十四章。克莱恩以道恩·唐泰斯的身份乘飞空艇前往南大陆，在途中遇见戴莉和伦纳德等红手套；他收到久未回信的阿兹克来信，戴莉也与他交谈试探。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -13030,16 +10570,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "27c42259d9e033f0e3678b476d1a843aea6cb98899f6533440c8169a7d592f62",
-    "source": "source/timeline/日期待考证-克莱恩以流浪魔术师身份为人实现愿望.md",
-    "term": "倒吊人",
-    "targets": [
-      "source/worldview/pathways/秘祈人途径/序列0-倒吊人.md"
-    ],
-    "excerpt": "《诡秘之主》第七卷“倒吊人”第九至十章。克莱恩以流浪魔术师的形象行走，尝试为人们实现愿望，以此探索“奇迹师”的扮演方式；他见到战争给普通家庭带来的损失。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "0a5aff54b9daa05a9bd41bc758a27470f19625989c0083a915f5058e5fd8010e",
     "source": "source/timeline/日期待考证-克莱恩向灵界七光询问外神与旧日.md",
     "term": "倒吊人",
@@ -13057,16 +10587,6 @@
       "source/worldview/pathways/秘祈人途径/序列0-倒吊人.md"
     ],
     "excerpt": "《诡秘之主》第七卷“倒吊人”第五十九至六十章。克莱恩向月城居民降下神谕，让他们在约定时间许愿；居民近乎同时祈求摆脱畸形，克莱恩回应并完成治疗，也在这个过程中进一步消化魔药。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "5384dfc8554faadda572e84363be7757f9c8a4189fc740ad43c5d5c992acd25b",
-    "source": "source/timeline/日期待考证-卢米安与芙兰卡向“盔甲幽影”打听另一世界.md",
-    "term": "倒吊人",
-    "targets": [
-      "source/worldview/pathways/秘祈人途径/序列0-倒吊人.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百七十四至一百七十六章。应“倒吊人”请求，卢米安和芙兰卡再次召唤“盔甲幽影”，获取有关另一世界的回答。作为报酬，卢米安请求未来探索“幽蓝复仇者”号，并选择暂缓行动。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -13120,26 +10640,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "ded78197d0e5500e296f1e57f4a9363ad3f8f2c3311ce158d51209c80797afc4",
-    "source": "source/timeline/日期待考证-达尼兹带白银城探路者查看新城选址.md",
-    "term": "倒吊人",
-    "targets": [
-      "source/worldview/pathways/秘祈人途径/序列0-倒吊人.md"
-    ],
-    "excerpt": "《诡秘之主》第七卷“倒吊人”第二十五至二十六章。达尼兹带领白银城探路者抵达拜亚姆，向戴里克等人介绍将来建城的地点和交通安排；探路者初次踏足外界城市，见到与故乡迥异的生活。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "f57338a036232b97977e94316a49873b21639fa2f8f2166f92924a98ac9c12d2",
-    "source": "source/timeline/日期待考证-达尼兹驾船接应白银城探路小队.md",
-    "term": "倒吊人",
-    "targets": [
-      "source/worldview/pathways/秘祈人途径/序列0-倒吊人.md"
-    ],
-    "excerpt": "《诡秘之主》第七卷“倒吊人”第一章。戴里克带领白银城探路小队再次走出巨人王庭，经隐秘空间抵达外界岛屿；达尼兹率船接应，并欢迎他们来到光明世界。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "e013e40d167bfa19322a076f062206649684374f98423d4d3afb077aed94fc5c",
     "source": "source/timeline/日期待考证-“愚者”的委托.md",
     "term": "愚者",
@@ -13160,16 +10660,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "ee965b83930af659be5af256c399d5dd84f1d7d329aca832f3649ff04898217b",
-    "source": "source/timeline/日期待考证-最后的询问.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "阿兹克把带有“愚者”气息的幸运金币交给卢米安。“魔术师”向五位金币持有者说明梦境的限制，给他们最后一次选择的机会。众人答应尝试唤醒“愚者”，各自握着金币入睡。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "8bac64d42851547a485b33ae47240ebe9aa8ee7b8d76fcb119014f958c1ed6a4",
     "source": "source/timeline/日期待考证-月城与白银城居民穿过巨人王庭迁往新居.md",
     "term": "愚者",
@@ -13177,26 +10667,6 @@
       "source/worldview/pathways/占卜家途径/序列0-愚者.md"
     ],
     "excerpt": "《诡秘之主》第七卷“倒吊人”第三十二至三十三章。白银城探路者为新城作准备，戴里克等人返回故乡汇报；月城居民在尼姆带领下与白银城居民会合，随后在愚者帮助下穿过巨人王庭，抵达外界的新居。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "7a383d9c1794dd4a637c95ef11f094762e1b64481539c70305259ef69d3e52a3",
-    "source": "source/timeline/日期待考证-永劫-最终的选择.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《宿命之环》第八部第二十六至三十章。“愚者”召集临时集会，各方交换资源并商议接下来的行动；卢米安和同伴各自作出选择，为即将到来的战斗准备。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "8253adb74338da20195610128e3319827f86d7be5a3a6f75aba398cd33164d4c",
-    "source": "source/timeline/日期待考证-灯神请求解除封印，克莱恩拒绝交易.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第八十九至九十一章。贝尔纳黛准备探索罗塞尔的秘密线索，将许愿神灯等物品交给嘉德丽雅；嘉德丽雅向愚者汇报时，灯神借祈祷与克莱恩对话，提出解除封印的交易，克莱恩没有答应。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -13217,36 +10687,6 @@
       "source/worldview/pathways/占卜家途径/序列0-愚者.md"
     ],
     "excerpt": "《诡秘之主》第四部“不死者”第一百六十五至一百七十章。科林向戴里克询问时之虫的利用方法；戴里克向愚者祈求并转达制作符咒的仪式。科林随后与洛薇雅、韦特进入前任首席的陵寝，穿过幽暗河流，在棺椁旁与异变的前任首席交战。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "4afdfeb9a59a0e0f5e11516c94444ef033540b7cb5438bd5ed6d746865a47f3a",
-    "source": "source/timeline/日期待考证-第二定律-序列之上.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第五十四至五十八章。“愚者”、佛尔思与卢米安谈论神性、人性、序列之上、支柱与末日预言。1368年是人物讨论中的预言年份，不能当作此会面日期。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "ceccb57fa0e82b54729cd5d2af4d722e9d61d92acde79c2faf986ad338c21e9e",
-    "source": "source/timeline/日期待考证-织梦-站台.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第十八至二十七章。卢米安一行进入“愚者”的梦境，来到貌似现代都市的阳都，开始寻找周明瑞并调查复活女尸。都市和人物为梦境中的形象，不能直接等同现实经历。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "4b28c0756ad49fd7970094f24824d5c9847dbd409c8091decf8dd18a483cc68c",
-    "source": "source/timeline/日期待考证-织梦-预备.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "《宿命之环》第六部“织梦人”第一百三十六至一百四十三章。众人就唤醒“愚者”的行动作准备，在梦境中与黄涛、罗珊等形象接触，同时安排现实世界中的配合。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -13310,16 +10750,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "eb6b4a500d5173411be2995a3a26dec86acf16bac45a213dd8d217e5bce3b1bd",
-    "source": "source/timeline/日期待考证-埃姆林击杀原始月亮信徒凯文与阿尔戈斯.md",
-    "term": "月亮",
-    "targets": [
-      "source/worldview/pathways/药师途径/序列0-月亮.md"
-    ],
-    "excerpt": "《诡秘之主》第四部“不死者”第六十二至六十五章。埃姆林追查原始月亮信徒加利斯·凯文和阿尔戈斯，耐心等待两人分开后行动；阿尔戈斯中途返回，埃姆林使用莱曼诺旅行笔记应战，先后击杀两人，带回遗留物并领取血族给予的奖励。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "ad43e36daee115e6b9fcb4b6b941a5c65dd0a9eca487c2232af6af95d9714dbb",
     "source": "source/timeline/日期待考证-埃姆林接受愚者邀请，选定“月亮”代号.md",
     "term": "月亮",
@@ -13360,36 +10790,6 @@
     "reason": "上下文中的用法不指向候选词条"
   },
   {
-    "key": "4ecd6a29c5906a882bbbf2738a118c12e61e021736288b47255ec27b594df6d5",
-    "source": "source/timeline/日期待考证-克莱恩请奥黛丽封存有关末日的记忆.md",
-    "term": "末日",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列1-末日.md"
-    ],
-    "excerpt": "《诡秘之主》第六部“逐光者”第七十四至七十五章。克莱恩结合研究所的经历和既有线索，推测外神、源质与末日的联系；为避免危险，他请奥黛丽在灰雾之上帮助封存相关记忆。奥黛丽听闻后陷入迷茫，两人互相开解，并讨论如何帮助战争中的贝克兰德民众。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "baadb9f6bad9ad76811d90ef29fa48627a6e35f6f66f38c2206155c6ef16de82",
-    "source": "source/timeline/日期待考证-合流？.md",
-    "term": "第二定律",
-    "targets": [
-      "source/worldview/pathways/病患途径/序列0-第二定律.md"
-    ],
-    "excerpt": "占卜之后，芙兰卡经镜面监看妮塞娅身边的动静；随后“神之信使”出现。见《宿命之环》第七部“第二定律”第六十一章《合流？》、第六十二章《监控》。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "722bb654a19350e8ee8af2ef2f2de6afdd5605886d371a51b0166d88886b6cfc",
-    "source": "source/timeline/日期待考证-周明瑞在阳都梦境告别.md",
-    "term": "黑暗",
-    "targets": [
-      "source/worldview/pathways/不眠者途径/序列0-黑暗.md"
-    ],
-    "excerpt": "周明瑞告诉卢米安，在他完全醒来前，格尔曼·斯帕罗将作为“愚者”体现他的一部分意志。随后他饮下撒玛利亚妇人泉的泉水，退入黑暗。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
     "key": "4a1b7becbb0b1e5aa74ab1a5168c2cd5012eaf056c3bd3850dab583dad61d6b8",
     "source": "source/timeline/日期待考证-戴里克在下午镇发现祭台与天使之王的名字.md",
     "term": "黑暗",
@@ -13397,16 +10797,6 @@
       "source/worldview/pathways/不眠者途径/序列0-黑暗.md"
     ],
     "excerpt": "《诡秘之主》第三部“旅行家”第一百八十四至一百九十章，白银城线与其他情节交错。探索小队调查下午镇，戴里克在地下室发现祭台与天使之王的名字，随后遭遇诡异黑暗；他向愚者祈祷，克莱恩将他拉入灰雾，帮助他脱离困境。小队之后遇见一位忏悔的圣职人员，与出现的怪物战斗并退离。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "3e705e3d2b13124f09304f592519641ad4cc2f073f26e034028855c33d85ba1d",
-    "source": "source/timeline/日期待考证-第二定律-序列之上.md",
-    "term": "末日",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列1-末日.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第五十四至五十八章。“愚者”、佛尔思与卢米安谈论神性、人性、序列之上、支柱与末日预言。1368年是人物讨论中的预言年份，不能当作此会面日期。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -13457,66 +10847,6 @@
       "source/worldview/pathways/窥秘人途径/序列7-巫师.md"
     ],
     "excerpt": "《宿命之环》第一部“梦魇”第七至十二章。卢米安和雷蒙德向娜罗卡询问村里的巫师传说；阿娃又转述普阿利斯夫人能与亡魂交流的传闻。卢米安偷听到本堂神甫与同伙谈论外乡人，回家后把听闻及自己的观察告诉奥萝尔。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "a02a769a7a92b6d632231c9fd17689e07eddd2090b84c667f3ae9a5c578e33e7",
-    "source": "source/timeline/十一月中旬-卢米安登上汉特岛调查魔鬼传说.md",
-    "term": "魔鬼",
-    "targets": [
-      "source/worldview/pathways/罪犯途径/序列4-魔鬼.md"
-    ],
-    "excerpt": "“浆果号”在汉特岛停靠两天。卢米安从港口的酒吧开始打听森林里的魔鬼，追查其留下的线索，并向图书馆管理员询问拿波瑞狄斯利的名字。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "56f3da073b6e4014f65ddb3999ea833186cbf773c2bd3f5d3cad912fc34a22a3",
-    "source": "source/timeline/日期待考证-假海之总督的身份.md",
-    "term": "水手",
-    "targets": [
-      "source/worldview/pathways/水手途径/序列9-水手.md"
-    ],
-    "excerpt": "祈海节期间，扮演假“海之总督”的米格尔显露了另一层身份：他是“愚人节”的“吟游诗人”，也是曾以水手伊鲁身份上船的人。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "feca3ea9d58ac94a4cd1ed7938b592131292f6eb3fbff5bfaddf32f8157606e8",
-    "source": "source/timeline/日期待考证-慰问午宴上的刺杀.md",
-    "term": "母亲",
-    "targets": [
-      "source/worldview/pathways/耕种者途径/序列0-母亲.md"
-    ],
-    "excerpt": "慰问午宴上，简娜用长柄银叉刺入新当选的议员于格·阿图瓦的眼窝，为母亲复仇。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b64ac4d8c702e7538daf90ed3cf7539e6b273d43592e6d465cd03c3ab349f51d",
-    "source": "source/timeline/日期待考证-新的委托.md",
-    "term": "魔鬼",
-    "targets": [
-      "source/worldview/pathways/罪犯途径/序列4-魔鬼.md"
-    ],
-    "excerpt": "佩德罗船长请卢米安帮忙处理家事。一行人抵达科利亚港后，卢米安和芙兰卡在调查弗洛雷斯时遇到自称魔鬼的拿波瑞狄斯利。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "16aeca00d92f73dcd1fc2aac030d13a53578ed4a0b49758d9ce257c97e470a19",
-    "source": "source/timeline/日期待考证-第二定律-蒙苏里鬼魂.md",
-    "term": "母亲",
-    "targets": [
-      "source/worldview/pathways/耕种者途径/序列0-母亲.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第六十五至六十九章。地下特里尔的封印异动，蒙苏里鬼魂相关危机与多方行动汇合；众人围绕“母亲”牌及巨大橡树展开应对。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "b33ef7606bdf2aa4208ab8f9aa8df75275b916315dad7faa2963102b59c6d885",
-    "source": "source/timeline/日期待考证-简娜的镜中世界碎片震动.md",
-    "term": "观众",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列9-观众.md"
-    ],
-    "excerpt": "简娜在剧场散场时察觉来自塔玛拉家族墓室的碎片震动。她压住寻找来源的冲动，混在观众中离开。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -13641,7 +10971,7 @@
   },
   {
     "key": "86b32638e88ee85fc6f0cfd170ede57ee066be3bbf19e294d68c3d03d1543246",
-    "source": "source/timeline/1349-07-27至1349-07-28-克莱恩与心理炼金会的古德里安建立联系.md",
+    "source": "source/timeline/1349-07-28-克莱恩与古德里安建立联系.md",
     "term": "格林",
     "targets": [
       "source/characters/entries/格林.md"
@@ -13667,36 +10997,6 @@
       "source/characters/entries/康斯.md"
     ],
     "excerpt": "《诡秘之主》第七卷“倒吊人”第三十至三十一章。流浪魔术师梅林·赫尔墨斯来到遭战火破坏的康斯顿，听取居民的愿望并帮助恢复受损房屋；经过多日，城市的建筑重现。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "3dae21e923bad95fcfae1cc86095541fa2153be2288ebde403d8432661492b9e",
-    "source": "source/timeline/日期待考证-艾伦与克莱恩在墓园附近挖出疑似威尔的遗体.md",
-    "term": "格林",
-    "targets": [
-      "source/characters/entries/格林.md"
-    ],
-    "excerpt": "《诡秘之主》第二部“无面人”第一百八十九至一百九十章。艾伦再次梦见威尔·昂赛汀，随后与克莱恩前往格林墓园附近挖掘，发现一具被艾伦认作威尔的遗体。这是此前[克莱恩进入艾伦的噩梦，追查威尔的线索](../#event-探索梦境)的后续。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "53f0a0e03ec6436d147850fbd995fd1bb7dfec45920dc781e7d697c179c7508b",
-    "source": "source/timeline/1349年9月周日-再看一眼.md",
-    "term": "小丑",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列8-小丑.md"
-    ],
-    "excerpt": "买好去贝克兰德的车票后，克莱恩折回水仙花街，远远跟着班森与梅丽莎来到市政广场的马戏团。兄妹俩仍穿着丧服。克莱恩扮作小丑，在他们面前变出一束金黄色的塞维亚菊，以这个身份与家人道别。",
-    "reason": "上下文中的用法不指向候选词条"
-  },
-  {
-    "key": "9373f773aa24b24d66a3c53e0a9ae7ae226603f0dba3f4b3a75f6581303b0fa5",
-    "source": "source/timeline/日期待考证-祝安好.md",
-    "term": "小丑",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列8-小丑.md"
-    ],
-    "excerpt": "一名守卫被变成兔子，另一名被怨魂附身。克莱恩击杀前者，将后者变成秘偶，驱使它去推开正门。见《诡秘之主》第六部第一百零二章《小丑先生》、第一百零三章《祝安好》。",
     "reason": "上下文中的用法不指向候选词条"
   },
   {
@@ -13730,16 +11030,6 @@
     "reason": "此处指分离出的时之虫，原文未将该个体确定为序列1。"
   },
   {
-    "key": "0e4e877cdff210b630fb4039bb7a4d1169aa32efef5ba0582bc27c7983cb4872",
-    "source": "source/timeline/1350年1月5日至2月1日间-阿兹克在黑死号取回死神文献的拓印本.md",
-    "term": "灾难",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列2-灾难.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第一百零四至一百零七章。克莱恩与阿兹克重逢，告诉他死神相关文献的线索；两人循线前往黑死号，遇见前来保护特雷茜的“不老魔女”卡特琳娜。她认出阿兹克，两人的交谈涉及拜朗帝国和“苍白灾难”；阿兹克取得文献的拓印本后带克莱恩离开。",
-    "reason": "此处指事件或一般灾难，而非序列名称。"
-  },
-  {
     "key": "4ed60d9cc1c0d728d3abf6e469746784ff4cc95932051c97fdf4ca96ccae0abe",
     "source": "source/timeline/日期待考证-佛尔思借恶魔油画完成仪式，晋升“秘法师”.md",
     "term": "灾难",
@@ -13747,26 +11037,6 @@
       "source/worldview/pathways/刺客途径/序列2-灾难.md"
     ],
     "excerpt": "《诡秘之主》第七卷“倒吊人”第二十七至二十九章。佛尔思借亚伯拉罕家族的“恶魔油画”封印半神生物，完成仪式并服下“秘法师”魔药；晋升中她与“门”先生接触。之后克莱恩制造满月环境，听见“门”先生请求别人不要救他。克莱恩由此怀疑，对方担心自己的归来会带来灾难。",
-    "reason": "此处指事件或一般灾难，而非序列名称。"
-  },
-  {
-    "key": "dc8192d44c8f4ad6294f6474b0465794c08f754269eee57e6866690767a4be9a",
-    "source": "source/timeline/日期待考证-小阿卡那牌.md",
-    "term": "灾难",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列2-灾难.md"
-    ],
-    "excerpt": "第四纪特里尔的灾难发生后，卢米安离开市场区之前。见《宿命之环》第四部“罪人”第四章《可疑的态度》、第五章《小阿卡那牌》。",
-    "reason": "此处指事件或一般灾难，而非序列名称。"
-  },
-  {
-    "key": "64fb2cd64e184ddb9431d83c285e3d8bf22c5a819b4cc3f932947bc7ef456d9b",
-    "source": "source/timeline/日期待考证-第二定律-白纸.md",
-    "term": "灾难",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列2-灾难.md"
-    ],
-    "excerpt": "《宿命之环》第七部“第二定律”第十一至十三章。奥萝尔留下召唤“白纸”的提示，卢米安等人追查这一线索及其与科尔杜灾难、“隐匿贤者”的联系。",
     "reason": "此处指事件或一般灾难，而非序列名称。"
   },
   {
@@ -13890,66 +11160,6 @@
     "reason": "此处是日记名称的一部分，不单独链接人物"
   },
   {
-    "key": "19e5d519d9556975dbcaccb090b967400c000877f898dadfd3f411a766b0c168",
-    "source": "source/timeline/日期待考证-卢米安与芙兰卡向“盔甲幽影”打听另一世界.md",
-    "term": "世界",
-    "targets": [
-      "source/characters/entries/克莱恩·莫雷蒂.md"
-    ],
-    "excerpt": "event_summary: \"卢米安与芙兰卡向“盔甲幽影”打听另一世界的消息。\"",
-    "reason": "此处指世界或镜中世界，而非人物代号"
-  },
-  {
-    "key": "a2561e46181943c38c6063a3eb2ffbf8d5a9d1b04ecdd20d83a8f9537b2abc2c",
-    "source": "source/timeline/日期待考证-宿命-两个选择.md",
-    "term": "世界",
-    "targets": [
-      "source/characters/entries/克莱恩·莫雷蒂.md"
-    ],
-    "excerpt": "event_summary: \"卢米安离开摩罗拉后，众人处理身体变化与镜中世界线索；阿芒迪娜来到特里尔，芙兰卡、简娜和卢米安面对各自的选择并交流隐秘。\"",
-    "reason": "此处指世界或镜中世界，而非人物代号"
-  },
-  {
-    "key": "e5d5eafd732c39f9173c437bb889693ac6e080e0aef2528e5c8f26aec78bb905",
-    "source": "source/timeline/日期待考证-小阿卡那牌.md",
-    "term": "世界",
-    "targets": [
-      "source/characters/entries/克莱恩·莫雷蒂.md"
-    ],
-    "excerpt": "event_summary: \"简娜在愚者教堂遇见“审判”女士，接受邀请抽到“圣杯七”，受命调查特殊镜中世界。\"",
-    "reason": "此处指世界或镜中世界，而非人物代号"
-  },
-  {
-    "key": "2aa2e22eb6633aec4a53dca93310b920e97ec96860beba7fc172c629700d9a29",
-    "source": "source/timeline/日期待考证-第二定律-注定收下的信.md",
-    "term": "世界",
-    "targets": [
-      "source/characters/entries/克莱恩·莫雷蒂.md"
-    ],
-    "excerpt": "event_summary: \"众人调查妮塞娅、魔女与镜中世界的线索，卢米安等人收到与伟大存在有关的信，并与阿蒙交流。\"",
-    "reason": "此处指世界或镜中世界，而非人物代号"
-  },
-  {
-    "key": "2a6250f1cff478b69f33726294d2badc11b8dd4f0affacd2b1863784bd6c4950",
-    "source": "source/timeline/日期待考证-织梦-条件满足.md",
-    "term": "世界",
-    "targets": [
-      "source/characters/entries/克莱恩·莫雷蒂.md"
-    ],
-    "excerpt": "event_summary: \"现实世界中，卢米安等人在新白银城处理此前事件的后果，向“魔术师”了解晋升后的变化，并接触“大地的恩赐”。\"",
-    "reason": "此处指世界或镜中世界，而非人物代号"
-  },
-  {
-    "key": "3ea925e1692177786858264136b45835ef6ec9a43bd58c85a85d2c82cf68abda",
-    "source": "source/timeline/日期待考证-织梦-真与假.md",
-    "term": "世界",
-    "targets": [
-      "source/characters/entries/克莱恩·莫雷蒂.md"
-    ],
-    "excerpt": "event_summary: \"众人在梦境都市追踪复活女尸，遭遇监控和镜中世界的异常，并获得接近周明瑞的角色线索。\"",
-    "reason": "此处指世界或镜中世界，而非人物代号"
-  },
-  {
     "key": "9cf15a5625895939c2225671ee954aedb8199dd835c40716d82412aa69c9ea91",
     "source": "source/artifacts/entries/生命手杖.md",
     "term": "小丑",
@@ -14040,16 +11250,6 @@
     "reason": "此处为克莱恩姓名的一部分，不指莱恩·科斯"
   },
   {
-    "key": "3e3f3778aa4adb39246dde1cb17e76f2f5defae6371461d0bdf6bf4293e802db",
-    "source": "source/timeline/1351-09-08-克莱恩把蘑菇带给月城居民.md",
-    "term": "莱恩",
-    "targets": [
-      "source/characters/entries/莱恩·科斯.md"
-    ],
-    "excerpt": "event_summary: \"克莱恩向月城居民讲述外界和愚者，并提供蘑菇与展示“无暗十字”的光辉。\"",
-    "reason": "此处为克莱恩姓名的一部分，不指莱恩·科斯"
-  },
-  {
     "key": "0dddda33123b72b23b171103003b961ee7f0f00db27a5d750018ca6b43b3e455",
     "source": "source/timeline/1351年1月以后线索-多里安为家族寻求满月庇护，向愚者祈求.md",
     "term": "莱恩",
@@ -14080,26 +11280,6 @@
     "reason": "此处为克莱恩姓名的一部分，不指莱恩·科斯"
   },
   {
-    "key": "19b66b4a7d210947d046d9a60c49fa189d16c1f3388724fcb5fde06167de4be9",
-    "source": "source/timeline/日期待考证-伦纳德入梦追问道恩与克莱恩的关系.md",
-    "term": "莱恩",
-    "targets": [
-      "source/characters/entries/莱恩·科斯.md"
-    ],
-    "excerpt": "event_summary: \"伦纳德察觉夏洛克与克莱恩的联系，进入道恩的梦境追问；克莱恩以道恩身份承认与信奉“愚者”的组织有关。\"",
-    "reason": "此处为克莱恩姓名的一部分，不指莱恩·科斯"
-  },
-  {
-    "key": "51e14aa927b6c4c50eaa0a6469d4c7ad0c880355dcfbafe0b95896e587f30f2a",
-    "source": "source/timeline/日期待考证-假海之总督的身份.md",
-    "term": "水手",
-    "targets": [
-      "source/worldview/pathways/水手途径/序列9-水手.md"
-    ],
-    "excerpt": "event_summary: \"祈海节期间，扮演假“海之总督”的人被揭露是“愚人节”的“吟游诗人”；他冒用米格尔的身份，也曾以水手伊鲁的身份上船。\"",
-    "reason": "水手伊鲁为冒用的职业身份，不能仅凭名称指向序列"
-  },
-  {
     "key": "be92af140ced00dc05b9d46365bc2987ac2e6dd4d700231b2f70a47201e2ba62",
     "source": "source/characters/entries/佛尔思·沃尔.md",
     "term": "魔术师",
@@ -14108,26 +11288,6 @@
     ],
     "excerpt": "[塔罗会](../../../worldview/organizations/塔罗会/)代号为“魔术师”；在《宿命之环》中，她也被称为“星之天使”。见《诡秘之主》第二部第九十八章《互相观察》；《宿命之环》第六部第四十五章《电影》。",
     "reason": "魔术师是塔罗会代号，不是此处人物所属序列"
-  },
-  {
-    "key": "a5c96a5c27de004df38cd13739c810bd53fc3d2ab2792306bf9fd5879fdcb90a",
-    "source": "source/timeline/1351-09-08-克莱恩把蘑菇带给月城居民.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"尼姆召集月城居民，克莱恩向众人讲述外界和愚者，并提供蘑菇与展示“无暗十字”的光辉。\"",
-    "reason": "此处为克莱恩使用的尊名，摘要已关联人物"
-  },
-  {
-    "key": "8f5177a0151704de29ce0764265adda2ea5b23f0304522b575753934a7d5b86c",
-    "source": "source/timeline/1351-09-08-克莱恩把蘑菇带给月城居民.md",
-    "term": "莱恩",
-    "targets": [
-      "source/characters/entries/莱恩·科斯.md"
-    ],
-    "excerpt": "event_summary: \"尼姆召集月城居民，克莱恩向众人讲述外界和愚者，并提供蘑菇与展示“无暗十字”的光辉。\"",
-    "reason": "此处是克莱恩姓名的一部分"
   },
   {
     "key": "6ad52a944bc36f5700340d27bacd2db353b404944d5d905fc6d9632e4fb8671d",
@@ -14158,26 +11318,6 @@
     ],
     "excerpt": "event_summary: \"克莱恩在塔罗会上教导成员尝试祈求“愚者”的仪式，随后首次在灰雾之上听见奥黛丽的祈求并作出回应。\"",
     "reason": "愚者为克莱恩当时使用的尊名，不指当时已达到序列0"
-  },
-  {
-    "key": "0d61c168ef30bbf6d09adeb2325a4d06309df566f0e4c84bb7c585392dacbbfb",
-    "source": "source/timeline/1350年12月-克莱恩借留在白银城的血液复活.md",
-    "term": "列斯",
-    "targets": [
-      "source/characters/entries/列斯.md"
-    ],
-    "excerpt": "event_summary: \"阿蒙守着克莱恩的遗骸；克莱恩恢复与塔罗会的联系，听取帕列斯的建议，借送往白银城的血液制造复活点，成功复活。\"",
-    "reason": "此处是帕列斯姓名的一部分"
-  },
-  {
-    "key": "71468e0e62f571b4296944192aa5693298235223fe8d3e324253c5e7e1278455",
-    "source": "source/timeline/1350年1月5日至2月1日间-阿兹克在黑死号取回死神文献的拓印本.md",
-    "term": "死神",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列0-死神.md"
-    ],
-    "excerpt": "event_summary: \"阿兹克与克莱恩前往黑死号，遇见前来保护特雷茜的卡特琳娜；阿兹克随后取回死神文献的拓印本。\"",
-    "reason": "此处是文献的指代，不能仅凭文字对应某一序列"
   },
   {
     "key": "397982efc446fc0292f049edbf65ee0d0c85384f8ff3351598fa9582c56ecdbf",
@@ -14290,28 +11430,8 @@
     "reason": "此处为克莱恩使用的尊名，已关联人物"
   },
   {
-    "key": "10c2e635f1ef0bfd4fde2b8284888de5e2b1013a054d73fe68316a0eb6e4b301",
-    "source": "source/timeline/日期待考证-假海之总督的身份.md",
-    "term": "水手",
-    "targets": [
-      "source/worldview/pathways/水手途径/序列9-水手.md"
-    ],
-    "excerpt": "event_summary: \"祈海节期间，扮演假“海之总督”的人被揭露是“愚人节”的“吟游诗人”；他冒用米格尔和水手伊鲁的身份，还让“洛基”发行自己写的书以掩饰行踪。\"",
-    "reason": "水手是伊鲁冒用的职业身份，不能仅凭名称指向序列"
-  },
-  {
-    "key": "52f6adaabc9b21c92d33f6e0b6aae3c41820f45e53cca5b1cb590394624f5451",
-    "source": "source/timeline/日期待考证-卢米安等人追查镜中人，审问工业部长莫兰.md",
-    "term": "阴影商人",
-    "targets": [
-      "source/worldview/pathways/掮客途径/序列8-阴影商人.md"
-    ],
-    "excerpt": "event_summary: \"卢米安等人调查工业部长莫兰及镜中人线索，遭遇“阴影商人”耶布斯，随后追捕、审问莫兰。\"",
-    "reason": "阴影商人是耶布斯的称谓；其已知恩赐相当于序列5，不能将称谓直接指向序列8"
-  },
-  {
     "key": "3e2d0be353bb7dd2e76b19e9d29e5deb2e6c1b9839d20f9722eb407c067115b2",
-    "source": "source/timeline/1349-07-27至1349-07-28-克莱恩与心理炼金会的古德里安建立联系.md",
+    "source": "source/timeline/1349-07-28-克莱恩与古德里安建立联系.md",
     "term": "兰尔乌斯",
     "targets": [
       "source/characters/entries/兰尔乌斯.md"
@@ -14321,23 +11441,13 @@
   },
   {
     "key": "3e90b9dd32844abdc8662b9adf2211f87815ebd8174a7d8dffe9f0f83ea19a08",
-    "source": "source/timeline/1349-08-19-克莱恩发现初代男爵的画像酷似阿兹克.md",
+    "source": "source/timeline/1349-08-19至1349-08-21-阿兹克身世调查.md",
     "term": "怨魂",
     "targets": [
       "source/worldview/pathways/囚犯途径/序列5-怨魂.md"
     ],
     "excerpt": "《诡秘之主》第一部“小丑”第一百三十二至一百三十六章。伊丽莎白向克莱恩求助，讲述在废弃古堡被荆棘刺伤后做噩梦；克莱恩与邓恩前往古堡处理怨魂，在那里发现异常。随后克莱恩见到一幅初代拉姆德男爵画像，注意到画中人和阿兹克相貌相似。",
     "reason": "此处描述怨魂灵体，不能仅凭文字指向序列5"
-  },
-  {
-    "key": "4183a7a611da776d44e33cb1a156085505afa62b025b9388d7b8508f60d9de43",
-    "source": "source/timeline/1349-09-01-克莱恩为梅纳德通灵，发现雪伦夫人的线索.md",
-    "term": "活尸",
-    "targets": [
-      "source/worldview/pathways/囚犯途径/序列6-活尸.md"
-    ],
-    "excerpt": "《诡秘之主》第一部“小丑”第一百七十二至一百七十四章。克莱恩协助调查梅纳德议员死亡，对尸体通灵时发现其死前与一位女士在一起；尸体随后活尸化，被克莱恩制服。警方认出画像中的女士是雪伦夫人。",
-    "reason": "此处描述尸体活尸化，不指囚犯途径的序列8"
   },
   {
     "key": "163703935a17154c35f7606fd287afedd9582eecc3f05536c75113c59813cfdc",
@@ -14358,26 +11468,6 @@
     ],
     "excerpt": "《诡秘之主》第二部“无面人”第八十三至八十四章。佛尔思在满月呓语中痛苦挣扎，诵念“愚者”尊名求救。克莱恩将她拉入灰雾之上，帮助她摆脱当次呓语；佛尔思随后选择“魔术师”为代号，获得参加塔罗会的许可。",
     "reason": "此处描述人物感受，不指魔女途径的序列"
-  },
-  {
-    "key": "fb79aa9a8dd057e1c4d8afedae05f33a177fafaad825abfd0f3a5d76f1a34759",
-    "source": "source/timeline/1350年4月上中旬线索-克莱恩在修道院梦中遇见苦修士利奥马斯特.md",
-    "term": "苦修士",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列6-苦修士.md"
-    ],
-    "excerpt": "《诡秘之主》第三部“旅行家”第一百七十至一百七十三章。克莱恩与安德森在岛上遭遇石巨人，并带他返回“未来号”。再次陷入修道院梦境时，克莱恩遇见自称苦修士的利奥马斯特和异常的镜中影像；醒后他与嘉德丽雅分析梦境中的发现。",
-    "reason": "此处是利奥马斯特的自称，不能仅凭字面指向舞蹈家途径序列"
-  },
-  {
-    "key": "6ffe0229880ee6897093a2fd38a283fe01a472e2d8a8759d43769e218ad0e461",
-    "source": "source/timeline/1350年4月上中旬线索-克莱恩在修道院梦中遇见苦修士利奥马斯特.md",
-    "term": "苦修士",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列6-苦修士.md"
-    ],
-    "excerpt": "event_summary: \"克莱恩回到未来号后，再次在修道院梦中遇见苦修士利奥马斯特；醒后他与嘉德丽雅分析梦境。\"",
-    "reason": "此处是利奥马斯特的自称，不能仅凭字面指向舞蹈家途径序列"
   },
   {
     "key": "648bfcf5f31aa7d72becb63baa4b22505578887a277df1d78ef628010014f065",
@@ -14410,36 +11500,6 @@
     "reason": "此处指暴君亵渎之牌，摘要已链接该牌"
   },
   {
-    "key": "d4afb8daffca07ccdd746fc1ad3fe6ee21afe2fab476d391b62832fa8c971f93",
-    "source": "source/timeline/五月初-卢米安在地下墓穴结识奥斯塔，请他引荐聚会.md",
-    "term": "鲁尔",
-    "targets": [
-      "source/characters/entries/鲁尔.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第五至九章《生活经验》《传说》《时尚之都》《报酬》《招摄》。卢米安前往地下墓穴，接近奥斯塔·特鲁尔，以寻求遗忘痛苦为由与他交谈，并跟踪他到住处。卢米安识破其说辞后，与他达成交易，请他引荐神秘学聚会；奥斯塔教他招摄仪式，两人招来一名怪异生物。",
-    "reason": "鲁尔是特鲁尔姓名的一部分，不指鲁尔人物"
-  },
-  {
-    "key": "1da7f6e8d71344e0d95be7f9e19dcdf3bdf3b256aa38be1c662380129a017f8b",
-    "source": "source/timeline/五月初-卢米安在地下墓穴结识奥斯塔，请他引荐聚会.md",
-    "term": "痛苦",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列5-痛苦.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第五至九章《生活经验》《传说》《时尚之都》《报酬》《招摄》。卢米安前往地下墓穴，接近奥斯塔·特鲁尔，以寻求遗忘痛苦为由与他交谈，并跟踪他到住处。卢米安识破其说辞后，与他达成交易，请他引荐神秘学聚会；奥斯塔教他招摄仪式，两人招来一名怪异生物。",
-    "reason": "此处描述人物感受，不指序列"
-  },
-  {
-    "key": "f05ddf2ea0a84bb8c5d009b8011da22650a63ad1720a3a4a27f6c963393b8a3f",
-    "source": "source/timeline/四月底至五月初线索-卢米安化名夏尔，在特里尔金鸡旅店落脚.md",
-    "term": "鲁尔",
-    "targets": [
-      "source/characters/entries/鲁尔.md"
-    ],
-    "excerpt": "《宿命之环》第二部“逐光者”第一至四章《外乡人》《信使》《查理》《住客们》。卢米安以“夏尔”为名抵达特里尔，识破带路者拉马耶及其同伴的勒索，从地下特里尔进入乱街，在金鸡旅店租住。他通过“魔术师”女士的信使送出抵达后的第一封信，询问治疗及调查线索；当晚收到回信，得知心理治疗的约定，以及取得奥斯塔·特鲁尔信任的任务。",
-    "reason": "鲁尔是特鲁尔姓名的一部分，不指鲁尔人物"
-  },
-  {
     "key": "169f92930dd58a9d5f9a2cd3fd52adf8da221506331b6317a0d377e4b510ecd9",
     "source": "source/timeline/日期待考证-克莱恩与阿里安娜破解困住贝尔丹的黄铜书规则.md",
     "term": "特伦索斯特",
@@ -14448,16 +11508,6 @@
     ],
     "excerpt": "《诡秘之主》第七卷“倒吊人”第十四至二十四章。克莱恩以流浪魔术师身份抵达贝尔丹，发现城市受到“特伦索斯特黄铜书”制定的规则限制；他与阿里安娜配合，寻找规则漏洞并处理封印物，帮助幸存者脱险。",
     "reason": "此处为黄铜书名称的一部分，摘要已链接封印物"
-  },
-  {
-    "key": "72ec6b82ae874477ba82399f710908506a5290b74474845c4f692118f09e010c",
-    "source": "source/timeline/日期待考证-克莱恩请奥黛丽帮他梳理今后的目标.md",
-    "term": "痛苦",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列5-痛苦.md"
-    ],
-    "excerpt": "《诡秘之主》第五部“红祭司”第一至二章。克莱恩因得知自身追寻的真相而陷入痛苦和迷茫，以“世界”身份请求奥黛丽出诊；奥黛丽运用心理医生的知识帮助他梳理情绪与未来的目标。",
-    "reason": "此处描述人物感受，不指序列"
   },
   {
     "key": "6f12860971c5feb00e38053d3bb4496b8b801d173fac8f223efea0ff7c417d86",
@@ -14490,36 +11540,6 @@
     "reason": "人造死神派是派别名称，不直接指收尸人途径序列0"
   },
   {
-    "key": "a978d32291177aab3968ad2515365faaf634970786f9a0ce63f3f9dd64de6532",
-    "source": "source/timeline/日期待考证-关键日记.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"贝尔纳黛挑出的罗塞尔日记经嘉德丽雅转交给“愚者”；克莱恩据此追查最后一座陵寝和大帝安排的复活。\"",
-    "reason": "愚者是克莱恩使用的尊名，摘要已关联人物"
-  },
-  {
-    "key": "a99fac0c68c1fe5e238d680e4aa2b9a0d0e2d58c9c80fed4d6f0eb484db5b702",
-    "source": "source/timeline/日期待考证-织梦-问题的答案.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "event_summary: \"目曙医院地下发生异变。芙兰卡向简娜解释自己希望引来“原初魔女”的注视，随后当场服下“绝望”魔药，在困住众人的梦境里完成晋升。\"",
-    "reason": "此处是原初魔女奇克的称号，摘要已关联人物"
-  },
-  {
-    "key": "86cd93d02c2c6bdd9c9282baa0a7fab8339766c2bf87b33f377a6fa378caba19",
-    "source": "source/timeline/1358-04-05-卢米安在梦境废墟设伏猎杀火焰怪物.md",
-    "term": "梦魇",
-    "targets": [
-      "source/worldview/pathways/不眠者途径/序列7-梦魇.md"
-    ],
-    "excerpt": "《宿命之环》第一部“梦魇》第九十四至九十七章。四旬节前夜，卢米安在梦境废墟设置陷阱，利用“堕落水银”与火焰怪物周旋，最终斩杀怪物；醒来后他与奥萝尔讨论得到的非凡特性。",
-    "reason": "此处是原文章节或分卷标题，不能仅凭名称指向序列"
-  },
-  {
     "key": "ad50569d4b27608e74ea9511a7edcdead4311fde2f01a753b69060d19e1cfdb2",
     "source": "source/timeline/1358年3月末至4月1日间-奥萝尔召来雷蒙德的灵，追问死因.md",
     "term": "梦魇",
@@ -14527,86 +11547,6 @@
       "source/worldview/pathways/不眠者途径/序列7-梦魇.md"
     ],
     "excerpt": "《宿命之环》第一部“梦魇》第七十至七十一章。奥萝尔尝试召唤雷蒙德的灵；它称自己被蓬斯·贝内等人淹死，并反复提及教堂地底。姐弟据此判断地下可能与献祭有关，也留意到灵的状态与本次循环存在矛盾。",
-    "reason": "此处是原文章节或分卷标题，不能仅凭名称指向序列"
-  },
-  {
-    "key": "def7b767b047c2a9db792823b6119e98fb9b341a6d8272fe5485993465bb26f2",
-    "source": "source/timeline/1358年4月1日至四旬节前-三只羊失踪，卢米安等人怀疑献祭提前.md",
-    "term": "梦魇",
-    "targets": [
-      "source/worldview/pathways/不眠者途径/序列7-梦魇.md"
-    ],
-    "excerpt": "《宿命之环》第一部“梦魇》第九十至九十三章。卢米安在梦境中尝试让怪物附身、观察火焰怪物，使用“堕落水银”剥离“面条人”的一段命运，准备猎杀火焰怪物。现实中，他与莱恩、瓦伦泰发现皮埃尔·贝里的三只羊失踪；他们推测本堂神甫等人修复祭坛并提前献祭。卢米安随后与奥萝尔商量狩猎计划。",
-    "reason": "此处是原文章节或分卷标题，不能仅凭名称指向序列"
-  },
-  {
-    "key": "d526732cf94b37674950392b82606696437aeeb590e8a4556df21e826fa9e8e8",
-    "source": "source/timeline/日期待考证-“人质”.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "第一次参加K先生的聚会后，接管金鸡旅馆前。见《宿命之环》第二部“逐光者”第三十一至三十三章。",
-    "reason": "此处是原文章节或分卷标题，不能仅凭名称指向序列"
-  },
-  {
-    "key": "b6fe38e1433edddd101b798d5cf32e00bc45b9d857f97f69d8f7b5d0d96714ae",
-    "source": "source/timeline/日期待考证-冥河之誓.md",
-    "term": "永劫者",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列0-永劫者.md"
-    ],
-    "excerpt": "在星界屏障被突破之后。两地行动在同一章交错叙述。见《宿命之环》第八部“永劫者”第四十四章《冥河之誓》。",
-    "reason": "此处是原文章节或分卷标题，不能仅凭名称指向序列"
-  },
-  {
-    "key": "56e3329b4ecd449ea7400948f18b1ff76e0b40e891e51040b8e7d6984c44d346",
-    "source": "source/timeline/日期待考证-地球恢复与保护区撤回.md",
-    "term": "永劫者",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列0-永劫者.md"
-    ],
-    "excerpt": "贝克兰德、特里尔和魔都等城市重现，农田和海洋恢复生机。克莱恩最后解除保护，让幸存的生灵回到原处。见《宿命之环》第八部第六十章《永劫者》、第六十一章《“暂时”地退去》。",
-    "reason": "此处是原文章节或分卷标题，不能仅凭名称指向序列"
-  },
-  {
-    "key": "2577e5a282d3521e0f49430487a8f4e9afc5f3cac21d642523d2ec67eda1c66b",
-    "source": "source/timeline/日期待考证-小阿卡那牌.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "第四纪特里尔的灾难发生后，卢米安离开市场区之前。见《宿命之环》第四部“罪人”第四章《可疑的态度》、第五章《小阿卡那牌》。",
-    "reason": "此处是原文章节或分卷标题，不能仅凭名称指向序列"
-  },
-  {
-    "key": "6a27001be928055160cf3255a689d3fabe87e1c33ca4524f96d64e99ce8b1f7c",
-    "source": "source/timeline/日期待考证-收割者.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "紧接梦中揭示阴谋，早于前往蒂扎莫镇的调查。见《宿命之环》第四部“罪人”第一百五十五章《展示阴谋》、第一百五十六章《收割者》。",
-    "reason": "此处是原文章节或分卷标题，不能仅凭名称指向序列"
-  },
-  {
-    "key": "62178920fa4231672f370ec376980bc506dedeb11e178c5e3a1d0b18e4158d2a",
-    "source": "source/timeline/日期待考证-新的委托.md",
-    "term": "罪人",
-    "targets": [
-      "source/worldview/pathways/舞蹈家途径/序列2-罪人.md"
-    ],
-    "excerpt": "第一百二十一章在海船驶入科利亚港时明示已到十一月中旬。卢米安驱逐魔鬼之后才换船前往汉特岛。见《宿命之环》第四部“罪人”第一百一十九章《新的委托》至第一百二十六章《深渊的异状》。",
-    "reason": "此处是原文章节或分卷标题，不能仅凭名称指向序列"
-  },
-  {
-    "key": "f35a6dc04f5298c65af9d3174ff2fa9f79ff24d273a15fee930f850621ac33e0",
-    "source": "source/timeline/日期待考证-记起.md",
-    "term": "逐光者",
-    "targets": [
-      "source/worldview/pathways/歌颂者途径/序列2-逐光者.md"
-    ],
-    "excerpt": "第一次治疗约两周后，当天是国会选举开始的周日。见《宿命之环》第二部“逐光者”第八十六章、第八十九至九十三章。",
     "reason": "此处是原文章节或分卷标题，不能仅凭名称指向序列"
   },
   {
@@ -14650,16 +11590,6 @@
     "reason": "威尔迪街是地名，不指威尔·昂赛汀"
   },
   {
-    "key": "0fde61e6746c396f92151e1f5f082806504da5ce4349d87539524292f8e665a4",
-    "source": "source/timeline/日期待考证-克莱恩向“白之魔女”打听王室陵寝.md",
-    "term": "魔女",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列0-魔女.md"
-    ],
-    "excerpt": "event_summary: \"克莱恩通过特雷茜获得“白之魔女”的线索，随后向她打听王室陵寝的消息。\"",
-    "reason": "白之魔女是卡特琳娜的称号，摘要已链接人物"
-  },
-  {
     "key": "94a1383ba03aff18ba981bfaf396b3389030adb533af4f0715c6d666063b680e",
     "source": "source/artifacts/entries/2-049.md",
     "term": "安提哥努斯",
@@ -14680,28 +11610,8 @@
     "reason": "此处指厄运布偶，不指囚犯途径的木偶序列"
   },
   {
-    "key": "57998a0c3d9493b8803d3bb3064e74cbb9fda1fa7dbff4fbb688dab2251f36e2",
-    "source": "source/timeline/日期待考证-周明瑞在阳都梦境告别.md",
-    "term": "愚者",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列0-愚者.md"
-    ],
-    "excerpt": "event_summary: \"周明瑞告诉卢米安，在他完全醒来前，格尔曼·斯帕罗将作为“愚者”体现他的一部分意志。周明瑞饮下撒玛利亚妇人泉水后退入黑暗；梦境消散，芙兰卡与伙伴们醒来。\"",
-    "reason": "愚者是克莱恩的尊名，摘要已关联人物"
-  },
-  {
-    "key": "68e4d7b0c0a41bf08265d69b4a6ab0b70d9c3e900c9261ced5e42df4f63adabb",
-    "source": "source/timeline/日期待考证-周明瑞在阳都梦境告别.md",
-    "term": "黑暗",
-    "targets": [
-      "source/worldview/pathways/不眠者途径/序列0-黑暗.md"
-    ],
-    "excerpt": "event_summary: \"周明瑞告诉卢米安，在他完全醒来前，格尔曼·斯帕罗将作为“愚者”体现他的一部分意志。周明瑞饮下撒玛利亚妇人泉水后退入黑暗；梦境消散，芙兰卡与伙伴们醒来。\"",
-    "reason": "黑暗是环境描述，不指序列0"
-  },
-  {
     "key": "28b9c1b5895c064d313d4a3bdd1d0fdcecc8b1f07aee0f3801956597947fc47a",
-    "source": "source/timeline/1349-07-23-阿兹克请克莱恩帮他追查身世.md",
+    "source": "source/timeline/1349-08-19至1349-08-21-阿兹克身世调查.md",
     "term": "塔罗会",
     "targets": [
       "source/worldview/organizations/塔罗会/index.md"
@@ -14740,16 +11650,6 @@
     "reason": "此处仅说明与另一叙事线交错，不表示该词条参与本事件"
   },
   {
-    "key": "ab1f78b206737bb5db8be340bfecf088dd711fe01d583943062cb8f43a821e80",
-    "source": "source/timeline/1351-09-08-克莱恩把蘑菇带给月城居民.md",
-    "term": "塔罗会",
-    "targets": [
-      "source/worldview/organizations/塔罗会/index.md"
-    ],
-    "excerpt": "此事与白银城和塔罗会成员的行动交错，其余场景的具体日期待核实。",
-    "reason": "此处仅说明与另一叙事线交错，不表示该词条参与本事件"
-  },
-  {
     "key": "ab2cec4f3a87cfe4029d731efdf11805329048e3f0ee441ad3f2d2e205f72e23",
     "source": "source/timeline/日期待考证-佛尔思拜多里安·格雷为师.md",
     "term": "塔罗会",
@@ -14758,46 +11658,6 @@
     ],
     "excerpt": "具体日期待核实；后续关于重复服用魔药的问题在塔罗会上提出。",
     "reason": "此处指后续事件，不表示本次拜师发生在塔罗会上"
-  },
-  {
-    "key": "f36f0d432866e6074015b9c8bea96ad1fa99588a94cf824cf1e5b09438887c8f",
-    "source": "source/timeline/日期待考证-克莱恩与海柔尔的老师交手，阿蒙现身.md",
-    "term": "塔罗会",
-    "targets": [
-      "source/worldview/organizations/塔罗会/index.md"
-    ],
-    "excerpt": "本事件与塔罗会及其他人物行动交错，具体日期待核实。",
-    "reason": "此处仅说明与另一叙事线交错，不表示该词条参与本事件"
-  },
-  {
-    "key": "e009536252ea3fbb08357592aa316b434efddb75605022753b5ba8bead09446e",
-    "source": "source/timeline/日期待考证-克莱恩在诺斯古城与“圣言天使”交手.md",
-    "term": "塔罗会",
-    "targets": [
-      "source/worldview/organizations/塔罗会/index.md"
-    ],
-    "excerpt": "与塔罗会成员的行动交错，具体日期待核实。",
-    "reason": "此处仅说明与另一叙事线交错，不表示该词条参与本事件"
-  },
-  {
-    "key": "eeabda4580659559d3663677027095b10ae52b0c8d61c75b21c12a7a0b3d5c1f",
-    "source": "source/timeline/日期待考证-克莱恩请奥黛丽封存有关末日的记忆.md",
-    "term": "末日",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列1-末日.md"
-    ],
-    "excerpt": "具体日期待核实；有关末日的解释在此处是克莱恩根据线索作出的猜测，与其他人物的经历交错叙述。",
-    "reason": "末日是事件或预言，不指刺客途径的序列名称"
-  },
-  {
-    "key": "dcaa6d57f6bce7d00d58f188d416048039580902f0ace63008e2435c1b2de1e5",
-    "source": "source/timeline/日期待考证-卢米安等人追查镜中人，审问工业部长莫兰.md",
-    "term": "阴影商人",
-    "targets": [
-      "source/worldview/pathways/掮客途径/序列8-阴影商人.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第二百零九至二百三十一章。卢米安等人调查工业部长莫兰·阿维尼及镜中人线索，遭遇“阴影商人”耶布斯，随后围绕莫兰展开追捕与审问。镜中世界及其他势力的行动交错。",
-    "reason": "阴影商人是耶布斯的称谓，不能直接指向序列8"
   },
   {
     "key": "7ed52ff335cba7202c222ec15bff7cd655139032cc2fc0b2b11ffbc492636caa",
@@ -14840,16 +11700,6 @@
     "reason": "此处仅说明与另一叙事线交错，不表示该词条参与本事件"
   },
   {
-    "key": "48a9fe86ac3108c63508b6888ab1dd7eb94516243886ae170e1078d18eef5c00",
-    "source": "source/timeline/日期待考证-卢米安一行追查镜中人时迎战佩尔乐.md",
-    "term": "隐者",
-    "targets": [
-      "source/worldview/pathways/窥秘人途径/序列0-隐者.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第二百三十二至二百四十章。众人循镜中人线索行动，遭遇佩尔乐；“魔术师”“审判”“隐者”等人的追踪与卢米安一行的战斗交错。卷末卢米安面对战斗后的伤势与自身罪责。",
-    "reason": "此处是塔罗会成员的代号，不能直接指向序列"
-  },
-  {
     "key": "d550449730a04ddb22f083306b9b4499378885ad826fbab20f7d0f70a36aa5f5",
     "source": "source/timeline/日期待考证-埃姆林接受愚者邀请，选定“月亮”代号.md",
     "term": "吸血鬼",
@@ -14858,16 +11708,6 @@
     ],
     "excerpt": "《诡秘之主》第二部“无面人”第二百五十一至二百五十六章。埃姆林依血族始祖的启示向愚者祈求；克莱恩在确认风险后延迟回应，将他拉入灰雾。埃姆林同意加入隐秘聚会，选择“月亮”为代号。随后，他向愚者讲述血月女王奥尔尼娅与夜皇成婚、两人陨落于四皇之战以及血族退隐的经过（第二百五十六章《吸血鬼女王》）。",
     "reason": "吸血鬼出现在章节标题中，不能仅凭名称指向序列"
-  },
-  {
-    "key": "0cbe4521cc2a94953065591bd2868dc9da6fa1c00fc05aece490b4a91539d5b7",
-    "source": "source/timeline/日期待考证-大阿卡那牌们.md",
-    "term": "阴谋家",
-    "targets": [
-      "source/worldview/pathways/猎人途径/序列6-阴谋家.md"
-    ],
-    "excerpt": "芙兰卡向卢米安说明，自己直属“审判”女士。她还依据报纸与神秘学聚会的消息，告诉他哪些大阿卡那牌近期有过活动。见《宿命之环》第三部“阴谋家”第一章《隐秘组织》、第二章《大阿卡那牌们》。",
-    "reason": "阴谋家在此为分卷名称，不指序列"
   },
   {
     "key": "0f11c2856b60fdde7fc1c20240be07167e41d704c8000fbb00bfbf6b779322af",
@@ -14880,36 +11720,6 @@
     "reason": "此处仅指人物职业，不能直接指向序列"
   },
   {
-    "key": "dd87516d216ece55099fabb3775d17780b500eb9799be17d33c3150e51c3707b",
-    "source": "source/timeline/日期待考证-微小的希望.md",
-    "term": "魔术师",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列7-魔术师.md"
-    ],
-    "excerpt": "“魔术师”让卢米安去特里尔加入一个隐秘组织、为她搜集情报，也提出可以介绍心理学家帮他追忆科尔杜往事。卢米安离开废墟，后来在达列日地区搭上前往比戈尔的驿站马车。马车出发和报告递交的先后未明。见《宿命之环》第一部第一百零九章《微小的希望》。",
-    "reason": "此处是佛尔思的塔罗会代号，摘要已关联人物"
-  },
-  {
-    "key": "db7357b6caee26eaaf4b1983869df116f038affa7d03da4db98546d0afa3e891",
-    "source": "source/timeline/日期待考证-新的委托.md",
-    "term": "深渊",
-    "targets": [
-      "source/worldview/pathways/罪犯途径/序列0-深渊.md"
-    ],
-    "excerpt": "第一百二十一章在海船驶入科利亚港时明示已到十一月中旬。卢米安驱逐魔鬼之后才换船前往汉特岛。见《宿命之环》第四部“罪人”第一百一十九章《新的委托》至第一百二十六章《深渊的异状》。",
-    "reason": "深渊出现在章节标题中，不能仅凭名称指向序列"
-  },
-  {
-    "key": "7d22c4728994e0cbaaab0744125d3aa34839541872c4a9767838c6be117f87ff",
-    "source": "source/timeline/日期待考证-最后的询问.md",
-    "term": "织梦人",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列3-织梦人.md"
-    ],
-    "excerpt": "梦中狩猎结束后、五人抵达梦境都市的站台之前。见《宿命之环》第六部“织梦人”第十六章《历史》、第十七章《最后的询问》。",
-    "reason": "织梦人在此为分卷名称，不指序列"
-  },
-  {
     "key": "49782c2a20e58ed669f82b8a9ade3cefc58f762d9b631c0725265967119cde1c",
     "source": "source/timeline/日期待考证-皮埃尔的羊在地上写字向卢米安求救.md",
     "term": "牧羊人",
@@ -14918,16 +11728,6 @@
     ],
     "excerpt": "《宿命之环》第一部“梦魇”第三十七至三十九章。卢米安调查牧羊人皮埃尔·贝里的三只羊，其中一只在地上写字求救；奥萝尔辨认出文字，怀疑羊原本是人。姐弟随后商量离开科尔杜村并寻求外界帮助。",
     "reason": "此处是皮埃尔的牧羊职业，不指序列"
-  },
-  {
-    "key": "6fb70322e0acce1a447cf38de142a1cc6c8e1cdcbd60b4f1146ef0d7c2c7e861",
-    "source": "source/timeline/日期待考证-简娜进入异常客房，众人追查“旅舍”与旧墓园的联系.md",
-    "term": "作家",
-    "targets": [
-      "source/worldview/pathways/观众途径/序列1-作家.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百八十四至二百零五章。众人追查失踪的作家及“旅舍”的线索，简娜进入异常空间；卢米安等人逐步发现房间和旧墓园之间的关联，并继续设法脱险。",
-    "reason": "此处仅指人物职业，不能直接指向序列"
   },
   {
     "key": "59ca2522622c60e38086c13c5dda78c3c6f39650f05396c4d8a9d191e885a744",
@@ -15020,36 +11820,6 @@
     "reason": "此处指黑皇帝途径，摘要已关联途径总览"
   },
   {
-    "key": "a0c9309516b2089cad6d64aef35fc22dc768e4b08e57b60cbf975c84e638592f",
-    "source": "source/timeline/1350年1月5日至2月1日间-阿兹克在黑死号取回死神文献的拓印本.md",
-    "term": "死神",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列0-死神.md"
-    ],
-    "excerpt": "event_summary: \"阿兹克与克莱恩前往黑死号，遇见前来保护特雷茜的卡特琳娜；阿兹克与卡特琳娜的交谈涉及拜朗帝国，随后他取回死神文献的拓印本。\"",
-    "reason": "此处为文献的指代，不能仅凭文字对应某一序列"
-  },
-  {
-    "key": "8e5fea1acb46799a6facb93ae15a3134911bd174e7f4cd173af1e1060579640c",
-    "source": "source/timeline/1349-12-18-塔利姆之死.md",
-    "term": "无面人",
-    "targets": [
-      "source/worldview/pathways/占卜家途径/序列6-无面人.md"
-    ],
-    "excerpt": "其余场景的具体日期待核实。后续[庄园调查](../#event-红蔷薇庄园的调查)发生在克莱恩晋升“无面人”之后。",
-    "reason": "此处仅为后续庄园调查的时间比较，不表示本事件中已晋升"
-  },
-  {
-    "key": "7f2135f9ef8891398184aa07c7742ba7d5dbeab30238b027e01aab5743f9a152",
-    "source": "source/timeline/1350年4月中旬至6月初线索-克莱恩重返书中，进入格罗塞尔的梦境.md",
-    "term": "“未来号”",
-    "targets": [
-      "source/artifacts/entries/未来号.md"
-    ],
-    "excerpt": "具体日期待核实。书中重新出现的角色与离开书后死去的原人物不能简单视为同一状态；书中调查与现实中“未来号”及贝克兰德的叙事交错。",
-    "reason": "此处仅说明与现实中未来号叙事交错，不表示其属于本次书中调查"
-  },
-  {
     "key": "6f14a09cd79424a0203e24a28d66b70bd0ef7f519c0dfb3cfbd27042656d1c8c",
     "source": "source/timeline/日期待考证-阿尔杰在精灵遗迹接受有关西大陆的约定.md",
     "term": "天灾",
@@ -15110,56 +11880,6 @@
     "reason": "此处是章节名称，不表示本事件涉及该人物。"
   },
   {
-    "key": "0762991d3bc346495fa41483ffb99037edfef4e5c8b7dc431c3fcd7eea4dd224",
-    "source": "source/timeline/日期待考证-慰问午宴上的刺杀.md",
-    "term": "刺客",
-    "targets": [
-      "source/worldview/pathways/刺客途径/序列9-刺客.md"
-    ],
-    "excerpt": "第149章写到她闭眼放弃抵抗便转向另一条线。直到第154章，卢米安与芙兰卡才见到受伤逃回的简娜。见《宿命之环》第二部第一百四十一章《慰问午宴》、第一百四十九章《刺客》、第一百五十四章《选择》。",
-    "reason": "此处是章节名称，不能据此关联同名序列。"
-  },
-  {
-    "key": "18a630f90ca07b469d27c917ebbbe88884b83e293a91d2e69d5898e38c5ea255",
-    "source": "source/timeline/日期待考证-新的委托.md",
-    "term": "魔鬼",
-    "targets": [
-      "source/worldview/pathways/罪犯途径/序列4-魔鬼.md"
-    ],
-    "excerpt": "第一百二十一章在海船驶入科利亚港时明示已到十一月中旬。卢米安驱逐魔鬼之后才换船前往汉特岛。见《宿命之环》第四部“罪人”第一百一十九章《新的委托》至第一百二十六章《深渊的异状》。",
-    "reason": "这里沿用人物自称，不能据此认定为罪犯途径的同名序列。"
-  },
-  {
-    "key": "b4af6eb974e2880b51db7c3fdd3fdeba1c0dda3800c98e52ffd50c650c7572d2",
-    "source": "source/timeline/日期待考证-祝安好.md",
-    "term": "怨魂",
-    "targets": [
-      "source/worldview/pathways/囚犯途径/序列5-怨魂.md"
-    ],
-    "excerpt": "一名守卫被变成兔子，另一名被怨魂附身。克莱恩击杀前者，将后者变成秘偶，驱使它去推开正门。见《诡秘之主》第六部第一百零二章《小丑先生》、第一百零三章《祝安好》。",
-    "reason": "此处是附身的亡魂，不能仅凭称谓确定囚犯途径的同名序列。"
-  },
-  {
-    "key": "f43a99269f9e493de3736c5f338b32e0a65ec3b469f5009cafc1c7dd01faca85",
-    "source": "source/timeline/日期待考证-魔鬼巫师布尔曼在法林港交战后身亡.md",
-    "term": "魔鬼",
-    "targets": [
-      "source/worldview/pathways/罪犯途径/序列4-魔鬼.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第二十一至三十六章。飞鸟号途经法林港，卢米安等人卷入魔鬼巫师布尔曼相关事件并展开战斗，布尔曼最终死亡。",
-    "reason": "魔鬼巫师是布尔曼的称谓，不能把其中部分名称认作罪犯途径序列。"
-  },
-  {
-    "key": "5eb8802a4b343aa65954f2ad1d6ec6ca230dd4e0a67f07fbcf470f8370873ccd",
-    "source": "source/timeline/日期待考证-魔鬼巫师布尔曼在法林港交战后身亡.md",
-    "term": "巫师",
-    "targets": [
-      "source/worldview/pathways/窥秘人途径/序列7-巫师.md"
-    ],
-    "excerpt": "《宿命之环》第四部“罪人”第二十一至三十六章。飞鸟号途经法林港，卢米安等人卷入魔鬼巫师布尔曼相关事件并展开战斗，布尔曼最终死亡。",
-    "reason": "魔鬼巫师是布尔曼的称谓，不能把其中部分名称认作窥秘人途径序列。"
-  },
-  {
     "key": "7e7bf04d79c93cb2b413797cd0b83a86aced10fd288bfee7c19eefaa47838480",
     "source": "source/timeline/1349-12-23-克莱恩取得人皮幽影特性，晋升“无面人”.md",
     "term": "阿蒙",
@@ -15178,16 +11898,6 @@
     ],
     "excerpt": "《诡秘之主》第三部“旅行家”第一百二十一至一百三十章。药师达克威尔雇佣克莱恩护送，后者应对“概率之骰”引发的异常；抵达奥拉维后，骰子经敲钟人卡诺转交给“命运议员”瑞乔德。旅程与贝克兰德的其他调查、交易交错叙述。",
     "reason": "这里是达克威尔的惯常称呼；该时期他已晋升驯兽师，不能将称呼直接作为现有序列。"
-  },
-  {
-    "key": "6414f29ec571e82927b1528af086de184738a1c4852f18979096dbe6e9f52e33",
-    "source": "source/timeline/日期待考证-卢米安参加普伊弗的沙龙，遇上红天鹅堡异变.md",
-    "term": "看门人",
-    "targets": [
-      "source/worldview/pathways/收尸人途径/序列5-看门人.md"
-    ],
-    "excerpt": "《宿命之环》第三部“阴谋家”第一百至一百零九章。卢米安调查看门人失踪线索并受邀到红天鹅堡参加普伊弗的沙龙；城堡出现异常，参与者遭遇危险。加德纳·马丁后来谈及索伦家族先祖佛蒙达的状况，卢米安将相关梦境告知“魔术师”女士。",
-    "reason": "这里指城堡的看门人，是工作身份，不能据此确定同名序列。"
   },
   {
     "key": "38f7f7ac5fd3c37ff86b1ab9dcb62f2d60b391f941465c9048595a911f844897",
