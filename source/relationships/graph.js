@@ -3,13 +3,15 @@ const canvas=document.getElementById('graph'),ctx=canvas.getContext('2d'),conten
 const byId=new Map(characters.map(p=>[p.id,p])), adjacency=new Map(characters.map(p=>[p.id,[]]));
 relations.forEach(r=>{adjacency.get(r.a)?.push(r);adjacency.get(r.b)?.push(r)});
 const edgesOf=id=>adjacency.get(id)||[],other=(r,id)=>r.a===id?r.b:r.a;
+const relationshipQuery=WikiRelationshipQuery.createRelationshipQuery(characters,relations);
 function categoryText(r,viewer){return (r.categories||[]).map(category=>{const direction=r.direction?.[category];if(!direction)return category;if(direction==='both')return category+' ↔';const from=direction==='a-to-b'?r.a:r.b;return category+(from===viewer?' →':' ←')}).join(' · ')}
 const colors={'塔罗会':'#87cad1','值夜者':'#a398d8','愚者与眷者':'#d3b989','莫雷蒂一家':'#d0a7b5','宿命之环':'#8bb6d9','其他人物':'#a5b1c8'};
 // The sequence-to-pathway mapping is only applied to chapter-verified clues.
 const pathwayFromSequence={'占卜家':'愚者','秘偶大师':'愚者','梦魇':'黑夜','不眠者':'黑夜','午夜诗人':'黑夜','守夜人':'黑夜','收尸人':'死神','通灵者':'死神','看门人':'死神','纵火家':'红祭司','猎人':'红祭司','挑衅者':'红祭司','红祭司':'红祭司','痛苦魔女':'魔女','不老魔女':'魔女','魔女':'魔女','观众':'空想家','操纵师':'空想家','学徒':'门','占星人':'门','旅行家':'门','秘祈人':'倒吊人','航海家':'暴君','风眷者':'暴君','歌颂者':'太阳','仲裁人':'审判者','刺客':'魔女','教唆者':'魔女','星象师':'隐者','巫师':'隐者','偷盗者':'错误','盗火人':'错误','空想家':'空想家','窥秘人':'隐者','通识者':'完美者','怨魂':'被缚者','囚犯':'被缚者','猎魔者':'黄昏巨人','黎明骑士':'黄昏巨人','牧羊人':'倒吊人','心理医生':'空想家','收割者':'红祭司','耕种者':'母亲','药师':'月亮','阅读者':'白塔','水银之蛇':'命运之轮','欲望使徒':'深渊'};
-const palettes={...groupPalette,pathway:pathwayPalette};
+const palettes={...groupPalette};
+function currentPathwayColor(key){return pathwayPrimary(key,document.documentElement.dataset.theme)}
 const neutralPair={primary:'#8790a3',accent:'#B8C4D5'};
-function categoryColors(mode,key){return palettes[mode][key]||neutralPair}
+function categoryColors(mode,key){return mode==='pathway'?{primary:currentPathwayColor(key)||neutralPair.primary,accent:canvasTheme.label}:palettes[mode][key]||neutralPair}
 const pathwayStyles=new WeakMap();
 function pathwayStyle(person){
  if(pathwayStyles.has(person))return pathwayStyles.get(person);
@@ -21,16 +23,14 @@ function pathwayStyle(person){
  const inferred=facts.filter(f=>f.relation==='member'&&f.inferred);
  const fallback=members.length===0&&inferred.length===1?inferred[0]:null;
  const core=main||fallback;
- const color=pathwayPalette[core?.value];
- const style={main,rings,core,primary:color?.primary||(rings.length?'#D0D6DD':'#8790a3'),accent:color?.accent||'#B8C4D5'};
+ const style={main,rings,core};
  pathwayStyles.set(person,style);
  return style;
 }
-function personAccent(p){return groupMode==='network'||groupMode==='pathway'?pathwayStyle(p).accent:categoryColors(groupMode,category(p,groupMode)).accent}
-function personColor(p){return groupMode==='network'||groupMode==='pathway'?pathwayStyle(p).primary:categoryColors(groupMode,category(p,groupMode)).primary}
+function personAccent(p){return groupMode==='network'||groupMode==='pathway'?canvasTheme.label:categoryColors(groupMode,category(p,groupMode)).accent}
+function personColor(p){return groupMode==='network'||groupMode==='pathway'?(currentPathwayColor(pathwayStyle(p).core?.value)||(pathwayStyle(p).rings.length?canvasTheme.label:neutralPair.primary)):categoryColors(groupMode,category(p,groupMode)).primary}
 function ringColor(key){
- const pair=pathwayPalette[key];
- return pair?blendColor(pair.primary,pair.accent,.32):'#B8C4D5';
+ return currentPathwayColor(key)||canvasTheme.label;
 }
 function pathwayStatus(p){return p.ordinaryInCitedPeriod?'所引时期为普通人':p.ordinaryInCitedPeriodInferred?'所引时期可能为普通人（推测）':'途径待核实'}
 function pathwayDescription(p){
@@ -72,7 +72,7 @@ function renderPalette() {
   const attributes=clickable?` type="button" aria-expanded="false" data-org="${esc(key)}"`:'';
   const estimate=inferred.has(key)?`（含推定 ${inferred.get(key)}）`:'';
   const pair=categoryColors(mode,key);
-  return `<${tag}${attributes} class="palette-item" style="--swatch:${pair.primary};--swatch-accent:${pair.accent}"><i></i>${esc(key)} <small>${count}${estimate}</small></${tag}>`;
+  return `<${tag}${attributes} class="palette-item" style="--swatch:${pair.primary}${mode==='pathway'?'':`;--swatch-accent:${pair.accent}`}"><i></i>${esc(key)} <small>${count}${estimate}</small></${tag}>`;
  });
  legend.dataset.mode=mode;
  legend.innerHTML=`<div class="palette-title">标签</div><div class="palette-list">${chips.join('')}</div>`;
@@ -234,20 +234,35 @@ while(remaining.size){
  components.push(members);
 }
 components.sort((a,b)=>Number(b.some(n=>n.p.id==='klein'))-Number(a.some(n=>n.p.id==='klein'))||b.length-a.length||a[0].p.id.localeCompare(b[0].p.id));
-const componentSlots=[];
 for(const members of components){
- const radius=members.length===1?65:Math.max(120,95*Math.sqrt(members.length));
- let x=0,y=0;
- if(componentSlots.length){
-  for(let i=1;;i++){
-   const angle=i*2.399963, distance=80*Math.sqrt(i);
-   x=Math.cos(angle)*distance;y=Math.sin(angle)*distance;
-   if(componentSlots.every(slot=>Math.hypot(x-slot.x,y-slot.y)>=radius+slot.radius+80))break;
-  }
- }
- const slot={x,y,radius};componentSlots.push(slot);
+ const slot={x:0,y:0};
  members.sort((a,b)=>a.p.id.localeCompare(b.p.id,'zh-CN'));
  members.forEach((n,i)=>{n.component=slot;n.componentIndex=i;n.storyRadius=n.p.id==='klein'?0:1});
+}
+// Pack actual settled bounds, rather than reserving a guessed circle based on
+// population. Disconnected components have no relationship-distance constraint.
+function packNetworkComponents(list){
+ const visible=new Set(list),placed=[];
+ for(const members of components){
+  const group=members.filter(n=>visible.has(n));
+  if(!group.length)continue;
+  const left=Math.min(...group.map(n=>n.x-n.r)),right=Math.max(...group.map(n=>n.x+n.r));
+  const top=Math.min(...group.map(n=>n.y-n.r)),bottom=Math.max(...group.map(n=>n.y+n.r));
+  const halfW=(right-left)/2,halfH=(bottom-top)/2,cx=(left+right)/2,cy=(top+bottom)/2;
+  let x=0,y=0;
+  if(placed.length){
+   const candidates=placed.flatMap(b=>[
+    {x:b.x-b.halfW-halfW-64,y:b.y},{x:b.x+b.halfW+halfW+64,y:b.y},
+    {x:b.x,y:b.y-b.halfH-halfH-64},{x:b.x,y:b.y+b.halfH+halfH+64}
+   ]).sort((a,b)=>a.x*a.x+a.y*a.y-b.x*b.x-b.y*b.y);
+   const fit=candidates.find(c=>placed.every(b=>Math.abs(c.x-b.x)+1e-6>=halfW+b.halfW+64||Math.abs(c.y-b.y)+1e-6>=halfH+b.halfH+64));
+   x=fit.x;y=fit.y;
+  }
+  const dx=x-cx,dy=y-cy;
+  group.forEach(n=>{n.x+=dx;n.y+=dy});
+  group[0].component.x+=dx;group[0].component.y+=dy;
+  placed.push({x,y,halfW,halfH});
+ }
 }
 const layoutOrigins=new Map();
 function captionsBelow(mode){return mode==='organization'||mode==='nationality'||mode==='pathway'}
@@ -377,8 +392,49 @@ function arrangeGroups(){
 
 }
 
-let minimumZoom=.25,defaultCamera=true;
-function fitView(animate=false){const list=activeNodes();if(!list.length)return;const hubs=[...groupAnchors.values()],minX=Math.min(...list.map(n=>n.x-n.r),...hubs.map(h=>h.x-h.radius-60)),maxX=Math.max(...list.map(n=>n.x+n.r),...hubs.map(h=>h.x+h.radius+60)),minY=Math.min(...list.map(n=>n.y-n.r),...hubs.map(h=>h.y-h.radius-50)),maxY=Math.max(...list.map(n=>n.y+n.r),...hubs.map(h=>h.y+h.radius+50));const targetZoom=Math.min(1.2,Math.max(1,width*.94)/Math.max(1,maxX-minX),Math.max(1,height*.94)/Math.max(1,maxY-minY));minimumZoom=Math.min(.25,targetZoom);moveCamera(-(minX+maxX)/2*targetZoom,-(minY+maxY)/2*targetZoom,targetZoom,animate?300:0)}
+// Fit the settled distribution to the drawable area. Move centers only:
+// labels, hit targets and group symbols keep their screen-space proportions.
+function adaptLayoutAspect() {
+ const visible = activeNodes();
+ const points = [...visible, ...groupAnchors.values()];
+ if (points.length < 2 || !width || !height) return;
+ const xs = points.map(p => p.x), ys = points.map(p => p.y);
+ const spanX = Math.max(...xs) - Math.min(...xs);
+ const spanY = Math.max(...ys) - Math.min(...ys);
+ if (!spanX || !spanY) return;
+ const factor = (width / height) / (spanX / spanY);
+ const scaleX = Math.max(1, factor), scaleY = Math.max(1, 1 / factor);
+ for (const p of points) {
+  p.x *= scaleX;
+  p.y *= scaleY;
+ }
+ if (groupMode === 'network') {
+  for (const members of components) {
+   members[0].component.x *= scaleX;
+   members[0].component.y *= scaleY;
+  }
+ } else {
+  for (const n of visible) {
+   n.slotX *= scaleX;
+   n.slotY *= scaleY;
+  }
+ }
+}
+
+function settleLayout() {
+ arrangeGroups();
+ if (groupMode === 'network') {
+  settleNetwork();
+ } else {
+  temperature = 1;
+  for (let i = 0; i < 55; i++) updatePhysics();
+  temperature = 0;
+ }
+ adaptLayoutAspect();
+}
+
+let minimumZoom=.25,defaultCamera=true,overviewCamera=false;
+function fitView(animate=false){const list=activeNodes();if(!list.length)return;const hubs=[...groupAnchors.values()],minX=Math.min(...list.map(n=>n.x-n.r),...hubs.map(h=>h.x-h.radius-60)),maxX=Math.max(...list.map(n=>n.x+n.r),...hubs.map(h=>h.x+h.radius+60)),minY=Math.min(...list.map(n=>n.y-n.r),...hubs.map(h=>h.y-h.radius-50)),maxY=Math.max(...list.map(n=>n.y+n.r),...hubs.map(h=>h.y+h.radius+50));const targetZoom=Math.min(1.2,Math.max(1,width*.94)/Math.max(1,maxX-minX),Math.max(1,height*.94)/Math.max(1,maxY-minY));minimumZoom=Math.min(.25,targetZoom);moveCamera(-(minX+maxX)/2*targetZoom,-(minY+maxY)/2*targetZoom,targetZoom,animate?300:0,'overview')}
 function readingView(animate=false){
  const visible=activeNodes();
  if(!visible.length)return;
@@ -403,23 +459,27 @@ function frameCharacters(list,center,animate=false){
  minimumZoom=Math.min(.25,scale*.5);
  moveCamera(-center.x*scale,-center.y*scale,scale,animate?300:0,'default');
 }
-function restore(){const q=new URLSearchParams(location.search),canonical=id=>({celia:'jenna',hibbert_hall:'hibbert',roche_louise:'roche',vermond_sauron:'vermonda','profile-月夫人':'lady_moon'}[id]||id),first=canonical(q.get('a')),second=canonical(q.get('b'));a=byId.has(first)?first:null;b=a&&byId.has(second)&&second!==a?second:null}
+function restore(){const q=new URLSearchParams(location.search),first=q.get('a'),second=q.get('b');a=byId.has(first)?first:null;b=a&&byId.has(second)&&second!==a?second:null}
 function updateUrl(){const u=new URL(location.href);u.searchParams.delete('organization');u.searchParams.delete('a');u.searchParams.delete('b');if(a)u.searchParams.set('a',a);if(b)u.searchParams.set('b',b);history.pushState(null,'',u)}
 function focusPerson(id){layoutTransition=null;const node=nodeMap.get(id);if(!node)return;temperature=0;moveCamera(-node.x*1.35,-node.y*1.35,1.35,450)}
-function select(id){if(!byId.has(id))return;search.value='';if(!a){a=id;b=null}else if(id===a){b=null}else if(b&&id!==b){a=id;b=null}else b=id;if(!isolates.checked&&!edgesOf(id).length){isolates.checked=true;arrangeGroups()}updateUrl();render();focusPerson(id)}
+function revealSelection(){
+ content.parentElement.scrollTop=0;
+ if(window.matchMedia('(max-width:800px)').matches)content.scrollIntoView({block:'start'});
+}
+function select(id){if(!byId.has(id))return;search.value='';if(!a){a=id;b=null}else if(id===a){b=null}else if(b&&id!==b){a=id;b=null}else b=id;if(!isolates.checked&&!edgesOf(id).length){isolates.checked=true;settleLayout()}updateUrl();render();revealSelection();focusPerson(id)}
 function reset(){layoutTransition=null;a=b=null;readingView(true);updateUrl();render();requestDraw()}
 let resizeLayoutTimer;
 function resize(){const rect=canvas.getBoundingClientRect(),d=window.devicePixelRatio||1;const changed=width!==rect.width||height!==rect.height;width=rect.width;height=rect.height;canvas.width=Math.round(width*d);canvas.height=Math.round(height*d);ctx.setTransform(d,0,0,d,0,0);requestDraw();
- if(changed&&groupMode==='network'&&defaultCamera&&!a&&!layoutTransition)readingView();
- if(changed&&groupMode!=='network'){
+ if (changed && width && height) {
   clearTimeout(resizeLayoutTimer);
-  resizeLayoutTimer=setTimeout(()=>{
-   if(groupMode==='network'||!width||!height)return;
-   layoutTransition=null;arrangeGroups();temperature=1;
-   for(let i=0;i<55;i++)updatePhysics();
-   temperature=0;
-   if(a)focusPerson(b||a);else readingView(true);
-  },120);
+  resizeLayoutTimer = setTimeout(() => {
+   layoutTransition = null;
+   settleLayout();
+   if (a) focusPerson(b || a);
+   else if (overviewCamera) fitView();
+   else if (defaultCamera) readingView();
+   requestDraw();
+  }, 120);
  }
 }
 function projected(n){return {x:width/2+panX+n.x*zoom,y:height/2+panY+n.y*zoom}}
@@ -476,7 +536,9 @@ function updatePhysics(){const list=activeNodes(),alpha=temperature;
  for(let i=0;i<list.length;i++){
   const n=list[i];
   for(let j=i+1;j<list.length;j++){
-   const m=list[j],dx=n.x-m.x,dy=n.y-m.y,d2=dx*dx+dy*dy+.1;
+   const m=list[j];
+   if(groupMode==='network'&&n.component!==m.component)continue;
+   const dx=n.x-m.x,dy=n.y-m.y,d2=dx*dx+dy*dy+.1;
    if(d2>160000)continue;
    const d=Math.sqrt(d2);
    const unrelated=groupMode==='network'&&!n.contacts.has(m);
@@ -527,7 +589,7 @@ function refineNeighborhoods(list){
   for(const n of anchors){
    let stranger,minimum=Infinity;
    for(const m of list){
-    if(n===m||n.known.has(m))continue;
+    if(n===m||n.component!==m.component||n.known.has(m))continue;
     const d2=(m.x-n.x)**2+(m.y-n.y)**2;
     if(d2<minimum){stranger=m;minimum=d2}
    }
@@ -559,6 +621,7 @@ const networkLayouts=new Map();
 function settleNetwork(){
  const key=isolates.checked;
  if(!networkLayouts.has(key)){
+  components.forEach(members=>{members[0].component.x=members[0].component.y=0});
   nodes.forEach(n=>{
    const radius=32*Math.sqrt(n.componentIndex),angle=n.componentIndex*2.399963;
    n.x=n.component.x+Math.cos(angle)*radius;n.y=n.component.y+Math.sin(angle)*radius;n.vx=n.vy=0;
@@ -566,9 +629,11 @@ function settleNetwork(){
   temperature=1;
   for(let i=0;i<300;i++)updatePhysics();
   refineNeighborhoods(activeNodes());
-  networkLayouts.set(key,nodes.map(n=>({x:n.x,y:n.y})));
+  packNetworkComponents(activeNodes());
+  networkLayouts.set(key,{positions:nodes.map(n=>({x:n.x,y:n.y})),centers:components.map(m=>({...m[0].component}))});
  }else{
-  const positions=networkLayouts.get(key);
+  const {positions,centers}=networkLayouts.get(key);
+  components.forEach((m,i)=>Object.assign(m[0].component,centers[i]));
   nodes.forEach((n,i)=>{n.x=positions[i].x;n.y=positions[i].y;n.vx=n.vy=0});
  }
  temperature=0;
@@ -611,8 +676,8 @@ function drawHub(x,y,mode,color,accent){
   if(i===0)ctx.moveTo(px*size,py*size);else ctx.lineTo(px*size,py*size);
  });
  ctx.closePath();ctx.fillStyle=color;ctx.fill();
- ctx.strokeStyle=blendColor(color,'#e1e7f1',.45);ctx.lineWidth=.6;ctx.lineJoin='round';ctx.stroke();
- ctx.fillStyle=accent;ctx.fillRect(-2,-2,4,4);
+ ctx.strokeStyle=mode==='pathway'?canvasTheme.label:blendColor(color,'#e1e7f1',.45);ctx.lineWidth=.6;ctx.lineJoin='round';ctx.stroke();
+ if(mode!=='pathway'){ctx.fillStyle=accent;ctx.fillRect(-2,-2,4,4);}
  ctx.restore();
 }
 function nodeOrder(n){return n.p.id===hover?2:(n.p.id===a||n.p.id===b?1:0)}
@@ -620,6 +685,19 @@ function shortLabel(p){const name=(p.short||p.name).split('·')[0];return Array.
 function blendColor(from,to,t){const a=parseInt(from.slice(1),16),b=parseInt(to.slice(1),16),v=shift=>Math.round(((a>>shift)&255)*(1-t)+((b>>shift)&255)*t);return '#'+[v(16),v(8),v(0)].map(x=>x.toString(16).padStart(2,'0')).join('')}
 function rgba(hex,alpha){const value=parseInt(hex.slice(1),16);return `rgba(${value>>16},${(value>>8)&255},${value&255},${alpha})`}
 let inspectedHub=null;
+function readCanvasTheme() {
+ const style = getComputedStyle(canvas);
+ const color = name => style.getPropertyValue('--ui-' + name).trim();
+ return { label: color('ink'), edge: color('muted'), selected: color('accent'), surface: color('page') };
+}
+let canvasTheme = readCanvasTheme();
+window.addEventListener('wiki-theme-change', () => {
+ canvasTheme = readCanvasTheme();
+ if(layoutTransition)layoutTransition.colors.clear();
+ renderPalette();
+ render();
+ requestDraw();
+});
 function draw(){
  const tip=document.getElementById('person-hover'),person=byId.get(hover);
  tip.hidden=!!drag||!person;
@@ -632,12 +710,12 @@ function draw(){
    displayed.set(n,{x:start.x+(end.x-start.x)*progress,y:start.y+(end.y-start.y)*progress});
   }
  }else placeDots(list);
- for(const e of visibleEdges()){const n=nodeMap.get(e.a),m=nodeMap.get(e.b),p=screen(n),v=screen(m),selected=a&&b&&((e.a===a&&e.b===b)||(e.a===b&&e.b===a)),near=(focus||hover)&&[e.a,e.b].includes(focus||hover),weight=edgeWeight(n.p,m.p),peripheral=groupMode!=='network'&&(n.peripheral||m.peripheral);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(v.x,v.y);ctx.lineWidth=selected?1.8:near?1:.45;ctx.strokeStyle=selected?'rgba(205,231,225,.85)':near?'rgba(151,195,206,.58)':`rgba(144,163,193,${focus?.025:peripheral?.018+weight*.025:.045+weight*.06})`;ctx.stroke();if(selected){const directions=Object.values(e.direction||{}),arrow=(from,to,node)=>{const angle=Math.atan2(to.y-from.y,to.x-from.x),offset=nodeRadius(node)+3,x=to.x-Math.cos(angle)*offset,y=to.y-Math.sin(angle)*offset;ctx.beginPath();ctx.moveTo(x-8*Math.cos(angle-.5),y-8*Math.sin(angle-.5));ctx.lineTo(x,y);ctx.lineTo(x-8*Math.cos(angle+.5),y-8*Math.sin(angle+.5));ctx.stroke()};if(directions.includes('both')||directions.includes('a-to-b'))arrow(p,v,m);if(directions.includes('both')||directions.includes('b-to-a'))arrow(v,p,n)}}
+ for(const e of visibleEdges()){const n=nodeMap.get(e.a),m=nodeMap.get(e.b),p=screen(n),v=screen(m),selected=a&&b&&((e.a===a&&e.b===b)||(e.a===b&&e.b===a)),near=(focus||hover)&&[e.a,e.b].includes(focus||hover),weight=edgeWeight(n.p,m.p),peripheral=groupMode!=='network'&&(n.peripheral||m.peripheral);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(v.x,v.y);ctx.lineWidth=selected?1.8:near?1:.45;ctx.strokeStyle=selected?rgba(canvasTheme.selected,.9):near?rgba(canvasTheme.edge,.65):rgba(canvasTheme.edge,focus?.04:peripheral?.06+weight*.025:.13+weight*.06);ctx.stroke();if(selected){const directions=Object.values(e.direction||{}),arrow=(from,to,node)=>{const angle=Math.atan2(to.y-from.y,to.x-from.x),offset=nodeRadius(node)+3,x=to.x-Math.cos(angle)*offset,y=to.y-Math.sin(angle)*offset;ctx.beginPath();ctx.moveTo(x-8*Math.cos(angle-.5),y-8*Math.sin(angle-.5));ctx.lineTo(x,y);ctx.lineTo(x-8*Math.cos(angle+.5),y-8*Math.sin(angle+.5));ctx.stroke()};if(directions.includes('both')||directions.includes('a-to-b'))arrow(p,v,m);if(directions.includes('both')||directions.includes('b-to-a'))arrow(v,p,n)}}
  // Old and new hubs crossfade while their members move.
- if(layoutTransition&&layoutTransition.oldHubs.length){ctx.save();ctx.globalAlpha=1-layoutTransition.progress;for(const h of layoutTransition.oldHubs){const x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom;drawHub(x,y,h.mode,h.color,categoryColors(h.mode,h.key).accent);ctx.font='12px sans-serif';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillStyle='rgba(228,234,245,.92)';labels.push({text:h.key,x,y,r:12,below:captionsBelow(h.mode),priority:0,alpha:ctx.globalAlpha})}ctx.restore()}
+ if(layoutTransition&&layoutTransition.oldHubs.length){ctx.save();ctx.globalAlpha=1-layoutTransition.progress;for(const h of layoutTransition.oldHubs){const x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom;drawHub(x,y,h.mode,h.mode==='pathway'?hubColor(h.key,h.mode):h.color,categoryColors(h.mode,h.key).accent);ctx.font='12px sans-serif';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillStyle='rgba(228,234,245,.92)';labels.push({text:h.key,x,y,r:12,below:captionsBelow(h.mode),priority:0,alpha:ctx.globalAlpha})}ctx.restore()}
  // Membership links are separate from person-to-person relationships.
  if(groupMode!=='network'){ctx.save();if(layoutTransition)ctx.globalAlpha=layoutTransition.progress;
-  for(const n of [...list].sort((x,y)=>Number(x.p.id===focus)-Number(y.p.id===focus)))for(const key of groupKeys(n.p,groupMode)){const h=groupAnchors.get(key);if(!h)continue;const p=screen(n),x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom,highlight=n.p.id===focus;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(p.x,p.y);ctx.lineWidth=highlight?2.5:.5;ctx.strokeStyle=highlight?rgba(hubColor(key,groupMode),.95):'rgba(175,193,211,.12)';ctx.setLineDash(inferredGroup(n.p,groupMode,key)?[4,3]:[]);ctx.stroke()}ctx.setLineDash([]);
+  for(const n of [...list].sort((x,y)=>Number(x.p.id===focus)-Number(y.p.id===focus)))for(const key of groupKeys(n.p,groupMode)){const h=groupAnchors.get(key);if(!h)continue;const p=screen(n),x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom,highlight=n.p.id===focus;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(p.x,p.y);ctx.lineWidth=highlight?2.5:.5;ctx.strokeStyle=highlight?rgba(hubColor(key,groupMode),.95):rgba(canvasTheme.edge,.2);ctx.setLineDash(inferredGroup(n.p,groupMode,key)?[4,3]:[]);ctx.stroke()}ctx.setLineDash([]);
   for(const h of groupAnchors.values()){const x=width/2+panX+h.x*zoom,y=height/2+panY+h.y*zoom;if(x< -100||x>width+100||y< -50||y>height+50)continue;const color=hubColor(h.key,groupMode);drawHub(x,y,groupMode,color,categoryColors(groupMode,h.key).accent);labels.push({text:h.key,x,y,r:12,below:captionsBelow(groupMode),required:x>=0&&x<=width&&y>=0&&y<=height,priority:h.key===inspectedHub?5:h.key===centralGroup[groupMode]?4:1+Math.min(.9,h.count/100),alpha:ctx.globalAlpha})}
   ctx.restore();
  }
@@ -645,12 +723,12 @@ function draw(){
  const ordered=[...list].sort((x,y)=>nodeOrder(x)-nodeOrder(y));
  for(const n of ordered){const p=screen(n),radius=nodeRadius(n),rings=nodeRings(n),r=rings.length?radius-1.5:radius,selected=n.p.id===a||n.p.id===b,hovered=n.p.id===hover,lead=groupMode==='network'&&n.storyRadius===0,detail=lead||selected||hovered||zoom>2,unknown=groupMode==='network'?!pathwayStyle(n.p).core&&!pathwayStyle(n.p).rings.length:n.peripheral,match=!q||matchesSearch(n.p,q),near=!focus||neighbors.has(n.p.id);ctx.globalAlpha=(near||selected||hovered?1:.18)*(match||selected||hovered?1:.28);if(p.x < -45||p.y < -45||p.x>width+45||p.y>height+45)continue;
   const prior=layoutTransition?.colors.get(n.p.id),primary=prior?blendColor(prior.primary,personColor(n.p),layoutTransition.progress):personColor(n.p),accent=prior?blendColor(prior.accent,personAccent(n.p),layoutTransition.progress):personAccent(n.p);
-  {const frequency=mentionGlow(n.p),size=Math.min(30,r+3+frequency*12+(selected||hovered?6:0)),glow=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,size);glow.addColorStop(0,rgba(nodeRings(n).length?primary:accent,selected||hovered?.32:unknown?.045:.16));glow.addColorStop(1,rgba(accent,0));ctx.fillStyle=glow;ctx.beginPath();ctx.arc(p.x,p.y,size,0,Math.PI*2);ctx.fill()}
+  {const frequency=mentionGlow(n.p),size=Math.min(30,r+3+frequency*12+(selected||hovered?6:0)),glow=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,size);glow.addColorStop(0,rgba(document.documentElement.dataset.theme==='day'||nodeRings(n).length?primary:accent,selected||hovered?.32:unknown?.045:.16));glow.addColorStop(1,rgba(accent,0));ctx.fillStyle=glow;ctx.beginPath();ctx.arc(p.x,p.y,size,0,Math.PI*2);ctx.fill()}
   if(rings.length)drawRings(n,p,radius);
-  if(!detail){ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fillStyle=unknown?'rgba(157,171,194,.42)':primary;ctx.fill();if(!unknown){ctx.beginPath();ctx.arc(p.x,p.y,Math.max(.8,r*.32),0,Math.PI*2);ctx.fillStyle=accent;ctx.fill()}continue}
+  if(!detail){ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fillStyle=unknown?'rgba(157,171,194,.42)':primary;ctx.fill();if(!unknown&&document.documentElement.dataset.theme==='night'){ctx.beginPath();ctx.arc(p.x,p.y,Math.max(.8,r*.32),0,Math.PI*2);ctx.fillStyle=accent;ctx.fill()}continue}
   ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fillStyle=primary;ctx.fill();ctx.strokeStyle=rgba(accent,.8);ctx.lineWidth=selected||hovered?.75:.5;if((groupMode==='pathway'||groupMode==='network')&&pathwayStyle(n.p).core?.inferred)ctx.setLineDash([3,2]);ctx.stroke();ctx.setLineDash([]);
-  ctx.save();ctx.beginPath();ctx.arc(p.x,p.y,Math.max(1,r-1),0,Math.PI*2);ctx.clip();const image=portrait(n.p);if(image)ctx.drawImage(image,p.x-r,p.y-r,r*2,r*2);else{ctx.fillStyle=accent;ctx.beginPath();ctx.arc(p.x,p.y-r*.23,r*.31,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.ellipse(p.x,p.y+r*.68,r*.58,r*.55,0,0,Math.PI*2);ctx.fill()}ctx.restore();
-  ctx.font='12px sans-serif';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillStyle='#e0e5ef';labels.push({text:n.p.short||shortLabel(n.p),x:p.x,y:p.y,r:outerRadius(n),priority:lead?4:selected||hovered?3:0,alpha:ctx.globalAlpha});ctx.globalAlpha=1;
+  ctx.save();ctx.beginPath();ctx.arc(p.x,p.y,Math.max(1,r-1),0,Math.PI*2);ctx.clip();const image=portrait(n.p);if(image)ctx.drawImage(image,p.x-r,p.y-r,r*2,r*2);else{ctx.fillStyle=document.documentElement.dataset.theme==='day'?canvasTheme.surface:accent;ctx.beginPath();ctx.arc(p.x,p.y-r*.23,r*.31,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.ellipse(p.x,p.y+r*.68,r*.58,r*.55,0,0,Math.PI*2);ctx.fill()}ctx.restore();
+  ctx.font='12px sans-serif';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillStyle=canvasTheme.label;labels.push({text:n.p.short||shortLabel(n.p),x:p.x,y:p.y,r:outerRadius(n),priority:lead?4:selected||hovered?3:0,alpha:ctx.globalAlpha});ctx.globalAlpha=1;
  }ctx.globalAlpha=1;
  const obstacles=list.map(n=>{const {x,y}=screen(n),r=outerRadius(n)+2;return {left:x-r,right:x+r,top:y-r,bottom:y+r}});
  const canvasBox=canvas.getBoundingClientRect();
@@ -673,15 +751,16 @@ function draw(){
   const position=candidates.find(([cx,top])=>fits(cx,top));
   if(!position)continue;
   const [cx,top]=position;
-  ctx.globalAlpha=label.alpha;ctx.fillStyle='#e0e5ef';ctx.fillText(text,cx,top+1);
+  ctx.globalAlpha=label.alpha;ctx.fillStyle=canvasTheme.label;ctx.fillText(text,cx,top+1);
   obstacles.push({left:cx-half,right:cx+half,top,bottom:top+16});
  }
  ctx.globalAlpha=1;
 }
 function avatar(p){return `<span class="avatar" style="border-color:${personColor(p)}" aria-hidden="true">${p.avatar?`<img src="${esc(p.avatar)}" alt="" onerror="this.remove()">`:esc(p.mark||p.short[0])}</span>`}
-function row(p,detail){return `<button class="person-row" data-id="${esc(p.id)}">${avatar(p)}<span class="row-copy"><strong>${esc(p.name)}</strong><small>${esc(detail||p.group)}</small></span><span class="arrow">›</span></button>`}
+function row(p,detail){return `<button class="person-row" data-id="${esc(p.id)}">${avatar(p)}<span class="row-copy"><strong>${esc(p.name)}</strong><small>${esc(detail||p.group)}</small></span><span class="arrow"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-next"></use></svg></span></button>`}
 function pathwayBadge(person){
- const {rings,primary}=pathwayStyle(person);
+ const {rings}=pathwayStyle(person);
+ const primary=currentPathwayColor(pathwayStyle(person).core?.value)||canvasTheme.label;
  if(!rings.length)return '';
  const span=360/rings.length,gap=rings.length===1?90:Math.min(18,span*.2);
  const stops=rings.map((key,i)=>`transparent ${i*span}deg ${i*span+gap/2}deg, ${ringColor(key)} ${i*span+gap/2}deg ${(i+1)*span-gap/2}deg, transparent ${(i+1)*span-gap/2}deg ${(i+1)*span}deg`);
@@ -692,7 +771,7 @@ function stageCertaintyLabel(stage){
  if(stage.sequenceCertainty==='inferred')return stage.certainty==='inferred'?'（途径与序列均为推测）':'（序列推测）';
  return stage.certainty==='inferred'?'（推测）':'';
 }
-function classification(p){const profileLines=(p.documentProfile||[]).filter(line=>!/^(?:所属组织|其他组织经历|后续组织经历)：/.test(line));const profile=p.documentProfileUrl?`<details class="meta" open><summary>人物文档</summary>${profileLines.map(line=>`<p>${esc(line)}</p>`).join('')}<p><a href="${esc(p.documentProfileUrl)}">查看人物文档</a></p></details>`:'';const facts=p.classificationEvidence||[],overview=`<p class="meta">组织：${esc(groupSummary(p,'organization'))} · 国籍：${esc(groupSummary(p,'nationality'))} · ${pathwayBadge(p)}${esc(pathwayDescription(p))}</p>`;const stages=p.progression||[];const progression=stages.length?`<div class="meta"><strong>已收录的序列经历</strong>${stages.map(x=>`<p>${x.samePeriodAsPrevious?'与上一条并存 · ':''}${x.pathway?esc(x.pathway)+'途径':esc(x.scopeLabel||'途径待核实')} · ${esc(x.sequence)}${stageCertaintyLabel(x)}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}<p>未列出的中间阶段仍待核实。</p></div>`:'';if(!facts.length)return overview+profile+progression;const labels={organization:'组织',nationality:'国籍',sequence:'序列线索',pathway:'途径'};return overview+profile+progression+`<details class="meta"><summary>已核对的分类线索（${facts.length}）</summary>${facts.map(x=>`<p>${esc(x.relation==='ability'?'能力关联':x.relation==='sefirah'?'源质关联':labels[x.kind]||x.kind)}：${esc(x.value)}${x.unit?' · '+esc(x.unit):''}${x.certainty==='inferred'?'（推测）':''}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}<p>其他属性待核实；序列线索反映所引章节中的状态。</p></details>`}
+function classification(p){const excerpt=p.documentExcerpt;const profile=p.documentProfileUrl?`<details class="meta" open><summary>人物文档</summary>${excerpt?.text?`<p>${esc(excerpt.text)}</p>${excerpt.sources?.length?`<p class="meta">${excerpt.sources.map(esc).join('；')}</p>`:''}`:''}<p><a href="${esc(p.documentProfileUrl)}">查看人物文档</a></p></details>`:'';const facts=p.classificationEvidence||[],overview=`<p class="meta">组织：${esc(groupSummary(p,'organization'))} · 国籍：${esc(groupSummary(p,'nationality'))} · ${pathwayBadge(p)}${esc(pathwayDescription(p))}</p>`;const stages=p.progression||[];const progression=stages.length?`<div class="meta"><strong>已收录的序列经历</strong>${stages.map(x=>`<p>${x.samePeriodAsPrevious?'与上一条并存 · ':''}${x.pathway?esc(x.pathway)+'途径':esc(x.scopeLabel||'途径待核实')} · ${esc(x.sequence)}${stageCertaintyLabel(x)}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}<p>未列出的中间阶段仍待核实。</p></div>`:'';if(!facts.length)return overview+profile+progression;const labels={organization:'组织',nationality:'国籍',sequence:'序列线索',pathway:'途径'};return overview+profile+progression+`<details class="meta"><summary>已核对的分类线索（${facts.length}）</summary>${facts.map(x=>`<p>${esc(x.relation==='ability'?'能力关联':x.relation==='sefirah'?'源质关联':labels[x.kind]||x.kind)}：${esc(x.value)}${x.unit?' · '+esc(x.unit):''}${x.certainty==='inferred'?'（推测）':''}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}<p>其他属性待核实；序列线索反映所引章节中的状态。</p></details>`}
 function organizationNames(person) {
  return (person.classificationEvidence || []).filter(fact => fact.kind === 'organization').map(fact => fact.value);
 }
@@ -725,8 +804,8 @@ function render(){
  if(query){content.innerHTML=searchResults(query);return}
  if(!a){content.replaceChildren();return}
  const p=byId.get(a);
- if(!b){const rs=edgesOf(a);content.innerHTML=`<button class="back" data-action="reset">← 返回关系网</button><div class="profile">${avatar(p)}<div><h3>${esc(p.name)}</h3><p>${esc(p.group)}${p.alias?' · '+esc(p.alias):''}</p></div></div><p class="meta">字面提及 ${esc(p.mentions??'待统计')} 次。${esc(p.matchNote||'次数按名称字面匹配，可能存在歧义。')}</p>${classification(p)}${p.aliasSources?.length?`<details class="meta"><summary>查看别名出处</summary>${p.aliasSources.map(x=>`<p>${esc(x.alias)}：${esc(x.source)}</p>`).join('')}</details>`:''}<h3 class="section-label" style="margin-top:24px">已收录的关系 <span>${rs.length} 位</span></h3><div class="list">${rs.map(r=>row(byId.get(other(r,a)),categoryText(r,a)||'尚未分类')).join('')||'<p class="empty">暂未收录该人物的关系。</p>'}</div><p class="more">选择另一位人物，查看他们之间的关系与出处。</p>`;return}
- const q=byId.get(b),rel=edgesOf(a).find(r=>other(r,a)===b);content.innerHTML=`<button class="back" data-action="single">← 返回 ${esc(p.short)} 的关系</button><div class="profile">${avatar(p)}${avatar(q)}<div><h3>${esc(p.short)} × ${esc(q.short)}</h3><p>${esc(p.name)} · ${esc(q.name)}</p></div></div>${rel?`${rel.categories?.length?`<div class="tags">${categoryText(rel,a).split(' · ').map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:'<p class="meta">关系分类尚待核对。</p>'}<p class="detail-text">${esc(rel.summary)}</p><p class="detail-text">${esc(rel.detail)}</p><p class="source">${esc(rel.sourceHint||'具体章节出处待补充。')}</p>${rel.milestones?.length?`<h3 class="section-label" style="margin-top:24px">关系阶段</h3>${rel.milestones.map(m=>`<div class="milestone"><strong>${esc(m.tag)}</strong><br>${esc(m.note)}<small>${esc(m.source)}</small></div>`).join('')}`:''}`:'<p class="empty">暂未收录这两位人物之间的直接联系。</p>'}`;
+ if(!b){const rs=edgesOf(a);content.innerHTML=`<button class="back" data-action="reset"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回关系网</button><div class="profile">${avatar(p)}<div><h3>${esc(p.name)}</h3><p>${esc(p.group)}${p.alias?' · '+esc(p.alias):''}</p></div></div><p class="meta">字面提及 ${esc(p.mentions??'待统计')} 次。${esc(p.matchNote||'次数按名称字面匹配，可能存在歧义。')}</p>${classification(p)}${p.aliasSources?.length?`<details class="meta"><summary>查看别名出处</summary>${p.aliasSources.map(x=>`<p>${esc(x.alias)}：${esc(x.source)}</p>`).join('')}</details>`:''}<h3 class="section-label" style="margin-top:24px">已收录的关系 <span>${rs.length} 位</span></h3><div class="list">${rs.map(r=>row(byId.get(other(r,a)),categoryText(r,a)||'尚未分类')).join('')||'<p class="empty">暂未收录该人物的关系。</p>'}</div><p class="more">选择另一位人物，查看他们之间的关系与出处。</p>`;return}
+ const q=byId.get(b),rel=relationshipQuery.directRelations(a,b)[0];content.innerHTML=`<button class="back" data-action="single"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回 ${esc(p.short)} 的关系</button><div class="profile">${avatar(p)}${avatar(q)}<div><h3>${esc(p.short)} × ${esc(q.short)}</h3><p>${esc(p.name)} · ${esc(q.name)}</p></div></div>${rel?`${rel.categories?.length?`<div class="tags">${categoryText(rel,a).split(' · ').map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:'<p class="meta">关系分类尚待核对。</p>'}<p class="detail-text">${esc(rel.summary)}</p><p class="detail-text">${esc(rel.detail)}</p><p class="source">${esc(rel.sourceHint||'具体章节出处待补充。')}</p>${rel.milestones?.length?`<h3 class="section-label" style="margin-top:24px">关系阶段</h3>${rel.milestones.map(m=>`<div class="milestone"><strong>${esc(m.tag)}</strong><br>${esc(m.note)}<small>${esc(m.source)}</small></div>`).join('')}`:''}`:'<p class="empty">暂未收录这两位人物之间的直接联系。</p>'}`;
 }
 function hitHub(x,y){
  let best=null,nearest=13;
@@ -739,7 +818,7 @@ function hitHub(x,y){
 function hit(x,y){const list=activeNodes().sort((x,y)=>nodeOrder(x)-nodeOrder(y));for(let i=list.length-1;i>=0;i--){const n=list[i],p=screen(n);if(Math.hypot(x-p.x,y-p.y)<Math.max(8,outerRadius(n)+3))return n}return null}
 function local(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
 canvas.addEventListener('pointerdown',e=>{layoutTransition=null;cameraAnimation=null;const p=local(e),hub=hitHub(p.x,p.y),n=hub?null:hit(p.x,p.y);inspectedHub=hub?.key||null;drag={node:n,startX:p.x,startY:p.y,lastX:p.x,lastY:p.y,moved:false};canvas.setPointerCapture(e.pointerId)});
-canvas.addEventListener('pointermove',e=>{const p=local(e);if(drag){if(Math.hypot(p.x-drag.startX,p.y-drag.startY)>4)drag.moved=true;if(drag.node&&drag.moved){const w=world(p.x,p.y);drag.node.x=w.x;drag.node.y=w.y;drag.node.vx=drag.node.vy=0;temperature=Math.max(temperature,.15)}else if(!drag.node){defaultCamera=false;panX+=p.x-drag.lastX;panY+=p.y-drag.lastY}drag.lastX=p.x;drag.lastY=p.y;requestDraw()}else{const hub=hitHub(p.x,p.y);inspectedHub=hub?.key||null;const n=hub?null:hit(p.x,p.y),next=n?.p.id||null;if(next!==hover){hover=next;canvas.style.cursor=hover?'pointer':'grab'}requestDraw()}});
+canvas.addEventListener('pointermove',e=>{const p=local(e);if(drag){if(Math.hypot(p.x-drag.startX,p.y-drag.startY)>4)drag.moved=true;if(drag.node&&drag.moved){const w=world(p.x,p.y);drag.node.x=w.x;drag.node.y=w.y;drag.node.vx=drag.node.vy=0;temperature=Math.max(temperature,.15)}else if(!drag.node){defaultCamera=false;overviewCamera=false;panX+=p.x-drag.lastX;panY+=p.y-drag.lastY}drag.lastX=p.x;drag.lastY=p.y;requestDraw()}else{const hub=hitHub(p.x,p.y);inspectedHub=hub?.key||null;const n=hub?null:hit(p.x,p.y),next=n?.p.id||null;if(next!==hover){hover=next;canvas.style.cursor=hover?'pointer':'grab'}requestDraw()}});
 let pendingNodeClick=null;
 canvas.addEventListener('pointerup',e=>{
  if(!drag)return;
@@ -758,6 +837,7 @@ canvas.addEventListener('pointerup',e=>{
 motionPreference.addEventListener('change',()=>{requestDraw()});document.addEventListener('visibilitychange',()=>{if(!document.hidden){requestDraw()}});
 function moveCamera(targetX,targetY,targetZoom,duration,kind='view'){
  defaultCamera=kind==='default';
+ overviewCamera=kind==='overview';
  if(duration && !motionPreference.matches){
   cameraAnimation={start:performance.now(),duration,kind,fromX:panX,fromY:panY,fromZoom:zoom,targetX,targetY,targetZoom};
  }else{
@@ -781,7 +861,7 @@ canvas.addEventListener('wheel',e=>{
  zoomAt(Math.exp(-e.deltaY*unit*.001),p.x,p.y);
 },{passive:false});
 document.getElementById('zoom-in').onclick=()=>zoomAt(1.25);document.getElementById('zoom-out').onclick=()=>zoomAt(.8);document.getElementById('fit').onclick=()=>{layoutTransition=null;fitView(true)};document.getElementById('reset').onclick=reset;
-content.addEventListener('click',e=>{const node=e.target.closest('[data-id]'),action=e.target.closest('[data-action]');if(node)select(node.dataset.id);if(action){if(action.dataset.action==='single'){b=null;updateUrl();render();focusPerson(a)}else reset()}});
+content.addEventListener('click',e=>{const node=e.target.closest('[data-id]'),action=e.target.closest('[data-action]');if(node)select(node.dataset.id);if(action){if(action.dataset.action==='single'){b=null;updateUrl();render();revealSelection();focusPerson(a)}else reset()}});
 grouping.addEventListener('click',e=>{const button=e.target.closest('[data-group]');if(!button||button.dataset.group===groupMode)return;
  const startDots=new Map(activeNodes().map(n=>[n,screen(n)]));
  // Keep the first reference arrangement so returning to a view restores its geography.
@@ -792,9 +872,9 @@ grouping.addEventListener('click',e=>{const button=e.target.closest('[data-group
  isolatePreferences.set(groupMode, isolates.checked);
  layoutTransition=null;cameraAnimation=null;groupMode=button.dataset.group;
  isolates.checked = isolatePreferences.get(groupMode) || [a,b].some(id=>id&&!edgesOf(id).length);
- grouping.querySelectorAll('[data-group]').forEach(el=>el.setAttribute('aria-pressed',String(el===button)));hover=null;inspectedHub=null;arrangeGroups();temperature=1;
+ grouping.querySelectorAll('[data-group]').forEach(el=>el.setAttribute('aria-pressed',String(el===button)));hover=null;inspectedHub=null;
  // Prepare the destination first, then animate from the current visible positions.
- if(groupMode==='network')settleNetwork();else for(let i=0;i<55;i++)updatePhysics();
+ settleLayout();
  // For the old viewport, the mean screen offset minimizes squared travel.
  // Bound the correction around a populated area when no person is selected.
  readingView();
@@ -858,11 +938,10 @@ document.getElementById('palette-legend').addEventListener('click',event=>{
   if(person)select(person.dataset.id);
  }
 });
-search.addEventListener('input',()=>{render();requestDraw()});isolates.addEventListener('change',()=>{layoutTransition=null;arrangeGroups();if(groupMode==='network')settleNetwork();else{temperature=1;for(let i=0;i<55;i++)updatePhysics();temperature=0}if(!a)readingView(true);render();renderPalette();requestDraw()});new ResizeObserver(resize).observe(canvas);window.addEventListener('resize',resize);window.addEventListener('popstate',()=>{restore();render();requestDraw()});window.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();search.focus()}if(e.key==='Escape'&&document.activeElement===search){search.value='';search.blur();render();requestDraw()}});
+search.addEventListener('input',()=>{render();requestDraw()});isolates.addEventListener('change',()=>{layoutTransition=null;settleLayout();if(!a)readingView(true);render();renderPalette();requestDraw()});new ResizeObserver(resize).observe(canvas);window.addEventListener('resize',resize);window.addEventListener('popstate',()=>{restore();render();requestDraw()});window.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();search.focus()}if(e.key==='Escape'&&document.activeElement===search){search.value='';search.blur();render();requestDraw()}});
 restore();if(a&&!edgesOf(a).length)isolates.checked=true;
 // Settle the relationship-based layout before a deep-linked person is focused.
-settleNetwork();
-resize();render();renderPalette();if(a)focusPerson(b||a);else readingView();
+resize();clearTimeout(resizeLayoutTimer);settleLayout();render();renderPalette();if(a)focusPerson(b||a);else readingView();
 
 const requestedOrganization=new URLSearchParams(location.search).get('organization');
 if(requestedOrganization && characters.some(person=>organizationNames(person).includes(requestedOrganization))){

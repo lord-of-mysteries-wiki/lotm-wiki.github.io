@@ -1,7 +1,7 @@
 nav_label: 主导航
 explore_relationships: 探索角色关系网
 footer_note: 非官方同人站点
-related_timeline_events: 相关时间线事件
+related_timeline_events: 相关事件
 home_explore: 探索资料
 home_featured: 精选人物
 home_all_characters: 全部人物
@@ -21,3 +21,208 @@ home_world_desc: 历史、国家与组织
 home_klein: 克莱恩·莫雷蒂
 home_audrey: 奥黛丽·霍尔
 home_lumian: 卢米安·李
+
+pathway_sequences: 序列导航
+
+pathway_sources: 来源
+
+timeline_fifth_epoch: 第五纪
+
+event_sources: 来源
+event_source_facts: 事件概括与经过
+event_source_time: 时间依据
+event_time_uncertain_label: 推定
+event_time_basis: 时间推定依据
+
+character_sources: 来源
+character_source_back: 返回引用
+
+character_source_infobox: 信息栏：
+
+character_relation_scope: 关系记录：
+
+character_basic_facts: 基本资料
+
+character_pathway: 途径
+character_inferred_suffix: （推定）
+
+entry_information: 资料
+entry_time_evidence: 时间依据
+
+# Historical map
+map_title: "世界地图"
+map_play: "播放历史节点"
+map_pause: "暂停播放"
+map_era: "选择纪元"
+map_date: "历史节点"
+map_previous: "上一个节点"
+map_next: "下一个节点"
+map_empty: "此时期的势力范围待考。"
+map_outline: "轮廓与疆界示意"
+map_source: "来源与适用范围"
+map_boundary_inferred: "推演疆域"
+map_entry: "查看国家词条"
+map_event: "历史事件"
+map_select: "国家与地区"
+map_regions: "当前地图"
+map_zoom_in: "放大地图"
+map_zoom_out: "缩小地图"
+map_reset: "重置视图"
+map_north: "北大陆"
+map_south: "南大陆"
+map_east: "东大陆"
+map_fog: "迷雾海"
+map_sonia: "苏尼亚海"
+map_berserk: "狂暴海"
+map_details: "地图资料"
+map_noscript: "交互地图需要启用 JavaScript。"
+map_directory: "国家与地区"
+map_era_1: "第一纪"
+map_era_2: "第二纪"
+map_era_3: "第三纪"
+map_era_4: "第四纪"
+map_era_5: "第五纪"
+map_west: 西大陆
+
+map_city_schematic: "城市位置示意"
+map_city_entry: "查看城市资料"
+
+map_legend: "图例"
+map_hover_hint: "悬停或点选国家、地区，查看词条。"
+map_preview_entry: "查看词条"
+
+map_era_0: "史前"
+map_prehistory: "史前"
+map_earth: "史前"
+map_earth_note: "史前地理"
+map_earth_info: "史前时期的大陆与海域。"
+
+map_midsea: "间海"
+
+theme_day: "切换到白天模式"
+theme_night: "切换到夜晚模式"
+
+pathway_symbol_credit: "标志原图：诡秘之主官方微博（本站简化矢量描摹）"
+
+pathway_symbol_label: "标志"
+
+worldview_creatures: 非凡生物
+
+map_date_inferred: 推定
+
+map_year_format: "{year}年"
+
+map_month_format: "{year}年{month}月"
+
+map_day_format: "{year}年{month}月{day}日"
+
+map_year_range_format: "{start}–{end}年"
+
+wiki_related: 相关词条
+wiki_related_characters: 相关人物
+wiki_related_events: 相关事件
+wiki_related_artifacts: 相关物品
+wiki_related_organizations: 相关组织
+wiki_related_places: 相关地点
+wiki_related_pathways: 相关途径
+wiki_related_creatures: 相关生物
+wiki_related_other: 其他相关词条
+wiki_related_out: 本页引用
+wiki_related_in: 引用本页
+wiki_related_both: 相互引用
+wiki_related_more: 显示全部
+wiki_related_less: 收起
+
+wiki_link_internal: "打开词条或页面：{title}"
+wiki_link_section: "跳转到本页：{title}"
+wiki_link_external: "访问外部网站：{title}（{host}）"
+wiki_link_new_tab: "（新标签页）"
+
+catalog_worldview: "世界观"
+catalog_characters: "角色介绍"
+catalog_artifacts: "非凡物品"
+catalog_overview: "总览"
+catalog_all: "全部词条"
+catalog_all_characters: "全部角色"
+catalog_countries: "国家与地区"
+catalog_organizations: "组织与势力"
+catalog_creatures: "非凡生物"
+catalog_history: "世界与历史"
+catalog_by_organization: "按组织"
+catalog_by_pathway: "按途径"
+catalog_sealed: "封印物"
+catalog_materials: "材料与特性"
+catalog_equipment: "器具与装备"
+catalog_consumables: "符咒与药剂"
+catalog_texts: "典籍与其他"
+catalog_group_countries_states: "国家与历史政体"
+catalog_group_countries_regions: "地区与岛屿"
+catalog_group_organizations_churches: "教会"
+catalog_group_organizations_families: "家族与族群"
+catalog_group_organizations_institutions: "政务与军事机构"
+catalog_group_organizations_societies: "组织与团体"
+catalog_group_creatures_spirit: "灵界生物"
+catalog_group_creatures_dragons: "龙类"
+catalog_group_creatures_others: "其他生物"
+catalog_group_history_eras: "纪元历史"
+catalog_group_history_topics: "历史专题"
+catalog_group_materials_characteristics: "非凡特性"
+catalog_group_materials_materials: "其他材料与特性"
+catalog_group_equipment_weapons: "武器与防具"
+catalog_group_equipment_accessories: "首饰与随身物品"
+catalog_group_equipment_transport: "船只与交通工具"
+catalog_group_consumables_charms: "符咒、子弹与护符"
+catalog_group_consumables_preparations: "药剂、精油与粉末"
+catalog_group_texts_documents: "书籍、石板与纸牌"
+catalog_group_texts_other: "其他物品与线索"
+catalog_group_sealed_unnumbered: "编号未列明"
+catalog_search: "搜索词条、别名或分类"
+catalog_search_action: "搜索"
+catalog_category: "分类"
+catalog_all_groups: "全部分类"
+catalog_work: "作品"
+catalog_all_works: "全部作品"
+catalog_sort: "排序"
+catalog_sort_name: "按名称"
+catalog_sort_mentions: "按提及次数"
+catalog_sort_order: "按出场顺序"
+catalog_entries: "项词条"
+catalog_empty: "没有符合条件的词条。"
+catalog_open: "查看："
+catalog_back: "返回目录"
+catalog_breadcrumbs: "目录路径"
+catalog_unclassified: "未细分"
+catalog_unclassified_work: "作品未标明"
+catalog_ordinary: "所引时期为普通人"
+catalog_ordinary_inferred: "所引时期可能为普通人（推定）"
+catalog_unknown_pathway: "途径未明"
+catalog_inferred: "推定"
+catalog_group_sealed_0: "0 级"
+catalog_group_sealed_1: "1 级"
+catalog_group_sealed_2: "2 级"
+catalog_group_sealed_3: "3 级"
+
+catalog_search_groups: "查找分类"
+catalog_unknown_organization: "组织未明"
+catalog_group_history_structure: "世界结构"
+catalog_group_history_concepts: "核心概念"
+
+organization_members: 成员
+organization_graph: "在人物关系网中查看%s"
+
+catalog_sort_number: "按编号和名称"
+catalog_sort_chapters: "按章节顺序"
+catalog_chapter_scope: "按词条已收录的章节位置排列"
+
+timeline_year_label: "%s年"
+
+timeline_depth: "展开程度"
+timeline_depth_spoiler: "防剧透"
+timeline_depth_era: "按纪元"
+timeline_depth_year: "按年份"
+timeline_depth_all: "全部展开"
+timeline_month_label: "%s月"
+timeline_phase_before: "故事开始前"
+timeline_phase_lotm: "诡秘之主"
+timeline_phase_coi: "宿命之环"
+calendar_count_label: "条"

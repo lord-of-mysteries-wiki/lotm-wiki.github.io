@@ -1,26 +1,35 @@
 ---
 entry_id: "mr_z"
 entry_type: character
-graph_profile: {"short":"“Z先生”","mark":"Z","alias":"","group":"其他人物","aliasSources":[],"classificationEvidence":[],"documentProfile":["所属组织：极光会。邓恩和[克莱恩](../克莱恩·莫雷蒂/)讨论极光会的Z先生，并认为兰尔乌斯不是此人。（《诡秘之主》第一卷第186章）"]}
+graph_profile: {"short":"“Z先生”","mark":"Z","alias":"","group":"其他人物","aliasSources":[],"classificationEvidence":[]}
 title: "“Z先生”"
 layout: index
 character_profile: true
-graph_classifications: {"organization": [{"value": "极光会", "source": "《诡秘之主》第一卷第186章"}], "nationality": []}
+graph_classifications: {"organization":[{"value":"极光会","source":"《诡秘之主》第一卷第104章、第186章；第三卷第197章","note":"第一卷书信以Z先生为收信代号；第三卷嘉德丽雅在神使话题中提到熟悉Z先生。具体姓名未明，代号跨卷出现不直接说明任职者连续未变。"}],"nationality":[{"value":"鲁恩","certainty":"inferred","source":"《诡秘之主》第一卷第210章；第三卷第4章","note":"第一卷书稿将信件所指Z先生的居处记为鲁恩的恩马特港，第三卷克莱恩回顾同一地点。依居处暂定国籍分组，仅适用于第一卷书信中的任职者；代号跨卷是否曾更替未明。"}]}
 permalink: "characters/entries/“Z先生”/"
 profile_work: "诡秘之主"
 document_name: "“Z先生”"
-profile_facts:
-  - label: 所属作品
-    value: "《诡秘之主》"
-  - label: 所属组织
-    summary: "极光会"
-    source_section: 所属组织与身份
+profile_facts: [{"label":"会内身份","source_section":"信件与联络线索"},{"label":"所属组织","source_section":"所属组织与身份"},{"label":"身份与国籍","source_section":"身份与国籍"}]
 ---
 
 ## 所属组织与身份
 
-- 所属组织：极光会。邓恩和[克莱恩](../克莱恩·莫雷蒂/)讨论极光会的Z先生，并认为兰尔乌斯不是此人。（《诡秘之主》第一卷第186章）
+Z先生是[极光会](../../../worldview/organizations/极光会/)神使使用的代号，具体姓名未明。见《诡秘之主》第一卷第186章、第三卷第197章。
+
+## 信件与联络线索
+
+[克莱恩](../克莱恩·莫雷蒂/)在西里斯身上发现的信件以“尊敬的Z先生”为收信称呼。西里斯在信中解释自己与海纳斯转卖[安提哥努斯家族笔记](../../../artifacts/entries/安提哥努斯家族笔记/)的经过，提及此前已向收信人提交三份序列配方；他还转述警察厅内部信徒提供的消息，为未等到回信便处理笔记的行为辩解。这些内容是西里斯写给对方的陈述。（《诡秘之主》第一卷第104章）
+
+西里斯的遗留信尚未寄出便被克莱恩取得。[邓恩](../邓恩·史密斯/)在调查中判断，[兰尔乌斯](../兰尔乌斯/)并非Z先生。见《诡秘之主》第一卷第104章、第186章。
+
+## 与嘉德丽雅的接触
+
+[嘉德丽雅](../嘉德丽雅/)初次在灰雾之上与“愚者”交谈时，表示曾从[极光会](../../../worldview/organizations/极光会/)的一位Z先生处听说祂的尊名。（《诡秘之主》第三卷第82章）
+
+后来旁听[佛尔思](../佛尔思·沃尔/)讨论刺杀一名[极光会](../../../worldview/organizations/极光会/)神使的委托时，嘉德丽雅熟悉的神使只有Z先生与D女士，无法据描述辨认目标。（《诡秘之主》第三卷第197章）
 
 ## 身份与国籍
 
-邓恩与克莱恩在廷根讨论的是极光会的代号，谈话没有交代Z先生本人的所在地。见《诡秘之主》第一卷第186章。
+第一卷所指Z先生的居处为恩马特港（因斯书稿记述）；国籍为[鲁恩](../../../worldview/countries/entries/鲁恩王国.html)（推定，适用于第一卷所指任职者）。书稿将未及时收到回信的可能原因归于这一距离。见《诡秘之主》第一卷第210章、第三卷第4章。
+
+具体姓名、个人途径与序列未明，Z代号在不同卷章间是否曾更替，尚待核实。

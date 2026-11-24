@@ -2,21 +2,23 @@
 const sourcePath = page.source || '';
 const parts = sourcePath.split('/');
 const crumbs = [];
-if (parts[0] === 'worldview' && parts.length > 1 && sourcePath !== 'worldview/index.md') {
-  const pages = site.pages.toArray();
-  const addPage = (source) => {
-    const target = pages.find(item => item.source === source);
-    if (target && target.source !== sourcePath) crumbs.push(target);
-  };
-  addPage('worldview/index.md');
-  if (parts[1] === 'pathways' && parts.length > 2) {
-    addPage('worldview/pathways/index.md');
-    if (parts.length > 3) addPage(`worldview/pathways/${parts[2]}/${parts[2]}.md`);
-  }
+const pages = site.pages.toArray();
+const addPage = (source) => {
+  const target = pages.find(item => item.source === source);
+  if (target && target.source !== sourcePath && !crumbs.includes(target)) crumbs.push(target);
+};
+if (page.creature_profile) addPage('worldview/index.md');
+// Follow actual parent pages; content-only folders do not create breadcrumb levels.
+for (let depth = 1; depth < parts.length; depth++) {
+  addPage(parts.slice(0, depth).join('/') + '/index.md');
 }
+if (parts[0] === 'worldview' && parts[1] === 'pathways' && parts.length > 3) {
+  addPage(`worldview/pathways/${parts[2]}/${parts[2]}.md`);
+}
+
 %>
-<% if (crumbs.length) { %>
+<% if (crumbs.length && !catalog_context(page)?.directory) { %>
 <nav aria-label="页面路径" class="breadcrumbs">
-  <% for (const crumb of crumbs) { %><a href="<%= url_for(crumb.path) %>"><%= crumb.title %></a><span aria-hidden="true"> › </span><% } %><span aria-current="page"><%= page.title %></span>
+  <% for (const crumb of crumbs) { %><a href="<%= url_for(crumb.path) %>"><%= crumb.title %></a><span aria-hidden="true"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-next"></use></svg></span><% } %><span aria-current="page"><%= page.title %></span>
 </nav>
 <% } %>

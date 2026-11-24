@@ -1,14 +1,15 @@
+<% const references = character_reference_view(page); const profilePathways = character_pathways(page); %>
 <article class="character-profile">
   <header class="character-profile__header">
-    <a class="character-profile__back" href="<%= url_for('/characters/') %>">← 返回角色介绍</a>
+    <a class="character-profile__back" href="<%= url_for('/characters/') %>"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回角色介绍</a>
     <h1><%= page.title %></h1>
     <% if (page.profile_alias && !/^待/.test(page.profile_alias)) { %><p class="character-profile__alias"><%= page.profile_alias %></p><% } %>
   </header>
   <div class="character-profile__layout">
-    <aside class="character-profile__facts" aria-label="人物信息">
-      <h2>人物信息</h2>
+    <section class="character-profile__facts" aria-label="<%= __('character_basic_facts') %>">
+      <h2><%= __('character_basic_facts') %></h2>
       <dl>
-        <% if (page.profile_work && !/^待/.test(String(page.profile_work)) && !(page.profile_facts || []).some(function(fact) { return fact.label === '所属作品' && fact.value && !/^待/.test(String(fact.value)); })) { %>
+        <% if (page.profile_work && !/^待/.test(String(page.profile_work))) { %>
           <div><dt>所属作品</dt><dd><%= page.profile_work %></dd></div>
         <% } %>
         <% const organizations = [...new Set((page.graph_classifications?.organization || []).map(entry => entry.value))];
@@ -17,24 +18,23 @@
              profileFacts.push({label: '所属组织', source_section: '所属组织与身份'});
            }
            profileFacts.forEach(function(fact) {
-          if (fact.label === '所属组织' && page.graph_classifications) {
-            const value = organizations.join('、') || '待核实';
-            fact = {...fact, summary: value, value};
-          }
-          const hasSection = fact.source_section && character_has_section(page.content, fact.source_section); %>
-          <% if (fact.label === '所属组织' && organizations.length) { %>
-          <div><dt><%= fact.label %></dt><dd><% character_organization_pages(organizations).forEach(function(org, index) { %><% if (index) { %>、<% } %><% if (org.path) { %><a href="<%= url_for('/' + org.path) %>"><%= org.name %></a><% } else { %><%= org.name %><% } %><% }); %><% if (hasSection) { %> <a href="#<%= encodeURIComponent(fact.source_section) %>">详情 <span aria-hidden="true">↗</span></a><% } %></dd></div>
-          <% } else if (fact.summary && hasSection) { %>
-          <div><dt><%= fact.label %></dt><dd><a href="#<%= encodeURIComponent(fact.source_section) %>"><%= fact.summary %> <span aria-hidden="true">↗</span></a></dd></div>
+          const hasSection = fact.source_section && character_has_section(page.content, fact.source_section);
+          const directText = hasSection ? character_fact_text(page, fact) : ''; %>
+          <% if (fact.label === '途径与序列' && profilePathways.length) { %>
+          <div><dt><%= __('character_pathway') %></dt><dd><%= profilePathways.map(entry => entry.name + (entry.inferred ? __('character_inferred_suffix') : '')).join('、') %></dd></div>
+          <% } else if (fact.label === '所属组织' && organizations.length) { %>
+          <div><dt><%= fact.label %></dt><dd><% character_organization_pages(organizations, page.graph_classifications?.organization || []).forEach(function(org, index) { %><% if (index) { %>、<% } %><% if (org.path) { %><a href="<%= url_for('/' + org.path) %>"><%= org.name %></a><% } else { %><%= org.name %><% } %><%= org.inferred ? __('character_inferred_suffix') : '' %><% }); %><% (page.graph_classifications?.organization || []).forEach(entry => { %><%- references.cite(entry.source, __('character_source_infobox') + fact.label) %><% }); %></dd></div>
           <% } else if (fact.value && (fact.label === '所属组织' || (!/^待/.test(String(fact.value)) && String(fact.value).length <= 80))) { %>
-          <div><dt><%= fact.label %></dt><dd><%= fact.value %></dd></div>
+          <div><dt><%= fact.label %></dt><dd><%- references.text(fact.value, __('character_source_infobox') + fact.label) %></dd></div>
+          <% } else if (directText) { %>
+          <div><dt><%= fact.label %></dt><dd><%- references.text(directText, __('character_source_infobox') + fact.label) %> <a href="#<%= encodeURIComponent(fact.source_section) %>" aria-label="<%= fact.label %>：<%= fact.source_section %>"><span aria-hidden="true">↗</span></a></dd></div>
           <% } else if (hasSection) { %>
-          <div><dt><%= fact.label %></dt><dd><a href="#<%= encodeURIComponent(fact.source_section) %>">查看详情 <span aria-hidden="true">↗</span></a></dd></div>
+          <div><dt><%= fact.label %></dt><dd><a href="#<%= encodeURIComponent(fact.source_section) %>"><%= fact.source_section %> <span aria-hidden="true">↗</span></a></dd></div>
           <% } %>
         <% }); %>
       </dl>
-      <a class="character-profile__graph" href="<%= url_for('/relationships/') %>">查看人物关系网 <span aria-hidden="true">↗</span></a>
-    </aside>
-    <div class="article character-profile__content"><%- page.content %><%- partial('_partials/character-relations') %></div>
+      <a class="character-profile__graph" href="<%= url_for('/relationships/') %>?a=<%= encodeURIComponent(page.entry_id) %>">查看人物关系网 <span aria-hidden="true">↗</span></a>
+    </section>
+    <div class="article character-profile__content"><%- references.body %><%- partial('_partials/wiki-related') %><%- partial('_partials/character-sources', {references}) %></div>
   </div>
 </article>

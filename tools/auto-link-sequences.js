@@ -37,7 +37,7 @@ const pages = inputFiles.map(({file, raw}) => {
   const url = String(data.permalink || relative.replace(/index\.md$/, '').replace(/\.md$/, '.html'));
   return { file, raw, data, relative, url };
 });
-const sequences = new Map(), pathways = new Map(), people = new Map(), organizations = new Map(), countries = new Map(), artifacts = new Map();
+const sequences = new Map(), pathways = new Map(), people = new Map(), organizations = new Map(), countries = new Map(), artifacts = new Map(), creatures = new Map();
 const nonArtifactTitles = new Set(pages.filter(p => /^(characters\/entries|worldview\/(?:pathways|organizations|countries))\//.test(p.relative)).map(p => String(p.data.title || '').trim().replace(/^[“「『]|[”」』]$/g, '')));
 function addArtifact(term, page) {
   if (!term || term.length < 2) return;
@@ -46,6 +46,10 @@ function addArtifact(term, page) {
   artifacts.set(term, targets);
 }
 for (const page of pages) {
+  if (page.data.creature_profile && page.relative.startsWith('creatures/entries/')) {
+    const name = String(page.data.title || '').trim();
+    if (name.length >= 3) creatures.set(name, [...(creatures.get(name) || []), page]);
+  }
   if (/^artifacts\/entries\/[^/]+\.md$/.test(page.relative)) {
     const title = String(page.data.title || '').trim();
     const filename = path.basename(page.relative, '.md');
@@ -59,7 +63,7 @@ for (const page of pages) {
   }
   if (page.relative.startsWith('characters/entries/')) {
     const name = String(page.data.title || '').trim();
-    if (/^[\p{Script=Han}]{2,}·[\p{Script=Han}·]{1,}$/u.test(name)) {
+    if (/^[\p{Script=Han}]{2,}·[\p{Script=Han}·]{1,}$/u.test(name) || (/^[\p{Script=Han}]{3,}$/u.test(name) && !pages.some(other => other !== page && String(other.data.title || '').startsWith(name + '（')))) {
       if (!people.has(name)) people.set(name, []);
       people.get(name).push(page);
     }
@@ -70,11 +74,13 @@ for (const page of pages) {
   }
   if (/^worldview\/countries\/entries\/[^/]+\.md$/.test(page.relative)) {
     const name = String(page.data.title || '').trim();
-    if (name.length >= 3) countries.set(name, [...(countries.get(name) || []), page]);
+    if (name.length >= 2) countries.set(name, [...(countries.get(name) || []), page]);
   }
   if (!page.relative.startsWith('worldview/pathways/')) continue;
   const match = page.relative.match(/^worldview\/pathways\/([^/]+)\/序列([0-9])-([^/]+)\.md$/);
   if (match && String(page.data['sequence-name']) === match[3] && String(page.data['sequence-level']) === match[2]) {
+    const parent = pages.find(p => p.data.pathway_page && p.relative === `worldview/pathways/${match[1]}/${match[1]}.md`);
+    if (parent) page.url = `${parent.url}#sequence-${match[2]}`;
     const key = `${match[2]}\0${match[3]}`;
     if (!sequences.has(key)) sequences.set(key, []);
     sequences.get(key).push(page);
@@ -85,6 +91,22 @@ for (const page of pages) {
       pathways.get(name).push(page);
     }
   }
+}
+// 国家简称逐项核对现有国家页；不自动去掉“帝国／王国”，避免把人物或地貌当作国家。
+const countryAliases = {
+  '鲁恩': '鲁恩王国', '弗萨克': '弗萨克帝国',
+  '因蒂斯共和国': '因蒂斯', '因蒂斯帝国': '因蒂斯',
+  '费内波特王国': '费内波特', '拜朗王国': '拜朗帝国'
+};
+for (const [alias, title] of Object.entries(countryAliases)) {
+  if (countries.has(title)) countries.set(alias, countries.get(title));
+}
+// 不含间隔号的正式姓名也可以链接；同名消歧页的简称不在这里自动展开。
+for (const title of ['阿蒙', '亚当', '嘉德丽雅', '芙兰卡', '简娜', '莎伦', '马里奇',
+  '达尼兹', '查拉图', '梅迪奇', '安提哥努斯', '阿曼妮西斯', '萨林格尔',
+  '赫拉伯根', '列奥德罗', '奥赛库斯', '萨斯利尔', '纳斯特', '老尼尔']) {
+  const targets = pages.filter(p => p.relative.startsWith('characters/entries/') && p.data.title === title);
+  if (targets.length === 1) people.set(title, targets);
 }
 // 简称只映射到明确指定的物品文件；同名候选仍由唯一性检查拦截。
 const artifactAliases = {
@@ -105,26 +127,57 @@ const aliases = new Map(Object.entries({
   '克莱恩': '克莱恩·莫雷蒂', '奥黛丽': '奥黛丽·霍尔',
   '阿尔杰': '阿尔杰·威尔逊', '佛尔思': '佛尔思·沃尔',
   '伦纳德': '伦纳德·米切尔', '埃姆林': '埃姆林·怀特',
-  '戴里克': '戴里克·伯格', '卢米安': '卢米安·李'
+  '戴里克': '戴里克·伯格', '卢米安': '卢米安·李',
+  '邓恩': '邓恩·史密斯', '阿兹克': '阿兹克·艾格斯',
+  '蕾妮特': '蕾妮特·缇尼科尔', '科林': '科林·伊利亚特',
+  '奥萝尔': '奥萝尔·李', '卢加诺': '卢加诺·托斯卡诺',
+  '梅丽莎': '梅丽莎·莫雷蒂'
 }));
 for (const [alias, name] of aliases) {
   const targets = people.get(name);
   if (targets && targets.length === 1 && !people.has(alias)) people.set(alias, targets);
 }
+// 使用主档案中的正式显示名，不另填一份别名事实表；短称和称号仍需人工消歧。
+for (const page of pages.filter(p => p.relative.startsWith('characters/entries/'))) {
+  const name = page.data.graph_profile?.name;
+  if (typeof name !== 'string' || !/^[\p{Script=Han}·]{3,}$/u.test(name) || name === page.data.title) continue;
+  if (pages.some(other => other !== page && (other.data.title === name || String(other.data.title || '').startsWith(name + '（') || other.data.graph_profile?.name === name))) continue;
+  const targets = people.get(name) || [];
+  if (!targets.includes(page)) targets.push(page);
+  people.set(name, targets);
+}
 const pathwayTerms = [...pathways.keys()].sort((a,b) => b.length - a.length);
 const escaped = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const personTerms = [...people.keys()].sort((a,b) => b.length - a.length);
-const organizationTerms = [...organizations.keys()];
+const organizationTerms = [...organizations.keys()].sort((a,b) => b.length - a.length);
+const creatureTerms = [...creatures.keys()].sort((a,b) => b.length - a.length);
 const countryTerms = [...countries.keys()].sort((a,b) => b.length - a.length);
 const artifactTerms = [...artifacts.keys()].sort((a,b) => b.length - a.length);
-const re = new RegExp('序列\\s*([0-9])\\s*[“「『]([^”」』\\n]+)[”」』]' + (artifactTerms.length ? '|[“「『](?:' + artifactTerms.map(escaped).join('|') + ')[”」』]|' + artifactTerms.filter(s => s.length >= 4 || /^[0-3]-\d{2,4}$/.test(s) || /^《/.test(s)).map(escaped).join('|') : '') + (pathwayTerms.length ? '|' + pathwayTerms.map(escaped).join('|') : '') + (personTerms.length ? '|' + personTerms.map(escaped).join('|') : '') + (organizationTerms.length ? '|' + organizationTerms.map(escaped).join('|') : '') + (countryTerms.length ? '|' + countryTerms.map(escaped).join('|') : ''), 'gu');
+// 跨类型按最长名称优先，避免人物简称遮住组织或物品的完整名称。
+const literalTerms = [...new Set([...creatureTerms, ...pathwayTerms, ...personTerms,
+  ...organizationTerms, ...countryTerms, ...artifactTerms.filter(s => s.length >= 4 || /^[0-3]-\d{2,4}$/.test(s) || /^《/.test(s))])].sort((a,b) => b.length - a.length);
+const re = new RegExp('序列\\s*([0-9])\\s*[“「『]([^”」』\\n]+)[”」』]|' +
+  '[“「『](?:' + artifactTerms.map(escaped).join('|') + ')[”」』]|' + literalTerms.map(escaped).join('|'), 'gu');
+
+// 较长词条中的局部文字不是独立提及，例如“阿蒙家族”“鲁恩军方”。
+const titles = [...new Set(pages.map(p => String(p.data.title || '').trim()))];
+const containingTitles = new Map([...people.keys(), ...countries.keys()].map(term =>
+  [term, titles.filter(title => title !== term && title.includes(term))]));
+function embeddedName(term, text, offset) {
+  if (countries.has(term) && /^(?:语|语系)/u.test(text.slice(offset + term.length))) return true;
+  return (containingTitles.get(term) || []).some(title => {
+    const start = offset - title.indexOf(term);
+    return start >= 0 && text.slice(start, start + title.length) === title;
+  });
+}
 let changedFiles = 0, changedLinks = 0;
 for (const page of pages) {
   if (staged && !stagedFiles.has('source/' + page.relative)) continue;
-  if (page.data.timeline_event || !/^(characters\/entries|artifacts\/entries|worldview)\//.test(page.relative)) continue;
+  // Scan every Markdown body, including events, creatures and directory pages.
   const separator = page.raw.match(/^---\s*\r?\n[\s\S]*?\r?\n---\s*\r?\n/);
   if (!separator) continue;
-  const head = separator[0], body = page.raw.slice(head.length);
+  let head = separator[0];
+  const body = page.raw.slice(head.length);
   const base = page.url.endsWith('/') ? page.url : path.posix.dirname(page.url) + '/';
   const already = new Set();
   // Count existing relative links so a page does not repeatedly link the same target.
@@ -152,6 +205,7 @@ for (const page of pages) {
         // Titles follow a chapter number and a space in the current format.
         const prefix = line.slice(0, tokenOffset + offset);
         if (/第\d+章\s+[^，。；\n]*$/u.test(prefix)) return whole;
+        if (embeddedName(whole, text, offset)) return whole;
         const artifactName = /^[“「『].*[”」』]$/u.test(whole) ? whole.slice(1, -1) : whole;
         const artifactTargets = artifacts.get(artifactName);
         if (artifactTargets && /^[0-3]-\d{2,4}$/.test(artifactName) && (/[\d-]/.test(text[offset - 1] || '') || /[\d-]/.test(text[offset + whole.length] || ''))) return whole;
@@ -159,15 +213,16 @@ for (const page of pages) {
           const before = text.slice(0, offset), after = text.slice(offset + whole.length);
           if (/^(?:[·\p{Script=Han}]*·|家族|途径|陵墓)/u.test(after) || before.lastIndexOf('《') > before.lastIndexOf('》')) return whole;
         }
-        const others = level === undefined ? (pathways.get(whole) || people.get(whole) || organizations.get(whole) || countries.get(whole)) : null;
-        const ambiguousName = nonArtifactTitles.has(artifactName) || pathways.has(artifactName) || people.has(artifactName) || organizations.has(artifactName) || countries.has(artifactName);
+        const others = level === undefined ? (pathways.get(whole) || people.get(whole) || organizations.get(whole) || countries.get(whole) || creatures.get(whole)) : null;
+        const ambiguousName = nonArtifactTitles.has(artifactName) || pathways.has(artifactName) || people.has(artifactName) || organizations.has(artifactName) || countries.has(artifactName) || creatures.has(artifactName);
         if (artifactTargets && (others || ambiguousName)) return whole;
         const targets = level === undefined ? (artifactTargets || others) : sequences.get(`${level}\0${name}`);
         if (!targets || targets.length !== 1) return whole;
         const target = targets[0];
-        const normalized = path.posix.normalize(target.url).replace(/\/$/, '');
+        const normalized = path.posix.normalize(target.url.split('#')[0]).replace(/\/$/, '');
         if (target.file === page.file || (!organizations.has(whole) && already.has(normalized))) return whole;
-        let href = path.posix.relative(base, target.url);
+        const [targetPath, fragment] = target.url.split('#');
+        let href = path.posix.relative(base, targetPath) + (fragment ? '#' + fragment : '');
         if (!href) return whole;
         if (target.url.endsWith('/') && !href.endsWith('/')) href += '/';
         already.add(normalized); count++;
@@ -176,6 +231,31 @@ for (const page of pages) {
       });
     }).join('');
   }).join('');
+  if (page.data.timeline_event && page.data.event_summary) {
+    const summary = String(page.data.event_summary);
+    const links = [...(page.data.event_summary_links || [])];
+    let added = 0;
+    for (const match of summary.matchAll(re)) {
+      const [whole, level, name] = match;
+      if (embeddedName(whole, summary, match.index)) continue;
+      const label = level === undefined ? whole : name;
+      const candidates = level === undefined
+        ? [pathways, people, organizations, countries, creatures, artifacts].flatMap(map => map.get(whole) || [])
+        : (sequences.get(`${level}\0${name}`) || []);
+      const unique = [...new Set(candidates)];
+      if (unique.length !== 1 || unique[0].file === page.file) continue;
+      if (people.has(whole) && /^(?:[·\p{Script=Han}]*·|家族|途径|陵墓)/u.test(summary.slice(match.index + whole.length))) continue;
+      if (links.some(link => link.text.includes(label) || label.includes(link.text) || link.target === unique[0].url)) continue;
+      links.push({text: label, target: unique[0].url}); added++;
+    }
+    if (added) {
+      const field = 'event_summary_links: ' + JSON.stringify(links) + '\n';
+      const existing = /^event_summary_links:[^\n]*(?:\n(?:[ \t]+[^\n]*|-[^\n]*))*(?:\n|$)/m;
+      if (existing.test(head)) head = head.replace(existing, field);
+      else head = head.replace(/---\s*\r?\n$/, field + '---\n');
+      count += added;
+    }
+  }
   if (count) {
     changedFiles++; changedLinks += count;
     console.log(`${page.relative}\t${count}`);

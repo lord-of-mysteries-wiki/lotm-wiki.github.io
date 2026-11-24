@@ -54,4 +54,4 @@ hexo server
 - `npm run architecture:verify`：依次运行架构检查、受保护构建、生成页面检查。PR 和 Pages 工作流共用该命令，CI 另运行保护机制的反例测试。
 - `npm run hooks:install`：为当前克隆启用 `.githooks/pre-commit`，提交前检查架构。新克隆需执行一次；本地钩子可以被跳过，不能替代 CI。
 
-GitHub 主分支保护需要由仓库管理员将 `Architecture checks` 设为必需检查，并限制绕过；工作流文件本身不能启用分支保护。检查能覆盖已编码的结构规则，不能判断事实内容是否正确或识别所有形式的重复资料。修改政策与校验代码仍需审阅。
+GitHub main 分支已将 `Architecture checks` 设为必需检查，并要求合并分支包含最新 main；管理员同样受保护。更换仓库时需另行配置分支保护。检查能覆盖已编码的结构规则，不能判断事实内容是否正确或识别所有形式的重复资料。修改政策与校验代码仍需审阅。

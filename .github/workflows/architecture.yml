@@ -21,3 +21,15 @@ jobs:
       - run: npm ci
       - run: npm run architecture:verify
       - run: node --test tools/tests/architecture-guard.test.js
+      - run: node --test tools/tests/event-references.test.js
+      - run: node --test tools/tests/timeline-tooltip.test.js
+      - run: node --test tools/tests/character-references.test.js
+      - run: node --test tools/tests/character-excerpt.test.js
+      - run: node --test tools/tests/character-facts.test.js
+      - run: node --test tools/tests/organization-members.test.js
+      - run: node --test tools/tests/entry-detail.test.js
+      - run: node --test tools/tests/creature-directory.test.js
+      - run: npm run related:check
+      - run: node --test tools/tests/wiki-link-hints.test.js
+      - run: node --test tools/tests/relationship-query.test.js
+      - run: npm run catalog:check

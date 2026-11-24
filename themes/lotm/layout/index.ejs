@@ -1,4 +1,7 @@
-<% if (page.relationship_graph) { %>
+<% if (page.home) { %>
+  <header><%- partial('_partials/navbar') %></header>
+  <%- partial('_partials/world-map') %>
+<% } else if (page.relationship_graph) { %>
   <%- partial('_partials/relationship-graph') %>
 <% } else if (page.timeline_view) { %>
   <header class="story-topbar"><%- partial('_partials/navbar') %></header>
@@ -9,18 +12,23 @@
   <header><%- partial('_partials/navbar') %></header>
   <main class="main-content">
     <%- partial('_partials/breadcrumbs') %>
-    <% if (page.worldview_directory) { %>
-      <%- partial('_partials/worldview-directory') %>
+    <%- partial('_partials/catalog-navigation') %>
+    <% if (catalog_context(page)?.directory) { %>
+      <%- partial('_partials/catalog-page') %>
+    <% } else if (page.pathway_page) { %>
+      <%- partial('_partials/pathway-page') %>
+    <% } else if (page.country_directory) { %>
+      <%- partial('_partials/country-directory') %>
     <% } else if (page.timeline_event) { %>
       <%- partial('_partials/event-entry') %>
+    <% } else if (String(page.path || '').startsWith('artifacts/entries/')) { %>
+      <%- partial('_partials/artifact-entry') %>
+    <% } else if (page.creature_profile) { %>
+      <%- partial('_partials/creature-entry') %>
+    <% } else if (String(page.path || '').startsWith('worldview/countries/entries/')) { %>
+      <%- partial('_partials/country-entry') %>
     <% } else if (page.character_profile) { %>
       <%- partial('_partials/character-profile') %>
-    <% } else if (page.character_directory) { %>
-      <%- partial('_partials/character-directory') %>
-    <% } else if (page.artifact_directory) { %>
-      <%- partial('_partials/artifact-directory') %>
-    <% } else if (page.organization_directory) { %>
-      <%- partial('_partials/organization-directory') %>
     <% } else if (page.power_overview) { %>
       <%- partial('_partials/power-overview') %>
     <% } else if (page.home) { %>
@@ -28,7 +36,6 @@
     <% } else { %>
       <%- partial('_partials/page-template') %>
     <% } %>
-    <%- partial('_partials/event-backlinks') %>
   </main>
   <%- partial('_partials/footer') %>
 <% } %>

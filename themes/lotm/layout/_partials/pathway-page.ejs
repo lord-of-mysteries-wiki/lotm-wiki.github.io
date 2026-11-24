@@ -1,0 +1,25 @@
+<% const view = pathway_view(page); const sequences = view.sequences; %>
+<article class="pathway-page" style="<%= pathway_color_vars(page) %>">
+  <header class="pathway-heading"><div class="pathway-identity"><h1><%= page.title %></h1><%- pathway_symbol(page) %></div><div class="page-content"><%- view.intro %></div></header>
+  <div class="pathway-workspace">
+    <nav class="pathway-sequences" aria-label="<%= __('pathway_sequences') %>">
+      <label for="pathway-select"><%= __('pathway_sequences') %></label>
+      <select id="pathway-select"><% for (const s of sequences) { %><option value="sequence-<%= s.level %>"><%= s.level %> · <%= s.name %></option><% } %></select>
+      <ol><% for (const s of sequences) { %><li><a href="#sequence-<%= s.level %>"><span><%= s.level %></span><%= s.name %></a></li><% } %></ol>
+    </nav>
+    <div class="pathway-chapters page-content">
+      <% for (const s of sequences) { %>
+      <section class="pathway-sequence" id="sequence-<%= s.level %>">
+        <h2><span class="pathway-level"><%= s.level %></span><%= s.name %></h2>
+        <%- s.html %>
+      </section>
+      <% } %>
+      <%- partial('_partials/wiki-related') %>
+      <div class="pathway-references"><%- view.tail %>
+        <% if (page.pathway_symbol_source) { %><p class="pathway-symbol-credit"><a href="<%= page.pathway_symbol_source %>" rel="noopener noreferrer"><%= __('pathway_symbol_credit') %></a></p><% } %>
+        <% if (view.references.length) { %><h2 id="pathway-sources"><%= __('pathway_sources') %></h2>
+        <ol><% view.references.forEach((ref, i) => { %><li id="pathway-source-<%= i + 1 %>"><%- ref.html %><small><%= ref.scopes.join('；') %></small></li><% }); %></ol><% } %>
+      </div>
+    </div>
+  </div>
+</article>

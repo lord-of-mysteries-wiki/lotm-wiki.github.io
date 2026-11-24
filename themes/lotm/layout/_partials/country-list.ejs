@@ -1,0 +1,7 @@
+<%
+const collator = new Intl.Collator('zh-CN', {numeric: true, ignorePunctuation: true});
+const entries = site.pages.toArray().filter(p => /^worldview\/countries\/entries\/[^/]+\.html$/.test(p.path)).sort((a,b) => collator.compare(a.title,b.title));
+%>
+<div class="directory-list">
+  <% for (const entry of entries) { %><a href="<%= url_for(entry.path) %>"><span><%= entry.title %></span></a><% } %>
+</div>

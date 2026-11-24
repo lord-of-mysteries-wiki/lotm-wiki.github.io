@@ -1,0 +1,4 @@
+<% if (references.refs.length) { %><details class="character-sources">
+<summary><%= __('character_sources') %></summary><ol>
+<% references.refs.forEach((ref,index) => { %><li id="character-source-<%= index+1 %>"><%= ref.source %><span class="character-source-scopes"><%= [...ref.scopes].join('；') %></span></li><% }); %>
+</ol></details><% } %>

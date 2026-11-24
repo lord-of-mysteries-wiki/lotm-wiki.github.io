@@ -13,12 +13,12 @@
       <canvas id="graph" aria-label="人物关系图。可拖动画布或人物，滚轮缩放；也可在侧栏搜索并选择人物。"></canvas>
       <output id="person-hover" class="person-hover" hidden></output>
       <div class="graph-legend"><span id="size-legend" title="按已收录的直接关系人数计算"><i></i> 星点大小：<span>关系人数</span></span><span title="粗细和明暗按两端人物的字面提及次数计算"> <i></i> 连线：人物关系</span></div>
-      <div class="graph-controls" aria-label="图谱缩放控制"><button id="zoom-in" aria-label="放大">＋</button><button id="zoom-out" aria-label="缩小">−</button><button id="fit" aria-label="查看全图" title="查看全图">⌾</button></div>
+      <div class="graph-controls" aria-label="图谱缩放控制"><button id="zoom-in" aria-label="放大"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-plus"></use></svg></button><button id="zoom-out" aria-label="缩小"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-minus"></use></svg></button><button id="fit" aria-label="查看全图" title="查看全图"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-fit"></use></svg></button></div>
     </section>
     <aside class="sidebar">
       <div class="sidebar-body">
-        <div class="sidebar-head"><h2>人物关系</h2><button id="reset" class="icon-button" title="清除选择" aria-label="清除选择">↺</button></div>
-        <label class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="搜索人物、组织或“普通人”…" aria-label="搜索人物、别名、组织或普通人"><kbd>⌘ K</kbd></label>
+        <div class="sidebar-head"><h2>人物关系</h2><button id="reset" class="icon-button" title="清除选择" aria-label="清除选择"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-clear"></use></svg></button></div>
+        <label class="searchbox"><span><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-search"></use></svg></span><input id="search" type="search" placeholder="搜索人物、组织或“普通人”…" aria-label="搜索人物、别名、组织或普通人"><kbd>⌘ K</kbd></label>
         <div class="filter-row"><div><strong>显示孤立人物</strong><small>尚未收录关系的人物</small></div><label class="switch"><input id="isolates" type="checkbox"><span></span><span class="sr-only">显示孤立人物</span></label></div>
         <div class="side-stats"><span><b id="person-count"></b> 人物</span><span><b id="relation-count"></b> 关系</span><span id="visible-count"></span></div>
         <div id="content" class="content"></div>
