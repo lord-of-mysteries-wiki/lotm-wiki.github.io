@@ -1,0 +1,12 @@
+.wiki-related { box-sizing:border-box; max-width:52rem; margin:2rem auto; padding:1.5rem; background:var(--ui-surface); border:1px solid var(--ui-hover); border-radius:.75rem; }
+.wiki-related h2,.wiki-related h3 { font-family:var(--font-ui); }
+.wiki-related h2 { font-size:var(--text-subheading); margin:0 0 1rem; }
+.wiki-related h3 { font-size:1rem; margin:0 0 .6rem; }
+.wiki-related__groups { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.5rem 2rem; }
+.wiki-related ul { padding:0; margin:0; list-style:none; }
+.wiki-related li { display:flex; align-items:baseline; gap:.6rem; margin:.5rem 0; overflow-wrap:anywhere; }
+.wiki-related small { flex-shrink:0; color:var(--ui-muted); font-family:var(--font-ui); font-size:.75rem; }
+.wiki-related summary { cursor:pointer; font-family:var(--font-ui); color:var(--ui-muted); }
+.wiki-related__less,.wiki-related details[open] .wiki-related__more { display:none; }
+.wiki-related details[open] .wiki-related__less { display:inline; }
+@media(max-width:600px){.wiki-related{padding:1rem;}.wiki-related__groups{grid-template-columns:minmax(0,1fr);}.wiki-related li{flex-wrap:wrap;gap:.1rem .5rem;}}

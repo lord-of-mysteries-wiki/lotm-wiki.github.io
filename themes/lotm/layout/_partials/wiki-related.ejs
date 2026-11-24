@@ -1,0 +1,11 @@
+<% const related=wiki_related(page); if(related.length) { %>
+<section class="wiki-related" aria-label="<%= __('wiki_related') %>">
+<h2><%= __('wiki_related') %></h2>
+<div class="wiki-related__groups">
+<% for(const group of related) { %><section class="wiki-related__group">
+<h3><%= __('wiki_related_'+group.type) %>（<%= group.items.length %>）</h3>
+<ul><% for(const entry of group.items.slice(0,8)){ %><li><a href="<%= url_for('/'+entry.url) %>"><%= entry.title %></a><small><%= __('wiki_related_'+entry.direction) %></small></li><% } %></ul>
+<% if(group.items.length>8){ %><details><summary><span class="wiki-related__more"><%= __('wiki_related_more') %>（<%= group.items.length %>）</span><span class="wiki-related__less"><%= __('wiki_related_less') %></span></summary><ul><% for(const entry of group.items.slice(8)){ %><li><a href="<%= url_for('/'+entry.url) %>"><%= entry.title %></a><small><%= __('wiki_related_'+entry.direction) %></small></li><% } %></ul></details><% } %>
+</section><% } %>
+</div></section>
+<% } %>

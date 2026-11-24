@@ -97,10 +97,14 @@ def main():
     parser.add_argument('name')
     parser.add_argument('other', nargs='?')
     parser.add_argument('--limit', type=int, default=20)
+    parser.add_argument('--join-lines', action='store_true',
+                        help='忽略正文中的排版空白后检索，保留原有卷章边界；匹配仅作核验线索')
     args = parser.parse_args()
     for book, path, encoding in reference_texts():
         matches = 0
         for volume, heading, body in iter_chapters(path, encoding):
+            if args.join_lines:
+                body = re.sub(r'\s+', '', body)
             if args.name not in body or (args.other and args.other not in body):
                 continue
             matches += 1

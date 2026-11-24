@@ -1,14 +1,40 @@
 {
-  "protectedSourceDirectories": ["source"],
+  "protectedSourceDirectories": [
+    "source"
+  ],
   "retiredFiles": [
     "source/relationships/relationship-data.js",
     "source/relationships/character-index.js",
     "source/_data/character_directory.json",
     "tools/build-character-index.py",
     "tools/character-progression.json",
-    "tools/character_directory.py"
+    "tools/character_directory.py",
+    "source/characters/aliases/麦维提-2.md",
+    "source/characters/aliases/米索尔.md",
+    "source/characters/aliases/月夫人.md",
+    "source/characters/entries/麦维提-1.md",
+    "source/js/character-directory.js",
+    "source/js/artifact-directory.js",
+    "themes/lotm/layout/_partials/character-directory.ejs",
+    "themes/lotm/layout/_partials/artifact-directory.ejs",
+    "themes/lotm/layout/_partials/worldview-directory.ejs"
   ],
-  "forbiddenTrackedPaths": ["public/", "db.json", "source/relationships/graph-data.js", "诡秘之主-原文/", "宿命之环-原文/"],
-  "runtimeDirectories": ["themes", "tools", "source"],
-  "referenceCheckExtensions": [".js", ".ejs", ".py", ".json"]
+  "forbiddenTrackedPaths": [
+    "public/",
+    "db.json",
+    "source/relationships/graph-data.js",
+    "诡秘之主-原文/",
+    "宿命之环-原文/"
+  ],
+  "runtimeDirectories": [
+    "themes",
+    "tools",
+    "source"
+  ],
+  "referenceCheckExtensions": [
+    ".js",
+    ".ejs",
+    ".py",
+    ".json"
+  ]
 }

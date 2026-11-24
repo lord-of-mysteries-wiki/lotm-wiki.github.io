@@ -5,6 +5,7 @@ const path = require('path');
 const crypto = require('crypto');
 const frontMatter = require('hexo-front-matter');
 const eventSummaryParts = require('../themes/lotm/lib/event-summary-parts');
+const {isBriefEvent} = require('./lib/event-presentation');
 const { lexer, walkTokens, Lexer } = require('marked');
 const root = path.resolve(__dirname, '..');
 const source = path.join(root, 'source');
@@ -17,13 +18,19 @@ const pages = files(source).sort().map(file => {
   const data = frontMatter.parse(raw);
   const rel = path.relative(source, file).split(path.sep).join('/');
   const url = String(data.permalink || rel.replace(/index\.md$/, '').replace(/\.md$/, '.html'));
-  return { file, name: String(data.title || '').trim(), body: data._content || '', url, brief: Boolean(data.timeline_event && String(data.event_summary || '').trim()), summary: String(data.event_summary || ''), summaryLinks: Array.isArray(data.event_summary_links) ? data.event_summary_links : [] };
+  return { file, pathwayPage: Boolean(data.pathway_page), pathway: data.pathway, sequenceLevel: data['sequence-level'], name: String(data.title || '').trim(), body: data._content || '', url, brief: Boolean(data.timeline_event && isBriefEvent(data)), summary: String(data.event_summary || ''), summaryLinks: Array.isArray(data.event_summary_links) ? data.event_summary_links : [] };
 });
+// Match the published chapter destination for pathways with an aggregated view.
+for (const page of pages) {
+  if (page.sequenceLevel === undefined || !page.pathway) continue;
+  const parent = pages.find(p => p.pathwayPage && p.name === page.pathway);
+  if (parent) page.url = `${parent.url}#sequence-${page.sequenceLevel}`;
+}
 const names = new Map();
 for (const page of pages) {
   // Short/common names and aliases require context; retain them as review candidates.
   const rel = path.relative(source, page.file).split(path.sep).join('/');
-  if (!/^(characters\/entries|artifacts\/entries|worldview\/(?:pathways|organizations|countries))\//.test(rel)) continue;
+  if (!/^(characters\/entries|artifacts\/entries|creatures\/entries|worldview\/(?:pathways|organizations|countries))\//.test(rel)) continue;
   if (page.name.length < 2 || /[\r\n]/.test(page.name)) continue;
   if (!names.has(page.name)) names.set(page.name, []);
   names.get(page.name).push(page);

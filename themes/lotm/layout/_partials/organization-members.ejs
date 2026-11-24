@@ -1,13 +1,17 @@
-<h2>成员与章节依据</h2>
+<h2><%= __('organization_members') %></h2>
 <ul>
   <% for (const member of site.pages.sort('title').toArray()) {
     const facts = member.graph_classifications?.organization?.filter(fact => fact.value === page.organization_members) || [];
     if (!member.character_profile || !facts.length) continue; %>
     <li><a href="<%= url_for(member.path) %>"><%= member.title %></a>
       <% for (const fact of facts) { %>
-        <p><%= [fact.unit, fact.note, fact.source].filter(Boolean).join(' · ') %></p>
+        <% const inferred = fact.certainty === 'inferred';
+           const scope = __('organization_members') + '：' + member.title + (fact.unit ? ' · ' + fact.unit : '') + (inferred ? ' ' + __('character_inferred_suffix') + (fact.note ? ' · ' + fact.note : '') : '');
+           const sharedReferences = typeof references !== 'undefined' && references;
+           const description = [fact.unit, inferred ? '' : fact.note].filter(Boolean).join(' · '); %>
+        <% if (description) { %><p><% } %><% if (sharedReferences) { %><%- sharedReferences.text(description, scope) %><%- sharedReferences.cite(fact.source, scope) %><% } else { %><%= [description, fact.source].filter(Boolean).join(' · ') %><% } %><% if (description) { %></p><% } %>
       <% } %>
     </li>
   <% } %>
 </ul>
-<p><a href="<%= url_for('/relationships/') %>?organization=<%= encodeURIComponent(page.organization_members) %>">在人物关系网中查看<%= page.organization_members %></a></p>
+<p><a href="<%= url_for('/relationships/') %>?organization=<%= encodeURIComponent(page.organization_members) %>"><%= __('organization_graph', page.organization_members) %></a></p>

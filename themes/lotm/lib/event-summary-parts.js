@@ -3,7 +3,7 @@ module.exports = function eventSummaryParts(event) {
   const text = String(event.event_summary || '');
   const pending = (Array.isArray(event.event_summary_links) ? event.event_summary_links : [])
     .filter(link => link && typeof link.text === 'string' && link.text &&
-      typeof link.target === 'string' && /^(?:characters|artifacts|worldview)\//.test(link.target));
+      typeof link.target === 'string' && /^(?:characters|artifacts|creatures|worldview)\//.test(link.target));
   const parts = [];
   let offset = 0;
   while (pending.length && offset < text.length) {

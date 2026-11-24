@@ -1,13 +1,67 @@
 /* Shared by the ordinary wiki pages and the relationship graph. */
-.site-nav{min-height:68px;display:flex;align-items:center;gap:32px;padding:0 32px;background:#202333;border-bottom:1px solid #3b4052;box-sizing:border-box;min-width:0}
-.site-title{color:#e4e6f3;font-weight:650;letter-spacing:.06em;white-space:nowrap;text-decoration:none}
+.site-nav{min-height:68px;display:flex;align-items:center;gap:32px;padding:0 32px;background:var(--ui-panel);border-bottom:1px solid var(--ui-hover);box-sizing:border-box;min-width:0}
+.site-title{color:var(--ui-ink);font-weight:650;letter-spacing:.06em;white-space:nowrap;text-decoration:none}
 .site-title-short{display:none}
 .nav-links{display:flex;flex:1;align-items:center;gap:8px;overflow-x:auto;white-space:nowrap;min-width:0;scrollbar-width:thin}
 .nav-link-right{margin-left:auto}
 .nav-icon{display:inline-block;width:18px;height:18px;line-height:0;flex:none}.nav-icon svg{display:block;width:100%;height:100%}
-.nav-links a{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 11px;border-radius:8px;color:#bec5dc;text-decoration:none}
-.nav-links a:hover,.nav-links a[aria-current='page']{color:#a8dfd7;background:rgba(168,223,215,.08)}
-.nav-links a:focus-visible,.site-title:focus-visible{outline:2px solid #a8dfd7;outline-offset:-2px}
+.nav-links a{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 11px;border-radius:8px;color:var(--ui-ink);text-decoration:none}
+.nav-links a:hover,.nav-links a[aria-current='page']{color:var(--ui-accent);background:rgba(168,223,215,.08)}
+.nav-links a:focus-visible,.site-title:focus-visible{outline:2px solid var(--ui-accent);outline-offset:-2px}
 @media(max-width:800px){.site-nav{min-height:54px;gap:20px;padding:0 16px}.nav-links{gap:8px}.nav-links a{padding:0 7px}}
-@media(max-width:1200px){.site-nav{gap:16px}.nav-links{gap:14px}.nav-links a:nth-child(n+5) .nav-label{display:none}.nav-links a:nth-child(n+5) .nav-icon{display:inline-block}}
-@media(max-width:700px){.site-nav{gap:8px;padding:0 10px}.site-title-full{display:none}.site-title-short{display:inline;font-size:14px}.nav-links{gap:0;overflow:visible;justify-content:space-between}.nav-links a{display:flex;align-items:center;justify-content:center;min-width:32px;min-height:44px;padding:10px 2px}.nav-links a .nav-label{display:none}.nav-links a .nav-icon{display:inline-block;width:20px;height:20px}.nav-link-right{margin-left:0}}
+@media(max-width:1200px){.site-nav{gap:16px}.nav-links{gap:6px}.nav-link-right{margin-left:0}.nav-links a:nth-child(n+5) .nav-label{display:none}.nav-links a:nth-child(n+5) .nav-icon{display:inline-block}}
+@media(max-width:700px){.site-nav{gap:8px;padding:0 12px}.site-title-full{display:none}.site-title-short{display:inline;font-size:14px}.nav-links{gap:4px;overflow:visible;justify-content:safe center}.nav-links a{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:30px;min-width:30px;min-height:44px;padding:10px 2px}.nav-links a .nav-label{display:none}.nav-links a .nav-icon{display:inline-block;width:20px;height:20px}.nav-link-right{margin-left:0}}
+
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  color: var(--ui-ink);
+  background: var(--ui-panel);
+  cursor: pointer;
+  font: 24px/1 sans-serif;
+}
+.theme-toggle:hover { background: var(--ui-hover); }
+.theme-toggle:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 2px; }
+@media (max-width: 700px) {
+  .site-nav .nav-links { overflow-x: auto; }
+  .nav-links a { flex-shrink: 0; }
+}
+
+.wiki-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -.14em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+button .wiki-icon, .searchbox .wiki-icon { width: 20px; height: 20px; }
+.world-map .map-timebar button, .almanac .almanac-period button[data-step] {
+  box-sizing: border-box;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 7px;
+}
+.world-map .map-timebar button[data-play] { border-radius: 50%; }
+
+@media (pointer: coarse) {
+  .world-map .map-timebar button, .almanac .almanac-period button[data-step] {
+    width: 44px;
+    height: 44px;
+  }
+}

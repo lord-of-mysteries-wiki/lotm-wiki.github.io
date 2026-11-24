@@ -1,3 +1,34 @@
+/* 界面配色。国家、组织、途径的颜色由各自的数据源提供。 */
+:root {
+  color-scheme: light;
+  --ui-page: #f9f9f8;
+  --ui-panel: #f4f5f5;
+  --ui-surface: #eaedef;
+  --ui-hover: #dce2e5;
+  --ui-line: #909ca3;
+  --ui-muted: #505d65;
+  --ui-ink: #24292c;
+  --ui-accent: #303f4e;
+  --ui-link: #286783;
+  --ui-link-line: rgba(40,103,131,.38);
+  --ui-link-hover: #174c68;
+  --ui-link-wash: rgba(40,103,131,.07);
+}
+:root[data-theme="night"] {
+  color-scheme: dark;
+  --ui-page: #202e3d;
+  --ui-panel: #172230;
+  --ui-surface: #283849;
+  --ui-hover: #364c60;
+  --ui-line: #627a8d;
+  --ui-muted: #b2c1cf;
+  --ui-ink: #e6edf3;
+  --ui-accent: #aed8fc;
+  --ui-link: var(--ui-accent);
+  --ui-link-line: var(--ui-line);
+  --ui-link-hover: var(--ui-accent);
+  --ui-link-wash: var(--ui-hover);
+}
 /* 网站共同的字体族和文字层级。 */
 :root {
   --font-ui: sans-serif;
@@ -32,9 +63,20 @@ h3 { font-size: var(--text-subheading); line-height: 1.45; }
 .app .filter-row strong,.app .section-label,.app .row-copy strong,.app .back,.app .tag,.app .milestone,.app .empty,.app .palette-title,.app .cluster-nav button,.app .searchbox input { font-size: var(--text-ui); }
 .app .detail-text { font-size: var(--text-body); line-height: 1.75; }
 .app .side-stats b { font-size: var(--text-body); }
-.app .detail-text,.app .source,.app .empty { color: #c2cbdb; }
-.app .filter-row small,.app .row-copy small,.app .profile p,.app .meta,.app .more,.app footer,.app .palette-title span { color: #a8b2c8; }
+.app .detail-text,.app .source,.app .empty { color: var(--ui-ink); }
+.app .filter-row small,.app .row-copy small,.app .profile p,.app .meta,.app .more,.app footer,.app .palette-title span { color: var(--ui-muted); }
 @media (max-width: 800px) {
   .app .cluster-nav { max-width: calc(100% - 36px); overflow-x: auto; }
   .app .cluster-nav button { font-size: var(--text-ui); }
 }
+/* 地图控件沿用全站字体层级；资料段落继承正文 serif。 */
+.world-map .map-timebar,.world-map .map-svg,.world-map .map-panel summary { font-family:var(--font-ui); font-size:var(--text-ui); }
+.world-map button,.world-map select,.world-map input { font-size:var(--text-ui); }
+.world-map .map-ticks { font-size:var(--text-meta); }
+.world-map .map-region text { font-size:22px; }
+.world-map .map-geographic-labels,.world-map .map-geographic-label { font-size:20px; }
+
+.world-map .map-city text { font-family: sans-serif; font-size: 11px; }
+
+
+.world-map .map-area-label { font-size:20px; }

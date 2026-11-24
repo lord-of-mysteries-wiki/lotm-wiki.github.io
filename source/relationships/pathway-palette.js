@@ -1,131 +1,140 @@
-// 途径色卡：主色与辅助色，设计依据见 docs/途径配色方案.md。
+// 途径唯一配色源：22 条昼夜共用已审阅的原夜间主色，外神 10 条保留原主色。
+// 核对记录：docs/途径官方彩色标识核对.md；day/night 是主题变体，不是主辅色。
 const pathwayPalette = {
   "占卜家": {
-    "primary": "#8F8D8C",
-    "accent": "#9C5659"
+    "day": "#B99AE4",
+    "night": "#B99AE4"
   },
   "学徒": {
-    "primary": "#3E7D8A",
-    "accent": "#CCC2A2"
+    "day": "#71DAF2",
+    "night": "#71DAF2"
   },
   "偷盗者": {
-    "primary": "#242329",
-    "accent": "#C7D1CF"
+    "day": "#E2E3D5",
+    "night": "#E2E3D5"
   },
   "秘祈人": {
-    "primary": "#681E30",
-    "accent": "#CC9D84"
+    "day": "#F17A76",
+    "night": "#F17A76"
   },
   "观众": {
-    "primary": "#D6729B",
-    "accent": "#E4D3BD"
+    "day": "#C2D7EC",
+    "night": "#C2D7EC"
   },
   "水手": {
-    "primary": "#1F3D69",
-    "accent": "#92BDD2"
+    "day": "#89B9FF",
+    "night": "#89B9FF"
   },
   "歌颂者": {
-    "primary": "#C19238",
-    "accent": "#DBCDA6"
+    "day": "#FFE078",
+    "night": "#FFE078"
   },
   "阅读者": {
-    "primary": "#EEECE1",
-    "accent": "#B7914F"
+    "day": "#B2B8FF",
+    "night": "#B2B8FF"
   },
   "不眠者": {
-    "primary": "#101114",
-    "accent": "#904553"
+    "day": "#C5DDFF",
+    "night": "#C5DDFF"
   },
   "收尸人": {
-    "primary": "#6E8171",
-    "accent": "#E0E9D0"
+    "day": "#DFE7BD",
+    "night": "#DFE7BD"
   },
   "战士": {
-    "primary": "#B66F44",
-    "accent": "#CBB292"
+    "day": "#F4AD69",
+    "night": "#F4AD69"
   },
   "耕种者": {
-    "primary": "#C99A36",
-    "accent": "#ADCA76"
+    "day": "#8AE2BC",
+    "night": "#8AE2BC"
   },
   "药师": {
-    "primary": "#982849",
-    "accent": "#E1B0BB"
+    "day": "#F397A8",
+    "night": "#F397A8"
   },
   "仲裁人": {
-    "primary": "#496D98",
-    "accent": "#CCC3A6"
+    "day": "#F1C765",
+    "night": "#F1C765"
   },
   "律师": {
-    "primary": "#342E2B",
-    "accent": "#B9A786"
+    "day": "#8CA8FF",
+    "night": "#8CA8FF"
   },
   "猎人": {
-    "primary": "#C22420",
-    "accent": "#DAA280"
+    "day": "#FF8170",
+    "night": "#FF8170"
   },
   "刺客": {
-    "primary": "#29242B",
-    "accent": "#D5D1DB"
+    "day": "#F7A3E0",
+    "night": "#F7A3E0"
   },
   "罪犯": {
-    "primary": "#5E2F27",
-    "accent": "#C19C88"
+    "day": "#FF896C",
+    "night": "#FF896C"
   },
   "囚犯": {
-    "primary": "#77766A",
-    "accent": "#D2C2A7"
+    "day": "#C9B5EC",
+    "night": "#C9B5EC"
   },
   "窥秘人": {
-    "primary": "#2F7872",
-    "accent": "#B7DBC3"
+    "day": "#C597FF",
+    "night": "#C597FF"
   },
   "通识者": {
-    "primary": "#A8A8A0",
-    "accent": "#D0C1A1"
+    "day": "#F5C17B",
+    "night": "#F5C17B"
   },
   "怪物": {
-    "primary": "#D0A85A",
-    "accent": "#E5DBBF"
+    "day": "#9ADFF0",
+    "night": "#9ADFF0"
   },
   "恶棍": {
-    "primary": "#BA3736",
-    "accent": "#DBBBA9"
+    "day": "#BA3736",
+    "night": "#BA3736"
   },
   "掮客": {
-    "primary": "#C2C6C4",
-    "accent": "#7D8586"
+    "day": "#C2C6C4",
+    "night": "#C2C6C4"
   },
   "吝啬鬼": {
-    "primary": "#2C6A53",
-    "accent": "#9DCDA7"
+    "day": "#2C6A53",
+    "night": "#2C6A53"
   },
   "舞蹈家": {
-    "primary": "#9DA7AA",
-    "accent": "#28292D"
+    "day": "#9DA7AA",
+    "night": "#9DA7AA"
   },
   "失梦人": {
-    "primary": "#E0E2DD",
-    "accent": "#9C8075"
+    "day": "#E0E2DD",
+    "night": "#E0E2DD"
   },
   "天文爱好者": {
-    "primary": "#1F6CA5",
-    "accent": "#E4D4A9"
+    "day": "#1F6CA5",
+    "night": "#1F6CA5"
   },
   "流浪汉": {
-    "primary": "#242127",
-    "accent": "#E2E1DD"
+    "day": "#242127",
+    "night": "#242127"
   },
   "萨满": {
-    "primary": "#8F5CC0",
-    "accent": "#D9C0E0"
+    "day": "#8F5CC0",
+    "night": "#8F5CC0"
   },
   "入门者": {
-    "primary": "#798F88",
-    "accent": "#C6C0AD"
+    "day": "#798F88",
+    "night": "#798F88"
   },
   "病患": {
-    "primary": "#2F6846",
-    "accent": "#B3A874"
+    "day": "#2F6846",
+    "night": "#2F6846"
   }
 };
+
+function pathwayPrimary(name, theme = 'day') {
+  return pathwayPalette[name]?.[theme === 'night' ? 'night' : 'day'] || null;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { pathwayPalette, pathwayPrimary };
+}
