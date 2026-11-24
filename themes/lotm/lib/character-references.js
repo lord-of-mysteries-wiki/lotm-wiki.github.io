@@ -9,12 +9,13 @@ const chapter=`${chapterNumber}(?:章?\\s*[、，,]\\s*${chapterNumber})*章`;
 const volume=`第${num}[部卷]`;
 const locator=`${volume}\\s*${chapter}(?:\\s*[、，,]\\s*${chapter})*`;
 const citation=new RegExp(`《(?:诡秘之主|宿命之环)》\\s*${locator}(?:\\s*[；;、，,]\\s*${locator})*`,'g');
+const sourceKey = source => String(source || '').replace(/\s+/g,'').replace(/部/g,'卷').replace(/[—–～~]/g,'至');
 function createCharacterReferences(page, sourceLabel='来源', initialScope='人物资料') {
   const refs=[];
   function add(source,scope){
     source=String(source||'').trim();
     if(!source)return '';
-    const key=source.replace(/\s+/g,'').replace(/部/g,'卷').replace(/[—–～~]/g,'至');
+    const key=sourceKey(source);
     let ref=refs.find(r=>r.key===key);
     if(!ref){ref={key,source,scopes:new Set(),backlinks:[]};refs.push(ref);}
     ref.scopes.add(scope);
@@ -61,4 +62,4 @@ function createCharacterReferences(page, sourceLabel='来源', initialScope='人
   const text=(value,scope)=>replaceText(escapeHTML(String(value||'')),scope);
   return {body,refs,cite,text,citeWhole:add};
 }
-module.exports={createCharacterReferences};
+module.exports={sourceKey,createCharacterReferences};

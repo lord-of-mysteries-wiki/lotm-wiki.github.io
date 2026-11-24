@@ -80,3 +80,14 @@ test('qualified citation parentheses retain authored notes without orphaned sepa
     assert.deepEqual(view.refs.map(ref=>ref.source),sources);
   }
 });
+
+test('source keys merge range typography without dropping qualifiers or chapters',()=>{
+  const {sourceKey}=require('../../themes/lotm/lib/character-references');
+  const source='《诡秘之主》第一卷第9章至第12章、第210章';
+  assert.equal(sourceKey(source),sourceKey(source.replace('至','—')));
+  assert.notEqual(sourceKey(source),sourceKey(source+'（推定）'));
+  assert.notEqual(sourceKey(source),sourceKey(source.replace('210','211')));
+  const view=createCharacterReferences({content:''});
+  view.citeWhole(source.replace('至','—'),'经过');view.citeWhole(source,'时间');
+  assert.equal(view.refs.length,1);assert.deepEqual([...view.refs[0].scopes],['经过','时间']);
+});

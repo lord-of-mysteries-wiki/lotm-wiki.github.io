@@ -65,7 +65,14 @@ for(const event of m.events) {
   assert.deepEqual(actual.map(r=>r.source),expected.map(r=>r.source),event.entry_id);
   if(!isBriefEvent(event)) {
     const html=fs.readFileSync(path.join('public',event.path,event.path.endsWith('/')?'index.html':''),'utf8');
-    for(const ref of expected) assert.ok(html.includes(escapeHTML(ref.source)),event.entry_id);
+    const {sourceKey}=require('../themes/lotm/lib/character-references');
+    const {parseDocument}=require('htmlparser2'),{findAll,textContent}=require('domutils');
+    const rows=findAll(node=>node.name==='li' && /^character-source-/.test(node.attribs?.id||''),parseDocument(html).children);
+    for(const ref of expected) assert.ok(rows.some(row=> {
+      const scope=row.children.find(node=>(node.attribs?.class||'').split(/\s+/).includes('character-source-scopes'));
+      const source=row.children.filter(node=>node!==scope).map(textContent).join('');
+      return sourceKey(source)===sourceKey(ref.source) && ref.scopes.every(value=>textContent(scope||{children:[]}).includes(value==='facts'?'事件概括与经过':'时间依据'));
+    }),event.entry_id+' missing source or scope: '+ref.source);
     assert.ok(html.includes('class="event-sources entry-sources"') || !expected.length,event.entry_id);
   }
 }
