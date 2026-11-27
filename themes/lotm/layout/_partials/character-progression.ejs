@@ -1,0 +1,15 @@
+<% const stages = character_progression_rows(page.graph_profile?.progression || []);
+   const promotions = stages.filter(stage => !stage.relation || stage.relation === 'member');
+   const authorities = stages.filter(stage => stage.relation && stage.relation !== 'member'); %>
+<% if (stages.length) { %>
+<section id="progression" aria-labelledby="progression-title">
+<h2 id="progression-title"><%= __('character_progression') %></h2>
+<% if (promotions.length) { %><table><thead><tr><th scope="col"><%= __('character_rank') %></th><th scope="col"><%= __('character_sequence_name') %></th><th scope="col"><%= __('character_chapters') %></th></tr></thead><tbody>
+<% for (const stage of promotions) { %>
+<tr><td><%= stage.rank %><% if (stage.samePeriodAsPrevious) { %> · <%= __('character_same_period') %><% } %></td><td><% if (stage.pathway) { %><%= stage.pathway %><%= stage.pathwayInferred && !stage.sequenceInferred ? __('character_inferred_suffix') : '' %><% if (stage.name) { %> · <% } %><% } %><%= stage.name %><%= stage.sequenceInferred ? __('character_inferred_suffix') : '' %></td><td><%= stage.sourceLabel %><%- references.cite(stage.source,__('character_progression') + '：' + stage.sequence) %></td></tr>
+<% } %>
+</tbody></table><% } %>
+<% if (authorities.length) { %><h3><%= __('character_authorities') %></h3><ul>
+<% for (const stage of authorities) { %><li><% if (stage.pathway) { %><%= stage.pathway %><%= stage.pathwayInferred && !stage.sequenceInferred ? __('character_inferred_suffix') : '' %> · <% } %><%= stage.sequence %><%= stage.sequenceInferred ? __('character_inferred_suffix') : '' %><%- references.cite(stage.source,stage.sequence) %></li><% } %>
+</ul><% } %>
+</section><% } %>

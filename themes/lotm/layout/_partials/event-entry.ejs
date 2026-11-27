@@ -1,13 +1,16 @@
-<% const view=entry_detail_view(page,'event'); const date=event_date_label(page); %>
+<% const view=entry_detail_view(page,'event');
+   const structuredDate=event_date_label(page);
+   const eraDate=!structuredDate && page.event_era ? page.event_time_note : '';
+   const date=structuredDate || eraDate; %>
 <article class="article entry-detail event-entry">
   <h1><%= page.title || '' %></h1>
   <% if (date) { %><p class="entry-date"><%= date %><% if (page.event_time_uncertain === true) { %> · <%= __('event_time_uncertain_label') %><% } %></p><% } %>
   <% if (page.event_summary) { %><p class="event-overview"><% for (const part of event_summary_parts(page)) { %><% if (part.target) { %><a href="<%= url_for('/' + part.target) %>"><%= part.text %></a><% } else { %><%= part.text %><% } %><% } %><%- view.references.citeWhole(page.event_source || page.event_time_source,__('event_source_facts')) %></p><% } %>
   <div class="entry-body" data-entry-source="<%= view.fallback %>"><%- view.body %></div>
-  <% if (page.event_time_note || page.event_time_basis) { %>
+  <% if ((page.event_time_note && !eraDate) || page.event_time_basis) { %>
   <details class="event-time">
     <summary><%= __('entry_time_evidence') %></summary>
-    <% if (page.event_time_note) { %><p><%= page.event_time_note %></p><% } %>
+    <% if (page.event_time_note && !eraDate) { %><p><%= page.event_time_note %></p><% } %>
     <% if (page.event_time_basis) { %><p><%= page.event_time_basis %></p><% } %>
   </details>
   <% } %>

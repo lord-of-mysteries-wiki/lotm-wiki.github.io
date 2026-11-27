@@ -1,14 +1,5 @@
-const { stripHTML, unescapeHTML } = require('hexo-util');
-
-hexo.extend.helper.register('character_has_section', function (html, section) {
-  const escaped = section.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const heading = new RegExp('<h2\\s+id="' + escaped + '"[^>]*>[\\s\\S]*?</h2>', 'i');
-  const match = heading.exec(html || '');
-  if (!match) return false;
-  const remainder = html.slice(match.index + match[0].length);
-  const body = remainder.split(/<h2(?:\s|>)/i, 1)[0];
-  return unescapeHTML(stripHTML(body)).trim().length > 0;
-});
+const {characterHasSection,characterFactText}=require('../lib/character-facts');
+hexo.extend.helper.register('character_has_section', characterHasSection);
 
 // Only link an organization when exactly one published organization page has
 // the same name. Classification text alone does not create a wiki page.
@@ -28,5 +19,8 @@ hexo.extend.helper.register('character_reference_view', function(page) {
   return createCharacterReferences(page,this.__('character_sources'));
 });
 
-const {characterFactText}=require('../lib/character-facts');
 hexo.extend.helper.register('character_fact_text', characterFactText);
+
+const {splitCharacterBody, progressionRows} = require('../lib/character-records');
+hexo.extend.helper.register('character_body_sections', splitCharacterBody);
+hexo.extend.helper.register('character_progression_rows', progressionRows);

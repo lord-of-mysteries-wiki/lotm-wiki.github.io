@@ -4,7 +4,18 @@ const {buildCatalog,contextFor,selectEntries}=require('../../../tools/lib/catalo
 const {loadModel}=require('../../../tools/lib/content-model');
 let catalog,labels;
 function get(){
- if(!catalog){catalog=buildCatalog(hexo.locals.get('pages').toArray(),loadModel().directory);const language=String(hexo.config.language).startsWith('en')?'en':'zh-CN';labels=yaml.load(fs.readFileSync(path.join(hexo.theme_dir,'languages',language+'.yml'),'utf8'));}
+ if(!catalog){
+  const language=String(hexo.config.language).startsWith('en')?'en':'zh-CN';
+  labels=yaml.load(fs.readFileSync(path.join(hexo.theme_dir,'languages',language+'.yml'),'utf8'));
+  catalog=buildCatalog(hexo.locals.get('pages').toArray(),loadModel().directory);
+  for(const entry of catalog.worldview.entries){
+   const history=entry.history;
+   if(!history?.kind)continue;
+   const era=labels.catalog_history_era.replace('{era}',history.era);
+   const basis=[era,history.date?.replace(/^0+(?=\d)/,''),history.eventTitle].filter(Boolean).join(' · ');
+   entry.historyHint=labels['catalog_history_'+history.kind]+basis;
+  }
+ }
  return catalog;
 }
 function label(item){get();return item.label||labels[item.key]||item.id||'';}
@@ -20,6 +31,7 @@ hexo.extend.generator.register('catalog-directories',function(){
  function add(base,view,title){if(!existing.has(base))routes.push({path:base+'index.html',layout:['index'],data:{title,path:base,catalog_view:{...view,directory:true},content:''}});}
  for(const section of Object.values(data)){
   const payload={...section,title:label(section),branches:section.branches.map(branch=>({...branch,title:label(branch),groups:branch.groups.map(group=>({...group,title:label(group)}))})),text:Object.fromEntries(Object.entries(labels).filter(([key])=>key.startsWith('catalog_')))};
+  if(section.overviewGroups)payload.overviewGroups=section.overviewGroups.map(group=>({...group,title:label(group)}));
   routes.push({path:'catalog-data/'+section.id+'.json',data:JSON.stringify(payload)});
   for(const branch of section.branches){
    add(branch.path,{owner:section.id,branch:branch.id},label(branch));

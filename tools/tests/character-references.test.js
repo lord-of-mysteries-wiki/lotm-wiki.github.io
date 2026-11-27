@@ -91,3 +91,119 @@ test('source keys merge range typography without dropping qualifiers or chapters
   view.citeWhole(source.replace('至','—'),'经过');view.citeWhole(source,'时间');
   assert.equal(view.refs.length,1);assert.deepEqual([...view.refs[0].scopes],['经过','时间']);
 });
+
+test('numbered daily-life extra citations share the normal source collection',()=>{
+  const source='《诡秘之主》番外《一个普通人的日常》六、八';
+  const view=createCharacterReferences({content:`<h2>交付经过</h2><p>身份未明。（${source}）</p><h2>后续</h2><p>交付完成。（${source}）</p>`});
+  assert.equal(view.refs.length,1);
+  assert.equal(view.refs[0].source,source);
+  assert.deepEqual([...view.refs[0].scopes],['交付经过','后续']);
+  assert.equal(view.refs[0].backlinks.length,2);
+  assert.ok(view.body.includes('身份未明。'));
+  assert.ok(!view.body.replace(/<span hidden[^>]*><\/span>/g,'').includes(source));
+  assert.ok(view.body.includes('data-source-target="character-source-1"'));
+});
+
+test('an extra without an instalment locator stays visible and is not guessed',()=>{
+  const content='<p>同一性不详。（《诡秘之主》番外《一个普通人的日常》）</p>';
+  const view=createCharacterReferences({content});
+  assert.equal(view.refs.length,0);
+  assert.equal(view.body,content);
+});
+
+const articleTitle='“美神”非凡特性问题的解答和“魔女”途径能力补全';
+const articleURL='https://mp.weixin.qq.com/s/cP_tqkcYhM-fA4l9c59JUA';
+const articleSource=`爱潜水的乌贼，2025年8月4日《${articleTitle}》 ${articleURL}`;
+const withoutMarkers=value=>value.replace(/<span hidden[^>]*><\/span>/g,'');
+test('source scope follows the actual nested life stage and resets at its next sibling',()=>{
+  const a='《诡秘之主》第一卷第9章',b='《诡秘之主》第二卷第3章';
+  const view=createCharacterReferences({content:`<h2>生平经历</h2><h3>早年</h3><p>早年事实。（${a}）</p><h4>求学</h4><p>求学事实。（${b}）</p><h3>后来</h3><p>后期事实。（${a}）</p><h2>尊名</h2><p>尊名。（${b}）</p>`});
+  assert.deepEqual([...view.refs[0].scopes],['生平经历：早年','生平经历：后来']);
+  assert.deepEqual([...view.refs[1].scopes],['生平经历：早年：求学','尊名']);
+  assert.ok(withoutMarkers(view.body).includes('<h4>求学</h4><p>求学事实。</p>'));
+});
+test('collected sources keep original URLs clickable and escape authored markup',()=>{
+  const view=createCharacterReferences({content:''});
+  const html=view.sourceHTML(articleSource+'（限定） <script>bad</script>');
+  const link=html.match(/<a href="([^"]+)">([^<]+)<\/a>/);
+  assert.ok(link);
+  const {unescapeHTML}=require('hexo-util');
+  assert.equal(unescapeHTML(link[1]),articleURL);
+  assert.equal(unescapeHTML(link[2]),articleURL);
+  assert.ok(html.includes('（限定）'));
+  assert.ok(html.includes('&lt;script&gt;'));assert.ok(!html.includes('<script>'));
+  assert.ok(!view.sourceHTML('javascript:alert(1)').includes('<a'));
+});
+test('rendered Markdown author articles share structured sources and retain every scope',()=>{
+  const html=`<h2>第四纪</h2><p>取得第二份特性。（爱潜水的乌贼，2025年8月4日《<a href="${articleURL}" title="原始文章">${articleTitle}</a>》）</p>`;
+  const view=createCharacterReferences({content:html});
+  view.cite(`《诡秘之主》第五卷第120章；《诡秘之主》第七卷第55章；${articleSource}`,'晋升：美神');
+  view.cite(articleSource,'晋升：双序列1');
+  assert.equal(view.refs.length,3);
+  assert.equal(view.refs[0].source,articleSource);
+  assert.deepEqual([...view.refs[0].scopes],['第四纪','晋升：美神','晋升：双序列1']);
+  assert.equal(view.refs[0].backlinks.length,3);
+  assert.equal(withoutMarkers(view.body),'<h2>第四纪</h2><p>取得第二份特性。</p>');
+});
+
+test('plain author citations and encoded link text normalize to the same complete article',()=>{
+  const source='爱潜水的乌贼，2025年8月4日《A & B》 https://example.com/article?a=1&b=2';
+  const view=createCharacterReferences({content:'<h2>经历</h2><p>完成。（爱潜水的乌贼，2025年8月4日《<a href="https://example.com/article?a=1&amp;b=2">A &amp; B</a>》）</p>'});
+  view.cite(source,'晋升');
+  assert.equal(view.refs.length,1);assert.equal(view.refs[0].source,source);
+  assert.equal(withoutMarkers(view.body),'<h2>经历</h2><p>完成。</p>');
+});
+
+test('author citation qualifications remain visible beside their fact',()=>{
+  const view=createCharacterReferences({content:`<h2>早期</h2><p>状态改善。（${articleSource}；具体年份不详）</p>`});
+  assert.equal(withoutMarkers(view.body),'<h2>早期</h2><p>状态改善。（具体年份不详）</p>');
+  assert.equal(view.refs[0].source,articleSource);
+});
+
+test('structured mixed sources preserve unknown portions and article qualifications verbatim',()=>{
+  const view=createCharacterReferences({content:''});
+  const qualified=articleSource+'（仅说明第四纪）';
+  view.cite(`《诡秘之主》第五卷第120章；${qualified}；未核实的访谈定位`,'历史阶段');
+  assert.deepEqual(view.refs.map(ref=>ref.source),['《诡秘之主》第五卷第120章',qualified,'未核实的访谈定位']);
+  view.cite(articleSource,'另一阶段');
+  assert.equal(view.refs.length,4);
+  assert.deepEqual([...view.refs[1].scopes],['历史阶段']);
+});
+
+test('equal URLs do not merge distinct author article locators or restrictions',()=>{
+  const view=createCharacterReferences({content:''});
+  for(const source of [articleSource,articleSource.replace('2025年8月4日','2025年8月5日'),articleSource.replace(articleTitle,'另一篇文章'),articleSource+'（仅为自述）'])view.cite(source,'范围');
+  assert.equal(view.refs.length,4);
+});
+
+test('incomplete author formats and unrelated links remain authored HTML',()=>{
+  for(const content of [
+    `<p>未核。（爱潜水的乌贼，2025年8月《<a href="${articleURL}">${articleTitle}</a>》）</p>`,
+    `<p>未核。（爱潜水的乌贼，《${articleTitle}》 ${articleURL}）</p>`,
+    `<p>未核。（2025年8月4日《<a href="${articleURL}">${articleTitle}</a>》）</p>`,
+    `<p>未核。（爱潜水的乌贼，2025年8月4日《${articleTitle}》）</p>`,
+    `<p><a href="${articleURL}" title="${articleSource}">普通相关文章</a></p>`,
+  ]) {
+    const view=createCharacterReferences({content});
+    assert.equal(view.body,content);assert.equal(view.refs.length,0);
+  }
+});
+
+test('author article title discards link decoration while preserving the title text',()=>{
+  const view=createCharacterReferences({content:`<h2>历史</h2><p>晋升。（爱潜水的乌贼，2025年8月4日《<a target="_blank" href="${articleURL}"><em>${articleTitle}</em><span aria-hidden="true">↗</span><svg><title>外部链接</title></svg></a>》）</p>`});
+  assert.equal(view.refs.length,1);assert.equal(view.refs[0].source,articleSource);
+  assert.equal(withoutMarkers(view.body),'<h2>历史</h2><p>晋升。</p>');
+});
+
+test('infobox author source reuses the same complete article without rendering input HTML',()=>{
+  const view=createCharacterReferences({content:`<p>完成。（${articleSource}）</p>`});
+  const info=view.text('<script>unsafe</script>'+articleSource,'信息栏');
+  assert.equal(view.refs.length,1);assert.equal(view.refs[0].backlinks.length,2);
+  assert.ok(info.includes('&lt;script&gt;'));assert.ok(!info.includes('<script>'));
+});
+
+test('novel typography normalization never merges different article titles or qualifiers',()=>{
+  const view=createCharacterReferences({content:''});
+  for(const title of ['第一部 A','第一卷 A','第一部A'])view.cite(articleSource.replace(articleTitle,title)+'（限定范围）','范围');
+  assert.equal(view.refs.length,3);
+});

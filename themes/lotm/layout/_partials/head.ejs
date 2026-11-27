@@ -17,7 +17,7 @@
   <% if (entryDetail || page.character_profile || page.character_directory || page.artifact_directory || page.organization_directory || page.worldview_directory || page.country_directory || catalog_context(page)) { %>
   <link rel="stylesheet" href="<%= url_for('/css/character-profile.css') %>?v=4">
   <% } %>
-  <script src="<%= url_for('/js/site-navigation.js') %>"></script>
+  <script src="<%= url_for('/js/site-navigation.js?v=worldview-2') %>"></script>
   <script defer src="<%= url_for('/js/motion.js') %>"></script>
   <% if (entryDetail) { %><link rel="stylesheet" href="<%= url_for('/css/entry-detail.css') %>"><% } %>
   <% if (entryDetail || page.character_profile) { %><script defer src="<%= url_for('/js/character-citations.js') %>"></script><% } %>

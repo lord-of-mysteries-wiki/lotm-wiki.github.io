@@ -28,7 +28,7 @@ function pathwayStyle(person){
  return style;
 }
 function personAccent(p){return groupMode==='network'||groupMode==='pathway'?canvasTheme.label:categoryColors(groupMode,category(p,groupMode)).accent}
-function personColor(p){return groupMode==='network'||groupMode==='pathway'?(currentPathwayColor(pathwayStyle(p).core?.value)||(pathwayStyle(p).rings.length?canvasTheme.label:neutralPair.primary)):categoryColors(groupMode,category(p,groupMode)).primary}
+function personColor(p){return groupMode==='network'||groupMode==='pathway'?(currentPathwayColor(pathwayStyle(p).core?.value)||(pathwayStyle(p).rings.length?(document.documentElement.dataset.theme==='day'?canvasTheme.surface:canvasTheme.label):neutralPair.primary)):categoryColors(groupMode,category(p,groupMode)).primary}
 function ringColor(key){
  return currentPathwayColor(key)||canvasTheme.label;
 }
@@ -794,6 +794,24 @@ function searchResults(query) {
  const more=results.length>limit?'<p class="more">继续输入名字或别名，缩小搜索范围。</p>':'';
  return `<h3 class="section-label">${heading} <span>${results.length} 位</span></h3><div class="list">${rows.join('')||'<p class="empty">没有找到相关人物，试试其他名字、别名或组织。</p>'}</div>${more}`;
 }
+function renderRelationshipPaths(connection) {
+ if(connection.status==='disconnected'){
+  return '<h3 class="section-label">最短关系链</h3><p class="empty">已收录的关系中，暂未找到连接两人的路径。</p>';
+ }
+ const {degrees,intermediaries,withinSixDegrees,paths,hasMorePaths}=connection;
+ const status=withinSixDegrees?'六步内连通':'超过六步';
+ const chains=paths.map(({personIds,segments})=>{
+  const names=personIds.map(id=>esc(byId.get(id).short)).join(' → ');
+  if(degrees===1)return `<p class="detail-text">${names}</p>`;
+  const steps=segments.map(({from,to,relations:records})=>{
+   const endpoints=`${esc(byId.get(from).short)} · ${esc(byId.get(to).short)}`;
+   const evidence=records.map(record=>`<p class="detail-text">${esc(record.summary||'')}</p>${record.sourceHint?`<p class="source">${esc(record.sourceHint)}</p>`:''}`).join('');
+   return `<li><strong>${endpoints}</strong>${evidence}</li>`;
+  }).join('');
+  return `<details class="relationship-chain"><summary>${names}</summary><ol>${steps}</ol></details>`;
+ }).join('');
+ return `<h3 class="section-label">最短关系链</h3><p class="meta">${status} · ${degrees} 步 · ${intermediaries} 位中间人</p>${chains}${hasMorePaths?`<p class="more">显示其中 ${paths.length} 条最短路径。</p>`:''}`;
+}
 function render(){
  document.getElementById('person-count').textContent=characters.length;document.getElementById('relation-count').textContent=relations.length;document.getElementById('visible-count').textContent=`图中 ${activeNodes().length} 人`;
  const query=search.value.trim().toLowerCase();
@@ -805,7 +823,10 @@ function render(){
  if(!a){content.replaceChildren();return}
  const p=byId.get(a);
  if(!b){const rs=edgesOf(a);content.innerHTML=`<button class="back" data-action="reset"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回关系网</button><div class="profile">${avatar(p)}<div><h3>${esc(p.name)}</h3><p>${esc(p.group)}${p.alias?' · '+esc(p.alias):''}</p></div></div><p class="meta">字面提及 ${esc(p.mentions??'待统计')} 次。${esc(p.matchNote||'次数按名称字面匹配，可能存在歧义。')}</p>${classification(p)}${p.aliasSources?.length?`<details class="meta"><summary>查看别名出处</summary>${p.aliasSources.map(x=>`<p>${esc(x.alias)}：${esc(x.source)}</p>`).join('')}</details>`:''}<h3 class="section-label" style="margin-top:24px">已收录的关系 <span>${rs.length} 位</span></h3><div class="list">${rs.map(r=>row(byId.get(other(r,a)),categoryText(r,a)||'尚未分类')).join('')||'<p class="empty">暂未收录该人物的关系。</p>'}</div><p class="more">选择另一位人物，查看他们之间的关系与出处。</p>`;return}
- const q=byId.get(b),rel=relationshipQuery.directRelations(a,b)[0];content.innerHTML=`<button class="back" data-action="single"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回 ${esc(p.short)} 的关系</button><div class="profile">${avatar(p)}${avatar(q)}<div><h3>${esc(p.short)} × ${esc(q.short)}</h3><p>${esc(p.name)} · ${esc(q.name)}</p></div></div>${rel?`${rel.categories?.length?`<div class="tags">${categoryText(rel,a).split(' · ').map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:'<p class="meta">关系分类尚待核对。</p>'}<p class="detail-text">${esc(rel.summary)}</p><p class="detail-text">${esc(rel.detail)}</p><p class="source">${esc(rel.sourceHint||'具体章节出处待补充。')}</p>${rel.milestones?.length?`<h3 class="section-label" style="margin-top:24px">关系阶段</h3>${rel.milestones.map(m=>`<div class="milestone"><strong>${esc(m.tag)}</strong><br>${esc(m.note)}<small>${esc(m.source)}</small></div>`).join('')}`:''}`:'<p class="empty">暂未收录这两位人物之间的直接联系。</p>'}`;
+ const q=byId.get(b);
+ const {connection,directRelations}=relationshipQuery.queryPair(a,b);
+ const rel=directRelations[0];
+ content.innerHTML=`<button class="back" data-action="single"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回 ${esc(p.short)} 的关系</button><div class="profile">${avatar(p)}${avatar(q)}<div><h3>${esc(p.short)} × ${esc(q.short)}</h3><p>${esc(p.name)} · ${esc(q.name)}</p></div></div>${renderRelationshipPaths(connection)}${rel?`${rel.categories?.length?`<div class="tags">${categoryText(rel,a).split(' · ').map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:'<p class="meta">关系分类尚待核对。</p>'}<p class="detail-text">${esc(rel.summary)}</p><p class="detail-text">${esc(rel.detail)}</p><p class="source">${esc(rel.sourceHint||'具体章节出处待补充。')}</p>${rel.milestones?.length?`<h3 class="section-label" style="margin-top:24px">关系阶段</h3>${rel.milestones.map(m=>`<div class="milestone"><strong>${esc(m.tag)}</strong><br>${esc(m.note)}<small>${esc(m.source)}</small></div>`).join('')}`:''}`:''}`;
 }
 function hitHub(x,y){
  let best=null,nearest=13;

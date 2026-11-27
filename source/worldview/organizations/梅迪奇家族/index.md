@@ -1,4 +1,5 @@
 ---
+worldview_history: {"kind": "attested", "era": 4, "source_section": "intro"}
 catalog_groups: ["worldview/organizations/families"]
 title: 梅迪奇家族
 layout: index
@@ -14,6 +15,6 @@ organization_members: 梅迪奇家族
 
 [佛尔思](../../../characters/entries/佛尔思·沃尔/)向[卢米安](../../../characters/entries/卢米安·李/)介绍，“红天使”梅迪奇有不少后裔，建立了隐秘的天使家族，大部分生活在后来遭[风暴教会](../风暴教会/)摧毁的班西港；此前一两千年间，也陆续有成员离开海岛、返回北大陆。她当时判断[阿不思·梅迪奇](../../../characters/entries/阿不思·梅迪奇/)应是其中一支的嫡系。（《宿命之环》第三卷第170章）
 
-后来的摩罗拉战斗中，叙述直接称阿不思为梅迪奇家族成员，进一步确认了他的家族归属。（《宿命之环》第五卷第81章）
+家族成员阿不思后来在摩罗拉参与战斗。（《宿命之环》第五卷第81章）
 
 [返回组织与势力](../)

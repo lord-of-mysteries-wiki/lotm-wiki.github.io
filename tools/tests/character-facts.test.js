@@ -1,6 +1,6 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
-const {characterFactText}=require('../../themes/lotm/lib/character-facts');
+const {characterFactText,characterHasSection}=require('../../themes/lotm/lib/character-facts');
 const {createCharacterReferences}=require('../../themes/lotm/lib/character-references');
 
 test('project the existing labelled attribute rather than an unrelated introduction',()=>{
@@ -28,4 +28,17 @@ test('use the final complete block for outcomes and never cross section boundari
   assert.equal(characterFactText(page,{label:'结局',source_section:'末日'}),'结局不详，最后一次出现于海上。');
   assert.equal(characterFactText(page,{label:'外貌',source_section:'不存在'}),'');
   assert.equal(characterFactText({content:'<h2>身份</h2><p>待核实。</p>'},{label:'身份',source_section:'身份'}),'');
+});
+
+test('nested life sections retain precise fact targets without taking the life introduction',()=>{
+  const content='<h2>生平经历</h2><p>无关的早年经历。</p><h3 id="信使">信使与书信</h3><p>信使：一位灵界生物（仅限该时期）。</p><h4>后续</h4><p>后来解除契约。</p><h3>战斗</h3><p>无关的战斗。</p><h2>其他</h2><p>无关的现状。</p>';
+  assert.equal(characterFactText({content},{label:'信使',source_section:'信使'}),'一位灵界生物（仅限该时期）。');
+  assert.equal(characterFactText({content},{label:'状态',source_section:'信使与书信'}),'后来解除契约。');
+  assert.ok(characterHasSection(content,'信使'));
+  assert.ok(characterHasSection(content,'信使与书信'));
+  assert.ok(!characterHasSection('<h2>生平</h2><h3 id="空">空</h3><h3>其他</h3><p>有内容。</p>','空'));
+  assert.equal(characterFactText({content},{label:'身份',source_section:'不存在'}),'');
+  const table='<h2>身份</h2><table><tr><td>阶段</td><td>旧身份（推定）</td></tr></table><h2>其他</h2><p>别的说明。</p>';
+  assert.ok(characterHasSection(table,'身份'));
+  assert.equal(characterFactText({content:table},{label:'身份',source_section:'身份'}),'');
 });

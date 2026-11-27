@@ -1,12 +1,12 @@
-.wiki-related { box-sizing:border-box; max-width:52rem; margin:2rem auto; padding:1.5rem; background:var(--ui-surface); border:1px solid var(--ui-hover); border-radius:.75rem; }
-.wiki-related h2,.wiki-related h3 { font-family:var(--font-ui); }
-.wiki-related h2 { font-size:var(--text-subheading); margin:0 0 1rem; }
-.wiki-related h3 { font-size:1rem; margin:0 0 .6rem; }
-.wiki-related__groups { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.5rem 2rem; }
-.wiki-related ul { padding:0; margin:0; list-style:none; }
-.wiki-related li { display:flex; align-items:baseline; gap:.6rem; margin:.5rem 0; overflow-wrap:anywhere; }
-.wiki-related small { flex-shrink:0; color:var(--ui-muted); font-family:var(--font-ui); font-size:.75rem; }
-.wiki-related summary { cursor:pointer; font-family:var(--font-ui); color:var(--ui-muted); }
-.wiki-related__less,.wiki-related details[open] .wiki-related__more { display:none; }
-.wiki-related details[open] .wiki-related__less { display:inline; }
-@media(max-width:600px){.wiki-related{padding:1rem;}.wiki-related__groups{grid-template-columns:minmax(0,1fr);}.wiki-related li{flex-wrap:wrap;gap:.1rem .5rem;}}
+/* Shared related-entry panels and source lists in both themes. */
+.wiki-related { box-sizing:border-box; margin:2rem 0; padding:clamp(1rem,3vw,1.5rem); background:var(--ui-surface); border-radius:.5rem; }
+.wiki-related__groups { display:grid; gap:1.35rem; }
+.wiki-related .wiki-related__group ul { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr)); gap:.35rem 1.2rem; list-style:none; padding:0; margin:0; }
+.wiki-related .wiki-related__group li { display:flex; align-items:baseline; flex-wrap:wrap; gap:0 .55em; padding:0; margin:0; background:transparent; border:0; }
+.wiki-related a { font:var(--text-body)/1.6 var(--font-reading); overflow-wrap:anywhere; }
+.wiki-related small, .character-source-scopes, .pathway-references li small { color:var(--ui-muted); font:var(--text-meta)/1.55 var(--font-ui); }
+.character-source-scopes, .pathway-references li small { display:block; }
+:is(.entry-sources,.event-sources,.character-sources,.pathway-references) { margin:2rem 0 0; overflow-wrap:anywhere; font:var(--text-compact)/1.65 var(--font-reading); }
+:is(.article,.page-content,main) :is(.wiki-related,.entry-sources,.event-sources,.character-sources,.pathway-references) h2 { font:600 var(--text-section)/1.4 var(--font-ui); margin:0 0 .8rem; padding:0; border:0; }
+.wiki-related .wiki-related__group h3 { font:600 var(--text-subheading)/1.45 var(--font-ui); margin:0 0 .45rem; }
+:is(.entry-sources,.event-sources,.character-sources,.pathway-references) li[id] { margin:.5em 0; scroll-margin-top:6rem; }

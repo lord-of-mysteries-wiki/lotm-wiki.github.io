@@ -22,3 +22,8 @@ hexo.extend.generator.register('wiki-content-data', function () {
   const safe = JSON.stringify(characters).replace(/</g, '\\u003c');
   return [{path:'relationships/graph-data.js', data:`const characters=${safe};\nconst relations=${JSON.stringify(model.relations).replace(/</g,'\\u003c')};\nconst relationshipCategories=${JSON.stringify(model.categories)};\n`}];
 });
+
+const {characterRelationRows} = require('../lib/character-records');
+hexo.extend.helper.register('character_relation_rows', function(id, preferredIds = []) {
+  return characterRelationRows(model, id, preferredIds);
+});
