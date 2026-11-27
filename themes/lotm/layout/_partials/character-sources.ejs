@@ -1,4 +1,4 @@
-<% if (references.refs.length) { %><details class="character-sources">
-<summary><%= __('character_sources') %></summary><ol>
-<% references.refs.forEach((ref,index) => { %><li id="character-source-<%= index+1 %>"><%= ref.source %><span class="character-source-scopes"><%= [...ref.scopes].join('；') %></span></li><% }); %>
-</ol></details><% } %>
+<% if (references.refs.length) { %><section class="character-sources">
+<h2><%= __('character_sources') %></h2><ol>
+<% references.refs.forEach((ref,index) => { %><li id="character-source-<%= index+1 %>"><%- references.sourceHTML(ref.source) %><span class="character-source-scopes"><%= [...ref.scopes].join('；') %></span></li><% }); %>
+</ol></section><% } %>

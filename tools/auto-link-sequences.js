@@ -164,7 +164,7 @@ const titles = [...new Set(pages.map(p => String(p.data.title || '').trim()))];
 const containingTitles = new Map([...people.keys(), ...countries.keys()].map(term =>
   [term, titles.filter(title => title !== term && title.includes(term))]));
 function embeddedName(term, text, offset) {
-  if (countries.has(term) && /^(?:语|语系)/u.test(text.slice(offset + term.length))) return true;
+  if (countries.has(term) && /^(?:语|语系|集团|公司)/u.test(text.slice(offset + term.length))) return true;
   return (containingTitles.get(term) || []).some(title => {
     const start = offset - title.indexOf(term);
     return start >= 0 && text.slice(start, start + title.length) === title;

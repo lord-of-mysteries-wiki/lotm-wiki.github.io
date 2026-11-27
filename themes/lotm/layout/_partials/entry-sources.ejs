@@ -1,8 +1,7 @@
 <% if (view.references.refs.length || view.notes) { %>
-<% const expanded = kind === 'artifact' || kind === 'country'; %>
-<<%= expanded ? 'section' : 'details' %> class="<%= kind %>-sources entry-sources">
-  <% if (expanded) { %><h2><%= __('event_sources') %></h2><% } else { %><summary><%= __('event_sources') %></summary><% } %>
-  <ol><% view.references.refs.forEach((ref,index) => { %><li id="character-source-<%= index+1 %>"><%= ref.source %><span class="character-source-scopes"><%= [...ref.scopes].join('；') %></span></li><% }); %></ol>
+<section class="<%= kind %>-sources entry-sources">
+  <h2><%= __('event_sources') %></h2>
+  <ol><% view.references.refs.forEach((ref,index) => { %><li id="character-source-<%= index+1 %>"><%- view.references.sourceHTML(ref.source) %><span class="character-source-scopes"><%= [...ref.scopes].join('；') %></span></li><% }); %></ol>
   <% if (view.notes) { %><div class="entry-source-notes"><%- view.notes %></div><% } %>
-</<%= expanded ? 'section' : 'details' %>>
+</section>
 <% } %>

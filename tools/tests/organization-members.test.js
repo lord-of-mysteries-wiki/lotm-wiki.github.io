@@ -62,3 +62,11 @@ test('keep uncertainty attached to its own membership record',()=>{
   assert.deepEqual([...references.refs[0].scopes],['成员：测试人物 · 早期分组 （推定） · 归属判断依据']);
   assert.deepEqual([...references.refs[1].scopes],['成员：测试人物 · 后期分组']);
 });
+
+test('omit the member heading and list when no character belongs to the organization',()=>{
+  const references=createCharacterReferences({content:''});
+  const html=render([{value:'其他组织',source:'《诡秘之主》第一卷第1章'}],references);
+  assert.doesNotMatch(html,/<h2>|<ul>|<li>/);
+  assert.match(html,/relationships\//);
+  assert.equal(references.refs.length,0);
+});

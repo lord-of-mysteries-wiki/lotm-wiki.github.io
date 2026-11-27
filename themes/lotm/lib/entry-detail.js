@@ -43,9 +43,9 @@ function createEntryDetail(page,kind,labels={}){
   if(kind==='country')references.body=references.body.replace(/（((?:\s*<span hidden class="character-citation"[^>]*><\/span>)+)\s*[；;、，,]\s*/g,'$1（');
   const main=[],notes=[];
   for(const section of sections(references.body)){
-    if(/^(?:来源|出处|参考|待核)/.test(section.title)){
+    if(/^(?:来源(?:补充|说明)?|出处|参考(?:资料|文献)?|待核(?:事项|问题)?)$/.test(section.title)){
       // Existing source descriptions and unresolved details stay available in
-      // the collapsed sources panel, while identical locators share one row.
+      // the shared sources section, while identical locators share one row.
       let body=section.body.replace(/<(p|li)\b[^>]*>([\s\S]*?)<\/\1>/gi,(all,tag,inside)=>plain(inside)?all:'');
       body=body.replace(/(<(?:p|li)\b[^>]*>)((?:\s*<span hidden class="character-citation"[^>]*><\/span>)+)\s*[：:，,]/g,'$1$2');
       if(plain(body))notes.push(body);

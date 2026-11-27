@@ -1,7 +1,7 @@
 /* Shared primary navigation for the wiki and the relationship graph. */
 (() => {
   const items = [
-    { icon: 'world', path: 'worldview/', zh: '世界观', en: 'World' },
+    { icon: 'world', path: 'worldview/', zh: '世界观', en: 'World', also: ['creatures/'] },
     { icon: 'power', path: 'power/', zh: '力量体系', en: 'Power System', also: ['worldview/pathways/'] },
     { icon: 'person', path: 'characters/', zh: '角色介绍', en: 'Characters' },
     { icon: 'relations', path: 'relationships/', zh: '人物关系', en: 'Relationships' },

@@ -17,22 +17,18 @@
       <%- partial('_partials/catalog-page') %>
     <% } else if (page.pathway_page) { %>
       <%- partial('_partials/pathway-page') %>
-    <% } else if (page.country_directory) { %>
-      <%- partial('_partials/country-directory') %>
     <% } else if (page.timeline_event) { %>
       <%- partial('_partials/event-entry') %>
     <% } else if (String(page.path || '').startsWith('artifacts/entries/')) { %>
-      <%- partial('_partials/artifact-entry') %>
+      <%- partial('_partials/entry-detail', {kind:'artifact'}) %>
     <% } else if (page.creature_profile) { %>
-      <%- partial('_partials/creature-entry') %>
+      <%- partial('_partials/entry-detail', {kind:'creature'}) %>
     <% } else if (String(page.path || '').startsWith('worldview/countries/entries/')) { %>
-      <%- partial('_partials/country-entry') %>
+      <%- partial('_partials/entry-detail', {kind:'country'}) %>
     <% } else if (page.character_profile) { %>
       <%- partial('_partials/character-profile') %>
     <% } else if (page.power_overview) { %>
       <%- partial('_partials/power-overview') %>
-    <% } else if (page.home) { %>
-      <%- partial('_partials/home-content') %>
     <% } else { %>
       <%- partial('_partials/page-template') %>
     <% } %>

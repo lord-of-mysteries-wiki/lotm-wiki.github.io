@@ -6,6 +6,9 @@ const root = path.resolve(__dirname, '../..');
 const readJSON = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
 function validateCharacterSource(profile) {
   const graph = profile.graph_profile || {};
+  if (Object.hasOwn(profile, 'character_record_tables') && typeof profile.character_record_tables !== 'boolean') {
+    throw Error('人物共享记录开关必须为布尔值: ' + profile.source);
+  }
   if (['documentProfile', 'documentExcerpt'].some(key => Object.hasOwn(graph, key) || Object.hasOwn(profile, key))) {
     throw Error('人物图谱简介只能从正式正文生成，不得维护摘要副本: ' + profile.source);
   }
@@ -14,7 +17,7 @@ function validateCharacterSource(profile) {
       throw Error('人物信息栏不得维护摘要或作品副本，请使用正文定位及 profile_work: ' + profile.source);
     }
     if (fact.source_section) {
-      const sections=[...String(profile._content || '').matchAll(/^## (.+)$/gm)].map(match=>match[1].trim());
+      const sections=[...String(profile._content || '').matchAll(/^#{2,6} (.+)$/gm)].map(match=>match[1].trim());
       if (!sections.includes(fact.source_section)) throw Error('人物信息栏指向不存在的正文小节: ' + profile.source + ' / ' + fact.source_section);
     }
   }
@@ -122,7 +125,9 @@ function loadModel() {
     if (event.event_display && !['brief','detail'].includes(event.event_display)) throw Error('事件展示类型无效: ' + event.source);
     if (event.event_display && (!event.event_summary?.trim() || !event.event_source?.trim())) throw Error('已整理事件缺少概括或事实出处: ' + event.source);
     if (/[（()）]/u.test(event.event_time_qualifier || '')) throw Error('日期限定只写时间词，括号说明请移入依据: ' + event.source);
-    if (/塔罗会\s*[·・]/u.test(event.title)) throw Error('塔罗会标题须使用会议序号: ' + event.source);
+    if (/^(?:第[一二三四五六七八九十百〇零\d]+[次场]塔罗会|塔罗会\s*[·・])/u.test(event.title)) {
+      throw Error('塔罗会标题须使用会议名称，议题写入概括: ' + event.source);
+    }
     if (event.event_time_qualifier && (typeof event.event_time_qualifier !== 'string' || !event.event_time_basis || !(event.event_time || event.event_time_period))) throw Error('事件时间限定缺少日期或依据: ' + event.source);
     const hasWindowEnd = event.event_time_period_end || (event.event_time && event.event_time_end && event.event_time_precision === 'range');
     if (event.event_time_uncertain !== undefined && (typeof event.event_time_uncertain !== 'boolean' || (event.event_time_uncertain && !event.event_time_basis))) throw Error('事件日期存疑标记须为布尔值，并注明依据: ' + event.source);

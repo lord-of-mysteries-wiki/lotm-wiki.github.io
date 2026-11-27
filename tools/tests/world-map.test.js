@@ -315,10 +315,10 @@ assert.equal(at('event-0012').transition,undefined,'Changing imperial names to f
 console.log('Historical animation gates: sourced adjacent events only.');
 
 const compact=motion.compactCheckpoints(live.checkpoints);
-assert.equal(compact.length,15,'Only the identical 642/738 map states should merge');
+assert.equal(compact.length,16,'Only the identical 642/738 map states should merge');
 assert.equal(compact.find(c=>c.id==='event-history-sonia-cession').mergedThrough.id,'event-history-broken-oath-war');
 assert.equal(compact.find(c=>c.id==='event-history-highland-independence').transition.from,'event-history-sonia-cession','Merged snapshots must preserve the following sourced transition');
-assert.equal(live.checkpoints.length,16,'Compaction must not modify historical events');
+assert.equal(live.checkpoints.length,17,'Compaction must not modify historical events');
 for(let i=1;i<compact.length;i++){
  assert.ok(motion.between(compact[i-1],compact[i]));
  assert.ok(motion.between(compact[i],compact[i-1]));
@@ -422,3 +422,44 @@ assert.equal(at('event-history-ancient-alliances').landforms.find(f=>f.geometry=
 assert.ok(!at('event-history-human-ascendancy').cities.some(c=>c.id==='silver-city'),'Do not project the post-cataclysm refuge back into the Sun God era');
 assert.ok(at('event-0138').cities.some(c=>c.id==='silver-city'));
 for(const era_names of [[],null,{'6':'山'},{'3':''}])assert.throws(()=>buildWorldMap({geometry:terrainGeometry,countries:[{...terrainCountry,map_landforms:[{...terrainCountry.map_landforms[0],era_names}]}],events}),/无效地形时期名称/);
+// A shared coastal island must not be split by the abyss mask's bounding box.
+for(let x=1378;x<1440;x+=3)for(let y=505;y<550;y+=3){
+ const p=[x,y];if(!inShape(p,'old-world',ancientRaw))continue;
+ assert.ok(inShape(p,'ancient-devil',ancientRaw),'Artificial boundary across abyss island: '+p);
+}
+// The southern coastal horn belongs to the adjacent phoenix core, not a mutant enclave.
+for(let x=1115;x<1180;x+=3)for(let y=478;y<505;y+=3){
+ const p=[x,y];if(!inShape(p,'old-world',ancientRaw))continue;
+ assert.ok(!inShape(p,'ancient-mutant',ancientRaw),'Mutant coastal enclave: '+p);
+}
+
+// The northern succession must include the first empire before the joint empire.
+const firstEmpire=at('event-history-solomon-first-empire');
+assert.equal(firstEmpire.regions.find(r=>r.shape==='north').title,'所罗门第一帝国');
+assert.equal(at('event-history-joint-empire').regions.find(r=>r.shape==='north').title,'图铎-特伦索斯特联合帝国');
+assert.ok(firstEmpire.regions.some(r=>r.title==='神弃之地'));
+assert.ok(firstEmpire.regions.every(r=>r.title!=='所罗门第一帝国'||r.shape==='north'));
+assert.ok(live.checkpoints.indexOf(firstEmpire)<live.checkpoints.indexOf(at('event-history-joint-empire')));
+
+// Fourth-Epoch territories preserve the attested city anchors and shared coverage.
+const imperialRaw=currentGeometry.variants.imperial;
+for(const [point,owner] of [['trier','imperial-tudor'],['backlund','imperial-trunsoest']]){
+ assert.ok(inShape(currentGeometry.points[point],owner,imperialRaw),'Fourth-Epoch city outside its candidate realm: '+point);
+}
+const imperialOwners=['imperial-solomon','imperial-tudor','imperial-trunsoest'];
+for(const owner of imperialOwners){
+ assert.ok(inShape(imperialRaw.shapes[owner].label,owner,imperialRaw),'Imperial label must remain inside its territory: '+owner);
+}
+for(let x=100;x<750;x+=9)for(let y=65;y<390;y+=9){
+ const p=[x,y];if(!inShape(p,'north',imperialRaw))continue;
+ assert.equal(imperialOwners.filter(owner=>inShape(p,owner,imperialRaw)).length,1,'Fourth-Epoch gap/overlap: '+p);
+}
+// A later epoch must not expand the Forsaken Land into the excluded Abyss.
+for(const [variant,raw] of Object.entries(currentGeometry.variants)){
+ if(raw.shapes['eastern-open'])assert.ok(!inShape([1450,583],'eastern-open',raw),'Abyss claimed by eastern fallback: '+variant);
+}
+// The offshore northern island belongs to one candidate polity, not a cut mask.
+for(let x=665;x<745;x+=4)for(let y=135;y<285;y+=4){
+ const p=[x,y];if(!inShape(p,'north',imperialRaw))continue;
+ assert.ok(inShape(p,'imperial-solomon',imperialRaw),'Offshore island split by a mask: '+p);
+}

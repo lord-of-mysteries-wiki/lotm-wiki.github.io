@@ -35,4 +35,6 @@ test('readers reject retired summary fields even when empty, and work duplicates
   }
   assert.throws(()=>validateCharacterSource({profile_facts:[{label:'身份',source_section:'已删除的小节'}]}),/不存在的正文小节/);
   assert.doesNotThrow(()=>validateCharacterSource({_content:'## 身份\n\n推定。',profile_work:'诡秘之主',profile_facts:[{label:'身份',source_section:'身份'}],graph_profile:{progression:[{certainty:'inferred',source:'完整原始出处'}]}}));
+  assert.doesNotThrow(()=>validateCharacterSource({_content:'## 生平\n\n### 信使与书信\n\n信使经历。',profile_facts:[{label:'信使',source_section:'信使与书信'}]}));
+  assert.throws(()=>validateCharacterSource({_content:'## 生平\n\n### 其他\n\n经历。',profile_facts:[{label:'信使',source_section:'信使与书信'}]}),/不存在的正文小节/);
 });

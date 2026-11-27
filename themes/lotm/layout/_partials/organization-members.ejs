@@ -1,6 +1,8 @@
+<% const organizationMembers = site.pages.sort('title').toArray().filter(member => member.character_profile && member.graph_classifications?.organization?.some(fact => fact.value === page.organization_members)); %>
+<% if (organizationMembers.length) { %>
 <h2><%= __('organization_members') %></h2>
 <ul>
-  <% for (const member of site.pages.sort('title').toArray()) {
+  <% for (const member of organizationMembers) {
     const facts = member.graph_classifications?.organization?.filter(fact => fact.value === page.organization_members) || [];
     if (!member.character_profile || !facts.length) continue; %>
     <li><a href="<%= url_for(member.path) %>"><%= member.title %></a>
@@ -14,4 +16,5 @@
     </li>
   <% } %>
 </ul>
+<% } %>
 <p><a href="<%= url_for('/relationships/') %>?organization=<%= encodeURIComponent(page.organization_members) %>"><%= __('organization_graph', page.organization_members) %></a></p>

@@ -34,7 +34,15 @@ for (const person of context.data.characters) {
 }
 console.log(`人物摘要校验通过：${context.data.characters.length} 个图谱简介与正式正文及局部出处一致。`);
 for(const p of m.profiles){const file=path.join('public',p.path,p.path.endsWith('/')?'index.html':'');assert.ok(fs.existsSync(file),file);}
-for(const e of m.events){if(isBriefEvent(e))assert.ok(timeline.includes('id="event-'+(e.event_anchor||e.title)+'"'),e.entry_id);else assert.ok(fs.existsSync(path.join('public',e.path,e.path.endsWith('/')?'index.html':'')),e.path);}
+for(const event of m.events){
+  if(isBriefEvent(event)){
+    assert.ok(timeline.includes('id="event-'+(event.event_anchor||event.title)+'"'),event.entry_id);
+    assert.equal(event._content.trim(),'',
+      event.entry_id+' 简记的叙述应由共享概括字段提供');
+  }else{
+    assert.ok(fs.existsSync(path.join('public',event.path,event.path.endsWith('/')?'index.html':'')),event.path);
+  }
+}
 const records=JSON.parse(calendar.match(/<script type="application\/json">([\s\S]*?)<\/script>/)[1]);assert.equal(records.length,m.events.length);
 assert.equal(new Set(records.map(r=>r.id)).size,m.events.length);
 const recordsById=new Map(records.map(record=>[record.id,record]));
@@ -52,7 +60,18 @@ for(const e of m.events){
   assert.equal(record.summary,e.event_summary || '',e.entry_id);
   assert.equal(record.rangeKind,e.event_range_kind || '',e.entry_id);
 }
-for(const p of m.profiles.filter(p=>m.relations.some(r=>r.a===p.entry_id||r.b===p.entry_id))){const html=fs.readFileSync(path.join('public',p.path,'index.html'),'utf8');assert.ok(!html.includes('class="character-relations"'),p.entry_id);assert.ok(html.includes('/lotm-wiki.github.io/relationships/?a='+encodeURIComponent(p.entry_id)),p.entry_id);}
+for(const profile of m.profiles.filter(p=>m.relations.some(r=>r.a===p.entry_id||r.b===p.entry_id))){
+  const html=fs.readFileSync(path.join('public',profile.path,'index.html'),'utf8');
+  const graphLink='/lotm-wiki.github.io/relationships/?a='+encodeURIComponent(profile.entry_id);
+  const section=html.match(/<details\b[^>]*\bclass="character-relations"[^>]*>[\s\S]*?<\/details>/)?.[0];
+  if(profile.character_record_tables){
+    assert.ok(section && !/<details\b[^>]*\bopen\b/.test(section),profile.entry_id+' 人物关系区应默认收起');
+    assert.ok(section.includes(graphLink),profile.entry_id+' 人物关系区缺少关系网入口');
+  }else{
+    assert.ok(!section,profile.entry_id+' 旧版人物档案只显示关系网入口');
+  }
+  assert.ok(html.includes(graphLink),profile.entry_id);
+}
 assert.ok(fs.readFileSync('public/relationships/index.html','utf8').includes('/relationships/graph-data.js'));
 console.log(`生成页面校验通过：人物目标、关系网入口、${m.events.length} 个事件目的地、日历记录与部署子路径。`);
 
@@ -73,7 +92,7 @@ for(const event of m.events) {
       const source=row.children.filter(node=>node!==scope).map(textContent).join('');
       return sourceKey(source)===sourceKey(ref.source) && ref.scopes.every(value=>textContent(scope||{children:[]}).includes(value==='facts'?'事件概括与经过':'时间依据'));
     }),event.entry_id+' missing source or scope: '+ref.source);
-    assert.ok(html.includes('class="event-sources entry-sources"') || !expected.length,event.entry_id);
+    if(expected.length) assert.ok(html.includes('<section class="event-sources entry-sources">'),event.entry_id+' 来源须在详情页末直接显示');
   }
 }
 console.log('事件来源校验通过：事实及时间来源完整保留，日历和详情共用引用集合。');
@@ -94,9 +113,9 @@ for(const profile of m.profiles){
   const links=[...html.matchAll(/href="#(character-(?:source-\d+|citation-\d+-\d+))"/g)].map(match=>match[1]);
   for(const id of links)assert.ok(ids.includes(id),profile.entry_id+' missing '+id);
   const markers=ids.filter(id=>id.startsWith('character-citation-'));
-  if(markers.length){assert.ok(html.includes('<details class="character-sources">'),profile.entry_id);assert.ok(html.includes('/js/character-citations.js'),profile.entry_id);assert.ok(!html.includes('>[1]</a>'),profile.entry_id);}
+  if(markers.length){assert.ok(html.includes('<section class="character-sources">'),profile.entry_id);assert.ok(html.includes('/js/character-citations.js'),profile.entry_id);assert.ok(!html.includes('>[1]</a>'),profile.entry_id);}
 }
-console.log('人物引用校验通过：标识唯一，来源默认收起，共享浮层已加载。');
+console.log('人物引用校验通过：标识唯一，来源完整显示，共享浮层已加载。');
 
 // Short authored attributes must actually reach the infobox, rather than being
 // replaced by generic detail links after a template change.
@@ -147,6 +166,10 @@ for(const event of m.events.filter(event=>!isBriefEvent(event))){
   assert.ok(html.includes('article entry-detail event-entry'),event.entry_id);
   if(event.event_time_basis || event.event_time_note)assert.ok(html.includes('<details class="event-time">'),event.entry_id);
   assert.ok(!/<details[^>]*class="event-time"[^>]*\bopen\b/.test(html),event.entry_id);
+}
+for(const event of m.events.filter(event=>event.event_era && /\d+-\d+年/u.test(event.event_time_note))){
+  const label=event.event_time_note.replace(/^第[一二三四]纪/u,'').trim();
+  assert.ok(timeline.includes('<summary>'+escapeHTML(label)+'</summary>'),event.entry_id+' 纪内年份范围须用半角短横线');
 }
 const fm=require('hexo-front-matter');
 const {createCharacterReferences}=require('../themes/lotm/lib/character-references');

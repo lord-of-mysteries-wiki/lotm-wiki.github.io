@@ -28,6 +28,7 @@ function render(name) {
   return ejs.render(template, {
     page: {...profile, content: ''},
     character_pathways: helpers.get('character_pathways'),
+    character_body_sections: require('../../themes/lotm/lib/character-records').splitCharacterBody,
     character_reference_view: () => ({body: '', text: value => value, cite: () => ''}),
     character_has_section: () => false,
     character_organization_pages: (...args) => helpers.get('character_organization_pages').call(organizationContext, ...args),

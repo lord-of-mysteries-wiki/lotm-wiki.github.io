@@ -52,7 +52,7 @@ a:hover
   z-index 1
 .home-eyebrow
   color var(--ui-accent)
-  font 600 .75rem/1.4 sans-serif
+  font 600 var(--text-meta)/1.4 var(--font-ui)
   letter-spacing .18em
 .home-hero h1
   margin 18px 0 26px
@@ -116,7 +116,7 @@ a:hover
   margin 0
 .home-section-heading span
   color var(--ui-muted)
-  font-size .75rem
+  font-size var(--text-meta)
   letter-spacing .15em
 .home-grid,.home-people
   display grid
@@ -153,12 +153,12 @@ a:hover
   background linear-gradient(145deg,var(--ui-line),var(--ui-hover))
 .home-card strong,.home-person strong
   display block
-  font-size 1rem
+  font 600 var(--text-body)/1.45 var(--font-ui)
 .home-card small,.home-person small
   display block
   margin-top 5px
   color var(--ui-muted)
-  font-size .875rem
+  font-size var(--text-ui)
 @media (max-width: 700px)
   .home-hero
     min-height 250px
@@ -194,76 +194,34 @@ a:hover
   .article
     padding 24px
 
-// 词条表格：长表可横向滚动，避免列被挤成竖排。
+// 正文数据表由内容决定列宽；窄屏仅在表内横向滚动。
 .article
   min-width 0
   overflow-wrap anywhere
 .article table
-  display block
   width 100%
   max-width 100%
-  margin 1.5rem 0 2rem
-  overflow-x auto
-  border-collapse separate
-  border-spacing 0
-  line-height 1.65
-  scrollbar-width thin
-  scrollbar-color var(--ui-line) var(--ui-surface)
+  margin 1rem 0 1.5rem
+  border-collapse collapse
 .article th, .article td
+  padding .55rem .75rem
   text-align left
-  padding 14px 16px
-  border-right 1px solid var(--ui-line)
-  border-bottom 1px solid var(--ui-line)
-.article tr > :first-child
-  border-left 1px solid var(--ui-line)
-.article thead th
-  border-top 1px solid var(--ui-line)
-  background var(--ui-hover)
-  color var(--ui-ink)
-  font-weight 600
-  text-align left
-  white-space nowrap
-.article tbody td
   vertical-align top
-  background var(--ui-surface)
-  color var(--ui-ink)
+  border-bottom 1px solid var(--ui-hover)
   overflow-wrap break-word
-.article tbody tr:nth-child(even) td
+.article thead th
   background var(--ui-surface)
-.article tbody tr:hover td
-  background var(--ui-hover)
-.article table th
-  min-width 90px
-.article table td
-  min-width 90px
-.article table:has(th:nth-child(4):last-child) th:nth-child(3),
-.article table:has(th:nth-child(4):last-child) td:nth-child(3)
-  min-width 220px
-.article table:has(th:nth-child(4):last-child) th:nth-child(4),
-.article table:has(th:nth-child(4):last-child) td:nth-child(4)
-  min-width 280px
-.article table:has(th:nth-child(5)) td
-  min-width 90px
-.article table a
+  font-weight 600
+.article .pathway-groups tbody th
+  vertical-align middle
   color var(--ui-accent)
-  text-decoration underline
-  text-decoration-color var(--ui-line)
-  text-underline-offset 3px
 @media (max-width: 800px)
   .article table
-    margin 1.25rem 0 1.75rem
+    display block
+    overflow-x auto
   .article th, .article td
-    padding 12px
-
-.article .pathway-groups tbody th
-  min-width 110px
-  vertical-align middle
-  text-align left
-  color var(--ui-accent)
-  background var(--ui-hover)
-  white-space nowrap
-.article .pathway-groups tbody tr:not(:first-child) > td:first-child
-  border-left 0
+    padding .45rem .55rem
+    min-width 3.5em
 
 // 事件词条统一展示时间依据；未考证时不显示此区块。
 .event-time
@@ -325,7 +283,7 @@ a:hover
 .feedback-note
   margin 0
   color var(--ui-muted)
-  font-size .9em
+  font-size var(--text-ui)
 .feedback-form button:disabled
   opacity .55
   cursor not-allowed
@@ -335,7 +293,6 @@ a:hover
   border-bottom 1px solid var(--ui-line)
 .pathway-heading h1
   margin 10px 0 20px
-  font-size 2.4rem
 .pathway-workspace
   display grid
   grid-template-columns 170px minmax(0, 1fr)
@@ -349,7 +306,7 @@ a:hover
 .pathway-sequences label
   display block
   color var(--ui-muted)
-  font-size .85rem
+  font-size var(--text-ui)
   margin-bottom 12px
 .pathway-sequences select
   display none
@@ -370,7 +327,7 @@ a:hover
   background var(--ui-hover)
 .pathway-sequences a span
   opacity .65
-  font-size .85rem
+  font-size var(--text-ui)
 .pathway-sequence
   scroll-margin-top 110px
   padding 0 0 38px
@@ -383,11 +340,10 @@ a:hover
   margin-top 0
 .pathway-level
   color var(--ui-muted)
-  font-size 2.2rem
+  font-size inherit
   font-weight 400
 .pathway-sequence h3
   margin-top 26px
-  font-size 1.05rem
 .pathway-sequence p
   overflow-wrap anywhere
 .pathway-chapters
@@ -413,22 +369,11 @@ a:hover
     border-radius 5px
     padding 10px
     font inherit
-.pathway-page
-  line-height 1.85
-.pathway-page h1, .pathway-page h2, .pathway-page h3
-  font-family sans-serif
 .pathway-sequence li + li
   margin-top 10px
-.pathway-references small
-  display block
-  color var(--ui-muted)
-  font-size .85em
-.pathway-references li
-  margin-bottom 18px
-  scroll-margin-top 100px
 .pathway-citation
   font-family sans-serif
-  font-size .8em
+  font-size var(--text-meta)
   margin-left .3em
 
 // Shared full-viewport historical map workspace.
@@ -509,7 +454,7 @@ a:hover
   grid-template-columns repeat(6, minmax(0, 1fr))
   box-sizing border-box
   color var(--ui-muted)
-  font-size .75rem
+  font-size var(--text-meta)
   line-height 16px
   text-align center
 .map-era-band > span
@@ -535,7 +480,7 @@ a:hover
   color var(--ui-accent)
   font-weight 600
 .map-ticks > span
-  font-size .75rem
+  font-size var(--text-meta)
 .map-ticks .is-current
   color var(--ui-accent)
   font-weight 600
@@ -779,7 +724,7 @@ a:hover
   h1
     margin 0
 .pathway-symbol-credit
-  font-size .8rem
+  font-size var(--text-meta)
   opacity .75
 @media (max-width: 600px)
   .pathway-identity
