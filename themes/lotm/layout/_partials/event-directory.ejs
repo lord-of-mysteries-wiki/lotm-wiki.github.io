@@ -1,5 +1,5 @@
 <% let work, volume; for (const event of wiki_events()) { const order = event.narrative_order; %>
 <% if (work !== order.work) { work = order.work; volume = null; %><h2><%= work %></h2><% } %>
 <% if (volume !== order.volume) { volume = order.volume; %><h3><%= volume %></h3><% } %>
-<a href="<%= wiki_event_url(event) %>"><%= order.label || event.title %></a>
+<a href="<%= wiki_event_url(event) %>"><%= event_reference_label(event) %></a>
 <% } %>

@@ -49,3 +49,35 @@ test('numbered cards separate unquoted numbers from names regardless of title or
  for(const [i,number,name]of [[0,'0-01','神陨之旗／萨林格尔血旗'],[1,'0-08','阿勒苏霍德之笔'],[2,'0-36','']]){const entry=entries.find(e=>e.title===titles[i]);assert.equal(entry.displayNumber,number);assert.equal(entry.displayName,name);}
  assert.equal(entries.find(e=>e.title==='普通物品').displayNumber,undefined);
 });
+
+test('worldview sorts by story era and event chronology before unknown entries',()=>{
+ const organization=(title,history)=>({
+  title,path:`worldview/organizations/${title}/`,
+  catalog_groups:['worldview/organizations/societies'],_content:'## 沿革\n原文依据',
+  worldview_history:history
+ });
+ const event=(id,time)=>({timeline_event:true,entry_id:id,event_source:'原著卷章',...time});
+ const pages=[
+  organization('阿国'),organization('乙国',{kind:'founded',event:'later'}),
+  organization('丙国',{kind:'attested',era:3,source_section:'沿革'}),
+  organization('丁国',{kind:'founded',event:'ancient'})
+ ];
+ const events=[
+  event('later',{event_time:'1349-06-28'}),
+  event('ancient',{event_era:4,event_era_order:10})
+ ];
+ const section=buildCatalog([...pages,...events]).worldview;
+ assert.deepEqual(selectEntries(section,'organizations','societies').map(entry=>entry.title),['丙国','丁国','乙国','阿国']);
+ assert.throws(()=>buildCatalog(pages),/事件缺少有效时间或来源/);
+ assert.throws(()=>validateCatalogPage(organization('戊国',{kind:'attested',era:3,source_section:'不存在'})),/历史排序依据/);
+});
+
+test('country names use pinyin and history topics have a separate overview group',()=>{
+ const country=title=>({title,path:`worldview/countries/entries/${title}.html`,catalog_groups:['worldview/countries/states']});
+ const history=(title,group)=>({title,path:`worldview/history/${title}.html`,catalog_groups:[`worldview/history/${group}`]});
+ const data=buildCatalog([country('鲁恩王国'),country('拜朗帝国'),history('第一纪','eras'),history('西大陆封印','topics')]).worldview;
+ assert.deepEqual(selectEntries(data,'countries').map(entry=>entry.title),['拜朗帝国','鲁恩王国']);
+ assert.deepEqual(data.overviewGroups.map(group=>group.id).filter(id=>id.startsWith('history/')),['history/eras','history/topics']);
+ assert.equal(data.entries.find(entry=>entry.title==='西大陆封印').overviewGroup,'history/topics');
+ assert.deepEqual(selectEntries(data,'history','eras').map(entry=>entry.title),['第一纪']);
+});

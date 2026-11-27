@@ -1,4 +1,5 @@
 ---
+worldview_history: {"kind": "attested", "era": 4, "source_section": "intro"}
 catalog_groups: ["worldview/organizations/societies"]
 title: 战争之红
 layout: index
@@ -8,7 +9,7 @@ organization_members: 战争之红
 
 ## 重建与摩罗拉时期
 
-梅迪奇重建军团后，[阿不思](../../../characters/entries/阿不思·梅迪奇/)已加入其中，可以分享力量、分摊部分伤害。摩罗拉地下陵寝核心区域明显削弱内外联系，他只能短暂使用序列4层次的力量及更高位格能力的弱化版本，分摊出去的伤害不能超过三分之一。（《宿命之环》第五卷第96章；阿不思在该封印区域的情况）
+梅迪奇重建军团后，[阿不思](../../../characters/entries/阿不思·梅迪奇/)已加入其中，可以分享力量、分摊部分伤害。摩罗拉地下陵寝核心区域明显削弱内外联系，他只能短暂使用序列4层次的力量及更高位格能力的弱化版本，分摊出去的伤害不能超过三分之一。（《宿命之环》第五卷第96章）
 
 ## 末日战场的集结
 

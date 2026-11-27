@@ -3,14 +3,14 @@
   const root = document.querySelector('[data-story-calendar]');
   function appendReferences(target,event) {
     if (!event.references?.length) return;
-    const details=element('details','');
-    details.className='event-sources';
-    details.append(element('summary','来源'));
+    const section=element('section','');
+    section.className='event-sources';
+    section.append(element('h2','来源'));
     const list=element('ul','');
     for(const ref of event.references) list.append(element('li',ref.scope+'：'+ref.source));
-    details.append(list);
-    if(event.basis) details.append(element('p',event.basis));
-    target.append(details);
+    section.append(list);
+    if(event.basis) section.append(element('p',event.basis));
+    target.append(section);
   }
 
   if (!root) return;

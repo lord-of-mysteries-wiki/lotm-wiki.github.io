@@ -130,8 +130,6 @@ wiki_related_other: Other entries
 wiki_related_out: Links from this entry
 wiki_related_in: Links to this entry
 wiki_related_both: Mutual links
-wiki_related_more: Show all
-wiki_related_less: Show less
 
 wiki_link_internal: "Open entry or page: {title}"
 wiki_link_section: "Jump within this page: {title}"
@@ -147,7 +145,7 @@ catalog_all_characters: "All characters"
 catalog_countries: "Countries and regions"
 catalog_organizations: "Organizations"
 catalog_creatures: "Creatures"
-catalog_history: "World and history"
+catalog_history: "World history"
 catalog_by_organization: "By organization"
 catalog_by_pathway: "By pathway"
 catalog_sealed: "Sealed artifacts"
@@ -226,3 +224,19 @@ timeline_phase_before: "Before the story"
 timeline_phase_lotm: "Lord of the Mysteries"
 timeline_phase_coi: "Circle of Inevitability"
 calendar_count_label: " events"
+catalog_history_era: "Epoch {era}"
+catalog_history_founded: "Founded: "
+catalog_history_attested: "Attested: "
+catalog_history_occurred: "Occurred: "
+character_progression: Pathway and advancement
+character_rank: Rank
+character_sequence_name: Name
+character_chapters: Chapters
+character_authorities: Authorities and special states
+character_same_period: Concurrent
+character_relationships: Key relationships
+character_other_person: Character
+character_relationship_name: Relationship
+character_relationship_description: Description
+character_unclassified: Connection
+character_graph_link: View all relationships in the graph

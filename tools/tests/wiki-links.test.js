@@ -35,11 +35,11 @@ test('directories are excluded and event ordering uses narrative order',()=>{
  x.content=events.map(e=>`<a href="../../../${e.path}">事件</a>`).join('');
  const index=buildWikiLinks([x,directory,...events],config);assert.equal(index.registry.has('worldview/topics'),false);assert.deepEqual(index.related(x)[0].items.map(i=>i.title),['事件2','事件9']);
 });
-test('related template limits initial rows and escapes titles',()=>{
+test('related template shows all rows and escapes titles',()=>{
  const fs=require('fs'),ejs=require('ejs');
  const template=fs.readFileSync('themes/lotm/layout/_partials/wiki-related.ejs','utf8');
  const html=ejs.render(template,{page:{},wiki_related:()=>[{type:'characters',items:Array.from({length:10},(_,n)=>({title:n===0?'<script>':'人物'+n,url:'characters/entries/'+n+'/',direction:'in'}))}],url_for:x=>'/lotm-wiki.github.io'+x,__:(key)=>key});
- assert.ok(html.includes('&lt;script&gt;'));assert.equal((html.split('<details>')[0].match(/<li>/g)||[]).length,8);assert.equal((html.match(/<li>/g)||[]).length,10);assert.ok(!html.includes('<details open'));
+ assert.ok(html.includes('&lt;script&gt;'));assert.equal((html.match(/<li>/g)||[]).length,10);assert.ok(!html.includes('<details'));
  assert.equal(ejs.render(template,{page:{},wiki_related:()=>[]}).trim(),'');
 });
 test('generated checker rejects missing targets, missing anchors and duplicate entries',()=>{

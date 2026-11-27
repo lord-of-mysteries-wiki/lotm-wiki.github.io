@@ -10,13 +10,12 @@ const periodText = value => {
 function rangeText(start, end) {
   if (!end || start === end) return periodText(start);
   const a = start.split('-'), b = end.split('-');
-  if (a.length === 1 && b.length === 1) return Number(start) + '-' + Number(end) + '年';
   let tail = periodText(end);
   if (a[0] === b[0]) {
     tail = tail.slice(tail.indexOf('年') + 1);
     if (a.length === 3 && a[1] === b[1]) tail = Number(b[2]) + '日';
   }
-  return periodText(start) + (a.length === 3 ? '—' : '至') + tail;
+  return periodText(start) + '至' + tail;
 }
 function eventDateLabel(event) {
   const start = String(event.event_time || event.event_time_period || '');
@@ -32,7 +31,12 @@ function eventTimelineTitle(event) {
   const title = String(event.title || '');
   return prefix && title.startsWith(prefix) ? title.slice(prefix.length) : title;
 }
+function eventReferenceLabel(event, label = event.narrative_order?.label || event.title) {
+  if (!['塔罗会例会', '塔罗会临时会议'].includes(event.title)) return label;
+  const date = eventDateLabel(event);
+  return date ? label + '（' + date + '）' : label;
+}
 function corduCycleLabel(event) {
   return event.event_cordu_cycle ? '科尔杜第' + '一二三'[event.event_cordu_cycle - 1] + '轮' : '';
 }
-module.exports = {isBriefEvent, corduCycleLabel, eventDateLabel, eventTimelineTitle};
+module.exports = {isBriefEvent, corduCycleLabel, eventDateLabel, eventTimelineTitle, eventReferenceLabel};

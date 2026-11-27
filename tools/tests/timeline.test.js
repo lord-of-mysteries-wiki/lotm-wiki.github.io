@@ -85,25 +85,30 @@ test('ranges have complete labels and never merge with single days at the same s
     event('window',3,{event_time_period:'1349-07',event_time_period_end:'1349-08',event_time_window:true}),
     event('year-end',4,{event_time_period:'1192',event_time_qualifier:'年底'})
   ]);
-  assert.deepEqual(Array.from(groups,g=>g.label),['1192年年底','1349年7月至8月间','1349年7月6日','1349年7月6日—18日']);
-  assert.equal(presentation.eventDateLabel({event_time_period:'1173',event_time_period_end:'1198',event_time_window:true}),'1173-1198年间');
-  assert.equal(presentation.eventDateLabel({event_time:'1349-12-31',event_time_end:'1350-01-02'}),'1349年12月31日—1350年1月2日');
+  assert.deepEqual(Array.from(groups,g=>g.label),['1192年年底','1349年7月至8月间','1349年7月6日','1349年7月6日至18日']);
+  assert.equal(presentation.eventDateLabel({event_time_period:'1173',event_time_period_end:'1198',event_time_window:true}),'1173年至1198年间');
+  assert.equal(presentation.eventDateLabel({event_time:'1349-12-31',event_time_end:'1350-01-02'}),'1349年12月31日至1350年1月2日');
 });
 test('a detailed meeting keeps its page with a summary and no duplicate date or end-date line', () => {
   const detail=event('meeting',1,{event_display:'detail',title:'1349年7月2日塔罗会',event_time:'1349-07-02',event_summary:'成员交换配方与消息。',event_source:'《诡秘之主》第一卷第34章至第36章',event_time_note:'周一塔罗会的日期',path:'timeline/meeting/'});
   const range=event('investigation',2,{event_display:'detail',title:'调查',event_summary:'追查失踪笔记。',event_time:'1349-07-06',event_time_end:'1349-07-18',event_time_precision:'range',path:'timeline/investigation/'});
+  const confirmedWindow=event('confirmed',3,{event_summary:'日期范围已经核实。',event_time_period:'1349-08',event_time_period_end:'1349-09',event_time_window:true,event_time_certainty:'inferred'});
+  const uncertainWindow=event('uncertain',4,{event_summary:'日期范围仍待核实。',event_time_period:'1349-10',event_time_period_end:'1349-11',event_time_window:true,event_time_certainty:'inferred',event_time_uncertain:true});
   assert.equal(presentation.isBriefEvent(detail),false);
   const html=ejs.render(fs.readFileSync(path.join(root,'themes/lotm/layout/_partials/timeline-preview.ejs'),'utf8'),{
-    __:()=>'第五纪', event_short_source:shortEventSource, wiki_events:()=>[detail,range],story_timeline:helpers.story_timeline,timeline_sections:helpers.timeline_sections,event_date_label:presentation.eventDateLabel,page:{},partial:()=>'',
+    __:key=>key==='event_time_uncertain_label'?'推定':'第五纪', event_short_source:shortEventSource, wiki_events:()=>[detail,range,confirmedWindow,uncertainWindow],story_timeline:helpers.story_timeline,timeline_sections:helpers.timeline_sections,event_date_label:presentation.eventDateLabel,page:{},partial:()=>'',
     event_summary_parts:e=>[{text:e.event_summary}],url_for:url=>'/lotm-wiki.github.io'+url,timeline_source:helpers.timeline_source,
     is_brief_event:presentation.isBriefEvent,event_timeline_title:presentation.eventTimelineTitle
   });
   assert.ok(html.includes('href="/lotm-wiki.github.io/timeline/meeting/"'));
   assert.ok(html.includes('<strong>塔罗会</strong>'));
   assert.ok(html.includes('成员交换配方与消息。'));
-  assert.ok(html.includes('1349年7月6日—18日'));
+  assert.ok(html.includes('1349年7月6日至18日'));
   assert.ok(!html.includes('周一塔罗会的日期'));
   assert.ok(!html.includes('<span>至'));
+  assert.match(html, /<summary>(?:1349年)?8月至9月间<\/summary>/);
+  assert.match(html, /<summary>(?:1349年)?10月至11月间<\/summary>/);
+  assert.equal((html.match(/推定/g) || []).length,1);
 });
 test('calendar uses the selected phrase while preserving the full summary and detail destination', () => {
   const events=[event('short',1,{event_time_certainty:'inferred',title:'克莱恩制成阳炎符咒',event_calendar_label:'制成阳炎符咒',event_summary:'克莱恩借莫尔斯小镇出勤的机会，制成两枚阳炎符咒。',event_display:'detail',path:'timeline/charms/',content:'<p>完整事件经过。</p>'}),
@@ -212,9 +217,14 @@ test('Red Swan, Trier crisis and the two sea rites use the story chronology', ()
 
 test('Tizamo stays a single festival and the southern voyage precedes the Morora exile', () => {
   const {groups} = helpers.story_timeline(loadModel().events);
-  const chain = ['0319','0322','0323','0324','0327','0328','0330','0331','0332','0334','0335','0336-bloodline','0336-harrison','0336','0336-harvest-priest','0337','0338','0339','0340','0343'].map(id => 'event-' + id);
-  const selected = groups.flatMap(group => group.items.map(item => item.entry_id)).filter(id => chain.includes(id));
+  const chain = ['0319','0323','0324','0327','0328','0330','0331','0332','0334','0335','0336-bloodline','0336-harrison','0336','0336-harvest-priest','0337','0338','0339','0340','0343'].map(id => 'event-' + id);
+  const orderedIds = groups.flatMap(group => group.items.map(item => item.entry_id));
+  const selected = orderedIds.filter(id => chain.includes(id));
   assert.deepEqual(Array.from(selected), chain);
+  // The theater and the ship are in different places without a shared day.
+  const theaterIndex = orderedIds.indexOf('event-0322');
+  assert.ok(theaterIndex > orderedIds.indexOf('event-0319'));
+  assert.ok(theaterIndex < orderedIds.indexOf('event-0324'));
   assert.ok(!groups.some(group => group.items.some(event => event.entry_id === 'event-0329')));
 });
 
@@ -223,5 +233,8 @@ test('Morora and the vortex precede the shared dream, with the real-world wake i
   const chain = ['0343','0342','0344','0345','0346','0349','0350','0351','0352','0353','0354','0356','0358','0359','0360','0361'].map(id => 'event-' + id);
   const selected = groups.flatMap(group => group.items.map(item => item.entry_id)).filter(id => chain.includes(id));
   assert.deepEqual(Array.from(selected), chain);
-  assert.ok(groups.some(group => !group.label.includes('现实特里尔') && group.items.some(item => item.entry_id === 'event-0359' && item.event_summary.includes('现实特里尔'))));
+  const wake = groups.find(group => group.items.some(item => item.entry_id === 'event-0359'));
+  assert.ok(wake, '现实中醒来的事件应保留在时间线上');
+  assert.doesNotMatch(wake.label, /特里尔/u);
+  assert.match(wake.items.find(item => item.entry_id === 'event-0359').event_summary, /现实(?:的)?特里尔/u);
 });

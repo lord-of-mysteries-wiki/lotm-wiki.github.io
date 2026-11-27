@@ -1,8 +1,11 @@
 <%
 const events = wiki_events();
 const { groups, unplaced } = story_timeline(events.filter(item => !item.event_era), page);
-const dateText = date => `${Number(date.slice(5,7))}月${Number(date.slice(8,10))}日`;
-const fullDate = date => `${date.slice(0,4)}年${dateText(date)}`;
+function contextualDate(label, year, month) {
+  const prefix = Number(year) + '年' + (month ? Number(month) + '月' : '');
+  const rest = label.startsWith(prefix) ? label.slice(prefix.length) : '';
+  return /^\d/.test(rest) ? rest : label;
+}
 const openingDate = id => events.find(event => event.entry_id === id)?.event_time;
 const firstOpening = openingDate('event-0002');
 const secondOpening = openingDate('event-0245');
@@ -17,7 +20,8 @@ for (const section of timeline_sections(groups)) {
   const year = start.slice(0, 4);
   if (!byYear.has(year)) byYear.set(year, []);
   const months = byYear.get(year);
-  const month = start.slice(5, 7);
+  const end = group ? group.items[0].event_time_end || group.items[0].event_time_period_end || start : section.rows.at(-1).date;
+  const month = start.slice(0, 7) === end.slice(0, 7) ? start.slice(5, 7) : '';
   if (!months.length || months[months.length - 1].month !== month) months.push({month, sections: []});
   months[months.length - 1].sections.push(section);
 }
@@ -35,12 +39,29 @@ const nodeLink = function(item) {
   } %>
 <li class="timeline-nodes__item" id="<%= anchor %>"<% if (source) { %> data-event-citation="<%= source %>" tabindex="0"<% } %>><a class="timeline-nodes__link" href="<%= url_for('/' + item.path) %>"><span class="timeline-nodes__text"><strong><%= event_timeline_title(item) %></strong><% if (item.event_summary) { %><span class="timeline-event-summary"><%= item.event_summary %></span><% } %><% if (note) { %><small class="timeline-note"><%= note %></small><% } %></span></a></li>
 <% };
-const dateGroup = function({date, label, items}) { %>
-      <li class="story-axis__day<%= date ? '' : ' story-axis__day--relative' %>">
-        <h3 class="timeline-group-title"><% if(date){ %><time datetime="<%= date %>"><%= label %></time><% }else{ %><%= label %><% } %></h3>
-        <ul class="timeline-nodes" aria-label="<%= label %>事件"><% items.forEach(nodeLink); %></ul>
-      </li>
+const eventList = function({label, items}) { %>
+  <ul class="timeline-nodes" aria-label="<%= label %>事件"><% items.forEach(nodeLink); %></ul>
 <% };
+const dateGroup = function(group, year, month, yearHeading) {
+  const {date, label, items} = group;
+  const yearPrefix = Number(year) + '年';
+  const prefix = yearPrefix + (month ? Number(month) + '月' : '');
+  const samePeriod = label === prefix || label === yearHeading;
+  const first = items[0];
+  const end = first.event_time_end || first.event_time_period_end;
+  const withinYear = !end || end.slice(0, 4) === year;
+  const heading = withinYear ? contextualDate(label, year, month) : label;
+  if (!month && end && !samePeriod) { %>
+    <li class="axis-period"><details data-level="3"><summary><%= heading %></summary>
+      <% eventList(group); %>
+    </details></li>
+  <% } else { %>
+    <li class="story-axis__day">
+      <% if (!samePeriod) { %><h3 class="timeline-group-title"><% if(date){ %><time datetime="<%= date %>"><%= heading %></time><% }else{ %><%= heading %><% } %></h3><% } %>
+      <% eventList(group); %>
+    </li>
+  <% }
+};
 %>
 <article class="timeline-preview">
   <section class="story-canvas" aria-label="时间线">
@@ -52,55 +73,66 @@ const dateGroup = function({date, label, items}) { %>
         <% }); %>
       </div>
     </div>
-    <ol class="story-axis timeline-phases">
-    <% const usedYears = new Set(); let fifthEpochShown = false;
+    <ol class="story-axis timeline-eras">
+    <% const usedYears = new Set();
+       const eraNames = ['第一纪 · 混沌纪元', '第二纪 · 黑暗纪元', '第三纪 · 光辉纪元／灾变纪元', '第四纪 · 众神纪元'];
        for (const phase of phases) { %>
-      <li class="axis-period"><details class="timeline-phase" data-level="1"><summary><%= __('timeline_phase_' + phase.key) %></summary>
-    <% if (phase.key === 'before') { %>
-    <% const eraNames = ['第一纪 · 混沌纪元', '第二纪 · 黑暗纪元', '第三纪 · 光辉纪元／灾变纪元', '第四纪 · 众神纪元']; %>
-    <% eraNames.forEach((name, index) => { const eraEvents = events.filter(item => item.event_era === index + 1); if (!eraEvents.length) return; %>
-      <details class="timeline-era" data-level="1">
-        <summary><h2><%= name %></h2></summary>
+      <li class="axis-period"><details class="timeline-phase" data-level="1">
+        <summary><h2><%= __('timeline_phase_' + phase.key) %></h2></summary>
+        <ol class="axis-year-events">
+      <% if (phase.key === 'before') {
+       eraNames.forEach((name, index) => {
+         const eraEvents = events.filter(item => item.event_era === index + 1);
+         if (!eraEvents.length) return;
+         const [number, title] = name.split(' · '); %>
+      <li class="axis-period"><details class="timeline-era" data-level="1">
+        <summary><h2><%= number %> <small><%= title %></small></h2></summary>
         <% const sorted = eraEvents.sort((a, b) => (a.event_era_order ?? Infinity) - (b.event_era_order ?? Infinity));
            const eraGroups = [];
            for (const item of sorted) {
              const time = item.event_time_note.replace(/^第[一二三四]纪/, '').trim();
-             const label = time || '纪内年份待考';
+             const label = time.replace(/^(\d+)[—–－](\d+)年/u, '$1-$2年') || '纪内年份待考';
              const previous = eraGroups[eraGroups.length - 1];
              if (previous && previous.label === label) previous.items.push(item);
              else eraGroups.push({label, items:[item]});
            } %>
-        <ol class="story-axis" aria-label="<%= name %>事件"><% for (const group of eraGroups) { %>
+        <ol class="axis-year-events" aria-label="<%= name %>事件"><% for (const group of eraGroups) { %>
           <li class="axis-period"><details data-level="2"><summary><%= group.label %></summary>
             <ul class="timeline-nodes"><% group.items.forEach(nodeLink); %></ul>
           </details></li>
         <% } %></ol>
-      </details>
-    <% }); %>
-    <% } if (phase.years.size) { %>
-    <details class="timeline-era" data-level="1">
-      <summary<% if (!fifthEpochShown) { fifthEpochShown = true; %> id="fifth-epoch"<% } %>><h2><%= __('timeline_fifth_epoch') %></h2></summary>
-    <ol class="story-axis" aria-label="按故事日期排列的事件">
-      <% for (const [year, months] of phase.years) { %>
-      <li class="axis-period"><details data-level="2" id="year-<%= year %><%= usedYears.has(year) ? '-' + phase.key : '' %>"<% usedYears.add(year); %>><summary><%= __('timeline_year_label', Number(year)) %></summary>
+      </details></li>
+    <% }); } %>
+    <% if (phase.key === 'before' && phase.years.size) { %>
+    <li class="axis-period"><details class="timeline-era" data-level="1">
+      <summary id="fifth-epoch"><h2><%= __('timeline_fifth_epoch') %></h2></summary>
+      <ol class="axis-year-events">
+    <% } %>
+      <% for (const [year, months] of phase.years) {
+        const single = months.length === 1 && months[0].sections.length === 1 && months[0].sections[0].group;
+        const only = single && single.items[0];
+        const yearHeading = only && only.event_time_period === year && only.event_time_period_end?.length === 4
+          ? single.label : __('timeline_year_label', Number(year)); %>
+      <li class="axis-period"><details data-level="2" id="year-<%= year %><%= usedYears.has(year) ? '-' + phase.key : '' %>"<% usedYears.add(year); %>><summary><%= yearHeading %></summary>
         <ol class="axis-year-events">
       <% for (const {month, sections} of months) { if (month) { %>
           <li class="axis-period"><details data-level="3"><summary><%= __('timeline_month_label', Number(month)) %></summary><ol class="axis-year-events">
       <% } %>
       <% for (const section of sections) { if (section.group) { %>
-      <% dateGroup(section.group); %>
+      <% dateGroup(section.group, year, month, yearHeading); %>
       <% } else { %>
       <li class="story-parallel">
         <div class="story-parallel__grid" style="--range-lanes:<%= section.lanes %>" aria-label="同期与跨日事件">
-          <% section.rows.forEach((row,index)=>{ %>
+          <% section.rows.forEach((row,index)=>{ if (!row.items.length) return;
+             const dayLabel = event_date_label({event_time:row.date}); %>
           <section class="story-parallel__day" style="grid-row:<%= index+1 %>;--chronology:<%= index*2+1 %>">
-            <h3><time datetime="<%= row.date %>"><%= fullDate(row.date) %></time></h3>
-            <% if(row.items.length){ %><ul class="timeline-nodes"><% row.items.forEach(nodeLink); %></ul><% } %>
+            <h3><time datetime="<%= row.date %>"><%= contextualDate(dayLabel, year, month) %></time></h3>
+            <ul class="timeline-nodes"><% row.items.forEach(nodeLink); %></ul>
           </section>
           <% }); %>
           <% for(const span of section.spans){ %>
           <section class="story-parallel__span story-parallel__span--<%= span.event.event_range_kind %>" style="grid-column:<%= span.lane+2 %>;grid-row:<%= span.start %> / <%= span.end %>;--chronology:<%= span.start*2 %>" aria-label="<%= span.event.title %>，<%= event_date_label(span.event) %>">
-            <div class="story-parallel__range"><%= event_date_label(span.event) %><% if(span.event.event_range_kind==='staged'){ %><small>分阶段</small><% } %></div>
+            <div class="story-parallel__range"><%= contextualDate(event_date_label(span.event), year, month) %><% if(span.event.event_range_kind==='staged'){ %><small>分阶段</small><% } %></div>
             <ul class="timeline-nodes"><% nodeLink(span.event); %></ul>
           </section>
           <% } %>
@@ -110,11 +142,13 @@ const dateGroup = function({date, label, items}) { %>
         </ol>
       </details></li>
       <% } %>
-    </ol>
-    </details>
-    <% } %>
-  <% if (phase.undated.length) { %><details data-level="3" id="year-unknown-<%= phase.key %>" class="timeline-undated"><summary>日期待考证</summary><ul class="timeline-nodes"><% phase.undated.forEach(nodeLink); %></ul></details><% } %>
-      </details></li>
+      <% if (phase.key === 'before' && phase.years.size) { %>
+        </ol></details></li>
+      <% } %>
+      <% if (phase.undated.length) { %>
+        <li class="axis-period"><details data-level="3" id="year-unknown-<%= phase.key %>" class="timeline-undated"><summary>日期待考证</summary><ul class="timeline-nodes"><% phase.undated.forEach(nodeLink); %></ul></details></li>
+      <% } %>
+        </ol></details></li>
     <% } %></ol>
   <details class="timeline-event-index" id="event-index"><summary>全部事件（按原文叙述顺序）</summary><div class="timeline-event-index__content"><%- partial('_partials/event-directory') %></div></details>
   </section>

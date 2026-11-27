@@ -1,6 +1,13 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const {createEntryDetail}=require('../../themes/lotm/lib/entry-detail');
+test('keep organization origins and purpose in the body instead of treating them as bibliography',()=>{
+  const view=createEntryDetail({content:'<h2>来源与宗旨</h2><p>海拉是发起者之一。（《宿命之环》第一卷第48章）</p><h2>来源</h2><p>作者文章支持成立时期。</p>'},'worldview');
+  assert.ok(view.body.includes('来源与宗旨'));
+  assert.ok(view.body.includes('海拉是发起者之一'));
+  assert.ok(!view.notes.includes('海拉是发起者之一'));
+  assert.ok(view.notes.includes('作者文章支持成立时期'));
+});
 test('omit empty scaffold sections while retaining actual limitations and images',()=>{
   const view=createEntryDetail({content:'<h2>简介</h2><p>一只手套。</p><h2>制造方式</h2><p>待核实。</p><h2>副作用</h2><p>封印后仍会饥饿。</p><h2>外观</h2><img src="glove.png">'},'artifact');
   assert.ok(!view.body.includes('制造方式'));assert.ok(!view.body.includes('<h2>简介'));
@@ -19,6 +26,31 @@ test('retain complete event metadata sources, including time scope and unknown e
   const view=createEntryDetail({content:'<h2>经过</h2><p>事件发生。</p>',event_source:fact,event_time_source:time},'event');
   assert.ok(view.references.refs.some(ref=>ref.source===fact));assert.ok(view.references.refs.some(ref=>ref.source===time));
   assert.ok(view.fallback.includes('一卷9章'));assert.ok(view.body.includes('事件发生'));
+});
+
+test('event template displays the era date once and keeps the time evidence collapsed',()=>{
+  const fs=require('node:fs');
+  const path=require('node:path');
+  const ejs=require('ejs');
+  const {eventDateLabel}=require('../lib/event-presentation');
+  const template=fs.readFileSync(path.join(__dirname,'../../themes/lotm/layout/_partials/event-entry.ejs'),'utf8');
+  const page={
+    title:'四皇之战',
+    content:'<p>四皇交战。</p>',
+    event_era:4,
+    event_time_note:'第四纪1047-1052年',
+    event_time_basis:'纪元年份见作者年表。'
+  };
+  const html=ejs.render(template,{
+    page,
+    entry_detail_view:createEntryDetail,
+    event_date_label:eventDateLabel,
+    __:key=>key,
+    partial:()=> ''
+  });
+  assert.match(html,/<p class="entry-date">第四纪1047-1052年<\/p>/);
+  assert.equal(html.split(page.event_time_note).length,2);
+  assert.match(html,/<details class="event-time">[\s\S]*纪元年份见作者年表。/);
 });
 test('remove only exact repeated overview; keep a different detailed account',()=>{
   const repeated=createEntryDetail({event_summary:'事件概括。',content:'<p>事件概括。</p><p>随后展开行动。</p>'},'event');
@@ -42,15 +74,15 @@ test('repeated book names separated by enumeration commas leave no empty parenth
   assert.equal(view.references.refs.length,2);
 });
 
-test('creature template preserves species scope and reuses collapsed citations',()=>{
+test('creature template preserves species scope and renders visible citations',()=>{
   const fs=require('fs'),path=require('path'),ejs=require('ejs');
   const page={title:'生物模板验证',content:'<h2>简介</h2><p>一种生物。</p><h2>能力与危险</h2><p>仅一个体表现（推定）。（《诡秘之主》第一卷第31章）</p><h2>分布与习性</h2><p>待核实。</p><h2>待核事项</h2><p>分布范围不详。</p>'};
   const locals={page,entry_detail_view:createEntryDetail,wiki_related:()=>[],__:(key)=>key};
   locals.partial=(name,data)=>ejs.render(fs.readFileSync(path.join(__dirname,'../../themes/lotm/layout',name+'.ejs'),'utf8'),{...locals,...data});
-  const html=locals.partial('_partials/creature-entry',{});
+  const html=locals.partial('_partials/entry-detail',{kind:'creature'});
   assert.ok(html.includes('creature-entry'));assert.ok(html.includes('仅一个体表现（推定）'));
   assert.ok(!html.includes('<h2>分布与习性'));assert.ok(html.includes('data-character-source'));
-  assert.ok(html.includes('<details class="creature-sources entry-sources">'));
+  assert.ok(html.includes('<section class="creature-sources entry-sources">'));
   assert.ok(!/<details[^>]*\bopen\b/.test(html));assert.ok(html.includes('分布范围不详'));
 });
 

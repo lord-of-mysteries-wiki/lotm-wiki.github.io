@@ -1,4 +1,5 @@
-<% const references = character_reference_view(page); const profilePathways = character_pathways(page); %>
+<% const references = character_reference_view(page); const profilePathways = character_pathways(page);
+   const sections = character_body_sections(references.body); const lead = sections.lead; %>
 <article class="character-profile">
   <header class="character-profile__header">
     <a class="character-profile__back" href="<%= url_for('/characters/') %>"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回角色介绍</a>
@@ -33,8 +34,9 @@
           <% } %>
         <% }); %>
       </dl>
-      <a class="character-profile__graph" href="<%= url_for('/relationships/') %>?a=<%= encodeURIComponent(page.entry_id) %>">查看人物关系网 <span aria-hidden="true">↗</span></a>
+      <% if (!page.character_record_tables) { %><a class="character-profile__graph" href="<%= url_for('/relationships/') %>?a=<%= encodeURIComponent(page.entry_id) %>">查看人物关系网 <span aria-hidden="true">↗</span></a><% } %>
     </section>
-    <div class="article character-profile__content"><%- references.body %><%- partial('_partials/wiki-related') %><%- partial('_partials/character-sources', {references}) %></div>
+    <% if (lead) { %><div class="article character-profile__content character-profile__lead"><%- lead %></div><% } %>
+    <div class="article character-profile__content"><%- sections.prelude %><% if (page.character_record_tables) { %><%- partial('_partials/character-progression', {references}) %><% } %><%- sections.narrative %><%- partial('_partials/wiki-related') %><% if (page.character_record_tables) { %><%- partial('_partials/character-relations', {references}) %><% } %><%- partial('_partials/character-sources', {references}) %></div>
   </div>
 </article>

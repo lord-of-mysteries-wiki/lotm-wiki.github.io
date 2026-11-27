@@ -130,8 +130,6 @@ wiki_related_other: 其他相关词条
 wiki_related_out: 本页引用
 wiki_related_in: 引用本页
 wiki_related_both: 相互引用
-wiki_related_more: 显示全部
-wiki_related_less: 收起
 
 wiki_link_internal: "打开词条或页面：{title}"
 wiki_link_section: "跳转到本页：{title}"
@@ -147,7 +145,7 @@ catalog_all_characters: "全部角色"
 catalog_countries: "国家与地区"
 catalog_organizations: "组织与势力"
 catalog_creatures: "非凡生物"
-catalog_history: "世界与历史"
+catalog_history: "世界历史"
 catalog_by_organization: "按组织"
 catalog_by_pathway: "按途径"
 catalog_sealed: "封印物"
@@ -226,3 +224,19 @@ timeline_phase_before: "故事开始前"
 timeline_phase_lotm: "诡秘之主"
 timeline_phase_coi: "宿命之环"
 calendar_count_label: "条"
+catalog_history_era: "第{era}纪"
+catalog_history_founded: "建立："
+catalog_history_attested: "已知存在："
+catalog_history_occurred: "发生："
+character_progression: 非凡途径与晋升
+character_rank: 位阶
+character_sequence_name: 名称
+character_chapters: 卷章
+character_authorities: 权柄与特殊状态
+character_same_period: 同期
+character_relationships: 主要人物关系
+character_other_person: 角色
+character_relationship_name: 关系名称
+character_relationship_description: 一句话描述
+character_unclassified: 交集
+character_graph_link: 在人物关系网中查看全部关系

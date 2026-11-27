@@ -1,7 +1,7 @@
 <% const references = event_references(event); %>
 <% if (references.length) { %>
-<% if (compact) { %><details class="event-sources event-sources--compact"><summary><%= __('event_sources') %></summary><% } else { %><section class="event-sources"><h2><%= __('event_sources') %></h2><% } %>
+<section class="event-sources"><h2><%= __('event_sources') %></h2>
 <ul><% for (const ref of references) { %><li><strong><%= event_reference_scope(ref.scopes) %>：</strong><%= ref.source %></li><% } %></ul>
 <% if (compact && event.event_time_basis) { %><p><strong><%= __('event_time_basis') %>：</strong><%= event.event_time_basis %></p><% } %>
-<% if (compact) { %></details><% } else { %></section><% } %>
+</section>
 <% } %>

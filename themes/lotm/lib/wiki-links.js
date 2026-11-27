@@ -1,7 +1,7 @@
 'use strict';
 const {parseDocument}=require('htmlparser2');
 const {textContent}=require('domutils');
-const {isBriefEvent}=require('../../../tools/lib/event-presentation');
+const {isBriefEvent,eventReferenceLabel}=require('../../../tools/lib/event-presentation');
 const summaryParts=require('./event-summary-parts');
 const TYPES=['characters','events','artifacts','organizations','places','pathways','creatures','other'];
 const normalize=p=>{try{return decodeURIComponent(p).replace(/^\/+/, '').replace(/index\.html$/, '').replace(/\/+$/, '');}catch{return null;}};
@@ -40,7 +40,9 @@ function buildWikiLinks(pages,config={}){
  const origin=new URL(config.url||'https://wiki.invalid').origin;
  const registry=new Map(),aliases=new Map(),eventAnchors=new Map(),issues=[];
  for(const p of pages.filter(eligible)){
-  const key=normalize(p.path);const node={key,title:String(p.title),type:category(p),url:isBriefEvent(p)&&p.timeline_event?'timeline/#event-'+encodeURIComponent(p.event_anchor||p.title):p.path,order:Number(p.narrative_order),out:new Set(),in:new Set()};
+  const key=normalize(p.path);
+  const title=p.timeline_event ? eventReferenceLabel(p,p.title) : p.title;
+  const node={key,title:String(title),type:category(p),url:isBriefEvent(p)&&p.timeline_event?'timeline/#event-'+encodeURIComponent(p.event_anchor||p.title):p.path,order:Number(p.narrative_order),out:new Set(),in:new Set()};
   registry.set(key,node);aliases.set(key,key);
   if(p.timeline_event&&isBriefEvent(p))eventAnchors.set(String(p.event_anchor||p.title),key);
  }

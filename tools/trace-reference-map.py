@@ -115,6 +115,13 @@ for key,period in layout.get('historicalLayouts',{}).items():
   for override in period.get('overrides',{}).get(continent,[]):
    for p in landmask:
     if inside(p,override['polygon']):cells[p]=override['shape']
+  # Later layouts reuse the inherited land ownership instead of claiming the
+  # Abyss through an unbounded eastern-land fallback.
+  for inheritance in layout.get('territoryInheritance',[]):
+   if inheritance['continent']==continent and key!=inheritance['variant']:
+    target=inheritance['target']
+    for p in landmask:
+     if cells[p]==target and labels.get(p)!=target:cells[p]=target+'-unassigned'
   local_arcs,local_shapes=trace.topology({'north':landmask},cells,1.7)
   local_coast={abs(ref) for ring in local_shapes['north']['rings'] for ref in ring}
   for i,arc in enumerate(local_arcs,1):
