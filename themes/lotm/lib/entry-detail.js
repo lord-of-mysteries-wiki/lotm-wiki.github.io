@@ -52,7 +52,7 @@ function createEntryDetail(page,kind,labels={}){
     }else main.push(section.heading+section.body);
   }
   if(kind==='event'){
-    for(const ref of eventReferences(page))references.citeWhole(ref.source,ref.scopes.map(scope=>scope==='facts'?(labels.facts||'事件经过'):(labels.time||'时间依据')).join('、'));
+    for(const ref of eventReferences(page))references.citeBibliography(ref.source,ref.scopes.map(scope=>scope==='facts'?(labels.facts||'事件经过'):(labels.time||'时间依据')).join('、'));
   }
   return {body:main.join(''),notes:notes.join(''),references,fallback:kind==='event'?shortEventSource(page):''};
 }

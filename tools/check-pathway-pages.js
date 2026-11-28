@@ -48,5 +48,11 @@ assert.equal(overview.filter(n=>n.name==='svg'&&n.attribs.class==='pathway-symbo
 for(const entry of symbolEntries){
  const html=fs.readFileSync(path.join('public/worldview/pathways',entry.title,entry.title+'.html'),'utf8');
  assert.equal(nodes(html).filter(n=>n.name==='svg'&&n.attribs.class==='pathway-symbol').length,1,entry.title+' symbol');
+ const credits=nodes(html).filter(n=>n.name==='p'&&n.attribs.class==='pathway-symbol-credit');
+ assert.equal(credits.length,1,entry.title+' symbol credit');
+ assert.ok(typeof entry.pathway_symbol_source==='string'&&entry.pathway_symbol_source.trim(),entry.title+' missing symbol provenance');
+ assert.ok(!/https?:\/\//i.test(entry.pathway_symbol_source),entry.title+' linked symbol provenance');
+ assert.ok(getText(credits[0]).endsWith('：'+entry.pathway_symbol_source.trim()),entry.title+' changed symbol provenance');
+ assert.equal(findAll(n=>n.type==='tag'&&n.name==='a',credits[0].children).length,0,entry.title+' symbol credit must not regenerate links');
 }
 console.log('PASS:',pages,'single pathway pages;',chapters,'chapters; no retired routes or links;',links,'pathway anchors; author citations deduplicated and retained');

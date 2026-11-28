@@ -1,7 +1,7 @@
 ---
 entry_id: "mr_a"
 entry_type: character
-graph_profile: {"short":"“A先生”","mark":"A","alias":"","group":"其他人物","aliasSources":[],"classificationEvidence":[{"kind":"pathway","value":"秘祈人","source":"《诡秘之主》第四卷第104章","note":"克莱恩提及A先生具有“蔷薇主教”的能力；该序列属于秘祈人途径。"}],"progression":[{"pathway":"秘祈人","sequence":"序列6“蔷薇主教”","source":"《诡秘之主》第二卷第266章","note":"曾为生命力顽强的蔷薇主教。"},{"pathway":"秘祈人","sequence":"序列5“牧羊人”","source":"《诡秘之主》第二卷第32章、第36章；《诡秘之主》第四卷第105章","note":"早期克莱恩判断其大概率为“牧羊人”；第二卷刺杀贝克朗时叙述直接以“牧羊人”指称他，第四卷对战中又将其与“秘偶大师”相比较。"}]}
+graph_profile: {"short":"“A先生”","mark":"A","alias":"","group":"其他人物","aliasSources":[],"classificationEvidence":[{"kind":"pathway","value":"秘祈人","source":"《诡秘之主》第四卷第104章","note":"克莱恩提及A先生具有“蔷薇主教”的能力；该序列属于秘祈人途径。"}],"progression":[{"pathway":"秘祈人","sequence":"序列6“蔷薇主教”","source":"《诡秘之主》第二卷第266章","note":"曾为生命力顽强的蔷薇主教。"},{"pathway":"秘祈人","sequence":"序列5“牧羊人”","source":"《诡秘之主》第二卷第32章、第36章；《诡秘之主》第四卷第105章","note":"早期克莱恩推测他大概率为牧羊人；刺杀贝克朗时已是牧羊人，后来对战中与秘偶大师的能力相比较。"}]}
 title: "“A先生”"
 layout: index
 character_profile: true

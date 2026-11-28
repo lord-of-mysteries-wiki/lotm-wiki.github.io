@@ -169,7 +169,9 @@ function loadModel() {
   }));
   const {buildWorldMap} = require('./world-map');
   const worldMap = buildWorldMap({geometry:readJSON('source/_data/world_map_geometry.json'), earth:readJSON('source/_data/world_map_earth.json'), countries: [...countries,...profiles.filter(p=>p.map_placements?.length),...mapSupplemental], events});
-  return {profiles,characters,events,relations,categories,directory,countries,worldMap};
+  const {createRelationChronology} = require('./relationship-chronology');
+  const relationChronology = createRelationChronology({relations,events});
+  return {profiles,characters,events,relations,relationChronology,categories,directory,countries,worldMap};
 }
 module.exports={loadModel,validateCharacterSource,directoryPathways};
 if(require.main===module)process.stdout.write(JSON.stringify(loadModel()));

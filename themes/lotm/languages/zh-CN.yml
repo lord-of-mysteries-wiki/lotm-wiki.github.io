@@ -102,7 +102,7 @@ map_midsea: "间海"
 theme_day: "切换到白天模式"
 theme_night: "切换到夜晚模式"
 
-pathway_symbol_credit: "标志原图：诡秘之主官方微博（本站简化矢量描摹）"
+pathway_symbol_credit: "标志原图（本站简化矢量描摹）"
 
 pathway_symbol_label: "标志"
 
@@ -240,3 +240,9 @@ character_relationship_name: 关系名称
 character_relationship_description: 一句话描述
 character_unclassified: 交集
 character_graph_link: 在人物关系网中查看全部关系
+
+character_relation_stages: 全部关系阶段
+character_relation_after: 晚于：
+character_relation_time_source: 时间出处：
+site_views_label: 本站累计浏览次数
+feedback_form_title: 填写并提交反馈

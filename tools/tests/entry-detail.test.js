@@ -28,6 +28,55 @@ test('retain complete event metadata sources, including time scope and unknown e
   assert.ok(view.fallback.includes('一卷9章'));assert.ok(view.body.includes('事件发生'));
 });
 
+const historyArticle='爱潜水的乌贼，2025年4月7日《诡秘世界简略的历史年表》 https://mp.weixin.qq.com/s/wW__8avKqix8HeFELLEkaw';
+test('event bibliography merges a shared author article while preserving inherited novel locators',()=>{
+  const fact=`《诡秘之主》第一卷第9章；${historyArticle}；第四卷第12章；未识别的原始记录`;
+  const time=`《诡秘之主》第五卷第30章；${historyArticle}`;
+  const page={content:'<p>事件发生。</p>',event_source:fact,event_time_source:time};
+  const view=createEntryDetail(page,'event');
+  assert.equal(view.references.refs.length,3);
+  assert.ok(view.references.refs.some(ref=>ref.source==='《诡秘之主》第一卷第9章；第四卷第12章；未识别的原始记录'));
+  const article=view.references.refs.find(ref=>ref.source===historyArticle);
+  assert.deepEqual([...article.scopes],['事件经过','时间依据']);
+  view.references.citeBibliography(fact,'概括');
+  assert.equal(view.references.refs.length,3);
+  assert.deepEqual([...article.scopes],['事件经过','时间依据','概括']);
+  assert.equal(page.event_source,fact);assert.equal(page.event_time_source,time);
+});
+
+test('event bibliography retains different article restrictions and incomplete formats verbatim',()=>{
+  const fact=`《诡秘之主》第一卷第9章；${historyArticle}（只说明成神）`;
+  const time=`《诡秘之主》第四卷第12章；${historyArticle}（只说明年代）`;
+  const view=createEntryDetail({content:'',event_source:fact,event_time_source:time},'event');
+  assert.equal(view.references.refs.length,4);
+  assert.ok(view.references.refs.some(ref=>ref.source===historyArticle+'（只说明成神）'&&ref.scopes.has('事件经过')));
+  assert.ok(view.references.refs.some(ref=>ref.source===historyArticle+'（只说明年代）'&&ref.scopes.has('时间依据')));
+  const unknown='未知记录 ; 爱潜水的乌贼《未给日期的文章》 https://example.com/raw；第四卷第12章（推测）';
+  const raw=createEntryDetail({content:'',event_source:unknown,event_time_source:unknown},'event');
+  assert.equal(raw.references.refs.length,1);assert.equal(raw.references.refs[0].source,unknown);
+});
+
+test('event overview reuses bibliography entries instead of adding its original composite citation',()=>{
+  const fs=require('node:fs'),ejs=require('ejs');
+  const fact=`《诡秘之主》第一卷第9章；${historyArticle}`;
+  const time=`《诡秘之主》第四卷第12章；${historyArticle}`;
+  const page={title:'事件',content:'<p>详细经过。</p>',event_summary:'事件概括。',event_source:fact,event_time_source:time};
+  let renderedView;
+  const sourcesTemplate=fs.readFileSync('themes/lotm/layout/_partials/entry-sources.ejs','utf8');
+  const html=ejs.render(fs.readFileSync('themes/lotm/layout/_partials/event-entry.ejs','utf8'),{
+    page,entry_detail_view:(page,kind)=>renderedView=createEntryDetail(page,kind),event_date_label:()=>'',
+    event_summary_parts:()=>[{text:page.event_summary}],__:key=>key,url_for:x=>x,
+    partial:(name,data)=>name==='_partials/entry-sources'?ejs.render(sourcesTemplate,{...data,__:key=>key}):''
+  });
+  assert.ok(html.includes('event-overview'));
+  assert.equal(renderedView.references.refs.length,3);
+  assert.equal(renderedView.references.refs.filter(ref=>ref.source===historyArticle).length,1);
+  assert.ok(!renderedView.references.refs.some(ref=>ref.source===fact));
+  const footer=html.slice(html.indexOf('<section class="event-sources entry-sources">'));
+  assert.equal(footer.split('诡秘世界简略的历史年表').length-1,1);
+  assert.ok(footer.includes('事件经过；时间依据'));
+});
+
 test('event template displays the era date once and keeps the time evidence collapsed',()=>{
   const fs=require('node:fs');
   const path=require('node:path');

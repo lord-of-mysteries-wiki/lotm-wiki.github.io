@@ -28,3 +28,26 @@ test('timeline citation stays compact without losing chapter locators', () => {
   assert.equal(shortEventSource({event_source:'《诡秘之主》第一卷第9章；《诡秘之主》第六卷第68章（仅限回忆）'}),'《诡秘之主》一卷9章；六卷68章（仅限回忆）');
   assert.equal(shortEventSource({event_time_source:'《宿命之环》第七卷第39章'}),'《宿命之环》七卷39章');
 });
+
+test('complete author short notes retain locators and share the character formatter',()=>{
+  const {shortEventSource}=require('../lib/event-references');
+  const {shortCharacterSource}=require('../../themes/lotm/lib/character-references');
+  const prefix='爱潜水的乌贼，2025年4月7日《诡秘世界简略的历史年表》';
+  const url='https://mp.weixin.qq.com/s/wW__8avKqix8HeFELLEkaw';
+  for(const separator of [' ',':','：']) {
+    const original=`《诡秘之主》第五卷第120章；${prefix}${separator}${url}（第四纪四皇之战段；仅说明成神时期）`;
+    const event={event_source:original,event_time_source:'另有日期依据'};
+    const short=shortEventSource(event);
+    assert.equal(short,'《诡秘之主》五卷120章；作者补充（2025年4月7日）（第四纪四皇之战段；仅说明成神时期）');
+    assert.equal(shortCharacterSource(original),short);
+    assert.equal(event.event_source,original);assert.equal(event.event_time_source,'另有日期依据');
+  }
+  assert.equal(shortEventSource({event_time_source:`${prefix} ${url}（仅限日期）`}), '作者补充（2025年4月7日）（仅限日期）');
+});
+
+test('partial author records and unknown bibliography do not acquire a guessed short label',()=>{
+  const {shortEventSource}=require('../lib/event-references');
+  for(const source of ['爱潜水的乌贼《历史年表》','爱潜水的乌贼，2025年4月《历史年表》 https://example.com/raw','爱潜水的乌贼，2025年4月7日《历史年表》','https://example.com/raw（仅限日期）','未知访谈，日期未明']) {
+    assert.equal(shortEventSource({event_source:source}),source);
+  }
+});

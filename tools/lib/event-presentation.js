@@ -17,12 +17,20 @@ function rangeText(start, end) {
   }
   return periodText(start) + '至' + tail;
 }
+function eventTimeQualifier(event) {
+  const text=String(event.event_time_qualifier || '').split(' · ')[0].trim();
+  const closed='(?:初春|春|夏|秋|冬|初|末|底|年底|年初|年末|上旬|中旬|下旬|中下旬|第一周)';
+  if(new RegExp('^'+closed+'?$','u').test(text))return {text,kind:'closed'};
+  const match=new RegExp('^('+closed+')?(前后|以前|之前|以后|之后|以来|起)$','u').exec(text);
+  if(match)return {text,kind:match[2]==='前后'?'around':/以前|之前/u.test(match[2])?'before':'after'};
+  return {text,kind:'unrecognized'};
+}
 function eventDateLabel(event) {
   const start = String(event.event_time || event.event_time_period || '');
   if (!start) return '';
   const end = String(event.event_time ? (event.event_time_end || '') : (event.event_time_period_end || ''));
-  const qualifier = (event.event_time_qualifier || '').split(' · ')[0].trim();
-  const precision = /^(?:初春|春|夏|秋|冬|初|末|底|年底|年初|年末|上旬|中旬|下旬|中下旬|第一周)?(?:前后|以前|以后|起)?$/u.test(qualifier) ? qualifier : '';
+  const qualifier=eventTimeQualifier(event);
+  const precision=qualifier.kind==='unrecognized'?'':qualifier.text;
   return rangeText(start, end) + precision + (event.event_time_window ? '间' : '');
 }
 function eventTimelineTitle(event) {
@@ -39,4 +47,4 @@ function eventReferenceLabel(event, label = event.narrative_order?.label || even
 function corduCycleLabel(event) {
   return event.event_cordu_cycle ? '科尔杜第' + '一二三'[event.event_cordu_cycle - 1] + '轮' : '';
 }
-module.exports = {isBriefEvent, corduCycleLabel, eventDateLabel, eventTimelineTitle, eventReferenceLabel};
+module.exports = {eventTimeQualifier, isBriefEvent, corduCycleLabel, eventDateLabel, eventTimelineTitle, eventReferenceLabel};

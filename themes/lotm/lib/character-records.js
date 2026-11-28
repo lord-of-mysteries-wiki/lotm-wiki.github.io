@@ -1,16 +1,30 @@
 'use strict';
 const {stripHTML, unescapeHTML} = require('hexo-util');
-const {shortEventSource} = require('../../../tools/lib/event-references');
+const {shortCharacterSource} = require('./character-references');
 
 // Insert shared advancement after introductory attributes, before honorifics or life events.
 function splitCharacterBody(html) {
   const lead = String(html || '').match(/^\s*<p(?:\s[^>]*)?>[\s\S]*?<\/p>/i)?.[0] || '';
   const body = String(html || '').slice(lead.length);
-  const heading = [...body.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)].find(match => {
+  const headings = [...body.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)];
+  const attribute = [
+    '(?:公开|主要)?身份','原身','姓名','原名','本名','化名','称号','称呼','称谓','别名',
+    '外貌','外貌伪装','形貌','外形','形态','形象','肖像','躯体','性格','性别','种族','年龄','寿命','生日','生日纪念','国籍',
+    '所属组织','组织归属','所属作品','信仰','侍奉者','宗教地位','途径','途径候选','序列',
+    '非凡能力','恩赐能力','个人能力','能力','能力来源','能力线索','力量','同期力量','代行者力量','权柄','象征','认知',
+    '限制','使用条件','装备','圣物','神降物品','血统','血脉','起源','状态',
+    '家人','家庭','亲属','家族关系','习惯','举止','装束','住处','生活','职业','写作','海上名声','悬赏','通缉资料','船队',
+    '灵界来历','飞船','梦境都市的对应形象','降灵称谓'
+  ].join('|');
+  const attributes = new RegExp(`^(?:${attribute})(?:(?:与|及|和|、|／|/)(?:${attribute}))*$`, 'u');
+  const heading = headings.find(match => {
     const title = unescapeHTML(stripHTML(match[1])).trim();
-    return /尊名|^(?:生平|主要经历|人物经历)/u.test(title);
+    // Event headings need not use the literal word “生平”. Only an opening
+    // attribute section belongs before advancement; unknown topics stay with
+    // the narrative rather than moving an entire life history above the table.
+    return !attributes.test(title) && !/^契约伙伴[^：]+$/u.test(title);
   });
-  const boundary = heading ? heading.index : body.length;
+  const boundary = heading ? heading.index : headings.length ? body.length : 0;
   return {lead, prelude: body.slice(0, boundary), narrative: body.slice(boundary)};
 }
 
@@ -28,16 +42,24 @@ function relationLabel(relation, currentId) {
 
 function characterRelationRows(model, currentId, preferredIds = []) {
   const profiles = new Map(model.profiles.map(person => [person.entry_id, person]));
-  const preferred = new Map(preferredIds.map((id, index) => [id, index]));
-  return model.relations.filter(r => r.a === currentId || r.b === currentId).map(relation => {
-    const person = profiles.get(relation.a === currentId ? relation.b : relation.a);
-    if (!person) throw new Error(`人物关系缺少正式档案：${relation.id}`);
-    const milestone = relation.milestones?.find(stage => stage.note && stage.source);
-    return {person, label: relationLabel(relation, currentId),
-      description: milestone?.note || relation.summary || relation.detail || relation.scope || '',
-      source: milestone?.source || relation.sourceHint};
-  }).sort((a, b) => (preferred.get(a.person.entry_id) ?? Infinity) - (preferred.get(b.person.entry_id) ?? Infinity) ||
-    a.person.title.localeCompare(b.person.title, 'zh-CN'));
+  const records = new Map(model.relations.map(relation => [relation.id, relation]));
+  const projection=model.relationChronology;
+  if (!projection) throw new Error('缺少共享关系时间投影');
+  return (projection.people[currentId] || []).flatMap(group => {
+    const rows=group.relation_ids.map(id => {
+      const relation=records.get(id), view=projection.byRelation[id];
+      const person=profiles.get(relation.a===currentId ? relation.b : relation.a);
+      if (!person) throw new Error(`人物关系缺少正式档案：${relation.id}`);
+      const representative=view.representative;
+      return {person,relationId:id,label:relationLabel(relation,currentId),
+        description:representative?.note || view.summary, source:representative?.source || view.sourceHint,
+        sourceHint:view.sourceHint,time:representative?.time || {label:'时期未定',status:'unknown'},
+        stages:view.groups, groupLabel:group.label, groupStatus:group.status};
+    });
+    // Keep the shared partial-order projection. Preferred IDs must not reverse
+    // a proven constraint inside an otherwise incomparable component.
+    return rows.map((row,index)=>({...row,groupStart:index===0}));
+  });
 }
 
 function progressionRows(stages = []) {
@@ -50,8 +72,7 @@ function progressionRows(stages = []) {
       inferred: stage.certainty === 'inferred' || stage.sequenceCertainty === 'inferred',
       pathwayInferred: Boolean(stage.pathway) && stage.certainty === 'inferred',
       sequenceInferred: stage.sequenceCertainty === 'inferred' || (stage.certainty === 'inferred' && stage.sequenceCertainty !== 'confirmed' && !/具体.*(?:待核实|未明)|序列未明/.test(stage.sequence)),
-      sourceLabel: shortEventSource({event_source: stage.source}).replace(
-        /爱潜水的乌贼[，,]?\s*(\d{4}年\d{1,2}月\d{1,2}日)《[^》]+》(?:\s*https?:\/\/\S+)?/g, '作者补充（$1）')};
+      sourceLabel: shortCharacterSource(stage.source)};
   });
 }
 

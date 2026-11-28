@@ -16,7 +16,7 @@
       <% } %>
       <%- partial('_partials/wiki-related') %>
       <div class="pathway-references"><%- view.tail %>
-        <% if (page.pathway_symbol_source) { %><p class="pathway-symbol-credit"><a href="<%= page.pathway_symbol_source %>" rel="noopener noreferrer"><%= __('pathway_symbol_credit') %></a></p><% } %>
+        <% const symbolSource = pathway_symbol_source(page); if (symbolSource) { %><p class="pathway-symbol-credit"><%= __('pathway_symbol_credit') %>：<%= symbolSource %></p><% } %>
         <% if (view.references.length) { %><h2 id="pathway-sources"><%= __('pathway_sources') %></h2>
         <ol><% view.references.forEach((ref, i) => { %><li id="pathway-source-<%= i + 1 %>"><%- ref.html %><small><%= ref.scopes.join('；') %></small></li><% }); %></ol><% } %>
       </div>

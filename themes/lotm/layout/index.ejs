@@ -27,6 +27,8 @@
       <%- partial('_partials/entry-detail', {kind:'country'}) %>
     <% } else if (page.character_profile) { %>
       <%- partial('_partials/character-profile') %>
+    <% } else if (page.feedback_page) { %>
+      <%- partial('_partials/feedback-form') %>
     <% } else if (page.power_overview) { %>
       <%- partial('_partials/power-overview') %>
     <% } else { %>
