@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Check newly staged citation lines; existing content is not silently rewritten.
 const { execFileSync } = require('child_process');
-const diff = execFileSync('git', ['diff', '--cached', '--no-ext-diff', '--unified=0', '--', 'source'], { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
+const diff = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--no-ext-diff', '--unified=0', '--', 'source'], { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
 const problems = [];
 let file = '';
 for (const line of diff.split('\n')) {

@@ -2,7 +2,17 @@
 <details id="relationships" class="character-relations">
 <summary><%= __('character_relationships') %></summary>
 <% if (rows.length) { %><table><thead><tr><th scope="col"><%= __('character_other_person') %></th><th scope="col"><%= __('character_relationship_name') %></th><th scope="col"><%= __('character_relationship_description') %></th></tr></thead><tbody>
-<% for (const row of rows) { %><tr><td><a href="<%= url_for('/' + row.person.path) %>"><%= row.person.title %></a></td><td><%= row.label || __('character_unclassified') %></td><td><%= row.description %><%- references.cite(row.source,__('character_relation_scope') + row.person.title) %></td></tr><% } %>
+<% for (const row of rows) { %>
+<% if (row.groupStart && row.groupLabel) { %><tr><th colspan="3" scope="rowgroup"><%= row.groupLabel %></th></tr><% } %>
+<tr><td><a href="<%= url_for('/' + row.person.path) %>"><%= row.person.title %></a></td><td><%= row.label || __('character_unclassified') %></td><td>
+<small><%= row.time.label %></small><br><%= row.description %><%- references.cite(row.source,__('character_relation_scope') + row.person.title) %>
+<%- references.cite(row.sourceHint,__('character_relation_scope') + row.person.title) %>
+<% if (row.stages.some(group=>group.items.length)) { %><details><summary><%= __('character_relation_stages') %></summary>
+<% for (const group of row.stages) { %><% if (group.label) { %><p><strong><%= group.label %></strong></p><% } %>
+<% for (const stage of group.items) { %><p><strong><%= stage.tag %></strong> · <small><% if (stage.time.event && stage.time.event.path) { %><a href="<%= url_for('/' + stage.time.event.path) %>"><%= stage.time.label %></a><% } else { %><%= stage.time.label %><% } %></small><br><%= stage.note %><%- references.cite(stage.source,__('character_relation_scope') + row.person.title + '：' + stage.tag) %>
+<% if (stage.time.after.length) { %><br><small><%= __('character_relation_after') %><% stage.time.after.forEach((ref,index)=> { %><% if (index) { %>、<% } %><% if (ref.path) { %><a href="<%= url_for('/' + ref.path) %>"><%= ref.label %></a><% } else { %><%= ref.label %><% } %><% }); %></small><% } %>
+<% for (const evidence of stage.time.evidence) { %><%- references.cite(evidence.source,__('character_relation_time_source') + row.person.title + '：' + stage.tag + '（' + evidence.title + '）') %><% } %></p><% } %><% } %>
+</details><% } %></td></tr><% } %>
 </tbody></table><% } %>
 <a class="character-profile__graph" href="<%= url_for('/relationships/') %>?a=<%= encodeURIComponent(page.entry_id) %>"><%= __('character_graph_link') %> ↗</a>
 </details>

@@ -28,8 +28,12 @@ jobs:
       - run: node --test tools/tests/character-facts.test.js
       - run: node --test tools/tests/organization-members.test.js
       - run: node --test tools/tests/entry-detail.test.js
+      - run: node --test tools/tests/entry-source-validation.test.js
       - run: node --test tools/tests/creature-directory.test.js
       - run: npm run related:check
       - run: node --test tools/tests/wiki-link-hints.test.js
       - run: node --test tools/tests/relationship-query.test.js
+      - run: node tools/test-relationship-chronology.js
+      - run: node --test tools/tests/character-records.test.js
+      - run: node --test tools/tests/character-relations-validation.test.js
       - run: npm run catalog:check

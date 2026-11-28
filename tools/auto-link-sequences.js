@@ -164,6 +164,9 @@ const titles = [...new Set(pages.map(p => String(p.data.title || '').trim()))];
 const containingTitles = new Map([...people.keys(), ...countries.keys()].map(term =>
   [term, titles.filter(title => title !== term && title.includes(term))]));
 function embeddedName(term, text, offset) {
+  // 地名片段及跨代同名人物不能按现有短名直接关联。
+  if (term === '斯卡特' && text.slice(0, offset).endsWith('托')) return true;
+  if (term === '查拉图' && (text.slice(0, offset).endsWith('老') || text.includes('老查拉图'))) return true;
   if (term === '赫密斯' && text.slice(offset + term.length).startsWith('语')) return true;
   if (countries.has(term) && /^(?:语|语系|集团|公司)/u.test(text.slice(offset + term.length))) return true;
   return (containingTitles.get(term) || []).some(title => {

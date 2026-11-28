@@ -3,6 +3,7 @@
   <meta charset="utf-8">
   <% if (page.home) { %><script defer src="<%= url_for('/js/map-geometry.js?v=coast-frame-8') %>"></script><script defer src="<%= url_for('/js/map-data.js?v=coast-frame-8') %>"></script><script defer src="<%= url_for('/js/map-terrain.js') %>"></script><script defer src="<%= url_for('/js/map-transition.js?v=continuous-9') %>"></script><script defer src="<%= url_for('/js/world-map.js?v=coast-frame-13') %>"></script><% } %>
   <% if (page.pathway_page) { %><script defer src="<%= url_for('/js/pathway-page.js') %>"></script><% } %>
+  <% if (page.feedback_page) { %><script defer src="<%= url_for('/js/feedback-frame.js') %>"></script><% } %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/svg+xml" href="<%= url_for('/favicon.svg') %>">
   <title><%= page.title ? page.title + ' | ' + config.title : config.title %></title>

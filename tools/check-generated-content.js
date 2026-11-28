@@ -2,6 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),vm=require('node:vm');
 const {loadModel}=require('./lib/content-model');
 const {isBriefEvent,eventTimelineTitle}=require('./lib/event-presentation');
+const {validateCharacterRelations}=require('./lib/character-relations-validation');
 const m=loadModel(),timeline=fs.readFileSync('public/timeline/index.html','utf8'),calendar=fs.readFileSync('public/timeline/calendar/index.html','utf8');
 const context={};vm.createContext(context);vm.runInContext(fs.readFileSync('public/relationships/graph-data.js','utf8')+'\nthis.data={characters,relations};',context);
 assert.equal(context.data.characters.length,m.characters.length);assert.equal(context.data.relations.length,m.relations.length);
@@ -63,20 +64,14 @@ for(const e of m.events){
 for(const profile of m.profiles.filter(p=>m.relations.some(r=>r.a===p.entry_id||r.b===p.entry_id))){
   const html=fs.readFileSync(path.join('public',profile.path,'index.html'),'utf8');
   const graphLink='/lotm-wiki.github.io/relationships/?a='+encodeURIComponent(profile.entry_id);
-  const section=html.match(/<details\b[^>]*\bclass="character-relations"[^>]*>[\s\S]*?<\/details>/)?.[0];
-  if(profile.character_record_tables){
-    assert.ok(section && !/<details\b[^>]*\bopen\b/.test(section),profile.entry_id+' 人物关系区应默认收起');
-    assert.ok(section.includes(graphLink),profile.entry_id+' 人物关系区缺少关系网入口');
-  }else{
-    assert.ok(!section,profile.entry_id+' 旧版人物档案只显示关系网入口');
-  }
-  assert.ok(html.includes(graphLink),profile.entry_id);
+  validateCharacterRelations(html,{profileId:profile.entry_id,graphLink,recordTables:profile.character_record_tables});
 }
 assert.ok(fs.readFileSync('public/relationships/index.html','utf8').includes('/relationships/graph-data.js'));
 console.log(`生成页面校验通过：人物目标、关系网入口、${m.events.length} 个事件目的地、日历记录与部署子路径。`);
 
 // The calendar and event detail pages must retain both evidence scopes.
 const {eventReferences}=require('./lib/event-references');
+const {validateEventDetailSources}=require('./lib/entry-source-validation');
 const escapeHTML=value=>value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 for(const event of m.events) {
   const expected=eventReferences(event);
@@ -84,15 +79,7 @@ for(const event of m.events) {
   assert.deepEqual(actual.map(r=>r.source),expected.map(r=>r.source),event.entry_id);
   if(!isBriefEvent(event)) {
     const html=fs.readFileSync(path.join('public',event.path,event.path.endsWith('/')?'index.html':''),'utf8');
-    const {sourceKey}=require('../themes/lotm/lib/character-references');
-    const {parseDocument}=require('htmlparser2'),{findAll,textContent}=require('domutils');
-    const rows=findAll(node=>node.name==='li' && /^character-source-/.test(node.attribs?.id||''),parseDocument(html).children);
-    for(const ref of expected) assert.ok(rows.some(row=> {
-      const scope=row.children.find(node=>(node.attribs?.class||'').split(/\s+/).includes('character-source-scopes'));
-      const source=row.children.filter(node=>node!==scope).map(textContent).join('');
-      return sourceKey(source)===sourceKey(ref.source) && ref.scopes.every(value=>textContent(scope||{children:[]}).includes(value==='facts'?'事件概括与经过':'时间依据'));
-    }),event.entry_id+' missing source or scope: '+ref.source);
-    if(expected.length) assert.ok(html.includes('<section class="event-sources entry-sources">'),event.entry_id+' 来源须在详情页末直接显示');
+    validateEventDetailSources(html,event);
   }
 }
 console.log('事件来源校验通过：事实及时间来源完整保留，日历和详情共用引用集合。');

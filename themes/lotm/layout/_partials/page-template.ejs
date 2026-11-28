@@ -1,6 +1,10 @@
 <% if (wiki_is_entry(page)) { const view=entry_detail_view(page,'worldview'); %>
 <article class="article entry-detail"><h1><%= page.title %></h1><div class="entry-body"><%- view.body %></div><% if(page.organization_members){ %><%- partial('_partials/organization-members', {references: view.references}) %><% } %><%- partial('_partials/wiki-related') %><%- partial('_partials/entry-sources',{view,kind:'worldview'}) %></article>
 <% } else { %>
-<article class="article"><h1><%= page.title || '' %></h1><%- page.content %><% if (page.organization_members) { %><%- partial('_partials/organization-members') %><% } %><%- partial('_partials/wiki-related') %></article>
+<article class="article"><h1><%= page.title || '' %></h1><%- page.content %>
+<% if (page.show_site_views) { %>
+<p id="busuanzi_container_site_pv" style="display:none"><%= __('site_views_label') %> <span id="busuanzi_value_site_pv"></span></p>
+<% } %>
+<% if (page.organization_members) { %><%- partial('_partials/organization-members') %><% } %><%- partial('_partials/wiki-related') %></article>
 
 <% } %>

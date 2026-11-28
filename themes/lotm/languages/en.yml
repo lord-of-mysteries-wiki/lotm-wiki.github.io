@@ -102,7 +102,7 @@ map_midsea: "Midseashire"
 theme_day: "Switch to day mode"
 theme_night: "Switch to night mode"
 
-pathway_symbol_credit: "Symbol reference: official LoM Weibo (simplified vector adaptation)"
+pathway_symbol_credit: "Symbol reference (simplified vector adaptation)"
 
 pathway_symbol_label: "Symbol"
 
@@ -240,3 +240,9 @@ character_relationship_name: Relationship
 character_relationship_description: Description
 character_unclassified: Connection
 character_graph_link: View all relationships in the graph
+
+character_relation_stages: All relationship stages
+character_relation_after: "After: "
+character_relation_time_source: "Time source: "
+site_views_label: Total site views
+feedback_form_title: Write and submit feedback

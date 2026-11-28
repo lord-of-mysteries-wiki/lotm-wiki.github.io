@@ -1,1 +1,21 @@
-*{box-sizing:border-box}body{margin:0;background:#292e40;color:#d7dbed;font-family:serif;line-height:1.7}main{max-width:760px;margin:3rem auto;padding:2rem;background:#222637;border:1px solid #3a4054;border-radius:12px}h1,label,button{font-family:sans-serif}h1{color:#e4e6f3}form,label{display:grid;gap:.5rem}form{gap:1.4rem;margin-top:2rem}label{font-weight:600}input,textarea{width:100%;padding:.8rem;border:1px solid #555f75;border-radius:8px;background:#292f42;color:#e4e6f3;font:inherit}textarea{resize:vertical}button{justify-self:start;padding:.75rem 1.25rem;border:1px solid #73b8b9;border-radius:8px;background:#334b55;color:#d3f4f0;cursor:pointer}button:disabled{opacity:.55}a{color:#a8dfd7}@media(max-width:800px){main{margin:1rem;padding:1.5rem}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ui-page);color:var(--ui-ink);font-family:serif;line-height:1.7}
+main{max-width:760px;margin:3rem auto;padding:2rem}
+h1,label,button{font-family:sans-serif}
+form,label{display:grid;gap:.5rem}
+form{gap:1.4rem;margin-top:2rem}
+label{font-weight:600}
+input,textarea{min-width:0;width:100%;padding:.8rem 1rem;border:1px solid var(--ui-line);border-radius:8px;background:var(--ui-surface);color:var(--ui-ink);font:inherit;font-weight:400;line-height:1.6}
+textarea{resize:vertical}
+button{justify-self:start;padding:.75rem 1.25rem;border:1px solid var(--ui-muted);border-radius:8px;background:var(--ui-hover);color:var(--ui-accent);font:inherit;font-family:sans-serif;cursor:pointer}
+input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--ui-accent);outline-offset:2px}
+button:disabled{opacity:.55;cursor:wait}
+a{color:var(--ui-link)}
+#status{margin:0;overflow-wrap:anywhere}
+#status:empty{display:none}
+form>p:last-child{margin:0;color:var(--ui-muted);font-size:var(--text-ui)}
+body.is-embedded{background:transparent}
+.is-embedded main{max-width:none;margin:0;padding:4px}
+.is-embedded .feedback-intro{display:none}
+.is-embedded form{margin-top:0}
+@media(max-width:800px){main{margin:1rem;padding:1rem}}

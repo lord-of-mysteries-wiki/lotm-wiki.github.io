@@ -20,7 +20,7 @@ hexo.extend.generator.register('wiki-content-data', function () {
   const pages=new Map(this.locals.get('pages').toArray().filter(p=>p.character_profile).map(p=>[p.entry_id,p]));
   const characters=model.characters.map(person=>({...person,documentExcerpt:characterExcerpt(pages.get(person.id)||{content:''})}));
   const safe = JSON.stringify(characters).replace(/</g, '\\u003c');
-  return [{path:'relationships/graph-data.js', data:`const characters=${safe};\nconst relations=${JSON.stringify(model.relations).replace(/</g,'\\u003c')};\nconst relationshipCategories=${JSON.stringify(model.categories)};\n`}];
+  return [{path:'relationships/graph-data.js', data:`const characters=${safe};\nconst relations=${JSON.stringify(model.relations).replace(/</g,'\\u003c')};\nconst relationshipCategories=${JSON.stringify(model.categories)};\nconst relationChronology=${JSON.stringify(model.relationChronology).replace(/</g,'\\u003c')};\n`}];
 });
 
 const {characterRelationRows} = require('../lib/character-records');

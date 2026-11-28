@@ -13,6 +13,7 @@ language: zh-CN
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://lord-of-mysteries-wiki.github.io/lotm-wiki.github.io/
+feedback_service_url: https://lotm-wiki-feedback.vercel.app/
 permalink: :lang/:category/:title/
 new_post_name: :lang/:category/:title.md
 pretty_urls:

@@ -771,7 +771,7 @@ function stageCertaintyLabel(stage){
  if(stage.sequenceCertainty==='inferred')return stage.certainty==='inferred'?'（途径与序列均为推测）':'（序列推测）';
  return stage.certainty==='inferred'?'（推测）':'';
 }
-function classification(p){const excerpt=p.documentExcerpt;const profile=p.documentProfileUrl?`<details class="meta" open><summary>人物文档</summary>${excerpt?.text?`<p>${esc(excerpt.text)}</p>${excerpt.sources?.length?`<p class="meta">${excerpt.sources.map(esc).join('；')}</p>`:''}`:''}<p><a href="${esc(p.documentProfileUrl)}">查看人物文档</a></p></details>`:'';const facts=p.classificationEvidence||[],overview=`<p class="meta">组织：${esc(groupSummary(p,'organization'))} · 国籍：${esc(groupSummary(p,'nationality'))} · ${pathwayBadge(p)}${esc(pathwayDescription(p))}</p>`;const stages=p.progression||[];const progression=stages.length?`<div class="meta"><strong>已收录的序列经历</strong>${stages.map(x=>`<p>${x.samePeriodAsPrevious?'与上一条并存 · ':''}${x.pathway?esc(x.pathway)+'途径':esc(x.scopeLabel||'途径待核实')} · ${esc(x.sequence)}${stageCertaintyLabel(x)}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}<p>未列出的中间阶段仍待核实。</p></div>`:'';if(!facts.length)return overview+profile+progression;const labels={organization:'组织',nationality:'国籍',sequence:'序列线索',pathway:'途径'};return overview+profile+progression+`<details class="meta"><summary>已核对的分类线索（${facts.length}）</summary>${facts.map(x=>`<p>${esc(x.relation==='ability'?'能力关联':x.relation==='sefirah'?'源质关联':labels[x.kind]||x.kind)}：${esc(x.value)}${x.unit?' · '+esc(x.unit):''}${x.certainty==='inferred'?'（推测）':''}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}<p>其他属性待核实；序列线索反映所引章节中的状态。</p></details>`}
+function classification(p){const excerpt=p.documentExcerpt;const profile=p.documentProfileUrl?`<details class="meta" open><summary>人物文档</summary>${excerpt?.text?`<p>${esc(excerpt.text)}</p>${excerpt.sources?.length?`<p class="meta">${excerpt.sources.map(esc).join('；')}</p>`:''}`:''}<p><a href="${esc(p.documentProfileUrl)}">查看人物文档</a></p></details>`:'';const facts=p.classificationEvidence||[],overview=`<p class="meta">组织：${esc(groupSummary(p,'organization'))} · 国籍：${esc(groupSummary(p,'nationality'))} · ${pathwayBadge(p)}${esc(pathwayDescription(p))}</p>`;const stages=p.progression||[];const progression=stages.length?`<div class="meta"><strong>已收录的序列经历</strong>${stages.map(x=>`<p>${x.samePeriodAsPrevious?'与上一条并存 · ':''}${x.pathway?esc(x.pathway)+'途径':esc(x.scopeLabel||'途径待核实')} · ${esc(x.sequence)}${stageCertaintyLabel(x)}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}</div>`:'';if(!facts.length)return overview+profile+progression;const labels={organization:'组织',nationality:'国籍',sequence:'序列线索',pathway:'途径'};return overview+profile+progression+`<details class="meta"><summary>已核对的分类线索（${facts.length}）</summary>${facts.map(x=>`<p>${esc(x.relation==='ability'?'能力关联':x.relation==='sefirah'?'源质关联':labels[x.kind]||x.kind)}：${esc(x.value)}${x.unit?' · '+esc(x.unit):''}${x.certainty==='inferred'?'（推测）':''}<br>${esc(x.source)}${x.note?`<br>${esc(x.note)}`:''}</p>`).join('')}</details>`}
 function organizationNames(person) {
  return (person.classificationEvidence || []).filter(fact => fact.kind === 'organization').map(fact => fact.value);
 }
@@ -812,6 +812,24 @@ function renderRelationshipPaths(connection) {
  }).join('');
  return `<h3 class="section-label">最短关系链</h3><p class="meta">${status} · ${degrees} 步 · ${intermediaries} 位中间人</p>${chains}${hasMorePaths?`<p class="more">显示其中 ${paths.length} 条最短路径。</p>`:''}`;
 }
+function relationshipTimeText(time) {
+ return [time.label,...(time.after||[]).map(ref=>'晚于：'+ref.label)].filter(Boolean).join(' · ');
+}
+function relationshipTimeLinks(time) {
+ const link=(path,label)=>path?`<a href="${esc('../'+path)}">${esc(label)}</a>`:esc(label);
+ return [link(time.event?.path,time.label),...(time.after||[]).map(ref=>'晚于：'+link(ref.path,ref.label))].filter(Boolean).join(' · ');
+}
+function relationshipList(id) {
+ return (relationChronology.people[id]||[]).map(group=>`${group.label?`<p class="meta">${esc(group.label)}</p>`:''}<div class="list">${group.relation_ids.map(rid=>{
+  const record=relations.find(r=>r.id===rid),view=relationChronology.byRelation[rid];
+  const detail=[categoryText(record,id),view.representative?relationshipTimeText(view.representative.time):'时期未定',view.representative?.note||view.summary].filter(Boolean).join(' · ');
+  return row(byId.get(other(record,id)),detail);
+ }).join('')}</div>`).join('');
+}
+function relationshipStages(record) {
+ const view=relationChronology.byRelation[record.id];
+ return `<p class="detail-text">${esc(view.summary)}</p><p class="detail-text">${esc(record.detail||'')}</p>${view.sourceHint?`<p class="source">${esc(view.sourceHint)}</p>`:''}${view.groups.length?`<details><summary>关系阶段</summary>${view.groups.map(group=>`${group.label?`<p class="meta">${esc(group.label)}</p>`:''}${group.items.map(stage=>`<div class="milestone"><strong>${esc(stage.tag)}</strong><br><small>${relationshipTimeLinks(stage.time)}</small><br>${esc(stage.note)}<small>${esc(stage.source)}</small>${stage.time.evidence.length?`<details class="meta"><summary>时间依据</summary>${stage.time.evidence.map(evidence=>`<p>${esc(evidence.title)}<br>${esc(evidence.source)}${evidence.basis?`<br>${esc(evidence.basis)}`:''}</p>`).join('')}</details>`:''}</div>`).join('')}`).join('')}</details>`:''}`;
+}
 function render(){
  document.getElementById('person-count').textContent=characters.length;document.getElementById('relation-count').textContent=relations.length;document.getElementById('visible-count').textContent=`图中 ${activeNodes().length} 人`;
  const query=search.value.trim().toLowerCase();
@@ -822,11 +840,10 @@ function render(){
  if(query){content.innerHTML=searchResults(query);return}
  if(!a){content.replaceChildren();return}
  const p=byId.get(a);
- if(!b){const rs=edgesOf(a);content.innerHTML=`<button class="back" data-action="reset"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回关系网</button><div class="profile">${avatar(p)}<div><h3>${esc(p.name)}</h3><p>${esc(p.group)}${p.alias?' · '+esc(p.alias):''}</p></div></div><p class="meta">字面提及 ${esc(p.mentions??'待统计')} 次。${esc(p.matchNote||'次数按名称字面匹配，可能存在歧义。')}</p>${classification(p)}${p.aliasSources?.length?`<details class="meta"><summary>查看别名出处</summary>${p.aliasSources.map(x=>`<p>${esc(x.alias)}：${esc(x.source)}</p>`).join('')}</details>`:''}<h3 class="section-label" style="margin-top:24px">已收录的关系 <span>${rs.length} 位</span></h3><div class="list">${rs.map(r=>row(byId.get(other(r,a)),categoryText(r,a)||'尚未分类')).join('')||'<p class="empty">暂未收录该人物的关系。</p>'}</div><p class="more">选择另一位人物，查看他们之间的关系与出处。</p>`;return}
+ if(!b){const rs=edgesOf(a);content.innerHTML=`<button class="back" data-action="reset"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回关系网</button><div class="profile">${avatar(p)}<div><h3>${esc(p.name)}</h3><p>${esc(p.group)}${p.alias?' · '+esc(p.alias):''}</p></div></div><p class="meta">字面提及 ${esc(p.mentions??'待统计')} 次。${esc(p.matchNote||'次数按名称字面匹配，可能存在歧义。')}</p>${classification(p)}${p.aliasSources?.length?`<details class="meta"><summary>查看别名出处</summary>${p.aliasSources.map(x=>`<p>${esc(x.alias)}：${esc(x.source)}</p>`).join('')}</details>`:''}<h3 class="section-label" style="margin-top:24px">已收录的关系 <span>${rs.length} 位</span></h3><div class="list">${relationshipList(a)||'<p class="empty">暂未收录该人物的关系。</p>'}</div><p class="more">选择另一位人物，查看他们之间的关系与出处。</p>`;return}
  const q=byId.get(b);
  const {connection,directRelations}=relationshipQuery.queryPair(a,b);
- const rel=directRelations[0];
- content.innerHTML=`<button class="back" data-action="single"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回 ${esc(p.short)} 的关系</button><div class="profile">${avatar(p)}${avatar(q)}<div><h3>${esc(p.short)} × ${esc(q.short)}</h3><p>${esc(p.name)} · ${esc(q.name)}</p></div></div>${renderRelationshipPaths(connection)}${rel?`${rel.categories?.length?`<div class="tags">${categoryText(rel,a).split(' · ').map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:'<p class="meta">关系分类尚待核对。</p>'}<p class="detail-text">${esc(rel.summary)}</p><p class="detail-text">${esc(rel.detail)}</p><p class="source">${esc(rel.sourceHint||'具体章节出处待补充。')}</p>${rel.milestones?.length?`<h3 class="section-label" style="margin-top:24px">关系阶段</h3>${rel.milestones.map(m=>`<div class="milestone"><strong>${esc(m.tag)}</strong><br>${esc(m.note)}<small>${esc(m.source)}</small></div>`).join('')}`:''}`:''}`;
+ content.innerHTML=`<button class="back" data-action="single"><svg class="wiki-icon" aria-hidden="true" focusable="false"><use href="#wiki-icon-back"></use></svg> 返回 ${esc(p.short)} 的关系</button><div class="profile">${avatar(p)}${avatar(q)}<div><h3>${esc(p.short)} × ${esc(q.short)}</h3><p>${esc(p.name)} · ${esc(q.name)}</p></div></div>${renderRelationshipPaths(connection)}${directRelations.map(rel=>`${rel.categories?.length?`<div class="tags">${categoryText(rel,a).split(' · ').map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:'<p class="meta">关系分类尚待核对。</p>'}${relationshipStages(rel)}`).join('')}`;
 }
 function hitHub(x,y){
  let best=null,nearest=13;
